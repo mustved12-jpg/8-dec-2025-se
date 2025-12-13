@@ -1,4 +1,4 @@
-SDLC (softwer development life cycle)
+SDLC (software development life cycle)
 -->SDLC is a step-by-step process taht is used as to creat high-quality softwer.
        |
        V
