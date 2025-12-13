@@ -1,0 +1,18 @@
+SDLC (softwer development life cycle)
+-->SDLC is a step-by-step process taht is used as to creat high-quality softwer.
+       |
+       V
+ staps of SDLC 
+(A) Requiremant Gathering
+    (user ko kya banana hi vo pta karte hai) 
+(B)Analysis
+    (user ko kya kya features chahiye vo pta karte hai)
+(C)Designing
+    (user ne jo chij bnane ka bola hai uski ek demo banega)
+(D)Implementation
+    (developer ke pas jaye gi banne ke liye is me coding hogi)
+(E)Testing
+    (fir iski Testing hogi agr shi hogi to live kar ke user ko de diya jaye ga )
+(F) Maintenance
+     (fir agr user jo future me kuch add karna ho ya koi bag fix karna ho)
+______________________________________________________________________________________________________
