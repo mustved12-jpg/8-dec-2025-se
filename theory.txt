@@ -15,4 +15,24 @@ SDLC (software development life cycle)
     (fir iski Testing hogi agr shi hogi to live kar ke user ko de diya jaye ga )
 (F) Maintenance
      (fir agr user jo future me kuch add karna ho ya koi bag fix karna ho)
-______________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________
+client & servers
+
+(A) client
+->  client vo hota hai jo ek jagha se server ke pas request bheta hai 
+ E.G >>> web browser on cell phone or laptop
+
+ (B) servers 
+ -> server vo hota hai jo ki uske pas jit ni bhi request aai hoti hai unka answer deta hai 
+ -> server hamesa online rehta hai
+ ______________________________________________________________________________________________________________________
+ HTTP & HTTPS (hyper text transper protocol)
+
+(A) HTTP
+secure nhi hai
+(B) HTTPS
+secure hai 
+
+-> ye dono client ke pas se request le ke server ke pas jate hai or server ke pas se answer leke clint ke pas aate hai 
+E.G >>> samjho delivrey boy ki tra
+_______________________________________________________________________________________________________________________
