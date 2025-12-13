@@ -1,9 +1,9 @@
 SDLC (software development life cycle)
--->SDLC is a step-by-step process taht is used as to creat high-quality softwer.
+-->SDLC is a step-by-step process that is used as to create high-quality software.
        |
        V
- staps of SDLC 
-(A) Requiremant Gathering
+ steps of SDLC 
+(A) Requirement Gathering
     (user ko kya banana hi vo pta karte hai) 
 (B)Analysis
     (user ko kya kya features chahiye vo pta karte hai)
