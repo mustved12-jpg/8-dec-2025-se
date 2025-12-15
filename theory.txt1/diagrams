@@ -1,0 +1,6 @@
+use case : use case diagram wich is represent user activity with system {ye ek drawing hoti hai}
+
+     in this use case diagram ther are there are 3 mai sections
+(1) actor : wich is represent actor or user of the system {kon user hai (actor)}
+(2) activity : wich is represent by oval symbol - wich represent activity perform by respective user or actor{isme user or actor ka kam suru se and tak kesa hoga vo pta chalta hai}
+(3) system : wich is sarounded by reactangle baorders{system ke ander kya kya part hai}

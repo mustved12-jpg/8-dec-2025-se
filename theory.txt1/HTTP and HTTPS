@@ -1,0 +1,9 @@
+ HTTP & HTTPS (hyper text transfer protocol)
+
+(A) HTTP
+secure nhi hai
+(B) HTTPS
+secure hai 
+
+-> ye dono client ke pas se request le ke server ke pas jate hai or server ke pas se answer leke clint ke pas aate hai 
+E.G >>> samjho delivery boy ki tra
