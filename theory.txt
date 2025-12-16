@@ -124,7 +124,7 @@ step 5 : add and push your content (every time when you apply changes)
 
         #git push -u origin main
 __________________________________________________________________________________________________________________
-                      giagrams
+                      diagrams
 
 
 use case : use case diagram wich is represent user activity with system
