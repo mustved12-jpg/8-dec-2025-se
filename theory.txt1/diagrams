@@ -1,6 +1,30 @@
-use case : use case diagram wich is represent user activity with system {ye ek drawing hoti hai}
+use case : use case diagram wich is represent user activity with system
+ { use case diagram system me user ki activity ko btata hai}
 
      in this use case diagram ther are there are 3 mai sections
-(1) actor : wich is represent actor or user of the system {kon user hai (actor)}
-(2) activity : wich is represent by oval symbol - wich represent activity perform by respective user or actor{isme user or actor ka kam suru se and tak kesa hoga vo pta chalta hai}
-(3) system : wich is sarounded by reactangle baorders{system ke ander kya kya part hai}
+(1) actor : wich is represent actor or user of the system {kon user kar rha hai (actor)}
+(2) activity : wich is represent by oval symbol - wich represent activity perform by respective user or actor
+{ye user ya actor ki oval symbol ka use kar ke sure se end tak ki activity}
+(3) system : wich is sarounded by reactangle baorders{ye reactangle baorders se sarounded hota hai }
+_______________________________________________________________________________________________________________________
+include: include which is indicate by <<include>> like this
+{kisi specific kaam ko karne ke liye ye cheez jaruri hoti hai}
+
+extend: this is indicate by <<extend>> like this
+it's optional
+_______________________________________________________________________________________________________________________
+flow chart diagram:
+flow chart daigram this is a very importent diagram of system planing {system planing ke liye importent hota hai}
+which is mainly represent that how system work step by step {ye btata hai ki system step by step kese kam karta ahi }
+           E.G 
+            |
+            V 
+          step 1
+            |
+            V 
+          step 2
+
+ovel : this symbol which is represent starting point of flow chart
+reactangle :this symbol is represent process
+diamiond : this symbol is represent condition or decision
+arrow : this symbol is represent which is use for connectors
