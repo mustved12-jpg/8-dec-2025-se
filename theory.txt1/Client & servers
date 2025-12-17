@@ -1,9 +1,0 @@
-client & servers
-
-(A) client
-->  client vo hota hai jo ek jagha se server ke pas request bheta hai 
- E.G >>> web browser on cell phone or laptop
-
- (B) servers 
- -> server vo hota hai jo ki uske pas jit ni bhi request aai hoti hai unka answer deta hai 
- -> server hamesa online rehta hai
