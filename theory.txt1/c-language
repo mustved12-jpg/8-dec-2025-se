@@ -1,0 +1,114 @@
+what is language ?
+->language is a way to communucate 
+------------------------------------------------------------------------
+compiler :wich is complite whole source file and give output after completion of source file.
+{ye puri source file(ya baat) ko sunker fir convert karta hai }
+
+Interpreter : which is execute line by line.
+line by line it send cod to machine - and machine convert into humen code adn re send to user.
+{ye line by line convert karta hai}
+
+interpreter is slower then compiler{ye line by line karta hai is liye ye slow hota hai}
+------------------------------------------------------------------------------
+ what is meanig of program ?
+
+programe is a collection of instruction code.
+{order(instruction)jo code ke form main hota hai uska collection matlab program}
+-------------------------------------------------------------------------------
+ what is meanig of a prigraming language ?
+
+a language wich is use to write a program.
+{esi language jisse program likha jata hai us language ko programing language kehte hai}
+ 
+example of programing languages:
+ 1> c.language
+ 2> c++
+ 3> java
+ 4> python
+ 5> php
+ 6> .net
+and meny ore...
+------------------------------------------------------------------------------
+what is c programing language ?
+c language is a most powerful,popular compiler type programing language.
+{ c language ek bahut hi poverful or popular compiler type language hai}
+
+c language is devloped(invented) by dennis ritchie at bell labratory (bell lab) in 1972.
+  { clanguage ko dennis ritchie ne 1972 main bell lab main bnaya tha}
+-------------------------------------------------------------------------------------
+history of c programing :
+before c language there is BCPL language and then B lanhuage and then aftre c language 
+
+BCPL (basic combined programing language)
+
+ actually BCPL language and B language working upon assembly language so it difficult to understandso so dennis ritchie 
+invented c programing language in 1972 (tranditional c programing)
+
+in 1989 ANSI standarized c programing
+
+ANSI : american national standard institute.
+
+after standarized cprograming language know as a ANSI c, c89
+---------------------------------------------------------------------------------------
+features of c programing language :
+
+c language is a easy to understand programing language - mother of all languages
+
+c is a small becouse it contains only 32 keywords
+
+c contain libaries
+---------------------------------------------------------------------------------------
+real worl use of c language:
+
+->operating system
+->embedded system
+->games
+->kernels
+->drivers
+----------------------------------------------------------------------------
+structure of c programing language :
+
+(1) documentation of programe :
+
+which represent your program's title and discription
+which is represent by comments
+{discription ya title likh kar bta sakte hai ki mene ye programe me q likha hu}
+
+there are 2 tipes of commnet :
+{do tra se hum discription de sakte hai}
+
+    (1) single line comment:wich is represent by //
+
+       e.g.
+
+       // this is a single line comment
+
+    (2) multi line comment : wich is represent by /* ..... */
+
+         e.g.
+           /* this is 
+                a multi line
+                   comment 
+           /*
+(2) connection of c language libary :
+   
+    #include <stdio.h> (standard input output header file)
+    #include <conio.h> (console input output header file) this is optional
+
+              # : which means predifined
+              include : which means to add somthing
+              <stdio.h> : using of this we cane access inbuilt function of this file
+
+(3) executation of program :  
+
+void main()
+{
+
+}
+
+*/ void : here, void is a deta type which does not return value.
+    main: main is a function which is represent that this
+    is a executatabale function of program
+    () : this is represent programe list
+    {} : this is represent block of code.
+*/
