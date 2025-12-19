@@ -268,9 +268,92 @@ void main()
 
 }
 
-*/ void : here, void is a deta type which does not return value.
+/* void : here, void is a deta type which does not return value.
     main: main is a function which is represent that this
     is a executatabale function of program
     () : this is represent programe list
     {} : this is represent block of code.
 */                     
+-------------------------------------------------------------------------------------
+                     printf():
+
+->in c language printf is a function which is used to display message on output (console screen)
+->{c language printf ye function haijo output(result) ke message ko display (dikhata) karta hai}
+
+syntax:
+
+->printf("jo bhi message aapko dikhana ho");
+
+; : semicolon
+
+-> semicolon which is include end of the line
+-> it is used to terminate a statement
+
+->{(;)ye semicolon hai ye kisi bhi line ko end karne ke liye jaruri hota hai}
+
+{agar hum c language printf me ek message ke bad dusta messgae likhenge to vo
+ek hi line mai aye ga}
+  e.g.   ->printf("message1");
+         ->printf("message2");
+  iska output hoga:
+          message1message2
+  
+{agar humko ye dusri line me likhan hoga to uske liye escape sequence ka use karna hoga}
+
+escape sequence:
+(1) \n : ye new line ke liye hai
+(2) \t : ye tab space ke liye hai
+(3) \\ : ye display slash ke liye hota hai (e.g. isko lgane ke bad output \masshe\ esa aye ga)
+(4) \" : ye display double quote ke liye hota hai (e.g> output "message" esa ayega)
+(5) \' : ye display single quote ke liye hota hai (e.g> output 'message' esa ayega)
+----------------------------------------------------------------------------------------------------
+                            datatype:
+->which type of value store in a variable its called dattype
+->{variable ke ander kis type ki value store hogi usse datatype kehte hai}
+
+value:
+{value ten type ki hoti hai }
+(1)numbers
+(2)caracters
+(3)yes/no
+
+                                           value
+                                              |
+                                              v 
+------------------------------------------------------------------------------------------------
+(1)                                             (2)                                              (3)   
+numbers                                       caracters                                         yes/no 
+|---------------------------|                 |------------------------|                           |
+                            
+without                   with               single char               string                  true/false
+point                    point                                                                   (boolean)           
+
+e.g. 10,12,20...       e.g. 5.5,12.88....      e.g. 'A'              e.g. "hello" 
+
+int (%d)              float (%f)               char (%c)               char[size]                  (bool) 
+(integar)             bouble (%lf)                                        (%s)
+                     long bouble (%Lf)
+----------------------------------------------------------------------------------------------------------                     
+                                      variable:
+-> variable is name which can store a value byt there are some ruls which we have to follow
+->{variable ek name (koi bhi name ho sakta hai)jo value store karta hai }
+
+->variable is devide in 3 steps:
+(1)variable declaration
+(2)variable initialization
+(3)variable colling or variable use
+
+(1) variable declaration:
+-> before use with variable we must declare with spacific datatype
+->{variable ka use karne se pehle hame usse btana hoga ki vo kis datatype ko store karega}
+
+syntaxt:<datatype> variable
+
+(2) variableinitialization:
+-> assign a value
+-> {jo bhi value ho vo kikho}
+syntext: varoable = value
+
+(3) variable use
+
+syntext:  printf("<datatype>",variable);
