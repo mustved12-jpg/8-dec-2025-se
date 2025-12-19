@@ -187,7 +187,7 @@ int (%d)              float (%f)               char (%c)               char[size
 
 syntaxt:<datatype> variable
 
-(2) variableinitialization:
+(2) variable initlization:
 -> assign a value
 -> {jo bhi value ho vo kikho}
 syntext: varoable = value
