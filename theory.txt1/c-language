@@ -263,3 +263,11 @@ e.g int int; // wrong
 syntex: scanf("placeholer",&variable);
 acceps float value from user
 syntex:   scanf("%f",&variable);
+-----------------------------------------------------------------------------------------------
+operators:
+-> operators are spacific symbolt wich is  use to perform operation
+e.g. num1+num2;  // here num1 & num2 are operands and + is operator
+
+(1)arithimatic operators:
+-> to perform arithimatic (gadit,hisab) ke operation
+ +  -  *  / % 
