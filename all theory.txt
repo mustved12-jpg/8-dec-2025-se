@@ -357,3 +357,71 @@ syntext: varoable = value
 (3) variable use
 
 syntext:  printf("<datatype>",variable);
+----------------------------------------------------------------------------------------------------
+                                      token:
+->token in c language token is a pice of  code.
+{c language me token cod ka ek tukda hota hai}
+
+(1)keywords
+(2)identifiers
+(3)constant
+(4)opearators
+(5)spacific character
+
+(1) keywords:
+->keywords are reserved word which is written un small letters
+{keywords reserved (fix)word hota hai jo small letters me likha jata hai}
+->keywords mainly difined by system(programing language) which we can use for spacific pirpose
+{keywords jyada tar system(programing language) ke dovara bnaya gya hota hai jiska use hum
+kisi spacific kam ke liye karte hai}
+{keywords ko hum variable ki jgha nhi likh sakte hai}
+e.g. int int=10  x
+
+(2)identifiers:
+->identifiers which mean any thing wich is identify something
+{kuch bhi esa jo identify ho jaye vo hota hai identifiers}
+->like variable,function,etc.
+{ like programer jo bhi name de }
+e.g.
+         int age;  //age is a identifiers
+
+(3)constant:
+->constant means fix value which never change
+-> at programing time we want{chahna} to fix some value
+{constant ek fix value hai jo change nhi hoti program karte time hme vhi value rakhna hota hai}
+ e.g. const float pi=3.14; // fix value
+
+ e.g const int max=100; // fix value
+
+ (4)operators:
+ ->opearators are spacific symbol wich is use to perform operation
+ -> e.g like     + - * / and many more.
+ { operators ek spacific symbol hai jo operation karne ke kam aata hai ya to esa bol sakte hai 
+ ki operators ek spacific symbol hai jo variable or value ke sath kam karta hai}
+
+ (5)spacific character:
+
+ ->   spacific characters: ,  ;  [] ()  all these are 
+ {ye spacific task ke liye use hota hai}
+ -------------------------------------------------------------------------------------------------
+                                  variable rules:
+ 1> variable name must start with alphabet (A-z or a-z)
+ e.g  int age;
+ 2> variable name cannot start with numbers {bad me ho sakta hai start me nhi}(0-9)
+  e.g int age1;
+ 3> variable name cannot contain spaces
+ e.g int age 1; // wrong
+ 4>variable name can contain underscore(_)
+e.g  int age_1;
+ 5>variable name cannot use keywords
+e.g int int; // wrong
+-------------------------------------------------------------------------------------------
+                          scanf():
+-> pruntf() : to print value on output screen
+{outpu screen pe value ko print karta hai}
+->scanf(): which is mainly use from accept value at run time
+{scanf() output scren pe value ko accept karta hai}
+
+syntex: scanf("placeholer",&variable);
+acceps float value from user
+syntex:   scanf("%f",&variable);
