@@ -1,3 +1,4 @@
+                              printf()
 // this is my first programe in c language.
 #include <stdio.h>
 void main()
@@ -21,6 +22,7 @@ output: walcome
         to my second
         programing language.
 ------------------------------------------------------------------------------------------
+                                         printf()int
 //isme hum variable devided 3 steps ko sum jhenge 
 // declaration,initlization,use (calling)
 #include <stdio.h>  //
@@ -56,7 +58,7 @@ output: adition:10+10+10=30
         multiplication:10*10=100
         division:10/10=1
 ---------------------------------------------------------------------------------------------
-                                      (float)
+                                      printf()(float)
 //ab hum point vala number lenge hmara datatype (float) hoga
 #include <stdio.h>
 void main()
@@ -87,7 +89,7 @@ void main()
     printf("\n");
 }
 --------------------------------------------------------------------------------------
-                               (double)
+                               printf()(double)
 #include<stdio.h>
 void main()
 {
@@ -106,3 +108,50 @@ void main()
     printf("\n");
 }     
 ---------------------------------------------------------------------------------------------------
+                                scanf()practical int ke sath
+#include<stdio.h>
+void main()
+{
+    int a,b,c;
+    printf("enter a number:");
+    scanf("%d",&a);
+    printf("enter a number:");
+    scanf("%d",&b);
+    printf("enter a number:");
+    scanf("%d",&c);
+    printf("\nanswer=%d\nanswer=%d\nanswer=%d",a,b,c);
+    // (output: answer=2,answer=3,answer=4)isme jo hum likhenge vhi print hoga
+
+    printf("\nanswer=%d+%d=%d\nanswer=%d+%d=%d\nanswer=%d+%d+%d=%d",a,b,a+b,b,c,b+c,c,a,b,c+a+b);
+    // (output:answer:2+3=5,answer=3+4=7,answer=4+2+3=9)isme kis kis ke sath plus ho rha hai vo dikhi dega
+
+    printf("\nanswer=%d\nanswer=%d\nanswer=%d",a+b,b+c,c+a+b);
+    //  (output:answer=5,answer=7,answer=9)isme sidha answer dikhta hai
+}
+-------------------------------------------------------------------------------------------------------------
+                                            scanef()double
+#include<stdio.h>
+void main()
+{
+    double a,b,c;
+    printf("enter first number:");
+    scanf("%lf",&a);
+    printf("enter second number:");
+    scanf("%lf",&b);
+    printf("enter therd number:");
+    scanf("%lf",&c);
+    printf("ans:%lf\nans:%lf\nans:%lf",a,b,c);
+    printf("\nans(A):%lf\nans(B):%lf\nans(C):%lf\nans(D):%lf",a+b,b+c,c+a,a+b+c);
+}  
+/* output: enter first number:2.22
+              enter second number:3.33
+              enter therd number:4.44
+              ans:2.22000
+              ans:3.33000
+              ans:4.44000
+              ans(A):5.55000
+              ans(B):7.77000
+              ans(C):6.66000
+              ans(D):9.99000*/
+--------------------------------------------------------------------------------------------------
+                                                          
