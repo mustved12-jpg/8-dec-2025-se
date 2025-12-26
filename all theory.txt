@@ -456,6 +456,8 @@ e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
 (3)relational operators:
 -> to compare two values
     <   >   <=   >=  ==  !=
+->0 (false)
+->1 (true) 
 
 (4)logical operators:
        &&(and operator)

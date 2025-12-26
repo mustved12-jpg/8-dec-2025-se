@@ -154,4 +154,106 @@ void main()
               ans(C):6.66000
               ans(D):9.99000*/
 --------------------------------------------------------------------------------------------------
-                                                          
+                               (operators)                           
+ (1) arithimatic operator   
+
+ #include <stdio.h>
+void main()
+{
+    int a,b;
+    a=10;
+    b=20;
+    printf("%d+%d=%d",a,b,a+b);    
+    printf("\n%d-%d=%d",a,b,a-b);
+    printf("\n%d/%d=%d",a,b,a/b);
+    printf("\n%d*%d=%d",a,b,a*b);
+    printf("\n%d%%%d=%d",a,b,a%b);
+}
+    
+    /*output:  10+20=30
+               10-20=10
+               10/20=0
+               10*20=200
+               10/20=10*/
+
+(2) assignment operator(shorthand operator)
+
+#include <stdio.h>
+void main()
+{
+   int a,b;
+   a=10;
+   b=20;
+   printf("ans=%d,%d",a,b);
+   //c=a+b;  isme ye do operation karega (1)a+b karega (2)inko c me btayega 
+   a+=b;     // isko karbe ke bad ab yha se a=10 nahi a=30 ho gya hai an har jgha jha bhi (a)likha jayega vha 10 nhi 30 ayega
+  
+   printf("\nans=%d",a); 
+
+    printf("\nans=%d+%d=%d",a,b,a+b); 
+}
+    
+
+/* output:  ans=10,20
+            ans=30
+            ans=30+20=50
+---------------------------------------------------------------------------------------------------------
+(3) relational operators:
+
+#include <stdio.h>
+void main()
+{
+int a,b,c;
+a=10;
+b=20;
+c=30;
+      int ans;
+      
+    ans=b>a;   // isko humek me do nhi likh sakte bina logical operator ke 
+    printf("ans=%d",ans);
+
+    ans=a>b;
+    printf("\nans=%d",ans);
+
+    ans=a<c;
+    printf("\nans=%d",ans);
+
+    ans= a == b;  // iska matkab dono brabar hona chahiye
+    printf("\n%d",ans);
+   
+    ans=a != b; (!=)iska matlab kuch bhi nhi 0 hi hoga chahe jvab shi ho ya glat
+    printf("ans=%d",ans);
+    }
+/*output:  ans=1
+           ans=0
+           ans=1
+           ans=0
+           ans=0*/
+----------------------------------------------------------------------------------------------------------
+(4)logical operators:
+-> isa use hum multipal time kar sakte hai 
+e.g  ans=a<b && b>a && c>b && a>c;..... is trah
+
+
+#include <stdio.h>
+void main()
+{
+int a,b,c;
+a=5;
+b=10;
+c=15;
+      int ans;
+      ans=a<b&&a<b; // (&&)is ka matlab dono shi hona chahiye to output 1(true) ayega ek bhi galat huva to output 0(false) ayega 
+      printf("ans=%d",ans);
+      ans=a>b&&c>b; // ek glat hai or ek shi tabbhi output 0 hi ayega
+      printf("\nans=%d",ans);
+      ans=c>b||a>c; // (||)iska matlab hai agar dono mai se koi bhi ek shi hai to 1 ayega 
+      printf("\nans=%d",ans);
+      ans=c>a!=b>a; // (!=)iska matlab kuch bhi nhi 0 hi hoga chahe jvab shi ho ya glat
+      printf("\nans=%d",ans);
+} /*outpt: ans=1
+           ans=0
+           ans=1
+           ans=0*/
+----------------------------------------------------------------------------------------------------------
+(5)
