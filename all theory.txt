@@ -333,6 +333,10 @@ e.g. 10,12,20...       e.g. 5.5,12.88....      e.g. 'A'              e.g. "hello
 int (%d)              float (%f)               char (%c)               char[size]                  (bool) 
 (integar)             bouble (%lf)                                        (%s)
                      long bouble (%Lf)
+                             |
+                             V
+           {isme point ke bad hamko kitna dighit chahiye uske liye %f ya %lf ya %Lf mai point or numer likhna hota hai}
+            e.g. agar mujhe ponit ke bad do digit(50.55) chahiye to main %.2f ,%.2lf,%.2Lf likhunga.}
 ----------------------------------------------------------------------------------------------------------                     
                                       variable:
 -> variable is name which can store a value byt there are some ruls which we have to follow
@@ -426,10 +430,57 @@ syntex: scanf("placeholer",&variable);
 acceps float value from user
 syntex:   scanf("%f",&variable);
 -----------------------------------------------------------------------------------------------
-operators:
+                               operators:
 -> operators are spacific symbolt wich is  use to perform operation
-e.g. num1+num2;  // here num1 & num2 are operands and + is operator
+e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
+
+{(1)arithimatic operators
+(2)assignment operators
+(3)relational operators
+(4)logical operators
+(5)increment/decrement operators(unity operators)
+(6)bitwise operators
+(7)conditional operators}
+
 
 (1)arithimatic operators:
 -> to perform arithimatic (gadit,hisab) ke operation
- +  -  *  / % 
+ +  -  *  / %
+
+(2)assignment operators:
+-> to assign a value to variable
+        =
+    ->shorthand operators:combination of arithimatic and assignment operators
+      +=  -=  *=  /=  %=
+
+(3)relational operators:
+-> to compare two values
+    <   >   <=   >=  ==  !=
+
+(4)logical operators:
+       &&(and operator)
+       || (or operator)
+       ! (not operator)
+
+
+(5)increment/decrement operator:
+-> this operator divided in two parts
+
+    (1) increment operator: wich is use to increase value by 1
+        ++
+    (2) decrement operator: which is use two decrease value by 1
+        --
+   
+(6)bitwise operators:
+-> which is perform on bits
+  XOR
+  not
+  OR 
+  LEFT SHIFT
+  RIGHT SHIFT
+  
+(7) conditional operators:
+       
+      ?
+   exp1 ? exp2 : exp3;
+-----------------------------------------------------------------------------------------------      
