@@ -369,7 +369,7 @@ c=15;
       printf("\nans=%d",ans);
       ans=c>b||a>c; // (||)iska matlab hai agar dono mai se koi bhi ek shi hai to 1 ayega 
       printf("\nans=%d",ans);
-      ans=c>a!=b>a; // (!=)iska matlab kuch bhi nhi 0 hi hoga chahe jvab shi ho ya glat
+      ans=c>a!=b>a;// (!=)iska matlab dono glat huva to bhio 0(false)dono shi huva to bhi 0(false)agr dono me se koiek glat hai or ek shi to 1(true)ayega
       printf("\nans=%d",ans);
 } /*outpt: ans=1
            ans=0
