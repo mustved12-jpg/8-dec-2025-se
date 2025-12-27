@@ -430,10 +430,9 @@ syntex: scanf("placeholer",&variable);
 acceps float value from user
 syntex:   scanf("%f",&variable);
 -----------------------------------------------------------------------------------------------
-                               operators:
+                                        operators:
 -> operators are spacific symbolt wich is  use to perform operation
 e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
-
 {(1)arithimatic operators
 (2)assignment operators
 (3)relational operators
@@ -453,17 +452,91 @@ e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
     ->shorthand operators:combination of arithimatic and assignment operators
       +=  -=  *=  /=  %=
 
+
+      #include <stdio.h>
+void main()
+{
+   int a,b;
+   a=10;
+   b=20;
+   printf("ans=%d,%d",a,b);
+   //c=a+b;  isme ye do operation karega (1)a+b karega (2)inko c me btayega 
+   a+=b;     // isko karbe ke bad ab yha se a=10 nahi a=30 ho gya hai an har jgha jha bhi (a)likha jayega vha 10 nhi 30 ayega
+  
+   printf("\nans=%d",a); 
+
+    printf("\nans=%d+%d=%d",a,b,a+b); 
+}
+    
+
+/* output:  ans=10,20
+            ans=30
+            ans=30+20=50
+
+
 (3)relational operators:
 -> to compare two values
     <   >   <=   >=  ==  !=
 ->0 (false)
 ->1 (true) 
 
+#include <stdio.h>
+void main()
+{
+int a,b,c;
+a=10;
+b=20;
+c=30;
+      int ans;
+      
+    ans=b>a;   // isko humek me do nhi likh sakte bina logical operator ke 
+    printf("ans=%d",ans);
+
+    ans=a>b;
+    printf("\nans=%d",ans);
+    
+    ans=a<c;
+    printf("\nans=%d",ans);
+    
+    ans= a == b;  // iska matkab dono brabar hona chahiye dono sem nihi hai output 0 ayega.
+    printf("\n%d",ans);
+    
+     ans=a != b; (!=)iska matlab kuch bhi nhi 0 hi hoga chahe jvab shi ho ya glat
+    printf("ans=%d",ans);
+    }
+/*output:  ans=1
+           ans=0
+           ans=1
+           ans=0
+           ans=0*/
+
 (4)logical operators:
        &&(and operator)
        || (or operator)
        ! (not operator)
+-> isa use hum multipal time kar sakte hai 
+e.g  ans=a<b && b>a && c>b && a>c;..... is trah
 
+       #include <stdio.h>
+void main()
+{
+int a,b,c;
+a=5;
+b=10;
+c=15;
+      int ans;
+      ans=a<b&&a<b; // (&&)is ka matlab dono shi hona chahiye to output 1(true) ayega ek bhi galat huva to output 0(false) ayega 
+      printf("ans=%d",ans);
+      ans=a>b&&c>b; // ek glat hai or ek shi tabbhi output 0 hi ayega
+      printf("\nans=%d",ans);
+      ans=c>b||a>c; // (||)iska matlab hai agar dono mai se koi bhi ek shi hai to 1 ayega 
+      printf("\nans=%d",ans);
+      ans=c>a!=b>a;// (!=)iska matlab dono glat huva to bhio 0(false)dono shi huva to bhi 0(false)agr dono me se koiek glat hai or ek shi to 1(true)ayega
+      printf("\nans=%d",ans);
+} /*outpt: ans=1
+           ans=0
+           ans=1
+           ans=0*/
 
 (5)increment/decrement operator:
 -> this operator divided in two parts
@@ -472,6 +545,43 @@ e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
         ++
     (2) decrement operator: which is use two decrease value by 1
         --
+
+        #include<stdio.h>
+void main()
+{
+    //ye plus hai
+    int plus=5;
+    printf("ANS=%d",plus++);
+    //(plus++) agr ye pehle hai to isme jo value hai vhi btaye ga 5 hi btayega iske bad jo bhi hoga usme 1 puse hoga
+    printf("\nANS=%d",plus);
+    printf("\nANS=%d",++plus);//(++plus) isme pehle se hi 1 plus huva rhega
+    
+       /*output: ANS=5
+                ANS=6
+                ANS=7
+        */
+
+    //ye minus hai
+    int minus=10;
+    printf("ANS=%d",minus--);
+    //(minus--)agr ye pehle hai to isme jo value hai vhi btaye ga 10 hi btayega iske bad jo bhi hoga usme 1 minus hoga
+    printf("\nANS=%d",minus);
+    printf("\nANS=%d",--minus);//(--minus) isme pehle se hi 1 minus huva rhega
+    
+    /*output: ANS=10
+              ANS=9
+              ANS=8
+      */
+
+    /*agr hum pehe print me plus++ karege or duseme ++plus karenge to ouput 3 ayrga 
+      e.g.    int plus=1
+       printf("ANS=%d",plus++);
+       printf("ANS=%d",++plus);
+       
+        output: ANS=3
+        esa hi minus me bhi hoga uska output -1 ayega*/ 
+    
+}
    
 (6)bitwise operators:
 -> which is perform on bits
@@ -485,4 +595,18 @@ e.g. num1+num2;  // e.g. here num1 & num2 are operands and + is operator
        
       ?
    exp1 ? exp2 : exp3;
------------------------------------------------------------------------------------------------      
+
+
+   #include<stdio.h>
+void main()
+{
+    int num1,num2,max;
+    num1=20;
+    num2=50;  
+    max=(num1>num2) ? num1 :num2;// isme num1>num2 se bda hoga to output num1 yani 20 aye ga agar bada nhi hai to output num2 yani 50 ayega.
+    printf("ANS=%d",max);
+}
+            //output:ans=50
+
+    
+---------------------------------------------------------------------------------------------------------------
