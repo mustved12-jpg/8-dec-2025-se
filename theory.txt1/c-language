@@ -383,6 +383,43 @@ c=15;
         ++
     (2) decrement operator: which is use two decrease value by 1
         --
+
+        #include<stdio.h>
+void main()
+{
+    //ye plus hai
+    int plus=5;
+    printf("ANS=%d",plus++);
+    //(plus++) agr ye pehle hai to isme jo value hai vhi btaye ga 5 hi btayega iske bad jo bhi hoga usme 1 puse hoga
+    printf("\nANS=%d",plus);
+    printf("\nANS=%d",++plus);//(++plus) isme pehle se hi 1 plus huva rhega
+    
+       /*output: ANS=5
+                ANS=6
+                ANS=7
+        */
+
+    //ye minus hai
+    int minus=10;
+    printf("ANS=%d",minus--);
+    //(minus--)agr ye pehle hai to isme jo value hai vhi btaye ga 10 hi btayega iske bad jo bhi hoga usme 1 minus hoga
+    printf("\nANS=%d",minus);
+    printf("\nANS=%d",--minus);//(--minus) isme pehle se hi 1 minus huva rhega
+    
+    /*output: ANS=10
+              ANS=9
+              ANS=8
+      */
+
+    /*agr hum pehe print me plus++ karege or duseme ++plus karenge to ouput 3 ayrga 
+      e.g.    int plus=1
+       printf("ANS=%d",plus++);
+       printf("ANS=%d",++plus);
+       
+        output: ANS=3
+        esa hi minus me bhi hoga uska output -1 ayega*/ 
+    
+}
    
 (6)bitwise operators:
 -> which is perform on bits
@@ -396,4 +433,18 @@ c=15;
        
       ?
    exp1 ? exp2 : exp3;
------------------------------------------------------------------------------------------------      
+
+
+   #include<stdio.h>
+void main()
+{
+    int num1,num2,max;
+    num1=20;
+    num2=50;  
+    max=(num1>num2) ? num1 :num2;// isme num1>num2 se bda hoga to output num1 yani 20 aye ga agar bada nhi hai to output num2 yani 50 ayega.
+    printf("ANS=%d",max);
+}
+            //output:ans=50
+
+    
+---------------------------------------------------------------------------------------------------------------
