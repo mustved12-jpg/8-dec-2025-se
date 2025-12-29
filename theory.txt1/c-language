@@ -125,7 +125,7 @@ syntax:
 ; : semicolon
 
 -> semicolon which is include end of the line
--> it is used to terminate a statement
+-> it is used to terminate a statment
 
 ->{(;)ye semicolon hai ye kisi bhi line ko end karne ke liye jaruri hota hai}
 
@@ -448,3 +448,90 @@ void main()
 
     
 ---------------------------------------------------------------------------------------------------------------
+                                 even or odd number:
+-> variable%2==0
+->{even or odd number chach karne ke liye variable ke name ke bad iska %2==0  use karte hai}
+
+syntex:
+#include<stdio.h>
+void main()
+{
+   int num;                              samjo agar humne 10 kikha to ye 10 ko 2 se divide(/) karega
+   printf("enter a number:");              e.g.                      __5______   
+   scanf("%d",&num);                                              2 | 10
+   printf("number=%d",num%2==0);                                      10
+//(%) ye modulus hai ye direct btata hai ki 0 hai ya nhi            ________
+                                                                      00 (isko riminder bolte hai)
+// jo bhi number 2 de divide karne ke bad (0)dikhaye ga vo even hai 
+}
+   // agar hum output me 10 likhenge to output 1(true)(even) ayega agar 15 likhenge to output 0(false)(odd) ayega
+     //output: number=1 (even) or number=0 (odd)
+-------------------------------------------------------------------------------------------------------------------
+                                   swipe:
+->swipe 2 numbers with using 3 variable
+
+syntext:
+
+#include<stdio.h>
+void main()
+{
+   int a,b,c;
+   a=10;
+   b=20;  // normal programe
+
+   printf("ans=%d",a);
+   printf("\nans=%d",b);
+
+   //output:  ans=10
+   //         ans=20
+
+//now swipe 
+   
+    c=a;
+    a=b;
+    b=c;
+
+     printf("\nans=%d",a);
+   printf("\nans=%d",b);
+
+   // output: ans=20
+   //         ans=10
+}
+------------------------------------------------------------------------------------------------------------
+                                    control statments:
+->ther are 3 types of control statments
+
+   (1)conditional statments
+   (2)looping statments
+   (3)jumping statments
+
+(1) conditional statments:
+->ther are 5 types of conditional statments
+   (1)if statment
+   (2)if    else statment
+   (3)else  if  statment
+   (4)switch statment
+   (5)nested statment
+--------------
+(1) if statment:
+    if condition gos to correct then it vil execute
+    {shi hoga tabhi likhe ga nhi to kuch nhi likhe ga}
+
+    syntex:
+     if (jo bhi condition ho)
+     {
+
+     }
+---------------
+(2)if  else statment:
+syntext:
+
+if (condition)
+{
+      true statment 
+}
+else
+{
+        false statment
+}
+------------------
