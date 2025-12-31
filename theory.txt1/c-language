@@ -498,6 +498,14 @@ void main()
    //         ans=10
 }
 ------------------------------------------------------------------------------------------------------------
+                                     precedence in c language
+1) 	() [] . -> ++ -- (postfix) :{Left-to-right}	Parentheses, array subscript, member access, postfix increment/decrement	
+2)  ++ -- + - ! ~ * & (Prefix) :{Right-to-left}increment/decrement, unary plus/minus, logical NOT, bitwise NOT, dereference, address-of, size-of, type cast	
+3)	* / %	:{Left-to-right}Multiplication, division, modulus
+4)	+ -	:{Left-to-right}Addition, subtraction	
+5)	<< >>	:{Left-to-right}Bitwise left shift, right shift	
+6)	< <= > >=	:{Left-to-right}Relational less than/greater than (or equal to)	                                    
+------------------------------------------------------------------------------------------------------------
                                     control statments:
 ->ther are 3 types of control statments
 
@@ -535,3 +543,50 @@ else
         false statment
 }
 ------------------
+(3) else if statment:
+
+syntex
+
+if (condition)
+{
+   printf("ture statment");
+}
+if else (condition)
+{
+  printf("true statment");
+}
+if else (condition)  // {jitni bhi condition lgana ho to (if else) se lga sakte hai}
+{
+  printf(" true statment");
+}
+else
+{
+  printf("false statment");
+}
+-------------------------------
+(4)nested statment
+
+if (condition)
+{
+  if (condition)
+  {
+     printf("true statmnet");
+  }
+  else
+  {
+    printf("false statmnet");
+  }
+}
+else (condition)
+  {
+    if (condition)
+    {
+       printf("statment");
+    }
+    else
+    {
+      printf("statment");
+    }
+  }
+---------------------------------
+(5) switch statment
