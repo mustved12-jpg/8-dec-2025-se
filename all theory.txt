@@ -698,3 +698,50 @@ else
         false statment
 }
 ------------------
+(3) else if statment:
+
+syntex
+
+if (condition)
+{
+   printf("ture statment");
+}
+if else (condition)
+{
+  printf("true statment");
+}
+if else (condition)  // {jitni bhi condition lgana ho to (if else) se lga sakte hai}
+{
+  printf(" true statment");
+}
+else
+{
+  printf("false statment");
+}
+-------------------------------
+(4)nested statment
+
+if (condition)
+{
+  if (condition)
+  {
+     printf("true statmnet");
+  }
+  else
+  {
+    printf("false statmnet");
+  }
+}
+else (condition)
+  {
+    if (condition)
+    {
+       printf("statment");
+    }
+    else
+    {
+      printf("statment");
+    }
+  }
+---------------------------------
+(5) switch statment
