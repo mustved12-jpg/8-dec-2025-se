@@ -1,0 +1,114 @@
+                              conditional statments
+ if  else
+ 
+        E.g. 1  
+
+#include<stdio.h>
+void main()
+{
+int num;
+printf("entera number:");
+scanf("%d",num);
+if (num%2==0)
+{
+    printf("even number");
+
+}
+else
+{
+    print("odd number");
+}
+}
+
+/* agar outpume ham 10 likhenge to ye output me [even number] dikhaye ga 
+or agar 15 likhnege to [odd number] dikhaye ga */
+------------------
+E.g 2  (condition hai 18 ke bad voting)
+
+#include<stdio.h>
+void main()
+{
+    int num;
+    printf("enter a number:");
+    scanf("%d",&num);
+    if(num>=18)  // >=  iska matlab number 18 ya 18 se jyada ho
+    {
+        printf("%d eligible",num);
+    }
+    else
+    {
+        printf("%d not eligible",num);
+    }
+} 
+/* agar 18 ya 18 se jyada hai to 
+      output: 18 eligible
+   agar 18 se kam hai samjo 16 hai to 
+      output: 16 not eligible */   
+-------------------------------------------------------------------------------------------------------------------
+                                               else   if
+
+#include<stdio.h>
+void main()
+{
+    int marks;
+    printf("enter a number=");
+    scanf("%d",&marks);
+    if (marks<=100&&marks>=70)
+    {
+        printf("A grade");
+    }
+    else if (marks>=60&&marks<70)
+    {
+        printf("B grade");
+    }
+    else if( marks>=50&&marks<60)
+    {
+        printf("C grade");
+    }
+    else if(marks>=40&&marks<50)
+    {
+        printf("D grade");
+    }
+    else
+    {
+        printf(" fail");
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
+                                       nested 
+
+#include<stdio.h>
+void main()
+{
+    int marks;
+    printf("enter a number=");
+    scanf("%d",&marks);
+    if (marks>0&&marks<100)
+  {
+    if (marks<=100&&marks>=70)
+    {
+        printf("A grade");
+    }
+    else if (marks>=60&&marks<70)
+    {
+        printf("B grade");
+    }
+    else if( marks>=50&&marks<60)
+    {
+        printf("C grade");
+    }
+    else if(marks>=40&&marks<50)
+    {
+        printf("D grade");
+    }
+    else
+    {
+        printf(" fail");
+    }
+  }
+  else 
+  {
+      printf("in velid marks");
+  }
+}
+----------------------------------------------------------------------------------------------------------------

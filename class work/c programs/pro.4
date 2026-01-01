@@ -1,0 +1,68 @@
+//declaration,initlization,use.
+// adition(+),subtraction(-),multiplication(*),division(/)
+#include <stdio.h>
+void main()
+{
+    int num;
+    num =10;
+    printf("adition:%d+%d+%d=%d",num,num,num,num+num+num); // ye he adition
+    printf("\nsubtraction:%d-%d=%d",num,num,num-num); //ye subtraction
+    printf("\nmultiplication:%d*%d=%d",num,num,num*num); //ye multiplication
+    printf("\ndivision:%d/%d=%d",num,num,num/num);  // ye hai division
+}
+
+
+output: adition:10+10+10=30
+        subtraction:10-10=0
+        multiplication:10*10=100
+        division:10/10=1
+---------------------------------------------------------------------------------------------
+                                      printf()(float)
+//ab hum point vala number lenge hmara datatype (float) hoga
+#include <stdio.h>
+void main()
+{
+    float num; // float datatype hai num variable hai
+    num =5.5;
+ printf("num:%f+%f=%f",num,num,num+num);
+} 
+
+
+output:num:5.500000+5.500000=11.000000
+
+#include<stdio.h>
+void main()
+{
+    float num1=100.55,num2=20.20,num3=5.5;
+    printf("devision1:%f",num1);
+    printf("\ndevision2:%f/%f=%f",num2,num1,num2/num1);
+    printf("\ndevision3:%f/%f/%f=%f",num1,num2,num3,num1/num2/num3);
+    printf("\n");
+    float me1=5.89,me2=10.67,me3=20.99;
+    float  num4=me3-me2-me1;
+    printf("\nsubtraction:%f-%f-%f=%f",me3,me2,me1,num4);
+   printf("\nsubtraction:%f-%f=%f",num3,num1,num3-num1);
+   printf("\n");
+   printf("\nmultiplication:%f*%f*%f=%f",num3,me1,num2,num3*me1*num2);
+   printf("\nmultipicayion:%f*%f=*%f",num4,num3,num4*num3);
+    printf("\n");
+}
+--------------------------------------------------------------------------------------
+                               printf()(double)
+#include<stdio.h>
+void main()
+{
+ double a1=50.55,a2=22.20,a3=34.5;
+    printf("devision1:%lf",num1);
+    printf("\ndevision2:%lf/%lf=%lf",a2,a1,a2/a1);
+    printf("\ndevision3:%lf/%lf/%lf=%lf",a1,a2,a3,a1/a2/a3);
+    printf("\n");
+    double b1=5.89,b2=10.67,b3=20.99;
+    double  a4=b3-b2-b1;
+    printf("\nsubtraction:%lf-%lf-%lf=%lf",b3,b2,b1,a4);
+   printf("\nsubtraction:%lf-%lf=%lf",a3,a1,a3-a1);
+   printf("\n");
+   printf("\nmultiplication:%lf*%lf*%lf=%lf",a3,b1,a2,a3*b1*a2);
+   printf("\nmultipicayion:%lf*%lf=*%lf",a4,a3,a4*a3);
+    printf("\n");
+}     
