@@ -1,4 +1,4 @@
-                              conditional statments
+                              conditional statements
  if  else
  
         E.g. 1  
@@ -112,3 +112,84 @@ void main()
   }
 }
 ----------------------------------------------------------------------------------------------------------------
+                                        switch
+ 
+#include <stdio.h>
+
+int main()
+{
+  int  day;
+  printf("enter a day :");
+  scanf("%d",&day);
+  
+  
+  switch(day){
+      case 1:
+      printf("monday");break;
+      
+      case 2:
+      printf("tuesday");break;
+      
+       case 3:
+      printf("wenasday");break;
+      
+       case 4:
+      printf("thurshday");break;
+      
+       case 5:
+      printf("friday");break;
+      
+       case 6:
+      printf("saterday");break;
+      
+       case 7:
+      printf("sunday");break;
+      
+      default:
+      printf("Error");
+  }
+}                                       
+------------------------
+// switch statement
+#include<stdio.h>
+void main()
+{
+    char a;
+    printf("enter a number=");
+    scanf("%c",&a);
+    switch(a)
+    {
+       case 'a':
+       case 'i':
+       case 'o':
+       case 'u':
+       case 'c':
+       printf("%c is a vowel",a);break;
+       default:
+       printf("%c is not a vowle",a);break;
+    }
+    
+    
+}
+
+
+
+// if me bhi kas sakte hai par vo lamba hota  hai
+
+
+
+/*#include<stdio.h>
+void main()
+{
+    char a;
+    printf("enter a number=");
+    scanf("%c",&a);
+    if (a =='a'||a=='i'||a=='c'||a=='o'|| a=='u')
+    {
+        printf("vowel");
+    }
+    else
+    {
+        printf("not vowel");
+    }
+}*/

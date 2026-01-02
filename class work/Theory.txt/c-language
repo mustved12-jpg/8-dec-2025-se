@@ -125,7 +125,7 @@ syntax:
 ; : semicolon
 
 -> semicolon which is include end of the line
--> it is used to terminate a statment
+-> it is used to terminate a statement
 
 ->{(;)ye semicolon hai ye kisi bhi line ko end karne ke liye jaruri hota hai}
 
@@ -506,22 +506,22 @@ void main()
 5)	<< >>	:{Left-to-right}Bitwise left shift, right shift	
 6)	< <= > >=	:{Left-to-right}Relational less than/greater than (or equal to)	                                    
 ------------------------------------------------------------------------------------------------------------
-                                    control statments:
-->ther are 3 types of control statments
+                                    control statements:
+->ther are 3 types of control statements
 
-   (1)conditional statments
-   (2)looping statments
-   (3)jumping statments
+   (1)conditional statements
+   (2)looping statements
+   (3)jumping statements
 
-(1) conditional statments:
-->ther are 5 types of conditional statments
-   (1)if statment
-   (2)if    else statment
-   (3)else  if  statment
-   (4)switch statment
-   (5)nested statment
+(1) conditional statements:
+->ther are 5 types of conditional statements
+   (1)if statement
+   (2)if    else statement
+   (3)else  if  statement
+   (4)switch statement
+   (5)nested statement
 --------------
-(1) if statment:
+(1) if statement:
     if condition gos to correct then it vil execute
     {shi hoga tabhi likhe ga nhi to kuch nhi likhe ga}
 
@@ -531,62 +531,114 @@ void main()
 
      }
 ---------------
-(2)if  else statment:
+(2)if  else statement:
 syntext:
 
 if (condition)
 {
-      true statment 
+      true statement 
 }
 else
 {
-        false statment
+        false statement
 }
 ------------------
-(3) else if statment:
+(3) else if statement:
 
 syntex
 
 if (condition)
 {
-   printf("ture statment");
+   printf("ture statement");
 }
 if else (condition)
 {
-  printf("true statment");
+  printf("true statement");
 }
 if else (condition)  // {jitni bhi condition lgana ho to (if else) se lga sakte hai}
 {
-  printf(" true statment");
+  printf(" true statement");
 }
 else
 {
-  printf("false statment");
+  printf("false statement");
 }
 -------------------------------
-(4)nested statment
+(4)nested statement
 
 if (condition)
 {
   if (condition)
   {
-     printf("true statmnet");
+     printf("true statement");
   }
   else
   {
-    printf("false statmnet");
+    printf("false statement");
   }
 }
 else (condition)
   {
     if (condition)
     {
-       printf("statment");
+       printf("statement");
     }
     else
     {
-      printf("statment");
+      printf("statement");
     }
   }
 ---------------------------------
-(5) switch statment
+(5) switch statement
+-> switch statement which is use for multipal conditions
+{samjo if mai jo kam == karta hai vh kam ye karta hai par sort form mai}
+
+-> we only use int(%d) and char(%c) data type
+-> we only use arithimatic operators in specific situation
+
+syntex:
+
+switch(expression)
+{
+  case value:
+  printf("statement");break;
+
+  case value:
+  printf("statement");break;
+
+  case value:
+  printf("statement");break;
+
+  default:
+  printf("statement");
+
+}
+==============================================================================================================
+                                                     loop statement
+
+-> loop mean repetation
+-> in c there are 3 types of loop
+
+(1)for loop
+(2)while loop
+(3)do ... while loop
+-----------------------------------------------------------------------------------------------------------------
+                                                           for loop
+(1)for loop
+-> for loop is sequence controlled loop
+{ jab hamko numbers pta ho ki kaha se kaha tak loop karna ho}
+
+for loop is devided in 3 counter
+
+syntex:
+for(counter1;counter2;counter3)
+{
+
+}
+
+syntex:
+for(initialization;condition;updation)
+{
+
+}
+-------------------------------------------------------------------------------------------------------------
