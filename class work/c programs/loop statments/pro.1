@@ -1,0 +1,175 @@
+// first loop                                                                 <3-1-2026>
+                                        (int)
+#include<stdio.h>
+void main()
+{
+    for(int i=1;i<=10;i++)
+    {
+        printf("\n%d",i);
+    }
+    
+}  /* output: 1
+              2
+              3 
+              4  
+              5 
+              6 
+              7 
+              8 
+              9 
+              10
+              */
+------------------------------------------------------------------------------------------------------
+                                                                                <3-1-2026>
+#include<stdio.h>
+void main()
+{
+    for(int i=1;i<=20;i=i+3)
+    {
+        printf("\n%d",i);
+    }
+}/* output:   1
+              4
+              7 
+              10  
+              13 
+              16
+              19 
+              */
+---------------------------------------------------------------------------------------------------------
+                                                                                    <3-1-2026>
+
+// user se end number or start number lena hai
+
+#include<stdio.h>
+void main()
+{
+    int a,b;
+    printf("enter a start number:");
+    scanf("%d",&a);
+    
+    printf("enter a end number:");
+    scanf("%d",&b);
+    
+    for(int i=a;i<=b;i++)
+    {
+        printf("\n%d",i);
+    }
+}/* output:   enter a start number:1 
+              enter a end number :7
+              
+                         1 
+                         2 
+                         3 
+                         4 
+                         5 
+                         6 
+                         7 
+                         */
+---------------------------------------------------------------------------------
+                                                                                  <3-1-2026>
+
+// loop ke ander user se number lena hai 
+
+#include<stdio.h>
+void main()
+{
+    for (int i=1;i<=10;i++)
+    {
+        printf("\nenter a number :");
+        scanf("%d",&i);
+        printf("ans%d=%d",i,i+1);  // isme mene plus kiya hai to ans 1 plus ho ke aye ga 
+        
+        getchar();
+    }
+}
+
+/* output:   enter a  number:1 
+             ans1=2
+             enter a  number:2  
+             ans1=3
+             enter a  number:3 
+             ans1=4  ..........
+             
+             
+             
+ ese hi 10 tak jaye ga par agar jab tak hum 10 tak nhi pohochte ye katam nhi hoga 
+ jese agar 1 se 9 tak ko kitni bhi bar likh sakte hai pr han ye sirf (int) main hi esa karta hai
+ (char) mai nhi
+                          
+                          e.g.
+                          enter a  number:1 
+                          ans1=2
+                                 
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                          
+                          enter a  number:1 
+                          ans1=2
+                            
+                          enter a  number:1 
+                          ans1=2
+                                    like this.*/
+             
+----------------------------------------------------------------------------------------------
+                                                                                   <3-1-2026>
+                              character(char(%c))
+
+// loop ke ander user se number lena hai 
+
+#include<stdio.h>
+void main()
+{   
+    char h;
+    
+    for (int i=1;i<=5;i++)
+    {
+        printf("enter a character :");
+        scanf("%c",&h);  
+        getchar();          //char 5 a b c d e likhne ke bad ruk jaye ga 
+    }
+}
+
+/* output:   enter a  character:a
+             enter a  character:b 
+             enter a  character:c 
+             enter a  character:d 
+             enter a  character:e  */
+--------------------------------------------------------------------------------------------------
+                                                                                       <3-1-2026>
