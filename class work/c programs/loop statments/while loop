@@ -1,0 +1,116 @@
+pro.1
+#include<stdio.h>
+void main()
+{
+    int a,i=1;
+    printf("enter a number:");
+    scanf("%d",&a);
+    while(i<=a)
+    {
+        printf("\nnumber:%d",i);
+        i++;
+        
+    }
+}
+-----------------------------------------------------------------------------------------------------
+                                                                                        <5-1-26>
+pro.2
+pro.1
+// while ka use kar ke 1 loop
+#include<stdio.h>
+void main()
+{
+    int i=1;
+    while(i<=5)
+    {
+        printf("%d\n",i);
+        i++;
+    }
+}
+-------------------------------------------------------------------------------------------------------
+                                                                                         <6-1-26> 
+// hanmo user se number lena hai age continue karne ke liye user se char yes or no pucho
+ pro.3
+#include<stdio.h>
+#include<stdbool.h>
+void main()
+{
+
+    bool t=true; // fist time loop me jane ke liye
+    int num;
+     char ch;
+    while(t)            
+    {
+        printf("enter a number:");
+        scanf("%d",&num);
+        printf("enter (y) for yes and (n) for no :");
+        scanf("%c",&ch);   // space dena jaruri ahi %c mai
+        switch(ch)                        // if mai bhi kar sakte hai e.g   if (ch=='y'||ch=='Y')
+       { case 'y':                         //                                {  t=true;  }
+        case 'Y':                          //                               else
+        t=true;break;                      //                               {  t=false;  }
+        default:
+        t=false;break;
+       }
+    }
+}     /* output aye ga enter a number:5  mene samjhio 5 dala 
+                        enter (y) (n) vala : y   agar me y likhta hu to fir se lop chlu hoga 
+                       enter a number : 6  ab mene 6 dala
+                       enter (y).....: n   to progarme ruk jaye ga iske bad loop khatam nki jgha or kuch bhi hoga ta yhi hoag sivay y ke */
+-------------------------------------------------------------------------------------------------------------
+                                                                                           <6-1-26>
+pro.4
+// hamko nhi pata kab end hai 
+#include<stdio.h>
+#include<stdbool.h>
+void main()
+{    bool start=true;
+    int num;
+    int sum=0; // agar hum isko bhi loop mai user ke oas sse lenge to aagr total dekhenge to last me jo ham num or sum karen ge bas usi ka plus aye ga 
+    char ch;
+    
+    while(start)
+    
+    { 
+        printf("enter a num number:");
+    scanf("%d",&num);
+    getchar();
+    printf("enter a ch number:");
+    scanf(" %c",&ch);
+    if(ch=='n')  // jub tak hum n nhi daalenge tab atk plus hoga
+    {
+        start=false; 
+    }
+    sum+=num;
+    
+    }
+    printf("%d total",sum);getchar();
+}
+----------------------------------------------------------------------------------------------------------------------------
+                                                                                        <6-1-26>
+pro.5
+
+#include<stdio.h>
+#include<stdbool.h>
+void main()
+{    
+    int i=1,b,f;
+    bool k=true;
+    char ch;
+    while (k)
+    {printf("enter a (f) number:");
+    scanf("%d",&f);
+        printf("enter a (b) number:");
+    scanf("%d",&b);
+    printf("enter a ch number:");// isme bhi sem jo last ka hoga vhi ka total print hoga q ki dono under hai
+    scanf(" %c",&ch);
+    if(ch=='n')
+    {
+        k=false;
+    }
+        f*=b;
+        printf("%d\n",f);
+    }
+    
+}
+-------------------------------------------------------------------------------------------------------------
