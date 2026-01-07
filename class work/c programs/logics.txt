@@ -1,0 +1,5 @@
+(1)even odd (%2==0)
+(2)positive negetive(num1<num2 && num3>num1)
+(3)swipe
+(4)swipe without using 3 variable
+(5)factorial(f*=i)

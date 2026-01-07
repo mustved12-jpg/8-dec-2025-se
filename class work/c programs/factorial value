@@ -1,0 +1,56 @@
+ 
+->ye ese kam karta hai 5*4*3*2*1
+->agar muje 10 ki factorial value chahiye to 
+10*9*8*7*6*5*4*3*2*1
+90*56*30*12*2
+5040*360*2
+1814400*2
+3628800 is output
+ese karta hai
+------------------------------------------------------------------------
+pro.1              using loop
+
+// for loop main factorial valude
+#include<stdio.h>
+void main()
+{     int a,factorial=1;
+      printf("enter a number:");
+      scanf("%d",&a);
+      
+    for(int i=1;i<=a;i++)
+    {
+        factorial*=i;
+        
+    }
+    printf("%d\n",factorial);
+}
+/*  agar me printf loop ke ander likhunga to esa output aye ga
+enter a number:5
+1
+2
+6
+24
+120
+
+or abgar loop ke bahar printf likhunga to dairect aye ga
+enter a number:5
+120
+*/
+--------------------------------------------------------------------
+//while loop mai factorial value
+#include<stdio.h>
+void main()
+{
+    int i=1,f=1,a;
+printf("enter a number:");
+scanf("%d",&a);
+while(i<=a)
+{
+    f*=i;
+    i++;
+}
+printf("%d",f);
+}
+
+// out put : enter a number:10
+//          3628800

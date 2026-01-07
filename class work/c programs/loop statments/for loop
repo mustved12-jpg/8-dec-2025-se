@@ -20,6 +20,32 @@ void main()
               10
               */
 ------------------------------------------------------------------------------------------------------
+
+
+#include <stdio.h>
+
+int main()
+{
+    int i;
+    int a;
+    
+        printf("entere a number:");
+        scanf("%d",&a);// user btaye ga mujhe kaha se suru karna hai
+    for(i=1;i<=5;i++)// ye 5 loop bnaye ga 
+    {
+        printf("%d\n",a);
+        a++;
+        
+    }
+}  /*output: enter a number:1
+             1
+             2 
+             3    
+             4 
+             5 
+             */
+
+------------------------------------------------------------------------------------------------------
                                                                                 <3-1-2026>
 #include<stdio.h>
 void main()
@@ -173,3 +199,73 @@ void main()
              enter a  character:e  */
 --------------------------------------------------------------------------------------------------
                                                                                        <3-1-2026>
+
+#include <stdio.h>
+
+int main()
+{
+
+    int a,f=1,i,b;
+    printf("enter a (b) number:");
+    scanf("%d",&b);
+    printf("enter a number:");
+    scanf("%d",&a);
+    for(i=1;i<=b;i++)
+    {
+        f*=a;
+        
+        printf("%d\n",f);
+    }
+}  
+/*enter a (b) number:5  5 loop to bnega hi
+enter a number:5
+5
+25
+125
+625
+3125
+--------
+enter a (b) number:5
+enter a number:4
+4
+16
+64
+256
+1024*/
+
+
+----------------------------------------------------------------------------------------------
+                                                                                       <7-1-2026>
+#include <stdio.h>
+
+int main()
+{
+
+    int a,c,i,b;
+    printf("enter a (b) number:");
+    scanf("%d",&b);
+    printf("enter a number:");
+    scanf("%d",&a);
+    for(i=1;i<=b;i++)
+    {
+        c=i*a;
+        
+        printf("%d*%d=%d\n",a,i,c);
+    }
+}  
+/*
+enter a (b) number:10
+enter a number:2
+2*1=2
+2*2=4
+2*3=6
+2*4=8
+2*5=10
+2*6=12
+2*7=14
+2*8=16
+2*9=18
+2*10=20
+*/
+-----------------------------------------------------------------------------------------------------
+                                                                                       <7-1-2026>

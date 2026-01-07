@@ -643,6 +643,7 @@ for(initialization;condition;updation)
 }
 -------------------------------------------------------------------------------------------------------------
                                                                                           <5-1-26>
+                                                    while loop
 (2) while loop:
 -> while loop is a entry control loop
 ->it check condition at entry level and if condition goes true loop will execute
@@ -655,3 +656,18 @@ while(condition)
   statement;
    updation;
 }
+-----------------------------------------------------------------------------------------------------------
+                                         nested loop
+                                                                                        <7-1-26>
+->when loop call inside the another loop 
+
+syntex
+
+for(initialization:condition:updation)
+{
+  for(initialization:condition:updation)
+  {
+    
+  }
+}
+-----------------------------------------------------------------------------------------------------------

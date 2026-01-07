@@ -810,3 +810,18 @@ while(condition)
   statement;
    updation;
 }
+---------------------------------------------------------------------------------------------------------------
+                                         nested loop
+                                                                                        <7-1-26>
+->when loop call inside the another loop 
+
+syntex
+
+for(initialization:condition:updation)
+{
+  for(initialization:condition:updation)
+  {
+    
+  }
+}
+-----------------------------------------------------------------------------------------------------------

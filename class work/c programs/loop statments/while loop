@@ -3,7 +3,7 @@ pro.1
 void main()
 {
     int a,i=1;
-    printf("enter a number:");
+    printf("enter a number:");// isme hum user se le rhe hai
     scanf("%d",&a);
     while(i<=a)
     {
@@ -15,8 +15,6 @@ void main()
 -----------------------------------------------------------------------------------------------------
                                                                                         <5-1-26>
 pro.2
-pro.1
-// while ka use kar ke 1 loop
 #include<stdio.h>
 void main()
 {
@@ -66,7 +64,7 @@ pro.4
 void main()
 {    bool start=true;
     int num;
-    int sum=0; // agar hum isko bhi loop mai user ke oas sse lenge to aagr total dekhenge to last me jo ham num or sum karen ge bas usi ka plus aye ga 
+    int sum=0; // agar hum isko bhi loop mai user ke pas se lenge to aagr total last me dekhenge to jo ham num or sum last me karen ge bas usi ka plus aye ga 
     char ch;
     
     while(start)
@@ -102,7 +100,7 @@ void main()
     scanf("%d",&f);
         printf("enter a (b) number:");
     scanf("%d",&b);
-    printf("enter a ch number:");// isme bhi sem jo last ka hoga vhi ka total print hoga q ki dono under hai
+    printf("enter a ch number:");// isme bhi sem jo last ka hoga vhi ka total print hoga q ki dono under hai(pro.4 me)
     scanf(" %c",&ch);
     if(ch=='n')
     {
@@ -114,3 +112,4 @@ void main()
     
 }
 -------------------------------------------------------------------------------------------------------------
+
