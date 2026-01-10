@@ -825,3 +825,61 @@ for(initialization:condition:updation)
   }
 }
 -----------------------------------------------------------------------------------------------------------
+                                                                                     <<10-1-26>>
+                                  do while loop
+-> do while loop is a exit controlled loop, it's check condition at exit level.
+
+so,ther are at least 1 posibility of that execute 1 time if condition gose false.
+
+syntex:
+         initialization
+    do
+    {
+      statement;
+      condition;
+    }
+    while(condition);
+---------------------------------------------------------------------------------------------------------------
+                                                                                    <<9-1-26>>
+                                      function
+->function is a most powerful topic of eny programing
+language function provides reasability
+
+->using of function we can reduce our code
+,using we can code par our nested
+,so we can seve our development time.
+
+ther are 2 types of function:
+(1) built in function
+(2) user-difined function
+---------------------------------
+(1) built in function:
+->e.g   printf();  scanf(); , getchar(); , getch(); ......
+
+(2)user difined function:
+-> that function which is created by user for there requirement.
+----------------------------------
+-> how to creat function
+ 
+there are 3 staps to follow in creating function time
+---------------------------------
+stap 1: function declaration
+
+syntex:
+        <returntype> funnam();
+----------------------------------
+stap 2:  function defination
+
+-> main block of code which represent
+funtion exequtation
+
+syntex:
+     <retrotype> funnam();
+        {
+            // block of code
+        }
+---------------------------------        
+stap.3: funtion calling
+syntex:
+        funnam();
+---------------------------------------------------------------------------------------------------------

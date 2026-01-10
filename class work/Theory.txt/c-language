@@ -671,3 +671,18 @@ for(initialization:condition:updation)
   }
 }
 -----------------------------------------------------------------------------------------------------------
+                                                                                       <<10-1-26>>
+                                  do while loop
+-> do while loop is a exit controlled loop, it's check condition at exit level.
+
+so,ther are at least 1 posibility of that execute 1 time if condition gose false.
+
+syntex:
+         initialization
+    do
+    {
+      statement;
+      condition;
+    }
+    while(condition);
+----------------------------------------------------------------------------------------------------------------
