@@ -1,0 +1,95 @@
+//menu driven calculator using function                                               <<12-1-26>>
+
+#include<stdio.h>
+#include<stdbool.h>
+void add();
+void sub();
+void mul();
+void di();
+void main()
+{
+    int ch; bool t=true; char choice;
+    printf("\n\n-----------<Menu>-----------\n\n");
+    printf("\nprees 1 for addition.");
+    printf("\nprees 2 for substraction.");
+    printf("\nprees 3 for multiplication.");
+    printf("\nprees 4 for division.");
+    
+    while(t){
+        printf("\n\nfor continue press (y) or press (n):");
+        scanf(" %c",&choice);
+        if (choice=='n' || choice=='N')
+        {
+            break;
+        }
+        else if(choice=='y' || choice=='Y')
+        {
+            t=true;
+        }
+        else
+        {
+            printf("\nEror enter again !!!!");continue;
+        }
+    
+     
+    printf("\n\n enter you choice:");
+    scanf("%d",&ch);
+    if (ch>=5 || ch<=0)
+    {
+        printf("\ninveid choice!!!!!!!");continue;//if i put break then it will exit.
+    }
+    switch(ch)
+    {
+        case 1:add();break;
+        case 2:sub();break;
+        case 3:mul();break;
+        case 4:di();break;
+      
+    }
+        
+    }
+}
+void add()
+{
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("addition=%d",a+b);
+}
+void sub()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("sun=%d",a-b);
+    
+}
+void mul()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("mul=%d",a*b);
+}
+void di()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("division=%d",a/b);
+}
