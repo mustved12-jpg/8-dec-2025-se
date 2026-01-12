@@ -1,0 +1,184 @@
+pro.1                                                                                 <<12-1-26>>
+
+#include<stdio.h>
+void myfun();//stap.1 function declaretion
+void main()
+{
+    printf("my first funnum.\n");
+     myfun();// stap.3 function calling
+}
+ void myfun()//satp.2 function difine
+{
+    printf("\nhello");
+    printf("\nwalcom to c programing language.");
+}
+------------------------------------------------------------------------------------------------------
+pro.2                                                                                    <<12-1-26>>
+//without loop
+#include<stdio.h>
+void add();
+void sub();
+void mul();
+void di();
+void main()
+{
+    int num;
+    printf("\n\n----------------MENU----------------\n\n");
+    printf("\nfor addition press->1.");
+    printf("\nfor substraction press->2.");
+    printf("\nfor multiplication press->3.");
+    printf("\nfor division press->4.");
+    printf("\n\n Enter a number:");
+    scanf("%d",&num);
+    switch(num)
+    {
+        case 1:
+        add();break;
+        case 2:
+        sub();break;
+        case 3:
+        mul();
+        case 4:
+        di();break;
+        
+    }
+}
+void add()
+{
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("%d",a+b);
+    
+}
+void sub()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("%d",a-b);
+    
+}
+void mul()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("%d",a*b);
+    
+}
+void di()
+{
+    
+    int a,b;
+    printf("enter a first number:");
+    scanf("%d",&a);
+    printf("enter a second number:");
+    scanf("%d",&b);
+    printf("%d",a/b);
+    
+}
+--------------------------------------------------------------------------------------------------------
+pro.3                                                                                    <<12-1-26>>
+//with while loop
+#include<stdio.h>
+#include<stdbool.h>
+void votting();
+void even_odd();
+void po_ne();
+void main()
+{
+    bool t=true;
+    char ch;
+    int choice;
+    printf("\n\n----------------<MENU>-----------------\n\n");
+    printf("\nPress 1 for check entered user is eligible for voting or not.");
+    printf("\nPress 2 for chek entered number is even or odd.");
+    printf("\nPress 3 for chek entered number is positive or negative.");
+    while(t)
+    {
+        
+        printf("\n\nfor continue press (y) or press (n):");
+        scanf(" %c",&ch);
+     
+     if (ch=='n'||ch=='N')
+     {
+         break;
+     }
+     else if(ch=='y'||ch=='Y')
+     {
+         t=true;
+     }
+     else
+     {
+         printf("!!!!!press right character!!!!!");continue;
+     }
+    
+        printf("\n\nEnter a choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            votting();break;
+            case 2:
+            even_odd();break;
+            case 3:
+            po_ne();break;
+            
+            
+        }
+    }
+    
+}
+void votting()
+{
+    int vo;
+    printf("\nEnter a age:");
+    scanf("%d",&vo);
+    if(vo>=18)
+    {
+        printf("****Eligible****");
+    }
+    else
+    {
+        printf("_____Not Eligible____");
+    }
+}
+void even_odd()
+{
+    int ev;
+    printf("\nEnter a number:");
+    scanf("%d",&ev);
+    if(ev%2==0)
+    {
+        printf("****Even number****");
+    }
+    else
+    {
+        printf("____odd number____");
+    }
+}
+void po_ne()
+{
+    int pn;
+    printf("\nEnter a number:");
+    scanf("%d",&pn);
+    if(pn>0)
+    {
+        printf("****Positive number****");
+        
+    }
+    else
+    {
+        printf("____negative number____");
+    }
+}
+--------------------------------------------------------------------------------------------------------
