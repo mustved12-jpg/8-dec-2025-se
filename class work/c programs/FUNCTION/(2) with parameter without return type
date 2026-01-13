@@ -1,0 +1,17 @@
+                                                                                      <<14-1-26>>
+#include<stdio.h>
+void add(int num1,int num2);// stap.1 whit parameters without return
+void main()
+{
+    int n1,n2;
+    printf("enter a nuber 1:");
+    scanf("%d",&n1);
+    
+    printf("enter a nuber 2:");
+    scanf("%d",&n2);
+    add(n1,n2);//stap.3 coling
+}
+void add(int num1, int num2)
+{
+    printf("ANSWER=%d",num1+num2);//function dafination
+}
