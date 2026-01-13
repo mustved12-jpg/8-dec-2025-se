@@ -1,0 +1,46 @@
+(1) what is programe:
+->it's a collection of intrection code
+==============================================
+(2) write a simple "HELLO WORLD" programe and the structure and syntex:
+-> syntex:
+          {
+            printf("STATEMENT");
+          }
+
+-> STRUCTURE:
+
+     #include<stdio.h>
+     void main()
+     {
+     printf("HELLO WORLD");
+     }
+===============================================
+(3) explain in your own word what a program and how it functions?
+-> program is a set of instructions
+-> when we programing using of high level language thats how it's function
+===============================================
+(4) what is programing ?
+-> when we write a satp by satp progarme is called progarming
+===============================================
+(5) what are the key steps involved in the programing process?
+-> problem analysis
+-> disigning the solution
+-> implementation
+-> testing
+-> maintenance
+===============================================
+(6) types of progarming languages?
+-> low level language
+-> high level language 
+===============================================
+(7) what are the main difference between high level an low level progarming language?
+-> high level language:
+    -> easy to understand for human
+    -> easy to write
+    -> it's worck on compiler or interpreter.
+-> low level langauge:
+    -> easy to understand for computer
+    -> hard to write
+    ->it's worck on assembly language.
+===============================================
+(8) 
