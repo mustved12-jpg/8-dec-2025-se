@@ -1,0 +1,86 @@
+  // food billing system
+    #include<stdio.h>
+    #include<stdbool.h>
+    void main()
+    {
+        int p,b,d,i;
+        int ch,q,to=0;
+        int a;
+        char y;
+        p=180;
+        b=100;
+        d=120;
+        i=50;
+        bool t=true;
+     while(t)
+     {
+          
+        
+       
+        printf("\n1.PIZZA\t\tprice = %d rs/pcs\n2.BURGER\tprice = %d rs/pcs\n3.DOSA\t\tprice = %d rs/pcs\n4.IDLI\t\tprice = %d rs/pcs\n5.EXIT...\t",p,b,d,i); 
+        printf("\n\nplise enter your choice...:");
+        scanf("%d",&ch);
+        if (ch>=6||ch<=0)
+        {
+            printf("\nenter a valid choice!!!\n");continue;
+        }
+        else if(ch==5)
+        {
+            printf("\n\ntotal=%d\n\n",to); break;
+        }
+        switch(ch)
+        {
+            case 1 :
+            printf("\nyou are selected a PIZZA.\n");break;
+            case 2:
+            printf("\nyou are selected a BURGER.\n");break;
+            case 3:
+            printf("\nyou are selected a DOSA.\n");break;
+            case 4:
+            printf("\nyou are selected a IDLI.\n");break;
+        }
+        printf("enter your quantity : ");
+        scanf("%d",&q);
+        if(q<=0)
+        {
+            printf("enter 1 order...\n\n");continue;
+        }
+        else if(q>=1&&ch==1)
+        {
+            a=q*p;
+            printf("\namount=%d",a);
+        }
+        else if(q>=1&&ch==2)
+        {
+            a=q*b;
+            printf("\namount=%d",a);
+        }
+        else if(q>=1&&ch==3)
+        {
+            a=q*d;
+            printf("\namount=%d",a);
+        }
+        else if(q>=1&&ch==4)
+        {
+            a=q*i;
+            printf("\namount=%d",a);
+        }
+        to+=a;
+        printf("\n\ntotal=%d\n\n",to);
+         printf("\nfor mor odder prees (y) or prees (n)....:");
+        scanf(" %c",&y);
+        switch(y)
+        {
+            case 'y':
+            case 'Y':
+            t=true;break;
+            case 'n':
+            case 'N':
+            t=false;break;
+             default:
+            printf("\nenter right charecter!!!!!\n");continue;break;
+        }
+      }
+    }
+    
+    
