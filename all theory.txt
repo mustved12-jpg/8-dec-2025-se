@@ -915,3 +915,33 @@ returntype funnum()
   }
 
 ---------------------------------------------------------------------------------------------------------
+                                                    Array
+                                                                                        <<19-1-26>> 
+Array is a collsection of numbers
+
+in simple language we can say that
+a array ca contain single value nut in array we can store multiple values in a single variable 
+
+array index always start from 0
+e.g int a=10// sipmle
+
+int a=10,20,30 is rong
+
+in c lunguage array is reoresent by {} bracess.
+and we have to privide size of array
+
+e.g    int a[5]={};
+
+syntex:
+
+datatype variable[size]={eliment1,eliment2,.......};
+
+index=    0   1  2  3  4
+int a[5]={10,20,30,40,50};
+
+printf("\n%d",a[0]);
+output:  10
+printf("%d",a[3]);
+output:  40
+----------------------------------------------------------------------------------------------------------
+ 

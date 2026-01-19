@@ -9,9 +9,70 @@ void main()
     
     printf("enter a nuber 2:");
     scanf("%d",&n2);
-    add(n1,n2);//stap.3 coling
+    add(n1,n2);//stap.3 colling
 }
 void add(int num1, int num2)
 {
     printf("ANSWER=%d",num1+num2);//function dafination
 }
+===========================================================================================
+pro.2                                                                                  <<14-1-27>>
+#include<stdio.h>
+void sub(int,int,int); //whit perame ter
+void main()
+{
+    
+int a,b,c;  // agar me parmeter ke sath kar raha hu to mujhe ye to likhna hi hoga.
+
+printf("enter a number1:");//agar me isko main mai likhunga to yeek bar number leg aor fix ho jaye ga
+scanf("%d",&a);
+
+printf("enter a number2:");
+scanf("%d",&b);
+
+      sub(a,b,c);
+      printf("\n");
+      sub(a,b,c);
+      printf("\n");
+      sub(a,b,c);
+      
+}
+void sub(int num1,int num2,int)        // iski jgha agar me (int,int,int) likhunga to a,b,c sub mix go jaye ga 
+                                       // or jvab galta aye ga 
+{                                      //e.g  void sub(int,int,int)or variable diclaration niche karung like     
+                                       //        int num1,num2,num3;    
+    int num3=num1+num2;             //iske liye mujhe a ki jgha pe num1,or b ki jgah pe num2 rakhna hoga.
+    printf("ans=%d",num3);
+}
+======================================================================================================
+pro.3                                                                                  <<14-1-28>>
+#include<stdio.h>
+void sub(int,int); //whit perame ter
+void main()
+{
+    
+int a,b;  // agar me parmeter ke sath kar raha hu to mujhe ye to likhna hi hoga.
+
+
+      sub(a,b);
+      printf("\n");
+      sub(a,b);
+      printf("\n");
+      sub(a,b);
+      
+}
+void sub(int,int)        
+{               
+    int num1,num2;
+printf("enter a number1:");// isme ye hur bar puche ga jese jab void main sub(a,b); mai jaye ga
+                           // to pehle num1,num2 puche ga fir new line main jaye ga or ja dubara sub(a,b)
+                           // mai jaye ga to fir puche ga num1,num2.
+scanf("%d",&num1);
+
+printf("enter a number2:");
+scanf("%d",&num2);
+    int num3=num1+num2; 
+    printf("ans=%d",num3);
+}
+===========================================================================================
+pro.4                                                                                  <<14-1-28>>
