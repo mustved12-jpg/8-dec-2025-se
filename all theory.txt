@@ -909,7 +909,7 @@ reterntype funnum()
 (4)function with parameter with return type
 syntex:
 
-returntype funnum()
+returntype funnum(parameter,parameter)
   {
     retunr value;
   }

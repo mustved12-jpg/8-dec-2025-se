@@ -1,0 +1,71 @@
+pro.1                                                                               <<19-1-26>>
+
+#include<stdio.h>
+void main()
+{
+    int a[5]={12,23,43,545,232};
+     printf("ans=%d",a[0]);
+     printf("\nans=%d",a[3]);
+}
+/*output: ans=12
+          ans=545
+          */
+-------------------------------------------------------------------------------------------------------
+pro.2                                                                                  <<19-1-26>>          
+
+#include<stdio.h>
+void main()
+{
+    int a[5]={10,30,1,2,32};
+    for(int i=0;i<5;i++)
+    {
+        printf("\n Eliment(%d)=%d",i,a[i]);
+    }
+}
+/*
+ Eliment(0)=10
+ Eliment(1)=30
+ Eliment(2)=1
+ Eliment(3)=2
+ Eliment(4)=32
+ */
+-------------------------------------------------------------------------------------------------------
+pro.3                                                                               <<20-1-26>>
+
+#include<stdio.h>
+void main()
+{
+    int i,b=0,a[5];
+    
+    for(i=0;i<5;i++)
+    {
+        printf("\nenter a eliment(%d)",i);
+        scanf("%d",&a[b]);//isme hum (i) bhi likh sakte hai b ki jga pe ye bas addres bta rha hai ki
+        b++;              // ye user ki value kis addres(index) pe jaye gi. 
+    }
+    for(i=0;i<5;i++)
+    {
+        printf("\nans:%d",a[i]);
+    }
+}
+/*
+
+enter a eliment(0)2
+
+enter a eliment(1)3
+
+enter a eliment(2)4
+
+enter a eliment(3)5
+
+enter a eliment(4)6
+
+ans:2
+ans:3
+ans:4
+ans:5
+ans:6
+*/
+-------------------------------------------------------------------------------------------------------
+pro.4                                                                               <<20-1-26>>
+

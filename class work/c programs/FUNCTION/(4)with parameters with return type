@@ -1,0 +1,25 @@
+pro.1                                                                               <<20-1-26>>
+#include<stdio.h>
+int sum(int,int);
+void main()
+{
+    int x,y,ch;
+    printf("enter a 1 number:");
+    scanf("%d",&x);
+    
+    printf("enter a 2 number:");
+    scanf("%d",&y);
+   ch=sum(x,y);
+   printf("ans=%d",ch);
+}
+int sum(int a,int b)
+{
+    int c;
+    c=a+b;
+    return c;
+}
+/*
+enter a 1 number:3
+enter a 2 number:7
+ans=10
+*/

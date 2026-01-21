@@ -18,7 +18,7 @@ void add(int num1, int num2)
 ===========================================================================================
 pro.2                                                                                  <<14-1-27>>
 #include<stdio.h>
-void sub(int,int,int); //whit perame ter
+void sub(int,int,int); //whit perameter
 void main()
 {
     
@@ -47,7 +47,7 @@ void sub(int num1,int num2,int)        // iski jgha agar me (int,int,int) likhun
 ======================================================================================================
 pro.3                                                                                  <<14-1-28>>
 #include<stdio.h>
-void sub(int,int); //whit perame ter
+void sub(int,int); //whit perameter
 void main()
 {
     

@@ -1,0 +1,28 @@
+pro.1                                                                               <<20-1-26>>
+
+#include<stdio.h>
+int sum();
+void main()
+{
+    int c,h;
+    printf("this is first number:\n");
+    c=sum();
+    printf("\n ans=%d",c);
+    printf("\n this is secound:\n");
+    h=sum();
+    printf("anss55=%d\n",h);
+    printf("ans3=%d\n",sum());
+    printf("anss55=%d\n",h);
+    printf("ans3=%d\n",sum());
+}
+int sum()
+{
+    int a,b,c;
+    printf("enter a number 1:");
+    scanf("%d",&a);
+    
+    printf("enter a number 2:");
+    scanf("%d",&b);
+    c=a+b;
+    return c;
+}
