@@ -944,4 +944,18 @@ output:  10
 printf("%d",a[3]);
 output:  40
 ----------------------------------------------------------------------------------------------------------
- 
+ there are mainly 2 types of array
+
+(1) single line daimensional array
+(2) multi line daimensional array
+
+-> 1. single line daimensional array
+      1D array
+      e.g.
+      []
+-> 2. multi line daimensional array
+        2D and 3D array
+        e.g.
+        [][]
+        [][][]
+-------------------------------------------------------------------------------------------------------
