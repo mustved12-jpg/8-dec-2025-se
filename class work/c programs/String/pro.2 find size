@@ -1,0 +1,28 @@
+
+                                                                           <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name[]="mustved";
+    printf("%s size is=%d",name,strlen(name));
+}
+/*
+output:
+mustved size is=7
+*/
+-------------------------------------------------------------------------------------------------------------
+                                                                            <<30-01-26>>
+
+                                                                           <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name[]="mustved";
+    printf("%s size is=%d",name,strlen(name));
+}
+/*
+output:
+mustved size is=7
+*/

@@ -1,0 +1,23 @@
+                                       String                                    <<28-01-26>>
+->String is a collection of characters
+
+->in simple language we can say that string which is a one kined of array or we can say taht 
+characters of array
+
+syntax:
+
+char name[size]={};
+ or 
+ char name[6]={'h','e','l','l','o','\0'}
+                                     |
+                                     v
+                                     this is called null character
+agar hum user se name mange ge to scanf("%s",&name); ye likhen ge to phir hum name to mga lenge par agr jese 
+mene mohammed or fir space dunga to scanf bad vale name ko nhin likhe ga is ke liye hum gets ka use kar te hai 
+is me bus gets (name); likh den ge to ye pura line le lega space ke sath bhi 
+
+in bild functions #include<string.h>
+for size -> strlen(array name)
+for concatenation{marjing}->strcat(s1,s2);
+{agr humko secund me je se bas do hi caracter marj karna ho to strncat(s1,s2,2); ese likhenge}
+ 

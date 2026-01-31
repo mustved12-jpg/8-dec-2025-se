@@ -1,0 +1,17 @@
+                                                                          <<30-01-26>>
+#include<stdio.h>
+void main()
+{
+    char name[6]={'h','e','l','l','o','\0'};
+    printf("%s\n",name);
+    //   OR
+    for(int i=0;i<6;i++)
+    {
+        printf("%c",name[i]);
+    }
+}
+/*
+output:
+hello
+hello
+*/

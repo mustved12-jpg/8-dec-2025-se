@@ -1,0 +1,52 @@
+                                                                               <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name1[20];
+    char name2[20];
+    printf("enter a firs name:-");
+    gets(name1);
+    printf("enter a secound name:-");
+    gets(name2);
+    printf("%s",strcat(name1,name2));
+    printf("\n\n%s",name1);
+    
+}
+/*
+out put:
+enter a firs name:-mohammed
+enter a secound name:-mustved
+mohammedmustved
+
+mohammedmustved
+*/
+--------------------------------------------------------------------------------------------------------
+                                                                               <<30-01-26>>
+#include<stdio.h>
+void main()
+{
+    char name1[20];
+    char name2[20];
+    int i,j;
+    printf("enter a firs name:-");
+    gets(name1);
+    printf("enter a secound name:-");
+    gets(name2);
+     for(i=0;name1[i]!='\0';i++);
+     printf("%d\n",i);
+     for(j=0;name2[j]!='\0';j++)
+     {
+         name1[i]=name2[j];
+         i++;
+     }
+     printf("%s",name1);
+    
+}
+/*
+out put:
+enter a firs name:-mohammed
+enter a secound name:-mustved
+8
+mohammedmustved
+*/

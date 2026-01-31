@@ -1,0 +1,59 @@
+                                                                             <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name[20];
+    printf("enter a neme:");
+    scanf("%s",&name);       // agr user se humko bus 4 hi carecter lena ho to num(%4s) likhenge
+    printf("\n%.4s",name);  //(%.4s) likhne se vo bas 4 hi name dikahye ga 
+    printf("\n%s size is=%d",name,strlen(name));
+}
+/*
+out put:
+enter a neme:mustved
+
+must
+mustved size is=7
+*/
+------------------------------------------------------------------------------------------------------------
+                                                                              <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name[20];
+    printf("enter a neme:");
+    gets(name);
+    printf("\n%s size is=%d",name,strlen(name));
+}
+/*
+out put:
+enter a neme:mohammed mustved
+
+mohammed mustved size is=16
+*/
+------------------------------------------------------------------------------------------------------------
+                                                                                <<30-01-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name1[20];
+    char name2[20];
+    printf("enter a firs name:-");
+    gets(name1);
+    printf("enter a secound name:-");
+    gets(name2);
+    printf("\n%s %s \nfirt name size=%d\nseound name size=%d\n",name1,name2,strlen(name1),strlen(name2));
+    
+}
+/*
+out put:
+enter a firs name:-mohammed
+enter a secound name:-mustved
+
+mohammed mustved 
+firt name size=8
+seound name size=7
+*/
