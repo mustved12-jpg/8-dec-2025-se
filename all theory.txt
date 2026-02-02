@@ -980,5 +980,21 @@ is me bus gets (name); likh den ge to ye pura line le lega space ke sath bhi
 in bild functions #include<string.h>
 for size -> strlen(array name)
 for concatenation{marjing}->strcat(s1,s2);
-{agr humko secund me je se bas do hi caracter marj karna ho to strncat(s1,s2,2); ese likhenge}
- 
+          {agr humko secund me je se bas do hi caracter marj karna ho to strncat(s1,s2,2); ese likhenge}
+for copy -> strcpy(s1,s2);
+          {agr humko secund me je se bas do hi caracter copy karna ho to strncpy(s1,s2,2); ese likhenge}
+for compare -> strcmp(s1,s2);
+          {agr humko secund me je se bas do hi caracter compare karna ho to strncmp(s1,s2,2); ese likhenge}
+for reverse -> strrev(s1);
+
+
+whe we want to connvert any character into lowercase there in on method
+to lower()
+
+and to convert any carecter onto uppercase there is one method
+to upper()
+
+but bhoth method are connected with c type header file #include<ctype.h>
+
+for convert to upper case -> strupr(s1);
+for convert to lower case -> strlwr(s1);

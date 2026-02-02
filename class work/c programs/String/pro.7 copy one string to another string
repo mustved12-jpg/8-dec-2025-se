@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char n1[30];
+    char n2[30];
+    printf("enter a name:");
+    gets(n1);
+    printf("\nnormal print n1-> %s",n1);
+     for(int i=0;n1[i]!='\0';i++)
+    {
+        n2[i]=n1[i];
+        
+    }
+    printf("\ncopy n2->> %s",n2);
+}
+/*
+output:
+enter a name:mustved
+
+normal print n1-> mustved
+copy n2->> mustved
+*/
