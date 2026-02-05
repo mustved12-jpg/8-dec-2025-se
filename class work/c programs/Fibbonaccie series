@@ -1,0 +1,32 @@
+5  
+
+0     1     1     2     3
+
+
+first = 0 
+second = 1 
+
+temp = first + second 
+first = second 
+second = temp 
+---------------------------------------------------
+#include<stdio.h>
+void main()
+{
+    int i,j,first=0,second=1,temp;
+    printf("enter a number:");
+    scanf("%d",&j);
+    
+    for(i=0;i<j;i++)
+    { printf("%d",first);
+        temp=first+second;
+       first=second;
+       second=temp;
+       
+        
+    }
+}
+/*Output:
+enter a number:5
+01123
+*/

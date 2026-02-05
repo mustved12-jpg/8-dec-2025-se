@@ -1,0 +1,26 @@
+pro.1                                                                        <<22-11-25>>
+                              printf()
+// this is my first programe in c language.
+#include <stdio.h>
+void main()
+{
+    printf("my first program in c language");
+}
+
+
+output : my first prorame in c languages
+---------------------------------------------------------------------------------------------
+pro.2                                                                        <<22-11-25>>
+//my secon programe in c language.
+#include <stdio.h>
+void main()
+{
+    printf("walcome");   
+    printf("\nto my second");    // me isme  (\n)ka use kar rha hu new line ke liye
+    printf("\nprograming language.");  
+}
+
+output: walcome
+        to my second
+        programing language.
+--------------------------------------------------------------------------------------------------

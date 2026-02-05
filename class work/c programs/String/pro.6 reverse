@@ -15,3 +15,47 @@ output:
 enter a name:abcd
 reverse name:dcba
 */
+===============================================================================================
+                                    without inbuilt
+                                                                            <<03-02-26>>
+PRO.1
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int i,j=0,t,s;
+    char name[100];
+    printf("enter a name:");
+    gets(name);
+    s=strlen(name);
+    printf("\nsize:%d",s);
+    for (i=s-1;i>j;i--)
+    {
+        t=name[i];
+        name[i]=name[j];
+        name[j]=t;
+        j++;
+        
+    }
+    printf("\n%s",name);
+}
+---------------------------------------
+PRO.2                                                                                         <<03-02-26>>
+{isme khali ham ek bar hi reverse karrhe hai }
+#include<stdio.h>
+#include<string.h>
+void main()
+{  int i,s;
+   char name[20];
+   printf("enter a name 1:");
+   scanf("%s",name);
+   s=strlen(name);
+   for(i;i<s;i++)
+   {
+       
+   }
+   for(s;s>=0;s--)
+   {
+       printf("%c",name[s]);
+   }
+}

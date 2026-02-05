@@ -996,5 +996,27 @@ to upper()
 
 but bhoth method are connected with c type header file #include<ctype.h>
 
-for convert to upper case -> strupr(s1);
-for convert to lower case -> strlwr(s1);
+for convert to upper case -> toupper(s1);
+for convert to lower case -> tolower(s1);
+=======================================================================================================================
+                                        Structure
+                                                                               <<05-02-26>>
+->structure is a use difined data type which is contain similar and dis-similar data type eliments
+->structure which is on kide of group which contain dis-similar data type eliments
+
+Array    vs    structure
+
+(1) Array
+->array can contain only similar data eliment in single variable
+(2) structure
+-> structure can contain multiple  eliments of different data type in a single variable
+
+Syntex:
+
+struct<structure name>
+{
+    data type variadble name1;
+    data type variadble name2;
+    data type variadble name3;
+    .....
+};

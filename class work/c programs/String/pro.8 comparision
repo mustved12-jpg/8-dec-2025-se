@@ -1,0 +1,55 @@
+                                     inbuilt
+PRO.1                                                                   <<04-02-26>>
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i;
+	char name1[90];
+	char name2[90];
+	printf("enter a name 1:");
+	gets(name1);
+	printf("enter a name 2:");
+	gets(name2);
+	if(strcmp(name1,name2)=='\0')
+	{
+	    printf("sem name.^-^.");
+	}
+	else
+	{
+	    printf("name is not sem.*_*");
+	}
+     return 0;
+}
+=======================================================================================================
+                                     without inbuilt
+PRO.1                                                                         <<04-02-26>>
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char name1[20];
+    char name2[20];
+    int f=0;
+    printf("enter a name 1:");
+    gets(name1);
+    printf("enter a name 2:");
+    gets(name2);
+    for(int i=0;name1[i]!='\0'||name2[i]!='\0';i++)
+    {
+     if(name1[i]!=name2[i])
+     {
+        f=1;
+        break;
+     }
+     
+    }
+    if(f==0)
+    {
+        printf("sem");
+    }
+    else
+    {
+        printf("not sem");
+    }
+}
