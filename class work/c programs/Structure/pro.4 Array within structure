@@ -1,0 +1,50 @@
+PRO.1                                                                          <<06-02-26>>
+#include<stdio.h>
+#include<string.h>
+struct student 
+{
+	char name[20];
+	int id;
+	float score[3];
+	
+};
+int main()
+{
+	struct student s;
+	
+	printf("enter student name:");
+	gets(s.name);
+	printf("enter student id:");
+	scanf("%d",&s.id);
+	for(int i=0;i<3;i++)
+	{
+		printf("enter %d score ",i+1);
+		scanf("%f",&s.score[i]);
+	}
+	
+	printf("\n====================================\n");
+	
+	printf("\nstudent name is:\"%s\"",s.name);
+	printf("\nstudent id is:\"%d\"",s.id);
+	
+	for(int i=0;i<3;i++)
+	{
+		printf("\nstudent %d score is\"%.2f\"",i+1,s.score[i]);
+	}
+}
+/*
+output:
+enter student name:mustved
+enter student id:3
+enter 1 score 23.2344
+enter 2 score 34.535
+enter 3 score 65.68547634
+
+====================================
+
+student name is:"mustved"
+student id is:"3"
+student 1 score is"23.23"
+student 2 score is"34.53"
+student 3 score is"65.69"
+*/

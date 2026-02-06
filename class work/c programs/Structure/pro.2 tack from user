@@ -1,0 +1,37 @@
+PRO.1                                                                          <<06-02-26>>
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	char name[20];
+	int id;
+	double score;
+	
+};
+int main()
+{
+	struct student s;
+	
+	printf("enter student name:");
+	gets(s.name);
+	printf("enter student id:");
+	scanf("%d",&s.id);
+	printf("enter student score:");
+	scanf("%lf",&s.score);
+	
+	
+	printf("\nname is:\"%s\"",s.name);
+	printf("\nid is:\"%d\"",s.id);
+	printf("\nscore:\"%.2lf\"",s.score);
+	return 0;
+}
+/*
+output:
+nter student name:mustved
+enter student id:3
+enter student score:70.324
+
+name is:"mustved"
+id is:"3"
+score:"70.32"
+*/

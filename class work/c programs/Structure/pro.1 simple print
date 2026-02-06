@@ -1,0 +1,55 @@
+PRO.1                                                                           <<06-02-26>>
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	char name[20];
+	int id;
+	float marks;
+};
+int main()
+{
+	struct student s;
+	strcpy(s.name,"mustved");// ye direct nhi aye ga (s.name="mustved";)ye rong hai
+	s.id=3;               
+	s.marks=76.34;
+	printf("student name is:%s",s.name);
+	printf("\nroll number:%d",s.id);
+	printf("\nmarks:%.2f",s.marks);
+	
+}
+/*
+output:
+student name is:mustved
+roll number:3
+marks:76.34
+*/
+-----------------------------------------------------------------------------------------------
+PRO.2                                                                           <<06-02-26>>
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+	char name[20];
+	int id;
+	float marks;
+};
+int main()
+{
+	struct student s={"mustved",3,76.34};
+//isme sab line se hona chahiye agar first char he to name hi pehle likho dusra int hai to number without point like thet.
+	
+	printf("student name is:%s",s.name);
+	printf("\nroll number:%d",s.id);
+	printf("\nmarks:%.2f",s.marks);
+	
+}
+/*
+output:
+student name is:mustved
+roll number:3
+marks:76.34
+*/
+-----------------------------------------------------------------------------------------------
+
+
