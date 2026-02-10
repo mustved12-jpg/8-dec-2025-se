@@ -1,0 +1,35 @@
+PRO.1                                                                          <<10-02-26>>
+#include<stdio.h>
+struct Std
+{
+    int id;
+    char name[20];
+};
+void main()
+{
+    struct Std s;
+    struct Std *p=&s;
+    printf("enter a id:");
+    scanf("%d",&p->id);
+    getchar();
+    printf("\nenter a name:");
+    gets(p->name);
+    
+    printf("\n\n=================");
+    printf("\n\nid=%d",p->id);
+    printf("\nname=%s",p->name);
+    
+}
+/*
+output:
+enter a id:3
+
+enter a name:juned
+
+
+=================
+
+id=3
+name=juned
+
+*/

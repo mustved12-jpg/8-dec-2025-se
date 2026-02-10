@@ -913,7 +913,79 @@ returntype funnum(parameter,parameter)
   {
     retunr value;
   }
+=========================================================================================================
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Actual perameter and formal peramet
 
+->formal perameter pass in function defination time
+->actual pearmeter pass at function calling time
+  e.g
+  void sum(int a,int b) //formal perameter
+  {
+    int ans;
+    ans=a+b;
+  }
+  void main()
+  {
+    int a=10,b=20;
+    sum(a,b);  //actual perameter
+  }
+=========================================================================================================
+ -> call by value:callby value is a most powerfull concept of function and pointer topic
+  it dose not change actual parameter if we appply any cahnge in formal perameter in call
+  value we just passing copy of value not actual perameter
+  {matlab hum agr forml perameter(user difien) me chan kare or vo actule perameter me farak na pade uko hum call by value bolenge}
+
+  e.g
+  void swipe(int a,int b)//formal perameter
+  {
+    int ans;
+          ans=a;
+          a=b;
+          b=ans;
+  }
+  void main()
+  {
+    int a=10,b=20;//actual perameter
+    printf("\nbefor change");
+    printf("\na=%d and b=%d",a,b);
+    swipe(a,b);//call by value
+    printf("\nafter change");
+    printf("\na=%d and b=%d",a,b);
+  }
+  output:
+  befor change
+  a=10 and b=20
+  after change
+  a=10 and b=20
+------------------------------------------------------------------------------
+->call by reference:when we pass actual perameter in function calling time and apply changes in formal 
+perameter it direct affect actual perameter
+
+because inside of pussing copy of value here we are passing adress of actual perameters.
+
+e.g
+  void swipe(int *a,int *b)  formal perameter
+  {
+    int ans;
+          ans=*a;
+          *a=*b;
+          *b=ans;
+  }
+  void main()
+  {
+    int a=10,b=20;//actual perameter
+    printf("\nbefor change");
+    printf("\na=%d and b=%d",a,b);
+    swipe(&a,&b);//call by reference
+    printf("\nafter change");
+    printf("\na=%d and b=%d",a,b);
+  }
+  output:
+  befor change
+  a=10 and b=20
+  after change
+  a=20 and b=10
 ---------------------------------------------------------------------------------------------------------
                                                     Array
                                                                                         <<19-1-26>> 
@@ -1020,3 +1092,58 @@ struct<structure name>
     data type variadble name3;
     .....
 };
+------------------------------------------------------
+                               Nested structure
+                                                                               <<09-02-26>>
+-> structure can be declare inside another structure is called nested structure
+->too way to declare nested structure
+(1) declare nested structure inside the main structure
+(2) declare nested structure outside the main structure
+
+(1) declare nested structure inside the main structure
+struct student
+{
+    int rollno;
+    char name[20];
+    struct address
+    {
+        char city[20];
+        char state[20];
+    }inner object;
+}outer object;
+
+(2) declare nested structure outside the main structure
+struct address
+{
+    char city[20];
+    char state[20];
+};
+struct student
+{
+    int rollno;
+    char name[20];
+    struct address add;
+};
+========================================================================
+                                    Pointer
+                                                                               <<08-02-26>>
+pointer is a variable which contain another variable memory addres.
+
+e.g.
+ A:
+
+ 101   201
+ 102   202
+ 103   203
+ --------------------------------------------
+ in c language whenever we creat any new variable it assign a specific memory
+
+ int a=10;
+  
+           -------------------
+        a= 10           (value)
+           -------------------
+           101          (addres)
+---------------------------------------------- 
+          * =value find
+          & =addres find

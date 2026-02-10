@@ -1,0 +1,99 @@
+#include<stdio.h>
+struct address      //isko uper likhna hoga
+{
+    char city[20];
+    int pincode;
+    
+};                   //add hum yha bhi likh sakte hai  
+struct student
+{
+    int id;
+    char name[20];
+   struct address add; 
+};
+struct employe
+{
+    int id;
+    char emp_name[20];
+    struct address add;
+};
+void main()
+{
+    struct student s;
+    struct employe e;
+    printf("\n\t\t:::ENTERE STUDENT DETAILS:::\n");
+    
+    printf("\nenter student id:");
+    scanf("%d",&s.id);
+    getchar();
+    printf("\nenter student name:");
+    gets(s.name);
+    printf("\nenter city name:");
+    gets(s.add.city);
+    printf("\nenter pincode:");
+    scanf("%d",&s.add.pincode);
+    
+      printf("\n\t\t:::ENTERE employ DETAILS:::\n");
+    
+    printf("\nenter employ id:");
+    scanf("%d",&e.id);
+    getchar();
+    printf("\nenter student name:");
+    gets(e.emp_name);
+    printf("\nenter city name:");
+    gets(e.add.city);
+    printf("\nenter pincode:");
+    scanf("%d",&e.add.pincode);
+    
+    printf("\n\n========================\n");
+    
+    printf("\nstudent id:%d",s.id);
+    printf("\nstudent name:%s",s.name);
+    printf("\ncity name is:%s",s.add.city);
+    printf("\npincode is:%d",s.add.pincode);
+    
+    printf("\n----------------------------\n");
+    
+     printf("\nemploy id:%d",e.id);
+    printf("\nemploy name:%s",e.emp_name);
+    printf("\ncity name is:%s",e.add.city);
+    printf("\npincode is:%d",e.add.pincode);
+    
+}
+/*
+out put:
+
+		:::ENTERE STUDENT DETAILS:::
+
+enter student id:2
+
+enter student name:mustved
+
+enter city name:ahmedabad
+
+enter pincode:30800434
+
+		:::ENTERE employ DETAILS:::
+
+enter employ id:23
+
+enter student name:pppp
+
+enter city name:ahmedabad
+
+enter pincode:3800087
+
+
+========================
+
+student id:2
+student name:mustved
+city name is:ahmedabad
+pincode is:380043
+----------------------------
+
+employ id:23
+employ name:pppp
+city name is:ahmedabad
+pincode is:3800087
+*/

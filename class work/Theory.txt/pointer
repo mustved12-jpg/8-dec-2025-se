@@ -1,0 +1,22 @@
+                                    Pointer
+                                                                               <<08-02-26>>
+pointer is a variable which contain another variable memory addres.
+
+e.g.
+ A:
+
+ 101   201
+ 102   202
+ 103   203
+ --------------------------------------------
+ in c language whenever we creat any new variable it assign a specific memory
+
+ int a=10;
+  
+           -------------------
+        a= 10           (value)
+           -------------------
+           101          (addres)
+---------------------------------------------- 
+          * =value find
+          & =addres find

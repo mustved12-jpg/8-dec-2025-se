@@ -1,0 +1,59 @@
+                            call by value
+PRO.1                                                                          <<10-02-26>>
+#include<stdio.h>
+void swipe(int a,int b)//foraml perameter
+{
+	int t;
+	t=a;
+	a=b;
+	b=t;
+	 
+}
+
+main()
+{
+	int a=10,b=20;
+	
+	printf("befor change:");
+	printf("\na=%d and b=%d",a,b);
+	
+	swipe(a,b);//call by value (actule pearmeter)
+	
+	printf("\nafter change:");
+	printf("\na=%d and a=%d",a,b);
+}
+/*output:
+befor change:
+a=10 and b=20
+after change:
+a=10 and a=20
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                    call by reference
+PRO.1                                                                          <<10-02-26>>
+#include<stdio.h>
+void swipe(int *a,int *b)//formal perameter
+{
+	int t;
+	      t=*a;
+	      *a=*b;
+	      *b=t;
+}
+main()
+{
+	int a=10,b=20;
+	printf("befor change:");
+	printf("\na=%d and b=%d",a,b);
+	
+	swipe(&a,&b);//call by reference (actuale parameter)
+	
+	printf("\nafter change:");
+	printf("\na=%d and b=%d",a,b);
+	
+}
+/*output:
+befor change:
+a=10 and b=20
+after change:
+a=20 and b=10
+*/

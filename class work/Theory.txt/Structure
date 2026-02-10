@@ -19,3 +19,35 @@ struct<structure name>
     data type variadble name3;
     .....
 };
+--------------------------------------
+                                Nested structure
+                                                                               <<09-02-26>>
+-> structure can be declare inside another structure is called nested structure
+->too way to declare nested structure
+(1) declare nested structure inside the main structure
+(2) declare nested structure outside the main structure
+
+(1) declare nested structure inside the main structure
+struct student
+{
+    int rollno;
+    char name[20];
+    struct address
+    {
+        char city[20];
+        char state[20];
+    }inner object;
+}outer object;
+
+(2) declare nested structure outside the main structure
+struct address
+{
+    char city[20];
+    char state[20];
+};
+struct student
+{
+    int rollno;
+    char name[20];
+    struct address add;
+};

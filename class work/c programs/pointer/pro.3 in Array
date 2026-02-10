@@ -1,0 +1,82 @@
+                             pointer in Array
+PRO.1                                                                          <<10-02-26>>
+#include<stdio.h>
+main()
+{
+	int a[5]={35,42,76,52,98};
+	int *p;
+	printf("simple print\n");
+	for(int i=0;i<5;i++)
+	{
+		printf("\n%d",a[i]);
+	}
+	
+	printf("\n\npointer print\n");
+	
+	p=a;
+	
+	for(int i=0;i<5;i++)
+	{
+		printf("\n%d",*(p+i));
+	}
+	
+}
+/*output:
+simple print
+
+35
+42
+76
+52
+98
+
+pointer print
+
+35
+42
+76
+52
+98
+*/
+---------------------------------------------------------------------
+PRO.2                             sum of aarry                                 <<10-02-26>>
+#include<stdio.h>
+ void main()
+{
+	int a[5]={35,42,76,52,92};
+	int *p;
+	int sum=0;
+	p=a;
+	for(int i=0;i<5;i++)
+	{
+		sum+=*(p+i);
+	}
+	printf("sum=%d",sum);
+}
+/*
+out put:
+sum=297
+*/
+------------------------------------------------------------------
+PRO.3                     max number                                           <<10-02-26>>
+#include<stdio.h>
+void main()
+{
+	int a[5]={35,42,76,52,92};
+	int *p,max;
+	p=a;
+	max=*p;
+	for(int i=1;i<5;i++)
+	{
+		if(max<*(p+i))
+		{
+			max=*(p+i);
+		}
+	}
+	printf("%d",max);
+	
+}
+/*
+output:92
+*/
+-------------------------------------------------------------------------

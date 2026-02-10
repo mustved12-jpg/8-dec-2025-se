@@ -48,3 +48,111 @@ student 1 score is"23.23"
 student 2 score is"34.53"
 student 3 score is"65.69"
 */
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+PRO.2                                                                          <<06-02-26>>
+#include<stdio.h>
+struct Student
+{
+	int id;
+	char name[20];
+	float mark[2];
+}s[3];
+main()
+{
+	char sub[2][20];
+	for(int i=0;i<3;i++)
+	{
+		printf("\nenter a %d student ID:",i+1);
+		scanf("%d",&s[i].id);
+		getchar();
+		printf("\nenter a %d student name:",i+1);
+		gets(s[i].name);
+		if(i==0)
+		{
+			for(int j=0;j<2;j++)
+			{
+				printf("\nenter a %d subject:",j+1);
+				gets(sub[j]);
+				
+				printf("\nenter a %s marks:",sub[j]);
+				scanf("%f",&s[i].mark[j]);
+				getchar();
+			}
+		}
+		else if(i!=0)
+		{
+			for(int j=0;j<2;j++)
+			{
+				printf("\nenter a %s marks:",sub[j]);
+				scanf("%f",&s[i].mark[j]);
+				getchar();
+			}
+		}
+	}
+	printf("\n========================================\n");
+	printf("\n:::STUDENT DETAILS:::\n");
+	for(int i=0;i<3;i++)
+	{
+		printf("\n%s id=%d\n",s[i].name,s[i].id);
+			for (int j=0;j<2;j++)
+			{
+				printf("%s mark=%.2f\n",sub[j],s[i].mark[j]);
+			}
+			printf("\n\n--------------------------------\n");
+	}
+}
+/*out put:
+
+enter a 1 student ID:3
+
+enter a 1 student name:mustved
+
+enter a 1 subject:python
+
+enter a python marks:76.5467
+
+enter a 2 subject:java
+
+enter a java marks:89.34567
+
+enter a 2 student ID:5
+
+enter a 2 student name:(mustved)
+
+enter a python marks:76.45678
+
+enter a java marks:89.7
+
+enter a 3 student ID:6
+
+enter a 3 student name:<mustved>
+
+enter a python marks:67.576
+
+enter a java marks:43
+
+========================================
+
+:::STUDENT DETAILS:::
+
+mustved id=3
+python mark=76.55
+java mark=89.35
+
+
+--------------------------------
+
+(mustved) id=5
+python mark=76.46
+java mark=89.70
+
+
+--------------------------------
+
+<mustved> id=6
+python mark=67.58
+java mark=43.00
+
+
+--------------------------------
+*/
