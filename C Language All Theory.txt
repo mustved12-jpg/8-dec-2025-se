@@ -1147,3 +1147,46 @@ e.g.
 ---------------------------------------------- 
           * =value find
           & =addres find
+===================================================================================================
+                                   :FILE HANDLING:
+                                                                               <<11-02-26>>
+->when we creat any variable it store memory in temporary format wen we close program it 
+  destroy memory.
+->memory place area is ram not a hardisk
+        a=10;
+
+->but after some time if i want to access it so,that time we have to store values or
+  memory in hardisk area.
+
+  e.g.:Zoom application-chat
+      ,whatsupe-chat
+
+FILE HANDLING:to store variable's value in specific file and to open this kind fileand close file
+
+->ther are 2 type:
+(1)text file
+(2)binery file
+
+note: file handling which is connected with memory location so it require address so that we use
+file pointer concept
+
+int a=10;
+char name[20];
+
+FILE *fp; hear file retrive from <stdio.h> header file
+
+fopen();to open specific file
+syntex:-   fopen("file name","mode")
+fclose; to close specific file
+syntex:  fclose(fp);
+
+fprintf(); to write somthing in file
+fscanf(); to read form file
+-------------
+r: read mode
+w: write mode
+a: append mode
+EOF: end of file it's indicate that your file is end now
+(like one type '\0')
+
+fgetc(fp): this method accept single single character from file

@@ -1,0 +1,32 @@
+PRO.1                                                                          <<11-02-26>>
+#include<stdio.h>
+main()
+{
+	FILE *fp;
+	fp=fopen("my file.txt","w");
+	fprintf(fp,"hello this is my first file programe");
+	fclose(fp);
+}
+/*in file:
+hello this is my first file programe
+*/
+---------------------------
+PRO.2                                                                          <<11-02-26>>
+#include<stdio.h>
+main()
+{
+	FILE *fp;
+	fp=fopen("my file.1.txt","w");
+	fprintf(fp,"mustved C Language developer\n");
+	fprintf(fp,"score:76\n");
+    printf("success fully file created");
+	fclose(fp);
+	
+}
+/* in file:
+mustved C Language developer
+score:76
+
+in output screen:
+success fully file created
+*/

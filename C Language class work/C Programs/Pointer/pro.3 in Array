@@ -1,0 +1,140 @@
+                             pointer in Array
+PRO.1                                                                          <<10-02-26>>
+#include<stdio.h>
+main()
+{
+	int a[5]={35,42,76,52,98};
+	int *p;
+	printf("simple print\n");
+	for(int i=0;i<5;i++)
+	{
+		printf("\n%d",a[i]);
+	}
+	
+	printf("\n\npointer print\n");
+	
+	p=a;
+	
+	for(int i=0;i<5;i++)
+	{
+		printf("\n%d",*(p+i));
+	}
+	
+}
+/*output:
+simple print
+
+35
+42
+76
+52
+98
+
+pointer print
+
+35
+42
+76
+52
+98
+*/
+----------------------------------------------------------
+PRO.2                                                                          <<10-02-26>>
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+#include<ctype.h>
+int main()
+{
+	int a[5];
+	int *p;
+	
+	for(int i=0;i<5;i++)
+	{
+		p=&a[i];
+		printf("\nenter array %d eliment:",i);
+		scanf("%d",&a[i]);
+		printf("address:%d\n",p);
+	}
+}
+&&&&&&&&&&&&&&&&&&&&&&&&&&<<   OR  >>&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+#include<ctype.h>
+int main()
+{
+	int a[5];
+	int *p;
+	p=a;
+	for(int i=0;i<5;i++)
+	{
+		printf("\nenter array %d eliment:",i);
+		scanf("%d",&*(p+i));
+		printf("address:%d\n",&a[i]);
+	}
+	
+	for(int i=0;i<5;i++)
+	{
+		printf("\nenter array %d eliment:%d",i,*(p+i));
+	}
+}
+/*output:
+enter array 0 eliment:67
+address:6487536
+
+enter array 1 eliment:56
+address:6487540
+
+enter array 2 eliment:89
+address:6487544
+
+enter array 3 eliment:6
+address:6487548
+
+enter array 4 eliment:23
+address:6487552
+*/
+
+---------------------------------------------------------------------
+PRO.3                             sum of aarry                                 <<10-02-26>>
+#include<stdio.h>
+ void main()
+{
+	int a[5]={35,42,76,52,92};
+	int *p;
+	int sum=0;
+	p=a;
+	for(int i=0;i<5;i++)
+	{
+		sum+=*(p+i);
+	}
+	printf("sum=%d",sum);
+}
+/*
+out put:
+sum=297
+*/
+------------------------------------------------------------------
+PRO.4                     max number                                           <<10-02-26>>
+#include<stdio.h>
+void main()
+{
+	int a[5]={35,42,76,52,92};
+	int *p,max;
+	p=a;
+	max=*p;
+	for(int i=1;i<5;i++)
+	{
+		if(max<*(p+i))
+		{
+			max=*(p+i);
+		}
+	}
+	printf("%d",max);
+	
+}
+/*
+output:92
+*/
+-------------------------------------------------------------------------

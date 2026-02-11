@@ -1,0 +1,27 @@
+PRO.1                                                                          <<11-02-26>>
+#include<stdio.h>
+main()
+{
+	FILE *fp;
+	fp=fopen("my file.1.txt","a");
+	if(fp==NULL)
+	{
+		printf("file not found!!");
+		return 0;
+	}
+	fprintf(fp,"juned C Language developer\n");
+	fprintf(fp,"score:88\n");
+	printf("success fully file add");
+	fclose(fp);
+	
+}
+/* in file:
+mustved C Language developer
+score:76
+boss C Language developer
+score:88
+
+in output scren:
+success fully file add
+*/
+

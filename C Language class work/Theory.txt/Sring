@@ -21,6 +21,7 @@ for size -> strlen(array name)
 for concatenation{marjing}->strcat(s1,s2);
           {agr humko secund me je se bas do hi caracter marj karna ho to strncat(s1,s2,2); ese likhenge}
 for copy -> strcpy(s1,s2);
+          {khali isme jume copy karna ho vo age ayega}
           {agr humko secund me je se bas do hi caracter copy karna ho to strncpy(s1,s2,2); ese likhenge}
 for compare -> strcmp(s1,s2);
           {agr humko secund me je se bas do hi caracter compare karna ho to strncmp(s1,s2,2); ese likhenge}

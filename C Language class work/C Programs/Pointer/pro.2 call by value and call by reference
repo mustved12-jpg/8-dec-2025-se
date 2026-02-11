@@ -57,3 +57,26 @@ a=10 and b=20
 after change:
 a=20 and b=10
 */
+--------------------------------------
+PRO.2                                                                          <<10-02-26>>
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+#include<ctype.h>
+int sum(int *a,int *b)
+{
+	int c;
+	*a+=*b;	
+	*b=80;
+}
+int main()
+{
+	int a=10,b=20;
+	printf("\na=%d and b=%d",a,b);
+	sum(&a,&b);//calle by reference
+	printf("\na=%d and b=%d",a,b);
+}
+/*outout:
+a=10 and b=20
+a=30 and b=80
+*/
