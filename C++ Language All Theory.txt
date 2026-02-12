@@ -1,0 +1,79 @@
+                                                                               <<14-02-26>>
+What is C++ ?
+->c++ is an extend varsion of c language
+-> C language +1
+->c+1
+its showing postfix increment
+-----------------------------------------
+pop        vs      oop
+
+(1)pop
+-> praceduare oriented programing language
+   wich is mainly focus on functions our all programs divid in chunks of functions
+
+(2)oop
+->object oriented programing language
+  everythings depends on object
+---------------------------
+C++:
+
+->C++ is an object oriented programing language it was developed by ((bajarne stroustrup)) at AT & Bell Lab in 1983.
+
+->simula was the first object oriented programing language it was developed during 1960s by kristen nygaard and old dhal
+
+->stroustrup had initially given the name "C with classes" to C++ in 1989, the name was changed to C++.
+
+->C++ can be used to write procedural as well as object oriented that's why C++ is also called a hybride language.
+-----------------------------
+
+::object based and object oriented language::
+
+->the language which supports the class and object but does not support the inheritance and
+polymorphism is called object based language
+
+->the object-oriented language supports all the features such as class,object,inheritance,
+polymorphism,etc.
+
+(1)<oop>object oriented programs              |   (2)<pop>procedure orianted programs
+_____________________________________________ | ___________________________________________
+-> data is secured                            |-> data is not securd
+                                              |
+->data and functions are combined together    |-> data an function are not cobined together
+                                              |
+->all features of pop may be present in oop   |->it dose not supports the features of oop
+                                              |
+->we can define an abstract data type which   |->we cannot define an abstract data type
+describes all objects of a class              |
+                                              |
+->object communication with each other by     |->many functions can access the same data
+messge passing                                |
+                                              |
+->the ffollows the bottom-up dessign concept  |->it follows the top-down design concept
+___________________________________________________________________________________________
+
+(Advantage of oops)
+-> secarity:The data and functions are combined thogether and the data can be made hidden from the outside world so that security of data increses.
+
+->reusability:new objects can be created with small modification to the existing once becouse inheritance provides the fucility of reusability
+
+->due to the modification, oop concept is good for development
+
+->object oriented language provide good quality of softwere, increase in productivity and less maintenanc.
+
+(Disadvantages of oops)
+-> the messge-based communication between many objects in a complex system in difficult to trace and debug
+
+->it requires more memory than the traditional programing language
+
+->the reusability of code is not always possible
+
+(Similarities in C and C++)
+->C++ is a superset of C it contains the syntax and features of C language
+
+->mast of the basic syntax of C++ is similar to that of except some rules and constructions of its own
+
+->it contains the same control statements the same scope and storeage calass reules even the arithmatic,logical,bitwise operators and the data tpe
+
+->both the language start with the main() function;
+
+
