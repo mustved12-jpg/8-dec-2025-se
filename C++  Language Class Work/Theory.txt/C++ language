@@ -76,4 +76,8 @@ ________________________________________________________________________________
 
 ->both the language start with the main() function;
 
+>>:extraction operator
+<<:insertion operator
 
+endl;: mainly use for new line and flush memory
+\n: for new line but faster the endl;

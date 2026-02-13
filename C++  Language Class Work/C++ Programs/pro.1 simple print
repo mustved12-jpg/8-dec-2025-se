@@ -1,0 +1,47 @@
+PRO.1                                                                          <<13-02-26>>
+#include<iostream>
+int main()
+{
+	std::cout<<"Hello This is my first c++ programe.";
+}
+-------------------------------------------------------------------------------------------
+PRO.2                                                                          <<13-02-26>>
+#include<iostream>
+using namespace std;
+int main()
+{
+	cout<<"Hello This is my first c++ programe."<<endl;
+}
+-------------------------------------------------------------------------------------------
+PRO.3                                                                          <<13-02-26>>
+#include<iostream>
+using namespace std;
+main()
+{
+	int a;
+	cout<<"enter a number";
+	cin>>a;
+	cout<<"number is="<<a<<endl;
+}
+/* output:
+enter a number5
+number is=5
+*/
+-------------------------------------------------------------------------------------------
+PRO.4                                                                          <<13-02-26>>
+#include<iostream>
+using namespace std;
+main()
+{
+	int a,b,c;
+	
+	cout<<"enter a 1 number:";
+	cin>>a;
+	cout<<"enter a 2 number:";
+	cin>>b;
+	c=a+b;
+	cout<<a<<"+"<<b<<"="<<c<<endl;
+	cout<<"a="<<a<<endl<<"b="<<b<<endl<<"c="<<c<<endl;
+	
+}
+

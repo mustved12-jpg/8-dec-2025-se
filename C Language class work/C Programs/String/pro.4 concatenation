@@ -35,8 +35,11 @@ void main()
     gets(name1);
     printf("enter a secound name:-");
     gets(name2);
+
      for(i=0;name1[i]!='\0';i++);
+
      printf("%d\n",i);
+     
      for(j=0;name2[j]!='\0';j++)
      {
          name1[i]=name2[j];

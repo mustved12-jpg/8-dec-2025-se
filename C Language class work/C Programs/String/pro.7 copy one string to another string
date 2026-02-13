@@ -21,3 +21,14 @@ enter a name:mustved
 normal print n1-> mustved
 copy n2->> mustved
 */
+==============================================================================================
+                                         inbuilt                               
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char name[20]="mustved";
+	char copy[20];
+	strcpy(copy,name);
+	printf("%s",copy);
+}

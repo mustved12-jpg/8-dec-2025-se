@@ -1,5 +1,5 @@
 
-                                                                           <<30-01-26>>
+                                inbuilt                                        <<30-01-26>>
 #include<stdio.h>
 #include<string.h>
 void main()
@@ -12,17 +12,18 @@ output:
 mustved size is=7
 */
 -------------------------------------------------------------------------------------------------------------
-                                                                            <<30-01-26>>
-
-                                                                           <<30-01-26>>
+                                                                               <<30-01-26>>
+                               without inbuilt
 #include<stdio.h>
-#include<string.h>
-void main()
+int main()
 {
-    char name[]="mustved";
-    printf("%s size is=%d",name,strlen(name));
+	int i,s=0;
+	char a[20];/ agrr name 20 se jyada huva to garbeg ayega.
+	printf("enter a name:");
+	gets(a);
+	for(i=0;a[i]!='\0';i++)
+	{
+		s++;
+	}
+	printf("\nsize=%d",s);
 }
-/*
-output:
-mustved size is=7
-*/

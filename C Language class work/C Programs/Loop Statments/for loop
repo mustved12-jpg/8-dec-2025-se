@@ -1,4 +1,4 @@
-// first loop                                                                 <3-1-2026>
+// first loop                                                                  <<3-1-2026>>
                                         (int)
 #include<stdio.h>
 void main()
@@ -46,7 +46,7 @@ int main()
              */
 
 ------------------------------------------------------------------------------------------------------
-                                                                                <3-1-2026>
+                                                                               <<3-1-2026>>
 #include<stdio.h>
 void main()
 {
@@ -63,7 +63,7 @@ void main()
               19 
               */
 ---------------------------------------------------------------------------------------------------------
-                                                                                    <3-1-2026>
+                                                                               <<3-1-2026>>
 
 // user se end number or start number lena hai
 
@@ -93,7 +93,7 @@ void main()
                          7 
                          */
 ---------------------------------------------------------------------------------
-                                                                                  <3-1-2026>
+                                                                            <<3-1-2026>>
 
 // loop ke ander user se number lena hai 
 
@@ -205,14 +205,12 @@ void main()
 int main()
 {
 
-    int a,f=1,i,b;
+    int f=1,i,b;
     printf("enter a (b) number:");
     scanf("%d",&b);
-    printf("enter a number:");
-    scanf("%d",&a);
     for(i=1;i<=b;i++)
     {
-        f*=a;
+        f*=b;
         
         printf("%d\n",f);
     }
