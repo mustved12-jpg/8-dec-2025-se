@@ -1,0 +1,164 @@
+PRO.1                                                                          <<16-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int id;
+		string name;
+		
+		Student()
+		{
+			cout<<":::HELLO:::";
+			id=10;
+			name="mustved";
+		}
+		void dis()
+		{
+			cout<<"\nid="<<id<<"\nname="<<name;
+		}
+};
+main()
+{
+	Student s1;
+	s1.dis();
+}
+/*output:
+:::HELLO:::
+id=10
+name=mustved
+*/
+-------------------------------------------------------------------------------------------
+PRO.2                                                                          <<16-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int id;
+		string name;
+		
+		Student()
+		{
+			cout<<":::HELLO:::";
+			id=10;
+			name="mustved";
+		}
+		void dis()
+		{
+			cout<<"\nid="<<id<<"\nname="<<name;
+		}
+};
+main()
+{
+	Student s1;//agar humko ye dubara print karana ho to Student s2 ya s1 ke alava kusch or likhana hoga.
+	Student s2;
+	s1.dis();
+	s2.dis();
+}
+/*output:
+:::HELLO::::::HELLO:::
+id=10
+name=mustved
+id=10
+name=mustved
+*/
+----------------------------------
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int id;
+		string name;
+		
+		Student()
+		{
+			cout<<"\n:::HELLO:::";
+			id=10;
+			name="mustved";
+		}
+		void dis()
+		{
+			cout<<"\nid="<<id<<"\nname="<<name;
+		}
+};
+main()
+{
+	Student s1;//agar humko ye dubara print karana ho to Student s2 ya s1 ke alava kusch or likhana hoga.
+	
+	s1.dis();
+	Student s2;
+	s2.dis();
+}
+/*output:
+:::HELLO:::
+id=10
+name=mustved
+:::HELLO:::
+id=10
+name=mustved
+*/
+-------------------------------------------------------------------------------------------
+PRO.3                             <0>_<0>                                      <<16-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int id;
+		string name;
+		
+		Student()
+		{
+			cout<<"\n:::HELLO:::";
+			id=10;
+			name="mustved";
+		}
+		void in()
+		{
+			cout<<"\nenter a ID :";
+			cin>>id;
+			cout<<"\nenter a name :";
+			cin>>name;
+		}
+		void dis()
+		{
+			cout<<"\nid="<<id<<"\nname="<<name<<endl;
+		}
+};
+main()
+{
+	Student s1;//agar humko ye dubara print karana ho to Student s2 ya s1 ke alava kusch or likhana hoga.
+	s1.in();
+	s1.dis();
+	
+	Student s2;
+	s2.in();
+	s2.dis();
+	//user se hum jo bhi le rahr hai vo s1 or s2 kar ke le rhe hai
+	
+	Student s3;//isme ye Sudent() vale constructor me jayega agr hamne vaha valu di higi to vhi ayegi varna 0 or null
+	s3.dis();
+}
+/* OUTPUT:
+:::HELLO:::
+enter a ID :3
+
+enter a name :AAAAA
+
+id=3
+name=AAAAA
+
+:::HELLO:::
+enter a ID :8
+
+enter a name :BBBBB
+
+id=8
+name=BBBBB
+
+:::HELLO:::
+id=10
+name=mustved                                     <<<<<(^)_(^)>>>>>
+*/

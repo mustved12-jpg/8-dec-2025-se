@@ -1,0 +1,64 @@
+                                            OOPS                               <<16-02-26>>
+opps: object oriented programing
+
+CLASS:
+->class is a collection of different different data members
+
+->class is a collection of elements
+->class is a user difined data type
+
+syntax:
+class <class name>
+{
+    public:
+    data members;
+    members function();
+};
+----------------------------
+OBJECT:
+->object is a instance of class or we can say thet object is a variable of class
+
+->using of object we can access properties of class
+
+syntex:
+classname object=classname();
+------------------------------
+Constructor:
+-> constructor is a most powefull concept of C++ constructor is a special member function
+<or we can say that constructor is a special method>
+
+->witch is invoke automatically whnever we creat object of class
+
+-> it's usally work for initilization of member
+
+NOTE: Constructor does not have any return type and constructor always declare in publice
+mode.
+
+->constructor name and class name sude be same we can't take different name.
+
+syntax:
+class <class name>
+{
+    public:  
+    data members
+
+    constructor:
+    {
+        body of constructor
+    }
+}
+-------------------------------
+ther are 3 type of constructor
+
+1)  defualt constructor
+2)  parameterized constructor
+3)  copy constructor
+
+1) defualt constructor
+
+-> dose not  contain any parameter when we want display or do some static value we can use 
+defualt constructor.
+
+2) parameterized constructor
+
+-> when we pass parameter at object crreation time it's called parameterized constructor

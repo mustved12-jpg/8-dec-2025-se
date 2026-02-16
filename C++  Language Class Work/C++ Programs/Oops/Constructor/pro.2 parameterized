@@ -1,0 +1,32 @@
+PRO.1                                                                          <<16-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int id;
+		string name;
+		
+		Student(int a,string n)
+		{
+			id=a;
+			name=n;
+		}
+		
+		void dis()
+		{
+			cout<<"ID = "<<id<<"\nNAME = "<<name<<endl;
+		}
+};
+main()
+{
+	int a=35;
+	string sn="<<mustved>>";
+	Student s1(a,sn);
+	s1.dis();
+}
+/*
+output:
+ID = 35
+NAME = <<mustved>>
+*/
