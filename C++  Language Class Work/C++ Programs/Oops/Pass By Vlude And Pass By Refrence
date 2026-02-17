@@ -1,0 +1,80 @@
+                                PASS BY VALUE:
+PRO.1                                                                          <<17-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int a;
+		
+		void di(Student s)
+		{
+			s.a=200;
+		}
+};
+main()
+{
+	Student s1;
+	s1.a=10;
+	s1.di(s1);
+	cout<<"\n after change a="<<s1.a;
+}
+/*
+output:
+after change a=10
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                     PASS BY REFRENCE:
+PRO.1                                                                          <<17-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int a;
+		
+		void di(Student &s)  //pass by refrence
+//isme agar hum s.a=200 iske bade bina (&)iske hum bus this->a=s.a bhi likhenge to bhi hoga
+        {
+			s.a=200;
+		}
+};
+main()
+{
+	Student s1;
+	s1.a=10;
+	s1.di(s1);
+	cout<<"\n after change a="<<s1.a;
+}
+/*
+output:
+after change a=200
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                      PASS BY ADDRESS:
+PRO.1                                                                          <<17-02-26>>
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int a;
+		
+		void di(Student *s)  //pass by address
+		{
+			s->a=200;
+		}
+};
+main()
+{
+	Student s1;
+	s1.a=10;
+	s1.di(&s1);
+	cout<<"\n after change a="<<s1.a;
+}
+/*
+output:
+after change a=200
+*/

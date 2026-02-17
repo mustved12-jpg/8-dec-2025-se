@@ -1,4 +1,30 @@
-PRO.1                                                                          <<16-02-26>>
+                                                                               <<16-02-26>>
+PRO.1
+#include<iostream>
+using namespace std;
+class simple
+{
+	public:
+		int a;
+		string name;
+};
+main()
+{
+	simple obj=simple();
+	
+	obj.a=3;
+	obj.name="mustved";
+	
+	cout<<"a="<<obj.a<<"\nname="<<obj.name<<endl;
+	
+}
+/*
+output:
+a=3
+name=mustved
+/
+-------------------------------------------------------------------------------------------
+PRO.2                                                                          <<16-02-26>>
 #include<iostream>
 using namespace std;
 class Student
@@ -29,7 +55,7 @@ id=10
 name=mustved
 */
 -------------------------------------------------------------------------------------------
-PRO.2                                                                          <<16-02-26>>
+PRO.3                                                                          <<16-02-26>>
 #include<iostream>
 using namespace std;
 class Student
@@ -100,7 +126,7 @@ id=10
 name=mustved
 */
 -------------------------------------------------------------------------------------------
-PRO.3                             <0>_<0>                                      <<16-02-26>>
+PRO.4                             <0>_<0>                                      <<16-02-26>>
 #include<iostream>
 using namespace std;
 class Student
@@ -162,3 +188,5 @@ name=BBBBB
 id=10
 name=mustved                                     <<<<<(^)_(^)>>>>>
 */
+{agar hum new object lnege to vo fir se suru se suru kare ga new vale ke liye 
+jese s1 liya fir s2 me fir se uper se ayega}

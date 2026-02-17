@@ -142,3 +142,33 @@ defualt constructor.
 2) parameterized constructor
 
 -> when we pass parameter at object crreation time it's called parameterized constructor
+
+:::this pointer:::
+
+-> thois pointer wich is refer current class object means we can change class member using of this pointer
+=========================================
+3) Copy constructor
+
+this is special constructor which is creat new object using of existing object
+
+syntax:
+
+constructorname (const classname &obj)
+{
+    ....
+}
+hear & means address operetor
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Pass by value:
+pass by refrence:
+pass by address:
+
+1) pass by value:
+->fuction parameter we are passing only object it will not affect orignal value
+
+2) pass by refrence:
+->we are passing refrence of object so, whenever we apply chang it affect orignal value
+
+3) pass by address:
+->here, we are pass address of object so whenever apply changes in address it affect orignal value
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

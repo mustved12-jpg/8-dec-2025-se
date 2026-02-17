@@ -58,7 +58,38 @@ ther are 3 type of constructor
 
 -> dose not  contain any parameter when we want display or do some static value we can use 
 defualt constructor.
-
+=========================================
 2) parameterized constructor
 
 -> when we pass parameter at object crreation time it's called parameterized constructor
+
+:::this pointer:::
+
+-> thois pointer wich is refer current class object means we can change class member using of this pointer
+=========================================
+3) Copy constructor
+
+this is special constructor which is creat new object using of existing object
+{ye jub ham main me se kuch pass karte hai tab use hota hai }
+
+syntax:
+
+constructorname (const classname &obj)
+{
+    ....
+}
+hear & means address of 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Pass by value:
+pass by refrence:
+pass by address:
+
+1) pass by value:
+->fuction parameter we are passing only object it will not affect orignal value
+
+2) pass by refrence:
+->we are passing refrence of object so, whenever we apply chang it affect orignal value
+
+3) pass by address:
+->here, we are pass address of object so whenever apply changes in address it affect orignal value

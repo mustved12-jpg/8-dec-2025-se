@@ -1,0 +1,91 @@
+                                        Without this
+PRO.1                                                                          <<17-02-26>>
+#include<iostream>
+using namespace std;
+class Semple{
+	public:
+		int a=10;
+		
+		Semple(int a)
+		{
+			a=a;  //agar class vala or parameterize same ho to ye class vali value 
+                  //ko chan nhi karta hai
+			cout<<"\na="<<a;
+		}
+		void dic()
+		{
+			cout<<"\ninside a="<<a;
+		}
+};
+main(){
+	Semple s1(200);
+	s1.dic();
+	cout<<"\noutside (s1.a)a="<<s1.a<<endl;
+	Semple s2(30);
+	cout<<"\noutside (s2.a)a="<<s2.a<<endl;
+	
+}
+/*
+output:
+a=200
+inside a=10
+outside (s1.a)a=10  class vali valu change nhi ho rhi hai
+
+a=30  
+outside (s2.a)a=10  class vali valu change nhi ho rhi hai
+ */
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                     (((WITH this)))
+PRO.1                                                                          <<17-02-26>>
+#include<iostream>
+using namespace std;
+class Semple{
+	public:
+		int a=10;
+		
+		Semple(int a)
+		{
+			this->a=a;  //agar class vala or parameterize same ho to ye
+                        // class vali value ko chan nhi karta hai
+			cout<<"\na="<<a;
+		}
+		void dic()
+		{
+			cout<<"\ninside a="<<a;
+		}
+};
+main(){
+	Semple s1(200);
+	s1.dic();
+	cout<<"\noutside (s1.a)a="<<s1.a<<endl;
+	Semple s2(30);
+	cout<<"\noutside (s2.a)a="<<s2.a<<endl;
+	
+}
+/*
+output:
+a=200
+inside a=200
+outside (s1.a)a=200  (this->) se change ho gya
+
+a=30
+outside (s2.a)a=30   (this->) se change ho gya
+*/
+-------------------------------------------------------------------
+THIS IS SECOUND METHORD BUT NO USE FOR MORE CLASE
+just dont take parameterize name seme as class data eliment varible name
+
+like
+
+Simple(int a)       X
+{
+    a=a;            X
+}
+just do 
+
+Simple(int a1)  or enithing
+{
+    a1=a;      DONE:
+}

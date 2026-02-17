@@ -1,0 +1,56 @@
+PRO.1                                                                          <<17-02-26>>
+
+copy constructor is ka use kar ke hu jisme hum copy kar rhe hai usme ham ko agar kuch
+ho ya add karna ho vo kar sakte hai.
+
+Student s2=s1;//agar hum bus ye likhe uper copy constructor na bnaye to 
+	            pure object ko copy karta hai.
+
+
+
+#include<iostream>
+using namespace std;
+class Student
+{
+	public:
+		int a;
+		string name;
+		Student(int a,string n)
+		{
+			this->a=a;
+			this->name=n;
+		}
+		Student(const Student &s) //copy constructor
+		//is ka use kar ke hu jisme hum copy kar rhe hai usme ham ko agar kuch
+		//ho ya add karna ho vo kar sakte hai.
+		{
+			a=s.a;
+			name="chota done";
+		}
+		
+		void di()
+		{
+			cout<<"\na="<<a<<"\nname="<<name;
+		}
+};
+main()
+{
+	Student s1(3,"boss");
+	s1.di();
+	s1.a=2;
+	s1.name="mustved";
+	s1.di();
+	Student s2=s1;//agar hum bus ye likhe uper copy constructor na bnaye to 
+	s2.di();       //pure object ko copy karta hai.
+	s1.di();
+}
+/*output:
+a=3
+name=boss
+a=2
+name=mustved
+a=2
+name=chota done
+a=2
+name=mustved
+*/
