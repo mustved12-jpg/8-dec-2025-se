@@ -52,9 +52,11 @@ messge passing                                |
 ___________________________________________________________________________________________
 
 (Advantage of oops)
--> secarity:The data and functions are combined thogether and the data can be made hidden from the outside world so that security of data increses.
+-> secarity:The data and functions are combined thogether and the data can be made hidden from the outside world so that
+ security of data increses.
 
-->reusability:new objects can be created with small modification to the existing once becouse inheritance provides the fucility of reusability
+->reusability:new objects can be created with small modification to the existing once becouse inheritance provides the 
+fucility of reusability
 
 ->due to the modification, oop concept is good for development
 
@@ -72,7 +74,8 @@ ________________________________________________________________________________
 
 ->mast of the basic syntax of C++ is similar to that of except some rules and constructions of its own
 
-->it contains the same control statements the same scope and storeage calass reules even the arithmatic,logical,bitwise operators and the data tpe
+->it contains the same control statements the same scope and storeage calass reules even the arithmatic,logical,bitwise
+ operators and the data tpe
 
 ->both the language start with the main() function;
 
@@ -172,3 +175,125 @@ pass by address:
 3) pass by address:
 ->here, we are pass address of object so whenever apply changes in address it affect orignal value
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+                       Access specifier or Visibility mode
+                                                                               <<18-02026>>
+
+ther are 3 types of Access specifier
+
+1) public
+2) private
+3) protected
+
+-> in structure by default all members are public but in class by default all members are private so we 
+have to define in public mode.
+
+1) public:
+-> we can access class properties from anywher inside the class and outside the class
+
+-> anywhere from the programe
+
+2) private:
+-> private means private data-even child class can't use private class data member and member function
+
+-> so, private provide data protection and data hiding in cass functionality
+
+-> only own class can access
+
+3) protected:
+->protected is a similar like private but protected member can access by own class child class
+
+-> own class and child class.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                     Inheritance
+                                                                               <<18-02-26>>
+Inheritance:
+->Inheritance is a most powerful concept of Oops concept
+->Inheritance provide reusability so we can reduce our work and save development time
+->Inheritance provide parents and child relationalship
+
+ther are 5 types of inheritance:
+
+1) single level inheritance
+2) multi level inheritance
+3) multiple inheritance
+4) hierarchical inheritance
+5) hybrid inheritance
+
+-> inheritance is a part of relationalship so it represent IS-A relationalship
+   
+   parent - child (100% utility of parent's properties)
+
+-------------------------------
+1) single level inheritance:
+
+->parent and child relationalship its called single level inheritance
+
+    A   (parent)
+
+    |
+    V 
+
+    B   (child)
+
+    syntax:
+    class Parentclass
+    {
+    };
+    class Childclass: <access Specifier><Parentclass>
+    {
+    };
+    main()
+    {
+        Childclass obj;//not prent class
+    }
+----------------------------------------
+2) multi-level inheritance:
+
+-> Extended level of multi level inheritance
+
+syntax:
+
+class A//class A is a super class or base class or parent class
+{
+};
+calss B//class B is a intermediate parent class
+{
+};
+class C// c;class C is a sub calss or derived class or child class
+{
+};
+
+--------------------------------------
+3) multiple inheritance:
+
+->in this inheritance ther are more then one parent class and one child class
+
+-> mens one child can have more then one parent or we can say that multiple parent class
+
+-> but in real world multiple inheritance not supported becouse in real world two parent 
+are not possible that's why java does'n support this concept
+
+-> multiple inheritance the main aim to achieve multiple parent's functionality in one chile class
+
+syntax:
+
+class parent1
+{
+
+};
+calss parent2
+{
+
+};
+class child:<access spacifier>parent1,<acces spacifier>parent2
+{
+    
+};
+
+-> nut ther are possaibility of ambiugity(confusion between same name properties)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

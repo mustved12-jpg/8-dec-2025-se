@@ -7,7 +7,6 @@ Student s2=s1;//agar hum bus ye likhe uper copy constructor na bnaye to
 	            pure object ko copy karta hai.
 
 
-
 #include<iostream>
 using namespace std;
 class Student

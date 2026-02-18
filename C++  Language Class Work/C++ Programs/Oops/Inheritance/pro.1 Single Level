@@ -1,0 +1,39 @@
+                                Single Level:
+PRO.1                                                                          <<18-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int a;
+		void in1()
+		{
+			cout<<"enter a number a:";
+			cin>>a;
+		}
+};
+class B:public A
+{
+	public:
+	void di()
+	{
+		cout<<"\na="<<a;
+	}
+};
+
+main()
+{
+	B obj;
+	obj.in1();
+	obj.di();
+	cout<<"\na="<<obj.a;//public hone ki vja se ham isko kahi bi bula skte hai 
+	obj.a=29;// or change bhi kar sakte hai 
+	obj.di();
+}
+/*output:
+enter a number a:10
+
+a=10
+a=10
+a=29
+*/

@@ -1,0 +1,51 @@
+                                     multi level:
+
+                          {child->parent->parent ke parent->......}
+PRO.1                                                                          <<18-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int num1;
+		void in1()
+		{
+			cout<<"enter a number 1 :";
+			cin>>num1;
+		}
+	
+};
+class B:public A
+{
+	public:
+		int num2;
+		void in2()
+		{
+			cout<<"enter a number 2 :";
+			cin>>num2;
+		}
+};
+class C:public B
+{
+	public:
+		int ans;
+		void dis()
+		{
+			ans=num1+num2;
+			cout<<"answer="<<ans;
+		}
+};
+main()
+{
+	C obj;
+	obj.in1();
+	obj.in2();
+	obj.dis();
+}
+/*
+output:
+enter a number 1 :3
+enter a number 2 :7
+answer=10
+*/
+

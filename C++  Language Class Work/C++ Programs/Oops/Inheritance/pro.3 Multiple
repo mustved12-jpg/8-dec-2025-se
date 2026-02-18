@@ -1,0 +1,51 @@
+                                multipal inheritance:
+
+                             {one child -> multipal parents}
+PRO.1                                                                          <<18-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int a;
+		void imputA()
+		{
+			cout<<"enter a number 1 :";
+			cin>>a;
+		}
+};
+class B
+{
+	public:
+		int b;
+		void imputB()
+		{
+			cout<<"enter a number 2 :";
+			cin>>b;
+		}
+};
+class C:public A,public B
+{
+	public:
+		int ans;
+		void di()
+		{
+			ans=a+b;
+			cout<<"output :"<<ans;
+		}
+};
+main()
+{
+	C obj;
+	obj.imputA();
+	obj.imputB();
+	obj.di();
+}
+/*
+output:
+enter a number 1 :15
+enter a number 2 :5
+output :20
+*/
+
+
