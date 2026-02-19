@@ -25,7 +25,6 @@ ther are 3 types of Access specifier
 ->protected is a similar like private but protected member can access by own class child class
 
 -> own class and child class.
-
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                                      Inheritance
                                                                                <<18-02-26>>
@@ -113,3 +112,56 @@ class child:<access spacifier>parent1,<acces spacifier>parent2
 };
 
 -> nut ther are possaibility of ambiugity(confusion between same name properties)
+
+
+                                    Ambiguty:
+
+-> ther is one problem or we can say that one issoe with inheritance
+
+Ambiguty:
+-> ambiguty means when both child imporat (inherite) it genereate confusion its callde ambiguty.
+
+-> unfortunatlly child have 2 same name methods so compiler get confuse which method i have to access first
+
+(::) this is colled scope resolution
+which class properties you want to access it.
+-----------------------------------
+4) Hierarchical iheritance:
+
+-> one parent multipule child class
+
+       A(parent)
+       |
+       V
+----------------
+|               |
+V               V
+B (child 1)     C (child 2)
+
+
+------------------------------------
+5)  Hybrid inheritance:
+
+-> most complicated inheritance because it represent like diamond and it create ambiguty
+
+-> in simple language we can say that hybrid inheriatce is a combbination of multiple and 
+hierarchical inhetirance
+
+                         A
+            -----------------------------
+            |                            |
+            B                            C
+            \                           /
+              \                       /
+                \                   /
+                  \               /
+                    \           /
+                      \       /
+                        \   /
+                          D
+
+{jab brother sister parent ho tab child agar dada ki proparti co call karta ahi to compiler confuje hota hai or ambiguty hota hai }
+
+-> to resolve this diamond problem we can use (virtual) keyword
+
+-> now virtual keyword inform compiler taht you dont have to creat separate copy of parent class inside of seprate copy you can pass dublicate copy so it remove ambiguty

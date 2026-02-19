@@ -1,0 +1,132 @@
+                                       Hybrid:
+PRO.1                                                                          <<19-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int marks=87;
+};
+class B:public A
+{
+	public:
+		void dib()
+		{
+		cout<<"\n in B class marks : "<<marks;
+        }
+};
+class C:public A
+{
+	public:
+		void dic()
+		{
+		cout<<"\n in C class marks : "<<marks;
+		}
+};
+class D:public B,public C
+{
+	
+};
+main()
+{
+	D obj;
+	
+	obj.dib();
+	obj.dic();
+}
+/*
+output:
+in B class marks : 87
+in C class marks : 87
+ */
+
+ ------------------------------------------------------------------------------------------
+ PRO.2                         same nhi hai.                                   <<19-02-26>>
+ #include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int marks=87;
+};
+class B:public A
+{
+	public:
+		void di()
+		{
+		cout<<"\n in B class marks : "<<marks;
+        }
+};
+class C:public A
+{
+	public:
+		void di()
+		{
+		cout<<"\n in C class marks : "<<marks;
+		}
+};
+class D:public B,public C
+{
+	
+};
+main()
+{
+	D obj;
+	
+	obj.B::di();
+	obj.C::di();
+}
+/*
+output:
+in B class marks : 87
+in C class marks : 87
+ */
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                     Diemond problem:
+PRO.1                                                                          <<19-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int marks=87;
+		void he()
+		{
+			cout<<"\nhello";// ye dono B or C ke pas jayega to jub hum isko call karenge 
+		}                  // tab compiler confuse hoga or erorr ayega 
+};
+class B: virtual public A  // virtual keyword ka use karenge
+{
+	public:
+		void dib()
+		{
+		cout<<"\n in B class marks : "<<marks;
+        }
+};
+class C: virtual public A  //virtual  keyword ka use karenge
+{
+	public:
+		void dic()
+		{
+		cout<<"\n in C class marks : "<<marks;
+		}
+};
+class D:public B,public C
+{
+	
+};
+main()
+{
+	D obj;
+	
+	obj.dib();
+	obj.dic();
+	
+	obj.he();
+}
+/*
+output:
+ in B class marks : 87
+ in C class marks : 87
+hello
+ */                                                  

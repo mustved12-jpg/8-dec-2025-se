@@ -1,0 +1,47 @@
+PRO.1                               Ambiguty                                   <<19-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		void di()
+		{
+			cout<<"\nthis is A class:";
+		}
+		
+};
+class B
+{
+	public:
+		void di()
+		{
+			cout<<"\nthis is B class:";
+		}
+};
+class C:public A,public B
+{
+	public:
+		void chi()
+		{
+			cout<<"this is child class::::";
+		}
+		
+};
+main()
+{
+	C obj;
+	
+	obj.chi();
+//	obj.di();  this is problem!!!
+    obj.A::di();
+    obj.B::di();//this is solution
+}
+/*
+output:
+this is child class::::
+this is A class:
+this is B class:
+
+
+(::) this is colled scope resolution
+*/

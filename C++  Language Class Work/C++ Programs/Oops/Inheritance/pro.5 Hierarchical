@@ -1,0 +1,68 @@
+                                  Hierarchical:
+PRO.1                                                                          <<19-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	public:
+		int num1,num2;
+		void in()
+		{
+			cout<<"\nenter a number 1 :";
+			cin>>num1;
+			cout<<"\nenter a number 2 :";
+			cin>>num2;
+		}
+		void di()
+		{
+			cout<<"number 1 ="<<num1<<"\nnumber 2 ="<<num2;
+		}
+};
+class B: public A
+{
+	public:
+		int ans;
+		void adition()
+		{
+			ans=num1+num2;
+			cout<<"\nanswer ="<<ans;
+		}
+};
+class C:public A
+{
+	public:
+		int ans;
+		void subtraction()
+		{
+			ans=num1-num2;
+			cout<<"\nanswer ="<<ans;
+		}
+};
+main()
+{
+	B objb;
+	C objc;
+	
+	objb.in();
+	objb.di();
+	objb.adition();
+	
+	objc.in();
+	objc.di();
+	objc.subtraction();
+}
+/*
+output:
+enter a number 1 :6
+
+enter a number 2 :5
+number 1 =6
+number 2 =5
+answer =11
+enter a number 1 :4
+
+enter a number 2 :2
+number 1 =4
+number 2 =2
+answer =2
+*/
