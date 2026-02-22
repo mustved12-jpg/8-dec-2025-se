@@ -1,0 +1,74 @@
+<<<see theory>>
+                                     Polymorphism:
+									 over loading polymorphism
+PRO.1                                                                          <<20-02-26>>
+#include<iostream>
+using namespace std;
+class Math
+{
+	public:
+		int num1,num2;
+		
+		void di(int a,int b)
+		{
+			num1=a+b;
+			cout<<num1<<endl;
+		}
+		void di(int a,int b,int c)
+		{
+			num2=a+b+c;
+			cout<<num2<<endl;
+		}
+		double di(double a,double b)
+		{
+			cout<<a+b<<endl;
+		}
+};
+main()
+{
+	Math s=Math();
+	
+	s.di(6,7);
+	s.di(5,5,5);
+	s.di(25.57,77.45);
+}
+/*
+output:
+13
+15
+103.02
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+PRO.1                           over ridding:                                  <<21-02-26>>
+
+#include<iostream>
+using namespace std;
+class Parent
+{
+	public:
+		void display()
+		{
+			cout<<"this is parent class"<<endl;
+		}
+};
+class Child: public Parent
+{
+	public:
+		void display()
+		{
+			Parent::display();//isse parent vala bhi isme aa jaye ga
+			cout<<"this is child class"<<endl;
+		}
+};
+main()
+{
+	Child obj=Child();
+	
+	obj.display();
+	//obj.Parent::display();agar ye likhenge to bus ek janka hi aye ga
+}
+/*
+output:
+this is parent class
+this is child class
+*/

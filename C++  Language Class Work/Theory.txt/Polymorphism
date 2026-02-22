@@ -1,0 +1,60 @@
+                                       Polymorphism: 
+                                                                               <<20-02-26>>
+-> poly means many and morphism means froms
+
+-> one method has different forms its called polymorphism
+-> polymorphism is derived from greek word means one class can contain same name multipule
+method
+
+-> ther are 2 types of polymorphism
+
+1) method overloading - compiler time polymorphism
+2) method overriding - run time polymorphism
+
+---------
+1) compiler time polymorphism
+-> which is also know as early binding and static polymorphism
+->which is achieve by method overloading and operator overloading
+
+2) run time polymorphism
+-> which is acheiv by method overriding(inheritance) and virtual function
+-----------
+Method overloading:
+
+when one class can contain same name multipule methods its called method overloading
+
+product:
+    ->click event
+    (image)
+    (button)
+    (text)
+
+not: same name method with diffirent signature (diffirent parameters)
+---------------
+Method overriding:
+
+-> when parent and child both have same name method and same name arguments
+its called method overriding
+
+symtax:
+        class parent
+        {
+            public:
+            void display()
+            {
+
+            }
+        };
+        class Child:public parent
+        {
+            public:
+            void display()
+            {
+                
+            }
+        };
+        main()
+        {
+          Child obj=Child();
+          obj.display();
+        }

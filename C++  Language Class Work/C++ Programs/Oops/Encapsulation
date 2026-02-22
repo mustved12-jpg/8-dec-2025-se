@@ -1,0 +1,64 @@
+PRO.1                               :::problem::::                             <<20-02-26>>
+
+#include<iostream>
+using namespace std;
+class Bank
+{
+	public:
+		int balance;
+};
+main()
+{
+	Bank b=Bank();
+	b.balance=-200;
+	cout<<"balnse="<<b.balance;
+}
+/*
+output:
+balnse=-200
+
+-> ther is no security it is not safe for any kind data
+-> use hear encapsulation
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                       encapsulation::
+PRO.2                                   ...solution...                         <<20-02-26>>
+#include<iostream>
+using namespace std;
+class Bank
+{
+	private:
+		int balence;
+		
+		public:
+			void deposite(int a)
+			{
+				if(a>0)
+				{
+					balence=a;
+				}
+			}
+		    int display()
+		    {
+		    	return balence;
+			}
+};
+main()
+{
+	
+	Bank b=Bank();
+	int amount;
+	cout<<"entre a deposite amount :";
+	cin>>amount;
+	
+	b.deposite(amount);
+	cout<<"\n";
+	cout<<b.display()<<endl;
+}
+/*
+output:
+entre a deposite amount :324234
+
+324234
+*/
+

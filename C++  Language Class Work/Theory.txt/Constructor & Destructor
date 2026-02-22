@@ -1,28 +1,3 @@
-                                            OOPS                               <<16-02-26>>
-opps: object oriented programing
-
-CLASS:
-->class is a collection of different different data members
-
-->class is a collection of elements
-->class is a user difined data type
-
-syntax:
-class <class name>
-{
-    public:
-    data members;
-    members function();
-};
-----------------------------
-OBJECT:
-->object is a instance of class or we can say thet object is a variable of class
-
-->using of object we can access properties of class
-
-syntex:
-classname object=classname();
-------------------------------
 Constructor:
 -> constructor is a most powefull concept of C++ constructor is a special member function
 <or we can say that constructor is a special method>
@@ -80,16 +55,19 @@ constructorname (const classname &obj)
 }
 hear & means address of 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                       Destructor :
+                                                                               <<20-02-26>>
+distructor:
+-> mainly work to destroy object whenever we close our block of code it will automatically
+destroy object after use same like constructor declare in public mode as destructor declare
+declare in public mode
 
-Pass by value:
-pass by refrence:
-pass by address:
+->but in destructor we have to add (~ till sign) in prefix and same name as class name
 
-1) pass by value:
-->fuction parameter we are passing only object it will not affect orignal value
+syntax:
 
-2) pass by refrence:
-->we are passing refrence of object so, whenever we apply chang it affect orignal value
-
-3) pass by address:
-->here, we are pass address of object so whenever apply changes in address it affect orignal value
+    ~classname
+    {
+        //body
+    };
+    

@@ -1,0 +1,13 @@
+                                 Encapsulation:
+                                                                               <<20-02-26>>
+-> Encapsulation is a most powerfull conceptof oop concept which bind different diffreent 
+data member and member function in single entity and provide data hiding for outside the 
+world.
+
+
+-> encapsulation concept is achieve by class and object examle.
+
+1> data hiding
+2> data prevent from outside world
+3> security no one can directly change from outside the world
+4> data control no one can add unwanted value or apply changes

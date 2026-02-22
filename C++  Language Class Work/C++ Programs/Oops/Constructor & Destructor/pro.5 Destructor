@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class Sample
+{
+	public:
+		int num1,num2;
+		Sample()   //constructor
+		{
+			cout<<":::START:::"<<endl;
+		}
+		void in(int num1,int num2)
+		{
+			this->num1=num1;
+			this->num2=num2;
+		}
+		int sum()
+		{
+			cout<<"\nans="<<num1+num2<<endl;
+			return num1+num2;
+		}
+		~Sample()  //destructor
+		{
+			cout<<"\n!!!-END-!!!";
+		}
+};
+main()
+{
+	Sample s=Sample();// destructor progarme ho jane ke bad kud hi lika aa jaye ga 
+	
+	s.in(12,8);
+	s.sum();
+}
+/*
+out put:
+:::START:::
+
+ans=20
+
+!!!-END-!!!
+*/

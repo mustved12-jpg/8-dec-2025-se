@@ -1,0 +1,75 @@
+                                 Abstruction:
+pro.1                                                                          <<21-02-26>>
+                            (problem)
+
+#include<iostream>
+using namespace std;
+class RBI
+{
+		public:
+		void dis()
+		{
+			cout<<"8.5"<<endl;
+		}
+			
+};
+class SBI:public RBI
+{
+};
+class BOI:public RBI
+{
+	
+};
+main()
+{
+	SBI sbi=SBI();
+	BOI boi=BOI();
+	
+	sbi.dis();
+	boi.dis();
+}
+/*
+output:
+8.5
+8.5
+ther is no data hiding between multiple child from same parent*/
+-----------------------------
+ 
+                                     (solution)
+
+#include<iostream>
+using namespace std;
+class RBI
+{
+		public:
+		virtual void dis()=0;	
+};
+class SBI:public RBI
+{
+	public:
+		void dis()
+		{
+			cout<<"8.5"<<endl;
+		}
+};
+class BOI:public RBI
+{
+	public:
+		void dis()
+		{
+			cout<<"8.2"<<endl;
+		}
+};
+main()
+{
+	SBI sbi=SBI();
+	BOI boi=BOI();
+	
+	sbi.dis();
+	boi.dis();
+}
+/*
+output:
+8.5
+8.2
+*/

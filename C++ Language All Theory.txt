@@ -162,6 +162,23 @@ constructorname (const classname &obj)
 }
 hear & means address operetor
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                       Destructor :
+                                                                               <<20-02-26>>
+distructor:
+-> mainly work to destroy object whenever we close our block of code it will automatically
+destroy object after use same like constructor declare in public mode as destructor declare
+declare in public mode
+
+->but in destructor we have to add (~ till sign) in prefix and same name as class name
+
+syntax:
+
+    ~classname
+    {
+        //body
+    };
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Pass by value:
 pass by refrence:
 pass by address:
@@ -350,3 +367,50 @@ hierarchical inhetirance
 -> now virtual keyword inform compiler taht you dont have to creat separate copy of parent class inside of seprate copy you can pass dublicate copy so it remove ambiguty
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+                                 Encapsulation:
+                                                                               <<20-02-26>>
+-> Encapsulation is a most powerfull conceptof oop concept which bind different diffreent 
+data member and member function in single entity and provide data hiding for outside the 
+world.
+
+
+-> encapsulation concept is achieve by class and object examle.
+
+1> data hiding
+2> data prevent from outside world
+3> security no one can directly change from outside the world
+4> data control no one can add unwanted value or apply changes
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                       Polymorphism: 
+                                                                               <<20-02-26>>
+-> poly means many and morphism means froms
+
+-> one method has different forms its called polymorphism
+-> polymorphism is derived from greek word means one class can contain same name multipule
+method
+
+-> ther are 2 types of polymorphism
+
+1) method overloading - compiler time polymorphism
+2) method overriding - run time polymorphism
+
+---------
+1) compiler time polymorphism
+-> which is also know as early binding and static polymorphism
+->which is achieve by method overloading and operator overloading
+
+2) run time polymorphism
+-> which is acheiv by method overriding(inheritance) and virtual function
+-----------
+Method overloading:
+
+when one class can contain same name multipule methods its called method overloading
+
+product:
+    ->click event
+    (image)
+    (button)
+    (text)
+
+not: same name method with diffirent signature (diffirent parameters)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
