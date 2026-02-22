@@ -414,3 +414,38 @@ product:
 
 not: same name method with diffirent signature (diffirent parameters)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                               Abstruction:
+                                                                               <<21-02-26>>
+
+Abstruction: is a concept which provide only few information not allocated background 
+information 
+
+-> the main aim of abstruction concept is to achieve data hiding and hide 
+implementation
+
+-> abstruction is a concept which is only achieve by abstruc class and abstrucmethod
+
+---------------
+Abstruction method: / pure virtual function:
+
+-> pure virtual function means function dose not contain implementation 
+-> adstruction method which is indicate by pure virtual function means withot
+body only method declaration.
+
+syntax:
+    vitrual<returntype>functionname=0;
+
+            A 
+--------------------------
+|                        |
+B                        C
+
+at the time of inheritance there no data hiding between two choild so resolve this 
+situation we can use abstruction concept here
+-----------------------
+
+abstruction class:
+
+-> a class which can contain abstruction method its colled abstruction class
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
