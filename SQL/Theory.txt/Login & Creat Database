@@ -1,0 +1,53 @@
+
+Login with MYSQL CMD panal:                                                                            <<27-02-26>>
+
+# mysql -u root -p
+
+password:***********
+
+===================================================================================================================
+-> create data base:
+syntax:
+
+        create database <database name>;
+        
+        e.g.
+            create database 8dec_se;
+
+-> cheak all database:
+syntax:
+
+        show databases;
+
+        e.g.
+            show databases;
+                
+                +--------------------+
+                | Database           |
+                +--------------------+
+                | 8dec_se            |  <-my database
+                | information_schema |
+                | mustved            |
+                | mysql              |
+                | performance_schema |
+                | sys                |
+                +--------------------+
+
+
+-> drop(delete) database:
+syntax:
+
+        drop database <database name>;
+
+        e.g.
+            drop database 8dec_se;
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+-> Now next select your database which you want to work uponit
+
+syntax:
+    use <database name>;
+
+    e.g.
+        use 8dec_se;

@@ -1,5 +1,5 @@
                                  Abstruction:
-pro.1                                                                          <<21-02-26>>
+PRO.1                                                                          <<21-02-26>>
                             (problem)
 
 #include<iostream>
@@ -72,4 +72,45 @@ main()
 output:
 8.5
 8.2
+*/
+-------------------------------------------------------------------------------------------
+PRO.2                                                                          <<25-02-26>>
+
+#include<iostream>
+using namespace std;
+class Vehicle
+{
+	public:
+		int v;
+		virtual int wheels (int v)=0;
+};
+class Car:public Vehicle
+{
+	public:
+		int wheels(int v)
+		{
+			this->v=v;
+			cout<<"in car we have "<<v<<" weels"<<endl;
+		}
+};
+class Bike:public Vehicle
+{
+	public:
+		int wheels(int v)
+		{
+			this->v=v;
+			cout<<"in bike we have "<<v<<" weels"<<endl;
+		}
+};
+main()
+{
+	Car car=Car();
+	Bike bike=Bike();
+	
+	car.wheels(4);
+	bike.wheels(2);
+}
+/*output:
+in car we have 4 weels
+in bike we have 2 weels
 */

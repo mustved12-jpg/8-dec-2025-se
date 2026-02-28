@@ -1,0 +1,85 @@
+-> Now next select your database which you want to work uponit                                         <<27-02-26>>
+
+syntax:
+    use <database name>;
+
+    e.g.
+        use 8dec_se;
+
+===================================================================================================================
+
+DDL: data defination language:
+
+-> to create structure of database and table we use DDL commands using below commands we can create structure  we 
+   can add and remove fileds we can remove table or we can rename it using DDL commands.
+
+   1) create
+   2) alter
+   3) drop
+   4) truncate
+   5) rename
+----------------------------------------------
+                                     1) create:
+-----------------------------------------------
+                                     Table:
+-> one database can contain as many as tables
+
+e.g.    
+    table contain row and creation
+
+    syntax:
+        create table <table name>(
+                        <colum1><datatype>,
+                        <colum2><datatype>,
+                        <colum3><datatype>,
+                        <colum4><datatype>
+                        );
+
+    e.g.
+        create table student
+        (
+            id int,
+            name varchar(20),
+            subject varchar(20),  // {varchar is like string}
+            score int
+        );
+
+===============================(chaking table)============
+-> now next cheak table is proper created or not using describe command
+                    
+                    syntax:
+                        desc student;
+--------------------------------------------------
+                                           2) Alter:
+----------------------------------------------------
+-> alter command is a most importent part of DDL commands
+-> using of alter commands we can add, remove and modify field of table
+
+    1} add
+    2} drop
+    3} modify
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    1} add:
+
+    syntax:
+        alter table <table name> <altercommand> <field name> <datatype>;
+
+        e.g.
+            alter table student add city varchar(20);
+
+     -> now see :
+                desc student;
+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    2}drop:
+
+    syntax:
+        alter table <table name> <altercommand> <field name>;
+
+        e.g.
+            alter table student drop city;
+
+    -> now see :
+                desc student;
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    3} modify:

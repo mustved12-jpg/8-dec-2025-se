@@ -1,0 +1,176 @@
+PRO.1                                                                          <<25-02-26>>
+
+#include<iostream>
+using namespace std;
+class Address
+{
+	public:
+		string city;
+		string state;
+		int pincode;
+		Address(string city,string state,int pincode)
+		{
+			this->city=city;
+			this->state=state;
+			this->pincode=pincode;
+		}
+};
+class Studentl
+{
+	public:
+		string name;
+		int id;
+		Address* address;
+		
+		Student(string name,int id,Address* address)
+		{
+			this->name=name;
+			this->id=id;
+			this->address=address;
+		}
+		void display()
+		{
+			cout<<" student name is :"<<name<<endl;
+			cout<<" student id is :"<<id<<endl;
+			cout<<" student city is :"<<address->city<<endl;
+			cout<<" student state is :"<<address->state<<endl;
+			cout<<" student pincode is :"<<address->pincode<<endl;
+			
+		}
+};
+class Employe
+{
+	public:
+		string name;
+		int bach;
+		Address* address;
+		Employe(string name,int bach,Address* address)
+		{
+			this->name=name;
+			this->bach=bach;
+			this->address=address;
+		}
+		void display()
+		{
+			cout<<"Employe Name is :"<<name<<endl;
+			cout<<"Employe bach is :"<<bach<<endl;
+			cout<<"Employe city is :"<<address->city<<endl;
+			cout<<"Employe state is :"<<address->state<<endl;
+			cout<<"Employe pincode is :"<<address->pincode<<endl;
+		}
+};
+main()
+{
+	Address add=Address("Ahmedabade","Gujarat",380034);
+	Student s=Student("mustved",3,&add);
+	Employe e=Employe("naruto",21,&add);
+	
+	s.display();
+	cout<<"\n\n"<<endl;
+	e.display();
+}
+/*
+output:
+ student name is :mustved
+ student id is :3
+ student city is :Ahmedabade
+ student state is :Gujarat
+ student pincode is :380034
+
+
+
+Employe Name is :naruto
+Employe bach is :21
+Employe city is :Ahmedabade
+Employe state is :Gujarat
+Employe pincode is :380034*/
+-------------------------------------------------------------------------------------------
+
+PRO.2                                                                          <<25-02-26>>
+
+#include<iostream>
+using namespace std;
+class Address
+{
+	public:
+		string city;
+		string state;
+		int pincode;
+		Address(string city,string state,int pincode)
+		{
+			this->city=city;
+			this->state=state;
+			this->pincode=pincode;
+		}
+};
+class Student
+{
+	public:
+		string name;
+		int id;
+		Address* address;
+		
+		Student(string name,int id,Address* address)
+		{
+			this->name=name;
+			this->id=id;
+			this->address=address;
+		}
+		void display()
+		{
+			cout<<" student name is :"<<name<<endl;
+			cout<<" student id is :"<<id<<endl;
+			cout<<" student city is :"<<address->city<<endl;
+			cout<<" student state is :"<<address->state<<endl;
+			cout<<" student pincode is :"<<address->pincode<<endl;
+			
+		}
+};
+class Employe
+{
+	public:
+		string name;
+		int bach;
+		Address* address;
+		Employe(string name,int bach,Address* address)
+		{
+			this->name=name;
+			this->bach=bach;
+			this->address=address;
+		}
+		void display()
+		{
+			cout<<"Employe Name is :"<<name<<endl;
+			cout<<"Employe bach is :"<<bach<<endl;
+			cout<<"Employe city is :"<<address->city<<endl;
+			cout<<"Employe state is :"<<address->state<<endl;
+			cout<<"Employe pincode is :"<<address->pincode<<endl;
+		}
+};
+main()
+{
+	Address add1=Address("Ahmedabade","Gujarat",380034);
+	Student s=Student("mustved",3,&add1);
+	Address add2=Address("boos","dheli",380038);
+	Employe e=Employe("naruto",21,&add2);
+	
+	s.display();
+	cout<<"\n\n"<<endl;
+	e.display();
+}
+/*
+output:
+ student name is :mustved
+ student id is :3
+ student city is :Ahmedabade
+ student state is :Gujarat
+ student pincode is :380034
+
+
+
+Employe Name is :naruto
+Employe bach is :21
+Employe city is :boos
+Employe state is :dheli
+Employe pincode is :380038
+*/

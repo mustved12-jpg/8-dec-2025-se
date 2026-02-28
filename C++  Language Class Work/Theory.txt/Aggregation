@@ -1,0 +1,13 @@
+                                    Aggregation: 
+                                                                               <<25-02-26>>
+Aggregation: is a part of relationship
+-> inheritance provide IS-A relationship
+-> Aggregation provide HAS-A relationship
+
+IS-A relationship:
+-> parent is connected with child
+(100% inheritance)
+
+HAS-A relationship:
+-> department has staff
+(we are use properties of another class using of reference insted of inheritance)

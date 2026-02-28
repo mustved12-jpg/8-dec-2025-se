@@ -1,0 +1,81 @@
+PRO.1                                                                          <<26-02-26>>
+
+	//open file and write somthing somthin in the file
+
+#include<fstream>
+#include<iostream>
+using namespace std;
+main()
+{
+
+	ofstream file ("cpp_first file.txt");
+	
+	file<<"\n welcom to c++";
+	file<<"\n file handlig";
+	
+	file.close();
+}
+/*output:
+in file cpp_firt file :
+
+ welcom to c++
+ file handlig
+ */
+ ------------------------------------------------------------------------------------------
+
+ PRO.1                               read mode                                 <<26-02-26>>
+
+        //read content from file 
+        // getline() is a inbulde function
+#include<iostream>
+#include<fstream>
+using namespace std;
+main()
+{
+	ifstream file("cpp_first file.txt");
+	 string word;
+	 while(getline(file,word))
+	 {
+	 	cout<<word<<endl;
+	 }
+	 file.close();
+}
+/*output:
+welcom to c++
+file handlig
+ */
+-------------------------------------------------------------------------------------------
+PRO .1                                  appand mode                              <<26-02-26>>
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+main()
+{
+	string name;
+	string sub;
+	int id;
+	
+	cout<<"enter a name: ";
+	cin>>name;
+	cout<<"enter a subject: ";
+	cin>>sub;
+	cout<<"enter a Id: ";
+	cin>>id;
+	
+	ofstream file("cpp_first file.txt",ios::app);
+	            //^--isme agar me dusra name likhun ga to new file banegi 
+	file<<"\nname :"<<name<<endl;
+	file<<"subject :"<<sub<<endl;
+	file<<"Id :"<<id<<endl;
+		
+	file.close();
+}
+/*output:
+in cpp_first file:
+ welcom to c++
+ file handlig
+name :mustved
+subject :pyhton
+Id :2
+*/

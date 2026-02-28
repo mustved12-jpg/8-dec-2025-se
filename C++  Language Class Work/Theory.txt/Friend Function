@@ -1,0 +1,24 @@
+                                Friend Function:
+                                                                               <<25-02-26>>
+Friend Function: is a special member function which can access private member outside the 
+class
+
+-> friend function declear with using of friend function
+
+syntax:
+        friend <returntype> <funname>(classobject)
+--------------------------------------------------------
+                        
+                        Friend class:
+A class access properties of another class private properties
+
+syntax:
+        class Anotherclass; // forwerd declaretion
+
+        class Mainclass
+        {
+            private:
+                members
+
+                friend class<frind classname>
+        };

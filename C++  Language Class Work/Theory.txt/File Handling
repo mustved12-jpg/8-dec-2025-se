@@ -1,0 +1,42 @@
+File handlinfg  :                                                              <<26-02-26>>
+
+-> to accept data from user and store in file or we can say taht tp perfor operation on file 
+
+File operation:
+
+ create
+ read
+ write
+ delete
+ update
+
+File handlinfg calss:
+
+1) fstream 
+2) ifstream (read)
+3) ofstream (open)
+
+1) fstream:
+-> file stream-it is used for both read and write operations
+
+2) ifstraem:
+-> it's use for read operation
+
+3) of stream:
+-> it's use for write operation
+
+syntax:
+
+#include<fstream>
+#include<iostream>
+
+        fstream<file name><mode>;
+
+Modes:
+1) ios::in - input mode
+2) ios::out - output mode
+3) ios::app - append mode
+4) ios::trunc - truncate mode
+5) ios::binary - binary mode
+6) ios::ate - at end mode
+

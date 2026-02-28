@@ -1,0 +1,25 @@
+What is data base?                                                                                     <<27-02-26>>
+
+-> data base id a collaction of data:
+-> which is contain data in tabular formate
+-> row and colum wise we can store multiple data in single formante
+->row represent single record and colum represent spacific field name of thet record
+
+e.g.
+
+     
+
+-> name         subject         city           pincode               <-|        ->(first row)
+   _____________________________________________________               |-(row)
+   mustved      python          ahmedabad       56457135             <-|        ->(secund row)
+
+     ^            ^               ^                 ^
+     |~~~~~~~~~~~~|~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~|
+                          ^
+                          |
+       ^           ^   (colum)    ^                ^
+   firs colum     ...            ...          forth colum
+
+
+   -> we can store multiple records we can retrive records spacific condition wise even we can update and delete
+      spacific records condition wise.

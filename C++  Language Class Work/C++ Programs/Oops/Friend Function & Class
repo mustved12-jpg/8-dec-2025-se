@@ -1,0 +1,100 @@
+                                Friend Function:
+PRO.1                                                                          <<25-02-26>>
+
+#include<iostream>
+using namespace std;
+class Semple
+{
+	private:
+		int score;
+	public:
+		Semple(int score)
+		{
+			this->score=score;
+		}
+			
+		friend int display(Semple obj);
+};
+int display(Semple obj)
+{
+	cout<<"score ="<<obj.score<<endl;
+}
+main()
+{
+	Semple obj=Semple(97);
+	display(obj);
+}
+/*
+output:
+score =97
+*/
+-------------------------------------------------------------------------------------------
+PRO.2                                                                          <<25-02-26>>
+#include<iostream>
+using namespace std;
+class A
+{
+	private:
+		int id=1;
+		
+		public:
+			friend void dis();
+};
+void dis()
+{
+	A a;//a is like placeholder of class A
+	cout<<"id="<<a.id;
+}
+main()
+{
+	A a=A();
+	dis();
+}
+/*output:
+id=1
+*/
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                       Friend Class:
+PRO.1                                                                          <<25-02-26>>
+
+#include<iostream>
+using namespace std;
+class B;
+class A
+{
+	private:
+		float record;
+		
+		public:
+			A(float record)
+			{
+				this->record=record;
+			}
+			void just()
+			{
+				cout<<"\nok"<<endl;
+			}
+			friend B;
+};
+class B
+{
+	public:
+		void display(A obj)
+		{
+			cout<<"record ="<<obj.record;
+			obj.just();
+		}
+		
+};
+main()
+{
+	A a=A(67.324);
+	B b=B();
+	b.display(a);
+}
+/*
+output:
+record =67.324
+ok
+*/
