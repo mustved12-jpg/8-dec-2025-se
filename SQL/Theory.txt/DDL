@@ -58,6 +58,7 @@ e.g.
     1} add
     2} drop
     3} modify
+    4} rename
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     1} add:
 
@@ -83,3 +84,127 @@ e.g.
                 desc student;
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     3} modify:
+    syntax:
+        alter table <tablename> <altercommand> <colum><datatype>;
+
+        e.g.
+            alter table student modify name varchar(30);
+        ------------------------
+
+        -> show databases;
+        -> use 8dec_se;
+        -> show tables;
+        -> desc student;           {abhi name varchar(20) hai}
+
+        +---------+-------------+------+-----+---------+-------+
+        | Field   | Type        | Null | Key | Default | Extra |
+        +---------+-------------+------+-----+---------+-------+
+        | id      | int         | YES  |     | NULL    |       |
+        | name    | varchar(20) | YES  |     | NULL    |       |
+        | subject | varchar(20) | YES  |     | NULL    |       |
+        | score   | int         | YES  |     | NULL    |       |
+        | city    | varchar(30) | YES  |     | NULL    |       |
+        +---------+-------------+------+-----+---------+-------+
+
+        -> alter table student modify name varchar(30);  {chang}
+        -> alter table student modify score float;
+        -> desc student;     {ab anme varchar (30) ho gya.}
+
+        +---------+-------------+------+-----+---------+-------+
+        | Field   | Type        | Null | Key | Default | Extra |
+        +---------+-------------+------+-----+---------+-------+
+        | id      | int         | YES  |     | NULL    |       |
+        | name    | varchar(30) | YES  |     | NULL    |       |
+        | subject | varchar(20) | YES  |     | NULL    |       |
+        | score   | float       | YES  |     | NULL    |       |
+        | city    | varchar(30) | YES  |     | NULL    |       |
+        +---------+-------------+------+-----+---------+-------+
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    4} reanme:
+            syntax:
+                alter table <tablename> <altercommand> column  <old colum name> to <new colum name>;
+
+            e.g.
+            desc student;
+                        +---------+-------------+------+-----+---------+-------+
+                        | Field   | Type        | Null | Key | Default | Extra |
+                        +---------+-------------+------+-----+---------+-------+
+                        | id      | int         | YES  |     | NULL    |       |
+                        | name    | varchar(20) | YES  |     | NULL    |       |
+                        | subject | varchar(20) | YES  |     | NULL    |       |
+                        | marsk   | int         | YES  |     | NULL    |       |
+                        | city    | varchar(30) | YES  |     | NULL    |       |
+                        +---------+-------------+------+-----+---------+-------+
+    
+    
+    =>  alter table student rename column marsk to score;
+
+           desc student;
+
+                +---------+-------------+------+-----+---------+-------+
+                | Field   | Type        | Null | Key | Default | Extra |
+                +---------+-------------+------+-----+---------+-------+
+                | id      | int         | YES  |     | NULL    |       |
+                | name    | varchar(20) | YES  |     | NULL    |       |
+                | subject | varchar(20) | YES  |     | NULL    |       |
+                | score   | int         | YES  |     | NULL    |       |
+                | city    | varchar(30) | YES  |     | NULL    |       |
+                +---------+-------------+------+-----+---------+-------+
+-------------------------------------------------------------------
+                                                    3) drop:                                           <<01-03-26>>
+-------------------------------------------------------------------
+
+-> to delete table or database from the  memory we can use drop command.
+
+    syntax: 
+        drop <table name>;
+        e.g.
+        drop student;
+
+        or
+
+        drop <database>;
+        e.g.
+        drop 8dec_se;
+-------------------------------------------------------------------
+                                IMP                 4) truncate:
+-------------------------------------------------------------------
+
+-> drop delete table and colum from the memory completely but using of truncate command we can  remove all records 
+   from the table but structure remain same
+
+-> means using of truncate we don't need to recreat table but using of drop command we have to creat table first
+   there enter data.
+
+-> truncate if faster then drop becouse it delete all records from tha table
+    it's delete records from table not it not delete table.
+
+    e.g.
+    -> drop :       account; {delete karne ke liye}
+    -> truncate:    delete order history  or  search history
+    
+    syntax:
+        truncate table <tablename>;
+
+        e.g.
+            truncate student;
+            {agar ander data hoga to delete ho jaye ga but table student rhega}
+
+------------------------------------------------------------------
+                                                5)reanme:
+------------------------------------------------------------------
+
+-> when we want to chang table name we can use reanme command.
+
+    syntax:
+        rename table <old tablename> to <new table name>;
+
+        e.g.
+            rename table student to children;
+
+            -> now se. show tablses;{name chang ho gya};
+
+    note: we can also reanme table name using alter commands;
+
+    e.g.
+        alter table children to student;

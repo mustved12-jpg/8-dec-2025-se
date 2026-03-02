@@ -131,6 +131,7 @@ e.g.
     1} add
     2} drop
     3} modify
+    4} rename
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     1} add:
 
@@ -157,17 +158,139 @@ e.g.
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     3} modify:
 
+ syntax:
+        alter table <tablename> <altercommand> <colum><datatype>;
+
+        e.g.
+            alter table student modify name varchar(30);
+        ------------------------
+
+        -> show databases;
+        -> use 8dec_se;
+        -> show tables;
+        -> desc student;           {abhi name varchar(20) hai}
+        -> alter table student modify name varchar(30);  {chang}
+        -> desc student;     {ab anme varchar (30) ho gya.}
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    4} reanme:
+            syntax:
+                alter table <tablename> <altercommand> colum  <old colum name> to <new colum name>;
+
+            e.g.
+                 alter table student reanme colum city to gao;
+
+-------------------------------------------------------------------
+                                                    3) drop:                                           <<01-03-26>>
+-------------------------------------------------------------------
+
+-> to delete table or database from the  memory we can use drop command.
+
+    syntax: 
+        drop <table name>;
+        e.g.
+        drop student;
+
+        or
+
+        drop <database>;
+        e.g.
+        drop 8dec_se;
+-------------------------------------------------------------------
+                                IMP                 4) truncate:
+-------------------------------------------------------------------
+
+-> drop delete table and colum from the memory completely but using of truncate command we can  remove all records 
+   from the table but structure remain same
+
+-> means using of truncate we don't need to recreat table but using of drop command we have to creat table first
+   there enter data.
+
+-> truncate if faster then drop becouse it delete all records from tha table
+    it's delete records from table not it not delete table.
+
+    e.g.
+    -> drop :       account; {delete karne ke liye}
+    -> truncate:    delete order history  or  search history
+    
+    syntax:
+        truncate table <tablename>;
+
+        e.g.
+            truncate student;
+            {agar ander data hoga to delete ho jaye ga but table student rhega}
+
+------------------------------------------------------------------
+                                               5)reanme:
+------------------------------------------------------------------
+
+-> when we want to chang table name we can use reanme command.
+
+    syntax:
+        rename table <old tablename> to <new table name>;
+
+        e.g.
+            rename table student to children;
+
+            -> now se. show tablses;{name chang ho gya};
+
+    note: we can also reanme table name using alter commands;
+
+    e.g.
+        alter table children to student;
 
 
 ===================================================================================================================
 
-DML:data manipulation language:
+DML : Data manipulation language:
 
 1) Insert
 2) update
 3) delete
-4) select
 
+------------------------------------------------------
+                                            1) insert
+------------------------------------------------------
+
+insert:
+-> insert command is used to store record in existing table using of spacific colum wise;
+
+    syntax:
+        insert into <tablename> <colum1,colum2.....>
+        values
+        (value1,value2....);
+
+        e.g.
+            insert into student
+            (id,name,subject,score,city)
+            values
+            (1,'mustved','python',78,'ahmedabad');
+
+        select:
+            -> to retrive all records from table {record dekhne ke liye}
+
+            syntax:
+                select * from <tablename>;
+
+                e.g.
+                    select * from student;
+
+store multiple records using single command
+
+    insert into student
+    (id,name,subject,score,city)
+    values
+    (2,'riya','java',55,'surat'),
+    (3,'diya','php',78,'kerla');
+
+    select * from student;
+
+without adding and colum in command{agar humko sab me value dena ho tab ye kam aata hai}
+
+    insert into student 
+    values
+    (4,'boss','c++',93,'ahmedabad');
+
+    select * from student;
 ===================================================================================================================
 
 DQL: data query language:
