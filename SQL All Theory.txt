@@ -71,7 +71,7 @@ syntax:
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
--> Now next select your database which you want to work uponit
+-> Now next select your database which you want to work uponit                                         <<27-02-26>>
 
 syntax:
     use <database name>;
@@ -81,7 +81,7 @@ syntax:
 
 ===================================================================================================================
 
-DDL: data defination language: 
+DDL: data defination language:
 
 -> to create structure of database and table we use DDL commands using below commands we can create structure  we 
    can add and remove fileds we can remove table or we can rename it using DDL commands.
@@ -157,8 +157,7 @@ e.g.
                 desc student;
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     3} modify:
-
- syntax:
+    syntax:
         alter table <tablename> <altercommand> <colum><datatype>;
 
         e.g.
@@ -169,16 +168,61 @@ e.g.
         -> use 8dec_se;
         -> show tables;
         -> desc student;           {abhi name varchar(20) hai}
+
+        +---------+-------------+------+-----+---------+-------+
+        | Field   | Type        | Null | Key | Default | Extra |
+        +---------+-------------+------+-----+---------+-------+
+        | id      | int         | YES  |     | NULL    |       |
+        | name    | varchar(20) | YES  |     | NULL    |       |
+        | subject | varchar(20) | YES  |     | NULL    |       |
+        | score   | int         | YES  |     | NULL    |       |
+        | city    | varchar(30) | YES  |     | NULL    |       |
+        +---------+-------------+------+-----+---------+-------+
+
         -> alter table student modify name varchar(30);  {chang}
+        -> alter table student modify score float;
         -> desc student;     {ab anme varchar (30) ho gya.}
+
+        +---------+-------------+------+-----+---------+-------+
+        | Field   | Type        | Null | Key | Default | Extra |
+        +---------+-------------+------+-----+---------+-------+
+        | id      | int         | YES  |     | NULL    |       |
+        | name    | varchar(30) | YES  |     | NULL    |       |
+        | subject | varchar(20) | YES  |     | NULL    |       |
+        | score   | float       | YES  |     | NULL    |       |
+        | city    | varchar(30) | YES  |     | NULL    |       |
+        +---------+-------------+------+-----+---------+-------+
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     4} reanme:
             syntax:
-                alter table <tablename> <altercommand> colum  <old colum name> to <new colum name>;
+                alter table <tablename> <altercommand> column  <old colum name> to <new colum name>;
 
             e.g.
-                 alter table student reanme colum city to gao;
+            desc student;
+                        +---------+-------------+------+-----+---------+-------+
+                        | Field   | Type        | Null | Key | Default | Extra |
+                        +---------+-------------+------+-----+---------+-------+
+                        | id      | int         | YES  |     | NULL    |       |
+                        | name    | varchar(20) | YES  |     | NULL    |       |
+                        | subject | varchar(20) | YES  |     | NULL    |       |
+                        | marsk   | int         | YES  |     | NULL    |       |
+                        | city    | varchar(30) | YES  |     | NULL    |       |
+                        +---------+-------------+------+-----+---------+-------+
+    
+    
+    =>  alter table student rename column marsk to score;
 
+           desc student;
+
+                +---------+-------------+------+-----+---------+-------+
+                | Field   | Type        | Null | Key | Default | Extra |
+                +---------+-------------+------+-----+---------+-------+
+                | id      | int         | YES  |     | NULL    |       |
+                | name    | varchar(20) | YES  |     | NULL    |       |
+                | subject | varchar(20) | YES  |     | NULL    |       |
+                | score   | int         | YES  |     | NULL    |       |
+                | city    | varchar(30) | YES  |     | NULL    |       |
+                +---------+-------------+------+-----+---------+-------+
 -------------------------------------------------------------------
                                                     3) drop:                                           <<01-03-26>>
 -------------------------------------------------------------------
@@ -220,7 +264,7 @@ e.g.
             {agar ander data hoga to delete ho jaye ga but table student rhega}
 
 ------------------------------------------------------------------
-                                               5)reanme:
+                                                5)reanme:
 ------------------------------------------------------------------
 
 -> when we want to chang table name we can use reanme command.
@@ -240,7 +284,6 @@ e.g.
 
 
 ===================================================================================================================
-
 DML : Data manipulation language:
 
 1) Insert
@@ -261,9 +304,9 @@ insert:
 
         e.g.
             insert into student
-            (id,name,subject,score,city)
+            (id,name,subject,score)
             values
-            (1,'mustved','python',78,'ahmedabad');
+            (1,'mustved','python',76.32);
 
         select:
             -> to retrive all records from table {record dekhne ke liye}
@@ -273,24 +316,110 @@ insert:
 
                 e.g.
                     select * from student;
+                    +------+---------+---------+-------+
+                    | id   | name    | subject | score |
+                    +------+---------+---------+-------+
+                    |    1 | mustved | python  | 76.32 |
+                    +------+---------+---------+-------+
 
 store multiple records using single command
 
     insert into student
-    (id,name,subject,score,city)
+    (id,name,subject,score)
     values
-    (2,'riya','java',55,'surat'),
-    (3,'diya','php',78,'kerla');
+    (2,'riya','java',87.43,),
+    (3,'diya','php',67.89,);
 
     select * from student;
+    +------+---------+---------+-------+
+    | id   | name    | subject | score |
+    +------+---------+---------+-------+
+    |    1 | mustved | python  | 76.32 |
+    |    2 | riya    | java    | 87.43 |
+    |    3 | diya    | php     | 67.89 |
+    +------+---------+---------+-------+
 
 without adding and colum in command{agar humko sab me value dena ho tab ye kam aata hai}
 
     insert into student 
     values
-    (4,'boss','c++',93,'ahmedabad');
+    (4,'boss','c++',93);
 
     select * from student;
+
+    +------+---------+---------+-------+
+    | id   | name    | subject | score |
+    +------+---------+---------+-------+
+    |    1 | mustved | python  | 76.32 |
+    |    2 | riya    | java    | 87.43 |
+    |    3 | diya    | php     | 67.89 |
+    |    4 | boss    | c++     |    90 |
+    +------+---------+---------+-------+
+--------------------------------------------------------------------------------------------
+
+                                                Constraints:                                           <<03-03-26>>
+Constraints:
+-> means we can prevent unwanted records in database
+
+we can restrict data from outside the world
+
+1) not null:
+    -> when we add any field as not null means at a insert time we can't skip this fileds
+    -> bydefult all field are null if we want to spacify spacific field with not null we can follow below sytax
+
+at creation time>
+    
+        syntax:
+            creat table <tablename>
+            (
+                <filedname> <datatype(size)> not null 
+            );
+
+            e.g.
+            creat table dummy(id int, name varchar(20) not null);
+
+after creation
+
+        syntax:
+            alter table <tablename> modify <filed name><datatype> not null;
+
+            e.g.
+            alter table dummy modify name varchar(20) not null;
+
+2) default:
+    -> when we want to default value to spacific column we can use default constraints so by defualt it will 
+       consider default value
+
+at creation time
+       syntax:
+             creat table <tablename>
+            (
+                <filedname> <datatype(size)> default <"value">
+            );
+
+           e.g.
+            creat table dummy(id int, name varchar(20) default "active");
+
+after creation:
+         syntax:
+            alter table <tablename> modify <filed name><datatype> default <"value">;
+
+            e.g.
+            alter table dummy modify name varcahr(20) default "active";
+
+            {agar humne id mai insert kar diya hai value ko to fir ye chang nhi hoga erorr hogi}
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
+-> using of default constraint alter command (time stamp)
+
+    syntax:
+        alter table dummy add created_at timestamp default current_timestamp;
+
+------------------------------------------------------------------------------------------------
+
+
 ===================================================================================================================
 
 DQL: data query language:

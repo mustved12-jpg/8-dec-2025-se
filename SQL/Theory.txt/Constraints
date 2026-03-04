@@ -1,0 +1,60 @@
+                                                Constraints:                                           <<03-03-26>>
+Constraints:
+-> means we can prevent unwanted records in database
+
+we can restrict data from outside the world
+
+1) not null:
+    -> when we add any field as not null means at a insert time we can't skip this fileds
+    -> bydefult all field are null if we want to spacify spacific field with not null we can follow below sytax
+
+at creation time>
+    
+        syntax:
+            creat table <tablename>
+            (
+                <filedname> <datatype(size)> not null 
+            );
+
+            e.g.
+            creat table dummy(id int, name varchar(20) not null);
+
+after creation
+
+        syntax:
+            alter table <tablename> modify <filed name><datatype> not null;
+
+            e.g.
+            alter table dummy modify name varchar(20) not null;
+
+2) default:
+    -> when we want to default value to spacific column we can use default constraints so by defualt it will 
+       consider default value
+
+at creation time
+       syntax:
+             creat table <tablename>
+            (
+                <filedname> <datatype(size)> default <"value">
+            );
+
+           e.g.
+            creat table dummy(id int, name varchar(20) default "active");
+
+after creation:
+         syntax:
+            alter table <tablename> modify <filed name><datatype> default <"value">;
+
+            e.g.
+            alter table dummy modify name varcahr(20) default "active";
+
+            {agar humne id mai insert kar diya hai value ko to fir ye chang nhi hoga erorr hogi}
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
+-> using of default constraint alter command (time stamp)
+
+    syntax:
+        alter table dummy add created_at timestamp default current_timestamp;
+
