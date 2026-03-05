@@ -356,7 +356,6 @@ without adding and colum in command{agar humko sab me value dena ho tab ye kam a
     |    4 | boss    | c++     |    90 |
     +------+---------+---------+-------+
 --------------------------------------------------------------------------------------------
-
                                                 Constraints:                                           <<03-03-26>>
 Constraints:
 -> means we can prevent unwanted records in database
@@ -385,7 +384,7 @@ after creation
 
             e.g.
             alter table dummy modify name varchar(20) not null;
-
+--------------------------------------------------
 2) default:
     -> when we want to default value to spacific column we can use default constraints so by defualt it will 
        consider default value
@@ -416,7 +415,190 @@ after creation:
 
     syntax:
         alter table dummy add created_at timestamp default current_timestamp;
+-----------------------------------------------------
+ 3) unique:
+->  unique means constraint means we want to make specific column unique means we cannot store dubliacte values in
+    unique column
+->  unique value means 1 time blank value 1 time null value can consider
+{ye lagane ke bad drop nhi hoga agr drop karna hai to field(email varchar(20)) ko drop kar ke fir likhna ho ga }
 
+        E.g.
+        mobile no.,
+        email id,
+        adhar card id,
+        etc...
+
+        creattion time:
+
+        syntax:
+            create table <tablename>
+            (
+                filedname <datatype> unique,
+                .
+                .
+                .
+
+            );
+
+        after creation:
+
+            alter table dummy 
+            e.g.
+
+            create table dummy
+            (id int,
+            email varchar(20) unique,
+            phone int unique,
+            stetus varchar(20) default "de_active");
+
+            desc dummy;
+            +--------+-------------+------+-----+-----------+-------+
+            | Field  | Type        | Null | Key | Default   | Extra |
+            +--------+-------------+------+-----+-----------+-------+
+            | id     | int         | YES  |     | NULL      |       |
+            | email  | varchar(20) | YES  | UNI | NULL      |       |
+            | phone  | int         | YES  | UNI | NULL      |       |
+            | stetus | varchar(20) | YES  |     | de_active |       |
+            +--------+-------------+------+-----+-----------+-------+
+
+            insert into dummy(id,email,phone)
+            values
+            (1,'a@gmail.com',8767675666),
+            (2,'b@gmail.com',9346879838);
+
+            select *from dummy;
+            +------+-------------+-----------+-----------+
+            | id   | email       | phone     | stetus    |
+            +------+-------------+-----------+-----------+
+            |    1 | a@gmail.com | 987867894 | de_active |
+            |    2 | b@gmail.com | 896754325 | de_active |
+            +------+-------------+-----------+-----------+
+            insert into dummy
+            (id,email,phone)
+            values
+            (3,'a@gmail.com'886769898);
+             Duplicate entry 'a@gmail.com' for key 'dummy.eamil'
+                ERORR DUPLICATE
+------------------------------------------------
+  4) primary key: 
+        -> primary key is a most powerfull concept of sql constraint using of primary key we can make any column as 
+           unique column but primary key we can apply only on single field of table.
+
+           unique                                                   primary key
+        -> many column                                            -> only one column
+        -> can accept blank/null                                  -> not accept blank/null
+             e.g.                                                    e.g.
+        -> email,phone,adhar card etc...                          -> id,roll no,enroll-id,etc...
+
+        creattion time:
+
+        syntax:
+            create table <tablename>
+            (
+                filedname <datatype> primary key
+            );
+
+            e.g.
+            create tabel dummy
+            (id int primary key,name varcahr(20));
+
+             desc dummy;
+            +-------+-------------+------+-----+---------+-------+
+            | Field | Type        | Null | Key | Default | Extra |
+            +-------+-------------+------+-----+---------+-------+
+            | id    | int         | NO   | PRI | NULL    |       |
+            | name  | varchar(20) | YES  |     | NULL    |       |
+            +-------+-------------+------+-----+---------+-------+
+
+            insert into dummy
+            values
+            (1,'mustved'),
+            (2,'aaaa');
+            select * from dummy;
+            +----+---------+
+            | id | name    |
+            +----+---------+
+            |  1 | mustved |
+            |  2 | aaaa    |
+            +----+---------+
+
+            insert into dummy 
+            values
+            (1,'bbbbb');
+             Duplicate entry '1' for key 'dummy.PRIMARY'
+            ERORR
+
+        after creation:
+
+        syntax:
+            alter table <tablename> add primary key (filed name);
+
+            e.g.
+
+            alter table dummy add primary key (id);
+
+        droping:
+        alter table dummy drop primary key;
+        +-------+-------------+------+-----+---------+-------+
+        | Field | Type        | Null | Key | Default | Extra |
+        +-------+-------------+------+-----+---------+-------+
+        | id    | int         | NO   |     | NULL    |       |
+        | name  | varchar(20) | YES  |     | NULL    |       |
+        +-------+-------------+------+-----+---------+-------+
+---------------------------------------------------
+ 5) auto incremant:
+    -> when we want to apply and filed to start auto incremant without accept value from user it genetate auto
+       indexes in field value.
+    -> it's start with 1 if you want to start with 10 or 100 you cane just aplly auto_incremant=10
+    creation time:
+
+       syntax:
+        create table<tablename>
+        (
+            fieldname <datatype(int)> auto_incremant
+        );
+        e.g.
+        create table student 
+        (id int primary key auto_incremant,
+        name varcahr(20),
+        subject varchar(20) unique,
+        score folat
+        );
+
+    after creation:
+
+    alter table student modify id int primary key auto_incremant;
+
+    desc student;
+
+    insert into student
+    (name,subject,score)
+    values
+    ('aaaa','php',78.76),
+    ('bbbb','python',65.87)
+    ('cccc','java',98);
+
+select *from student;
++----+------+---------+-------+---------------------+
+| id | name | subject | score | created_at          |
++----+------+---------+-------+---------------------+
+|  1 | aaaa | php     | 78.76 | 2026-03-05 20:27:29 |
+|  2 | bbbb | python  | 65.87 | 2026-03-05 20:27:29 |
+|  3 | cccc | java    |    98 | 2026-03-05 20:27:29 |
++----+------+---------+-------+---------------------+
+
+    insert into student
+    valuse
+    (5,'dddd','c++',78.03);
+
++----+------+---------+-------+---------------------+
+| id | name | subject | score | created_at          |
++----+------+---------+-------+---------------------+
+|  1 | aaaa | php     | 78.76 | 2026-03-05 20:45:45 |  yha men pehle 2 hi lya hu
+|  2 | bbbb | python  | 65.87 | 2026-03-05 20:45:45 |  uper vale mai teen hai 
+|  5 | cccc | java    |    98 | 2026-03-05 20:47:44 |
+|  6 | boss | c++     |    98 | 2026-03-05 20:49:42 |
++----+------+---------+-------+---------------------+
 ------------------------------------------------------------------------------------------------
 
 

@@ -26,7 +26,7 @@ after creation
 
             e.g.
             alter table dummy modify name varchar(20) not null;
-
+--------------------------------------------------
 2) default:
     -> when we want to default value to spacific column we can use default constraints so by defualt it will 
        consider default value
@@ -57,7 +57,7 @@ after creation:
 
     syntax:
         alter table dummy add created_at timestamp default current_timestamp;
-
+-----------------------------------------------------
  3) unique:
 ->  unique means constraint means we want to make specific column unique means we cannot store dubliacte values in
     unique column
@@ -121,7 +121,7 @@ after creation:
             (3,'a@gmail.com'886769898);
              Duplicate entry 'a@gmail.com' for key 'dummy.eamil'
                 ERORR DUPLICATE
-
+------------------------------------------------
   4) primary key: 
         -> primary key is a most powerfull concept of sql constraint using of primary key we can make any column as 
            unique column but primary key we can apply only on single field of table.
@@ -187,7 +187,7 @@ after creation:
         | id    | int         | NO   |     | NULL    |       |
         | name  | varchar(20) | YES  |     | NULL    |       |
         +-------+-------------+------+-----+---------+-------+
-
+---------------------------------------------------
  5) auto incremant:
     -> when we want to apply and filed to start auto incremant without accept value from user it genetate auto
        indexes in field value.
