@@ -36,7 +36,8 @@ class Student
 		
 		void di(Student &s)  //pass by refrence
 //isme agar hum s.a=200 iske bade bina (&)iske hum bus this->a=s.a bhi likhenge to bhi hoga
-        {
+ // s1 jo tha ab vo s me aa gya hai to s1.a ki jgha s.a likhenge 
+		{
 			s.a=200;
 		}
 };
@@ -44,7 +45,7 @@ main()
 {
 	Student s1;
 	s1.a=10;
-	s1.di(s1);
+	s1.di(s1); // ye mene object pass kiya hai
 	cout<<"\n after change a="<<s1.a;
 }
 /*
@@ -78,3 +79,29 @@ main()
 output:
 after change a=200
 */
+--------------------------------------------------------------------------------------------------------------------
+                                                        see
+
+#include<iostream>
+using namespace std;
+class Sample
+{
+	public:
+	int a;  //isme agar hum obj pass kar rhe ahi to datatype jo class hai vhi ka name hoga 
+	void dis(Sample q)//abhi khali obj(s) ki copy q me ayi hai isliye hum kuch bhi
+	{               // chang karen ge q ka use kar ke to ye bas yha tak hi rhe ga
+	    q.a=200;    // iske bahar kahi bhi chang nhi hoga isko call by value bolte hai
+	    cout<<"dis a="<<q.a<<endl;
+	}
+	
+};
+main()
+{
+   Sample s=Sample();
+   s.a=40;
+   s.dis(s);
+    cout<<"a="<<s.a<<endl;
+}
+//agar mujhe chang karna ho to mai pehle to q ke age & lga ke kar sakta hun
+//ya to jub me perameter pass karunga to yha se & pass karunga or vaha *q lagau ga
+// but isme fir mujhe agar chang karna goag to (q.a - X) nhi(q->a)ka use hoga

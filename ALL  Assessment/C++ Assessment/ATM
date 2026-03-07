@@ -1,0 +1,129 @@
+#include<iostream>
+using namespace std;
+class Address
+{
+	protected:
+		int pin=12345;    //consider as a pin
+		string name="Mustved";
+		string city="ahmedabad";
+		string branch="gomtipur";
+		int a_number=4798256;
+		float balance=20000;
+		float sum;
+};
+class ATM :public Address
+{
+	protected:
+	int ch;
+	bool t=true;
+
+	
+	public:
+		ATM()  //constructor
+		{
+			cout<<"=============================§WELCOME TO ATM§==============================\n"<<endl;
+			cout<<"\t\t\t--------------------------\n\n\t\tCurrent Date : Mon Aug 19 15:05:38 2023\n\n\t\t\t--------------------------"<<endl;
+			cout<<"\n___________________________________________________________________________\n"<<endl;
+		}	
+		void account()
+		{
+			
+			cout<<"Press 1 And Then Press Enter To Access Your Account Via Pin Number "<<endl;
+			cout<<"\n\t\t\t\tOR\n"<<endl;
+			cout<<"Press 0 And Press Enter To Get Help."<<endl;
+			cin>>ch;
+			getchar();
+			
+			switch(ch)
+			{
+				case 1:
+					cout<<"\n=========================§ ATM ACCOUNT ACCESS §============================\n\n";
+					cout<<"Enter Your Account Pin Access Number!  [Only One Attempt is Allowed]";
+					cout<<"\n\n-------------------------------------------------------------------------\n\n";
+					cin>>ch;
+					if(ch!=pin)
+					{
+						cout<<"`~`~`~`~`~`~`~`~`~`~`~§THANK YOU§`~`~`~`~`~`~`~`~`~`~`~"<<endl;
+						cout<<"\n\nYou made your attempt which failed !!! No More attempts allowed!! Sorry!!\n";break;
+					}
+					else
+					{
+						while(t)
+						{
+						
+						cout<<"\n\n|||||||||||||||||||||||||||||||||§ATM MAIN MENU SCREEN§||||||||||||||||||||||||||||||||\n\n";
+						cout<<"\t\tEnter [1] To Deposit Cas\n\t\tEnter [2] To Withdraw Cas\n\t\tEnter [3] To Balance Inquiry\n\t\tEnter [0] To EXIT ATM\n\n";
+						cout<<"PLEASE ENTER A SECTION AND PRESS RETURN KEY:";
+						cin>>ch;
+							switch(ch)
+							{
+								case 1:
+									cout<<"\n=====================§ ATM ACCOUNT DEPOSIT SYSTEM §=======================\n\n";
+									cout<<"\n\nThe Names Of The Account Holders Are: "<<name<<endl;
+									cout<<"\tAccount Holders' Address is : "<<city<<endl;
+									cout<<"\tThe Branch Location Is : "<<branch<<endl;
+									cout<<"\tAccount Number : "<<a_number;
+									cout<<"\n\n-------------------------------------------------------------------------\n\n";
+									cout<<"Present Available Balance : Rs. "<<balance<<endl;
+									while(t)
+									{
+									cout<<"\nEnter The Amount To Be Deposited : Rs. ";
+									cin>>sum;
+										if(sum<0)
+										{
+											cout<<"\nErorr\n";
+											continue;
+										}
+										else{break;}
+									}
+									balance+=sum;
+									cout<<"Your New Avilable Balanced Amount Is Rs. "<<balance<<endl;
+									cout<<"\n\t\t\tTHANK YOU!";
+									cout<<"\n\nPress Any Key To Return To The Main Menu";
+									cin>>ch;
+									continue;
+								case 2:
+									cout<<"\n=====================§ ATM ACCOUNT DEPOSIT SYSTEM §=======================\n\n";
+									cout<<"\n\nThe Names Of The Account Holders Are: "<<name<<endl;
+									cout<<"\tAccount Holders' Address is : "<<city<<endl;
+									cout<<"\tThe Branch Location Is : "<<branch<<endl;
+									cout<<"\tAccount Number : "<<a_number;
+									cout<<"\n\n-------------------------------------------------------------------------\n\n";
+									cout<<"\tInsufficient Available Balance In Your Account."<<endl;
+									cout<<"\n\n\t\t\tSORRY !!";
+									cout<<"\n\nPress Any Key To Return To The Main Menu";
+									cin>>ch;
+									continue;
+								case 3:
+									cout<<"\n=====================§ BALANCE INQUIRY §=======================\n\n";
+									cout<<"\n\nThe Names Of The Account Holders Are: "<<name<<endl;
+									cout<<"\tAccount Holders' Address is : "<<city<<endl;
+									cout<<"\tThe Branch Location Is : "<<branch<<endl;
+									cout<<"\tAccount Number : "<<a_number;
+									cout<<"\n\n-------------------------------------------------------------------------\n\n";
+									cout<<"Present Available Balance : Rs. "<<balance<<endl;
+									cout<<"\n\nPress Any Key To Return To The Main Menu";
+									cin>>ch;
+									continue;
+								default:
+									t=false;
+								
+					
+							}
+						}
+					}
+					break;
+				case 0:
+					cout<<"\n=========================§ ATM ACCOUNT STATUS §============================\n\n";
+					cout<<"\tYou Must Have The Correct Pin Number To Access This Acount. See Your\n\n";
+					cout<<"\t\tBank Representative For Assistance During Bank Opening Hours\n\n";
+					cout<<"\t\t\tThanks For, Your Choice Today!!";break;
+			}
+		}
+};
+main()
+{
+	ATM atm=ATM();
+	atm.account();
+	
+}
