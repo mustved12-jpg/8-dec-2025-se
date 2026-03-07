@@ -4,6 +4,18 @@ Constraints:
 
 we can restrict data from outside the world
 
+
+                 alter ke time pe
+                    |
+1) not null     {modify ka use}
+2) default      {modify ka use}
+3) unique       {add,modify }
+4) primary key  {add}
+5) auto_increment {modify ka use}
+6) check        {modify ka use}
+7) foreign key
+
+-------------------------------------------------------
 1) not null:
     -> when we add any field as not null means at a insert time we can't skip this fileds
     -> bydefult all field are null if we want to spacify spacific field with not null we can follow below sytax
@@ -30,7 +42,7 @@ after creation
 2) default:
     -> when we want to default value to spacific column we can use default constraints so by defualt it will 
        consider default value
-
+    -> {data insert karne ke bad chang nhi ho agar karna hai to truncate karna hoga first }
 at creation time
        syntax:
              creat table <tablename>
@@ -51,7 +63,7 @@ after creation:
             {agar humne id mai insert kar diya hai value ko to fir ye chang nhi hoga erorr hogi}
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -> using of default constraint alter command (time stamp)
 
@@ -241,3 +253,51 @@ select *from student;
 |  5 | cccc | java    |    98 | 2026-03-05 20:47:44 |
 |  6 | boss | c++     |    98 | 2026-03-05 20:49:42 |
 +----+------+---------+-------+---------------------+
+
+---------------------------------------------------
+6) check:
+    -> check is constraint wich is mainly use to apply restriction on spacific field 
+    -> {data insert karne ke bad chang nhi ho agar karna hai to truncate karna hoga first }
+    e.g.
+    
+    employ table we can't allow only more then 18 years old employ
+    {18 ke kam ko nhi allow karna hai }
+
+    syntax:
+        field name check field name(condition);
+
+
+    e.g.
+
+    creation time:
+            create table user
+            ( id int primary key auto_increment,
+              name varchar(20),
+              age int check(age>18)
+            );
+
+    after creation:
+        alter table dummy modify age int check(age>18); // 18 se bade ko lega 
+
+      insert into user
+        (name,age)
+        values
+        ('aaa',23),
+        ('bbb',56);
+
+        select *from user;
++----+------+-----+---------------------+
+| id | name | age | created_at          |
++----+------+-----+---------------------+
+|  1 | aaa  |  23 | 2026-03-07 22:46:23 |
+|  2 | bbb  |  56 | 2026-03-07 22:46:23 |
++----+------+-----+---------------------+
+
+insert into user(name,age)values('ccc',15);
+ERROR 3819 (HY000): Check constraint 'user_chk_1' is violated.
+    {agar humko erorr me (user_chk_1) iski jaga apna kuch likha huva aye asa chahiye to jese (not_elegible) to }
+
+->alter table user add constraint not_elegible  check(age>18); //esa likhna hoga isme add hoga modify nhi 
+
+insert into user(name,age)values('ccc',15);
+ERROR 3819 (HY000): Check constraint 'not_elegible' is violated.
