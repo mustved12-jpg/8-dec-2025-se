@@ -1,0 +1,185 @@
+DML : Data manipulation language:
+
+1) Insert
+2) update
+3) delete
+
+------------------------------------------------------
+                                            1) insert
+------------------------------------------------------
+
+insert:
+-> insert command is used to store record in existing table using of spacific colum wise;
+
+    syntax:
+        insert into <tablename> <colum1,colum2.....>
+        values
+        (value1,value2....);
+
+        e.g.
+            insert into student
+            (id,name,subject,score)
+            values
+            (1,'mustved','python',76.32);
+
+        select:
+            -> to retrive all records from table {record dekhne ke liye}
+
+            syntax:
+                select * from <tablename>;
+
+                e.g.
+                    select * from student;
+                    +------+---------+---------+-------+
+                    | id   | name    | subject | score |
+                    +------+---------+---------+-------+
+                    |    1 | mustved | python  | 76.32 |
+                    +------+---------+---------+-------+
+
+store multiple records using single command
+
+    insert into student
+    (id,name,subject,score)
+    values
+    (2,'riya','java',87.43,),
+    (3,'diya','php',67.89,);
+
+    select * from student;
+    +------+---------+---------+-------+
+    | id   | name    | subject | score |
+    +------+---------+---------+-------+
+    |    1 | mustved | python  | 76.32 |
+    |    2 | riya    | java    | 87.43 |
+    |    3 | diya    | php     | 67.89 |
+    +------+---------+---------+-------+
+
+without adding and colum in command{agar humko sab me value dena ho tab ye kam aata hai}
+
+    insert into student 
+    values
+    (4,'boss','c++',93);
+
+    select * from student;
+
+    +------+---------+---------+-------+
+    | id   | name    | subject | score |
+    +------+---------+---------+-------+
+    |    1 | mustved | python  | 76.32 |
+    |    2 | riya    | java    | 87.43 |
+    |    3 | diya    | php     | 67.89 |
+    |    4 | boss    | c++     |    90 |
+    +------+---------+---------+-------+
+
+------------------------------------------------------
+                                            2) update:
+------------------------------------------------------
+
+-> when we want to update record based on spacific condition wise we use update command
+-> update command is a part of DML(data manipulation langauge)
+
+    syntax:
+        update <tablename> set <columnname=fieldname>,<columnname=fieldname> where <condition>
+
+        e.g.
+        ->desc student;
+            +------------+-------------+------+-----+-------------------+-------------------+
+            | Field      | Type        | Null | Key | Default           | Extra             |
+            +------------+-------------+------+-----+-------------------+-------------------+
+            | id         | int         | NO   | PRI | NULL              | auto_increment    |
+            | name       | varchar(20) | NO   |     | NULL              |                   |
+            | city       | varchar(30) | YES  |     | NULL              |                   |
+            | score      | float       | YES  |     | 0                 |                   |
+            | created_at | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+            | subject    | varchar(20) | YES  | UNI | no subject        |                   |
+            +------------+-------------+------+-----+-------------------+-------------------+
+
+        ->select *from student; 
+
+            +----+------+-----------+-------+---------------------+------------+
+            | id | name | city      | score | created_at          | subject    |
+            +----+------+-----------+-------+---------------------+------------+
+            |  1 | aaa  | ahmedabad | 76.98 | 2026-03-09 17:00:01 | NULL       |
+            |  2 | bbb  | surat     | 77.54 | 2026-03-09 17:00:01 | NULL       |
+            |  3 | ccc  | mumbai    |    86 | 2026-03-09 17:00:01 | NULL       |
+            |  4 | ddd  | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL       |
+            |  5 | eee  | gova      | 55.88 | 2026-03-09 17:06:46 | NULL       |
+            |  6 | fff  | mumbai    |    87 | 2026-03-09 17:08:01 | no subject |// bad me default kiya tha
+            +----+------+-----------+-------+---------------------+------------+
+
+        =-> abhi  mujhe 77.54 ko 70 karna hai
+
+        -> update student set score=70 where id=2;  
+
+            +----+------+-----------+-------+---------------------+------------+
+            | id | name | city      | score | created_at          | subject    |
+            +----+------+-----------+-------+---------------------+------------+
+            |  1 | aaa  | ahmedabad | 76.98 | 2026-03-09 17:00:01 | NULL       |
+            |  2 | bbb  | surat     |    70 | 2026-03-09 17:00:01 | NULL       |
+            |  3 | ccc  | mumbai    |    86 | 2026-03-09 17:00:01 | NULL       |
+            |  4 | ddd  | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL       |
+            |  5 | eee  | gova      | 55.88 | 2026-03-09 17:06:46 | NULL       |
+            |  6 | fff  | mumbai    |    87 | 2026-03-09 17:08:01 | no subject |
+            +----+------+-----------+-------+---------------------+------------+
+
+            now
+
+        -> update student set name="mustved",city="Ahmedabad",score=78.65 where id=1;
+
+            +----+---------+-----------+-------+---------------------+------------+
+            | id | name    | city      | score | created_at          | subject    |
+            +----+---------+-----------+-------+---------------------+------------+
+            |  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | NULL       |
+            |  2 | bbb     | surat     |    70 | 2026-03-09 17:00:01 | NULL       |
+            |  3 | ccc     | mumbai    |    86 | 2026-03-09 17:00:01 | NULL       |
+            |  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL       |
+            |  5 | eee     | gova      | 55.88 | 2026-03-09 17:06:46 | NULL       |
+            |  6 | fff     | mumbai    |    87 | 2026-03-09 17:08:01 | no subject |
+            +----+---------+-----------+-------+---------------------+------------+
+
+        -> update student set name="boss" where name="bbb";
+
+            +----+---------+-----------+-------+---------------------+------------+
+            | id | name    | city      | score | created_at          | subject    |
+            +----+---------+-----------+-------+---------------------+------------+
+            |  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | NULL       |
+            |  2 | boss    | surat     |    70 | 2026-03-09 17:00:01 | NULL       |
+            |  3 | ccc     | mumbai    |    86 | 2026-03-09 17:00:01 | NULL       |
+            |  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL       |
+            |  5 | eee     | gova      | 55.88 | 2026-03-09 17:06:46 | NULL       |
+            |  6 | fff     | mumbai    |    87 | 2026-03-09 17:08:01 | no subject |
+            +----+---------+-----------+-------+---------------------+------------+
+
+------------------------------------------------------
+                                            3) delete:
+------------------------------------------------------
+
+-> when we want to delete or remove spacific row condition wise we can use delete command
+
+    syntax:
+        delete from <tablename> where condition
+
+        e.g.
+            delete from student where id=6;
+
+            +----+---------+-----------+-------+---------------------+---------+
+            | id | name    | city      | score | created_at          | subject |
+            +----+---------+-----------+-------+---------------------+---------+
+            |  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | NULL    |
+            |  2 | boss    | surat     |    70 | 2026-03-09 17:00:01 | NULL    |
+            |  3 | ccc     | mumbai    |    86 | 2026-03-09 17:00:01 | NULL    |
+            |  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
+            |  5 | eee     | gova      | 55.88 | 2026-03-09 17:06:46 | NULL    |
+            +----+---------+-----------+-------+---------------------+---------+
+
+            or
+
+            delete from student where score<60;
+
+            +----+---------+-----------+-------+---------------------+---------+
+            | id | name    | city      | score | created_at          | subject |
+            +----+---------+-----------+-------+---------------------+---------+
+            |  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | NULL    |
+            |  2 | boss    | surat     |    70 | 2026-03-09 17:00:01 | NULL    |
+            |  3 | ccc     | mumbai    |    86 | 2026-03-09 17:00:01 | NULL    |
+            |  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
+            +----+---------+-----------+-------+---------------------+---------+

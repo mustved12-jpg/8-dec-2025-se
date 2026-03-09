@@ -11,3 +11,4 @@ IS-A relationship:
 HAS-A relationship:
 -> department has staff
 (we are use properties of another class using of reference insted of inheritance)
+{reference ka use kar ke dusre class ki properties ko use kar sakte hai}

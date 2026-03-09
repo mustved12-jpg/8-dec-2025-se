@@ -18,6 +18,7 @@ method
 
 2) run time polymorphism
 -> which is acheiv by method overriding(inheritance) and virtual function
+{isme over riding Mechanism ka use hota hai}
 -----------
 Method overloading:
 

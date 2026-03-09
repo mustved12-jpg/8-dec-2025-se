@@ -1,0 +1,187 @@
+ DQL: Data query language:
+
+ -> most most powerfull concept od sql
+ -> when we want to retrive records from the table we can use DQL command 
+ 
+ 1)select
+ -----------------------------------------------------------
+                                                1)select:
+ -----------------------------------------------------------
+
+ using of select command we can retrive different deffirent records with spacific condition wise
+
+    syntax:
+        select *from <tablename>
+        e.g.
+        select*from student;
+
+    -> fetch spacific columns from table
+
+        syntax:
+            select field name,field name..... from <tablename>;
+            e.g.
+                select name,subject from student;
+                {agar hum * lgate hai to vo pura dikhata hai par isme bas name or subject hi dikhaye ga}
+
+                +---------+---------+
+                | name    | subject |
+                +---------+---------+
+                | mustved | python  |
+                | boss    | java    |
+                | ccc     | php     |
+                | ddd     | NULL    |
+                +---------+---------+
+
+    -> fetch specific data using of spacific conditio wise for condition we use where close
+
+        syntax:
+            select *from student where city="ahmedabad";
+            +----+---------+-----------+-------+---------------------+---------+
+            | id | name    | city      | score | created_at          | subject |
+            +----+---------+-----------+-------+---------------------+---------+
+            |  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | python  |
+            |  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
+            +----+---------+-----------+-------+---------------------+---------+
+
+            or
+
+            select name,subject,city from student where city="ahmedabad";
+            
+            +---------+---------+-----------+
+            | name    | subject | city      |
+            +---------+---------+-----------+
+            | mustved | python  | Ahmedabad |
+            | ddd     | NULL    | ahmedabad |
+            +---------+---------+-----------+
+
+(1) conditional operator:
+        =,!=,>,<,<=,>=
+(2) logical operator:
+        and ,or,not
+(3) membership operator:
+        in,not in,between
+(4) pattern matching operator:
+        like,not like
+(5) null operator:
+        is null, is not null
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1) conditional operator:
+
+
+->select * from student where score > 72;
++----+---------+-----------+-------+---------------------+---------+
+| id | name    | city      | score | created_at          | subject |
++----+---------+-----------+-------+---------------------+---------+
+|  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | python  |
+|  3 | ccc     | mumbai    |    86 | 2026-03-09 17:00:01 | php     |
++----+---------+-----------+-------+---------------------+---------+
+
+->select * from student where score < 72;
++----+------+-----------+-------+---------------------+---------+
+| id | name | city      | score | created_at          | subject |
++----+------+-----------+-------+---------------------+---------+
+|  2 | boss | surat     |    70 | 2026-03-09 17:00:01 | java    |
+|  4 | ddd  | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
++----+------+-----------+-------+---------------------+---------+
+
+->select name,subject from student where subject != "java";
++---------+---------+
+| name    | subject |
++---------+---------+
+| ccc     | php     |
+| mustved | python  |
++---------+---------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~logical operator:
+
+->select name,score,subject from student where score>60 and score<70;
++------+-------+---------+
+| name | score | subject |
++------+-------+---------+
+| ddd  | 65.67 | NULL    |
++------+-------+---------+
+
+->select name,score,subject from student where subject="java" or subject="python";
++---------+-------+---------+
+| name    | score | subject |
++---------+-------+---------+
+| boss    |    70 | java    |
+| mustved | 78.65 | python  |
++---------+-------+---------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~membership operator:
+
+->select * from student where city in("ahmedabad","surat");
++----+---------+-----------+-------+---------------------+---------+
+| id | name    | city      | score | created_at          | subject |
++----+---------+-----------+-------+---------------------+---------+
+|  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | python  |
+|  2 | boss    | surat     |    70 | 2026-03-09 17:00:01 | java    |
+|  4 | ddd     | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
++----+---------+-----------+-------+---------------------+---------+
+or
+select name,city from student where city in("ahmedabad","surat");
++---------+-----------+
+| name    | city      |
++---------+-----------+
+| mustved | Ahmedabad |
+| boss    | surat     |
+| ddd     | ahmedabad |
++---------+-----------+
+
+->select name,city from student where city not in ("ahmedabad","surat");
++------+--------+
+| name | city   |
++------+--------+
+| ccc  | mumbai |
++------+--------+
+
+->select name,score from student where score between 60 and 80;
++---------+-------+
+| name    | score |
++---------+-------+
+| mustved | 78.65 |
+| boss    |    70 |
+| ddd     | 65.67 |
++---------+-------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~pattern matching operator:
+
+->like
+    syntax:
+        select *from <tablename> where name like "%a%";
+
+        e.g.
+        select*from student where name like "%a%";
+        {ye jis bhi name mai (a) ata hoga vo sabhi dikhaye ga}
+
+->select*from student where name like "%u%";
++----+---------+-----------+-------+---------------------+---------+
+| id | name    | city      | score | created_at          | subject |
++----+---------+-----------+-------+---------------------+---------+
+|  1 | mustved | Ahmedabad | 78.65 | 2026-03-09 17:00:01 | python  |
++----+---------+-----------+-------+---------------------+---------+
+
+         select*from student where name like "a%";
+        {ye jis bhi name ke suru mai (a) ata hoga vo sabhi dikhaye ga}
+
+
+        select*from student where name like "%a";
+        {ye jis bhi name ke last mai (a) ata hoga vo sabhi dikhaye ga}
+
+
+        select*from student where name like "_a%";
+         {ye jis bhi name mai ageka 1 word chode ke (a) ata hoga vo sbhi dikhaye ga}
+         {ese hi jitan ham (___) isko lgaye ge utne catector chod ke ayega or ye age piche lag sakta hai (%a___)}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(5)null operator:
+
+-> to chack any field contain null value or not using of (is null) and(is not null) conditio
+
+    select *from student where subject is null;
+
+        +----+------+-----------+-------+---------------------+---------+
+        | id | name | city      | score | created_at          | subject |
+        +----+------+-----------+-------+---------------------+---------+
+        |  4 | ddd  | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
+        +----+------+-----------+-------+---------------------+---------+
