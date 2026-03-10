@@ -1,0 +1,37 @@
+when or then use:
+
+update student set pass_ro_fail=case when score>=70 then "+A PASS"
+    -> update student set pass_or_fail=case when score>=60 then "A PASS"^C
+mysql> update student set pass_or_fail=case when score>=70 then "+A PASS"
+    -> when score>=60 then "A PASS"
+    -> when score>=50 then "B PASS"
+    -> when score>=35 then "C PASS"
+    -> when score<=35 then "FAIL" end;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 6  Changed: 1  Warnings: 0
+
+mysql> select*from student;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  2 | aaa      | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+
+
+
+
+UPDATE student
+SET pass_or_fail = CASE 
+    WHEN score >= 90 THEN 'A+'
+    WHEN score >= 80 THEN 'A'
+    WHEN score >= 70 THEN 'B'
+    WHEN score >= 60 THEN 'C'
+    WHEN score >= 50 THEN 'D'
+    ELSE               'F'
+END;

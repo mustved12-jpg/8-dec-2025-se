@@ -185,3 +185,196 @@ select name,city from student where city in("ahmedabad","surat");
         +----+------+-----------+-------+---------------------+---------+
         |  4 | ddd  | ahmedabad | 65.67 | 2026-03-09 17:00:01 | NULL    |
         +----+------+-----------+-------+---------------------+---------+
+
+-----------------------------------------------------------------------
+                                                            ORDER BY:
+-----------------------------------------------------------------------
+-> when we want to retrive data from tae database with spacific orderformate
+
+-> by default formate is ASCENDING orderformate
+
+    -> ther are 2 type ASC and DESC
+    {(asc)1,2,3...;  (desc)....3,2,1;}
+
+    syntax:
+        select *from <tablename> order by <columnname>;
+        OR
+        select *from <tablename> order by <columnname>asc;
+        OR
+        select *from <tablename> order by <columnname>desc;
+      ----------  
+        and for limit we use limit<condition>;
+        E.g.
+        select*from student order by score asc limit 3;
+        
+    e.g.
+        ->select*from student order by name;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  2 | aaa      | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+    ->select*from student order by score asc;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
+|  2 | aaa      | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+    ->select*from student order by score desc;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  2 | aaa      | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+    ->select*from student order by score asc limit 3;
++----+------+-----------+-------+---------------------+--------------+---------+
+| id | name | city      | score | created_at          | pass_or_fail | subject |
++----+------+-----------+-------+---------------------+--------------+---------+
+|  6 | abcd | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
+|  2 | aaa  | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  5 | ddd  | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
++----+------+-----------+-------+---------------------+--------------+---------+
+
+-----------------------------------------------------------------------
+                                                                GROUP BY:
+-----------------------------------------------------------------------
+
+-> group by ro wise which contain common column value to use concept of group by we have to use aggregate function
+
+
+    count(*)  //no oorecord
+    -> sum : for total
+    -> max : for maximum value
+    -> min : for minimum value
+    -> avg : for average value
+
+    syntax:
+        select <columnname>,count(*) from  <tablename> group by <columnname>;
+
+        e.g.
+            ->select city,count(*) from student group by city;
++-----------+----------+
+| city      | count(*) |
++-----------+----------+
+| AHMEDABAD |        3 |
+| surat     |        2 |
+| mumbai    |        1 |
++-----------+----------+
+
+            ->select city,sum(score) from student group by city;
+            {isme ye city ke group bnaye ga fir us group mai jitna score hoga uska total btaye ga}
++-----------+--------------------+
+| city      | sum(score)         |
++-----------+--------------------+
+| AHMEDABAD | 184.76000213623047 |
+| surat     | 125.06999969482422 |
+| mumbai    |                 78 |
++-----------+--------------------+
+
+            ->select city,max(score)from student group by city;
++-----------+------------+
+| city      | max(score) |
++-----------+------------+
+| AHMEDABAD |      67.89 |
+| surat     |         65 |
+| mumbai    |         78 |
++-----------+------------+
+
+            ->select city,min(score)from student group by city;
++-----------+------------+
+| city      | min(score) |
++-----------+------------+
+| AHMEDABAD |         49 |
+| surat     |      60.07 |
+| mumbai    |         78 |
++-----------+------------+
+
+            ->select city,avg(score)from student group by city;/ AHMEDABAD ke jitne score hai un sab ka average
++-----------+-------------------+
+| city      | avg(score)        |
++-----------+-------------------+
+| AHMEDABAD | 61.58666737874349 |
+| surat     | 62.53499984741211 |
+| mumbai    |                78 |
++-----------+-------------------+
+
+==>create table product(id int primary key auto_increment,pro_name varchar(20),pro_price int,pro_qty int);
+
+-> insert into product(pro_name,pro_qty,pro_price)
+     values
+     ('tv',20,20000),
+     ('Ac',32,65700),
+     ('Ac',40,32000),
+     ('Laptop',60,48000),
+     ('tv',10,35000),
+     ('phone',30,15000);
+
+     ->select*from product;
++----+----------+-----------+---------+
+| id | pro_name | pro_price | pro_qty |
++----+----------+-----------+---------+
+|  1 | tv       |     20000 |      20 |
+|  2 | Ac       |     65700 |      32 |
+|  3 | Ac       |     32000 |      40 |
+|  4 | Laptop   |     48000 |      60 |
+|  5 | tv       |     35000 |      10 |
+|  6 | phone    |     15000 |      30 |
++----+----------+-----------+---------+
+
+-> select pro_name,count(*)from product group by pro_name;// kon kon sa kitana saman hai
++----------+----------+
+| pro_name | count(*) |
++----------+----------+
+| tv       |        2 |
+| Ac       |        2 |
+| Laptop   |        1 |
+| phone    |        1 |
++----------+----------+
+
+->select pro_name,max(pro_qty)from product group by pro_name;//agar 2 type ki ac hai to dono mai se qty kiski jyada hai
++----------+--------------+
+| pro_name | max(pro_qty) |
++----------+--------------+
+| tv       |           20 |
+| Ac       |           40 |
+| Laptop   |           60 |
+| phone    |           30 |
++----------+--------------+
+
+->select pro_name,sum(pro_qty)from product group by pro_name;// total kitni qty hai tv ki baki sab ki
++----------+--------------+
+| pro_name | sum(pro_qty) |
++----------+--------------+
+| tv       |           30 |
+| Ac       |           72 |
+| Laptop   |           60 |
+| phone    |           30 |
++----------+--------------+
+
+->select pro_name,max(pro_price)from product group by pro_name;// dono ac mai se maximum price kiski hai
++----------+----------------+
+| pro_name | max(pro_price) |
++----------+----------------+
+| tv       |          35000 |
+| Ac       |          65700 |
+| Laptop   |          48000 |
+| phone    |          15000 |
++----------+----------------+
