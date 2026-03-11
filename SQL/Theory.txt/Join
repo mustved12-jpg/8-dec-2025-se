@@ -1,0 +1,133 @@
+                                                  ::JOIN::                                             <<11-03-26>>
+
+    =->create table city(id int primary key auto_increment,city_name varchar(20));
+        desc city;
+        +-----------+-------------+------+-----+---------+----------------+
+        | Field     | Type        | Null | Key | Default | Extra          |
+        +-----------+-------------+------+-----+---------+----------------+
+        | id        | int         | NO   | PRI | NULL    | auto_increment |
+        | city_name | varchar(20) | YES  |     | NULL    |                |
+        +-----------+-------------+------+-----+---------+----------------+
+
+            =->insert into city(city_name)values('AHMEDABAD'),('SURAT'),('MUMBAI'),('GOA'),('KANPUR');
+                    SELECT*FROM CITY;
+                    +----+-----------+
+                    | id | city_name |
+                    +----+-----------+
+                    |  1 | AHMEDABAD |
+                    |  2 | SURAT     |
+                    |  3 | MUMBAI    |
+                    |  4 | GOA       |
+                    |  5 | KANPUR    |
+                    +----+-----------+
+
+    =->create table user(user_id int primary key auto_increment,user_name varchar(20));
+        desc user;
+        +-----------+-------------+------+-----+---------+----------------+
+        | Field     | Type        | Null | Key | Default | Extra          |
+        +-----------+-------------+------+-----+---------+----------------+
+        | user_id   | int         | NO   | PRI | NULL    | auto_increment |
+        | user_name | varchar(20) | YES  |     | NULL    |                |
+        +-----------+-------------+------+-----+---------+----------------+
+   
+             =->insert into user(user_name,city_id)
+                         values
+                         ('mustved',1),
+                         ('aaaa',2),
+                         ('bbb',3),
+                         ('cccc',1),
+                         ('dddd',5);
+                    select*from user;
+                    +---------+-----------+---------+
+                    | user_id | user_name | city_id |
+                    +---------+-----------+---------+
+                    |       1 | mustved   |       1 |
+                    |       2 | aaaa      |       2 |
+                    |       3 | bbb       |       3 |
+                    |       4 | cccc      |       1 |
+                    |       5 | dddd      |       5 |
+                    +---------+-----------+---------+
+========================================================================
+JOIN:
+    -> when we wants to join 2 or more tables with using os same matching value its called joinig there is no need
+        to apply foriengn key for joinig
+
+         select*from user
+            join city
+            on user.city_id=city.id;
+        +----+-----------+---------+----+-----------+
+        | id | user_name | city_id | id | city_name |
+        +----+-----------+---------+----+-----------+
+        |  1 | mustved   |       1 |  1 | AHMEDABAD |{city_id or city ki id jha jha sem hai usne jod diya}
+        |  2 | aaaa      |       2 |  2 | SURAT     |
+        |  3 | bbb       |       3 |  3 | MUMBAI    |
+        |  4 | cccc      |       1 |  1 | AHMEDABAD |
+        |  5 | dddd      |       5 |  5 | KANPUR    |
+        +----+-----------+---------+----+-----------+
+
+            {join hoga vese hi par muje name or city hi chahiye}
+        ->select user.user_name as name,city.city_name as city from user
+         join city
+         on user.city_id=city.id;
+                +---------+-----------+
+                | name    | city      |
+                +---------+-----------+
+                | mustved | AHMEDABAD |
+                | aaaa    | SURAT     |
+                | bbb     | MUMBAI    |
+                | cccc    | AHMEDABAD |
+                | dddd    | KANPUR    |
+                +---------+-----------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  =->create table tbl_order(id int auto_increment primary key,cust_id int,order_id int);
+        =->insert into tbl_order(cust_id,order_id)values(1,4),(3,2),(4,1),(1,5);
+            =->select *from tbl_order;
+                +----+---------+----------+
+                | id | cust_id | order_id |
+                +----+---------+----------+
+                |  1 |       1 |        4 |
+                |  2 |       3 |        2 |
+                |  3 |       4 |        1 |
+                |  4 |       1 |        5 |
+                +----+---------+----------+
+            {product table or user table bna huva hai}
+
+        =->select*from user;
+            +----+-----------+---------+
+            | id | user_name | city_id |
+            +----+-----------+---------+
+            |  1 | mustved   |       1 |
+            |  2 | aaaa      |       2 |
+            |  3 | bbb       |       3 |
+            |  4 | cccc      |       1 |
+            |  5 | dddd      |       5 |
+            +----+-----------+---------+
+
+        =->select id,user_name from user;{isme confusion na ho is liye id or name hi likha hu}
+            +----+-----------+
+            | id | user_name |
+            +----+-----------+
+            |  1 | mustved   |
+            |  2 | aaaa      |
+            |  3 | bbb       |
+            |  4 | cccc      |
+            |  5 | dddd      |
+            +----+-----------+
+
+
+{now join both}
+
+-> select tbl_order.id,user.user_name as name,product.pro_name,product.pro_price as price from tbl_order
+     join user
+     on tbl_order.cust_id=user.id
+     join product
+     on tbl_order.order_id=product.id;
++----+---------+----------+-------+
+| id | name    | pro_name | price |
++----+---------+----------+-------+
+|  1 | mustved | Laptop   | 48000 |
+|  2 | bbb     | Ac       | 65700 |
+|  3 | cccc    | tv       | 20000 |
+|  4 | mustved | tv       | 35000 |
++----+---------+----------+-------+

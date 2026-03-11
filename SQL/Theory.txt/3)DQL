@@ -371,10 +371,118 @@ select name,city from student where city in("ahmedabad","surat");
 
 ->select pro_name,max(pro_price)from product group by pro_name;// dono ac mai se maximum price kiski hai
 +----------+----------------+
-| pro_name | max(pro_price) |
-+----------+----------------+
-| tv       |          35000 |
-| Ac       |          65700 |
-| Laptop   |          48000 |
-| phone    |          15000 |
-+----------+----------------+
+| pro_name | max(pro_price) |//{agar muje ye name ki jgakoi or name chahiye ho to mai }
++----------+----------------+                      |
+| tv       |          35000 |                      V
+| Ac       |          65700 |              pro_name ke bad as name,max(pro_price) as total 
+| Laptop   |          48000 |               {likhunga}
+| phone    |          15000 |                               |
++----------+----------------+                               V
+                                                    +----------+----------------+
+                                                    | name     | total          |
+                                                    +----------+----------------+
+                                                    | tv       |          35000 |
+                                                    | Ac       |          65700 | 
+                                                    | Laptop   |          48000 |
+                                                    | phone    |          15000 |
+                                                    +----------+----------------+
+
+===============================================
+where and having columns
+
+  where:
+  -> apply condition before group
+
+  having:
+  -> apply condition after group condition
+
+  having syntax:
+        select columnname,count(*),total from <tablename> group by <columnname> having <column condition>;
+
+        e.g.
+        =-> select*from product;
++----+----------+-----------+---------+
+| id | pro_name | pro_price | pro_qty |
++----+----------+-----------+---------+
+|  1 | tv       |     20000 |      20 |
+|  2 | Ac       |     65700 |      32 |
+|  3 | Ac       |     32000 |      40 |
+|  4 | Laptop   |     48000 |      60 |
+|  5 | tv       |     35000 |      10 |
+|  6 | phone    |     15000 |      30 |
++----+----------+-----------+---------+
+
+        =-> select pro_name as name,count(*) as total from product group by pro_name;
++--------+-------+
+| name   | total |
++--------+-------+
+| tv     |     2 |
+| Ac     |     2 |
+| Laptop |     1 |
+| phone  |     1 |
++--------+-------+
+
+    -> select pro_name as name,count(*) as total from product group by pro_name having count(*) >=2;
+    {isme pehle ye group bnaya same name ka fir jo bhi name 2ya 2 se jyada hai vo dikhaya }
++------+-------+
+| name | total |
++------+-------+
+| tv   |     2 |
+| Ac   |     2 |
++------+-------+
+
+        =->select pro_name as product,max(pro_price) as total from product group by pro_name;
++---------+-------+
+| product | total |
++---------+-------+
+| tv      | 35000 |
+| Ac      | 65700 |
+| Laptop  | 48000 |
+| phone   | 15000 |
++---------+-------+
+
+            ->select pro_name as product,max(pro_price) as total from product group by pro_name having total >=50000;
++---------+-------+
+| product | total |
++---------+-------+
+| Ac      | 65700 |
++---------+-------+
+
+            ->select pro_name as product,max(pro_price) as total from product group by pro_name having total between 15000 and 60000;
++---------+-------+
+| product | total |
++---------+-------+
+| tv      | 35000 |
+| Laptop  | 48000 |
+| phone   | 15000 |
++---------+-------+
+
+            ->select pro_name as product,max(pro_price) as total from product group by pro_name having total in (15000);
++---------+-------+
+| product | total |
++---------+-------+
+| phone   | 15000 |
++---------+-------+
+
+-----------------------------
+
+->select pro_name as product,sum(pro_price) as total from product where pro_qty>=30 group by pro_name having total>=40000;
+     {ye pehle jiski qty 30 se jyada hogi vo layega fir group bnega group me total price hogi(jese ac1 ki price 20 hai or ac2 ki 
+     price 10 total=30) to ye chak karega price 40000 se jyada hai()}
++---------+-------+
+| product | total |
++---------+-------+
+| Ac      | 97700 |
+| Laptop  | 48000 |
++---------+-------+
+
+OR
+
+->select pro_name as product,max(pro_price) as total from product where pro_qty>=30 group by pro_name having total>=40000;
+{isme pata chalega kiski qyt  30 se jyada hai or prise 40000 se jyada hai}
++---------+-------+
+| product | total |
++---------+-------+
+| Ac      | 65700 |
+| Laptop  | 48000 |
++---------+-------+
