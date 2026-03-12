@@ -131,3 +131,186 @@ JOIN:
 |  3 | cccc    | tv       | 20000 |
 |  4 | mustved | tv       | 35000 |
 +----+---------+----------+-------+
+{usre ki city_id ka use karke isme city bhi add karna hai}
+
+->select tbl_order.id,user.user_name as name,product.pro_name,product.pro_price as price,city.city_name from tbl_order
+    join user
+    on tbl_order.cust_id=user.id
+    join product
+    on tbl_order.order_id=product.id
+    join city
+    on user.city_id=city.id;
++----+---------+----------+-------+-----------+
+| id | name    | pro_name | price | city_name |
++----+---------+----------+-------+-----------+
+|  1 | mustved | Laptop   | 48000 | AHMEDABAD |
+|  2 | bbb     | Ac       | 65700 | MUMBAI    |
+|  3 | cccc    | tv       | 20000 | AHMEDABAD |
+|  4 | mustved | tv       | 35000 | AHMEDABAD |
++----+---------+----------+-------+-----------+
+
+
+==================================================================
+1) INNER JOIN: inner join which is return only matching elements from the both tables
+{sem join ki tra hai join likho ya inner join ye prefer kiya jata hai}
+==================================================================
+2) LEFT JOIN: take all records from the left table and display matching values from the right table
+    if there is no records in right table id display NULL 
+
+    e.g.
+    =->select*from tbl_order;               =->select id,user_name from user;
+
+        +----+---------+----------+         +----+-----------+
+        | id | cust_id | order_id |         | id | user_name |
+        +----+---------+----------+         +----+-----------+   
+        |  1 |       1 |        4 |         |  1 | mustved   |
+        |  1 |       1 |        4 |         |  2 | aaaa      |
+        |  2 |       3 |        2 |         |  3 | bbb       |
+        |  3 |       4 |        1 |         |  4 | cccc      |
+        |  4 |       1 |        5 |         |  5 | dddd      |
+        |  5 |       7 |        2 |         +----+-----------+
+        |  6 |       4 |        8 |
+        +----+---------+----------+
+
+    now left join:
+
+    ->select user.user_name as name,tbl_order.cust_id
+        from user
+        left join tbl_order
+        on user.id=tbl_order.cust_id;
+            +---------+---------+
+            | name    | cust_id |
+            +---------+---------+
+            | mustved |       1 | 
+            | mustved |       1 |
+            | aaaa    |    NULL | // left side yani name pura aya hai par cust_id mai 2 na hone ki 
+            | bbb     |       3 | //vja se vha null ho gya
+            | cccc    |       4 |
+            | cccc    |       4 |
+            | dddd    |    NULL |
+            +---------+---------+
+    
+    
+=======================================================================
+3) RIGHT JOIN: fetch all records from right table and try to match with left table
+
+
+  e.g.
+    =->select*from tbl_order;               =->select id,user_name from user;
+
+        +----+---------+----------+         +----+-----------+
+        | id | cust_id | order_id |         | id | user_name |
+        +----+---------+----------+         +----+-----------+   
+        |  1 |       1 |        4 |         |  1 | mustved   |
+        |  1 |       1 |        4 |         |  2 | aaaa      |
+        |  2 |       3 |        2 |         |  3 | bbb       |
+        |  3 |       4 |        1 |         |  4 | cccc      |
+        |  4 |       1 |        5 |         |  5 | dddd      |
+        |  5 |       7 |        2 |         +----+-----------+
+        |  6 |       4 |        8 |
+        +----+---------+----------+
+     
+ ->select user.user_name as name,tbl_order.cust_id
+        from user
+        right join tbl_order
+        on user.id=tbl_order.cust_id;
+            +---------+---------+
+            | name    | cust_id |
+            +---------+---------+
+            | mustved |       1 |// isme right side to puri ayi par user ki id main 7 pe koi name
+            | bbb     |       3 |// nhi hai is liye 7 pe name mai null ho gya 
+            | cccc    |       4 |
+            | mustved |       1 |
+            | NULL    |       7 |
+            | cccc    |       4 |
+            +---------+---------+
+
+=========================================================================
+4) OUTER JOIN: fetch all records which is not match{inner join ka ulta}
+
+=======================================================================
+5) FULL JOIN: fetch all matching records from left side and right side 
+
+-> in simple language we can say that full join combination of left and right join
+-> in MYsql full join is not working
+solution:
+-> we can commbined left and right join result using UNION concept
+
+-----------
+union:
+-> to commbined two tables without duplicate value we can use union 
+
+    =->create table A (id int auto_increment primary key,name varchar(20));
+        =-> insert into a(name)values('mustved'),('ajay'),('ravi'),('ramesh');
+            =->select* from a;
+                    +----+---------+
+                    | id | name    |
+                    +----+---------+
+                    |  1 | mustved |
+                    |  2 | ajay    |
+                    |  3 | ravi    |
+                    |  4 | ramesh  |
+                    +----+---------+
+    =->create table B (id int auto_increment primary key,name varchar(20));
+        =->insert into b(name)values('riya'),('diya'),('ravi'),('mustved'),('niya');
+            =->select* from b;
+                    +----+---------+
+                    | id | name    |
+                    +----+---------+
+                    |  1 | riya    |
+                    |  2 | diya    |
+                    |  3 | ravi    |
+                    |  4 | mustved |
+                    |  5 | niya    |
+                    +----+---------+
+    e.g.
+            UNION:
+            ->select name from a
+    -> union
+    -> select name from b;
+            +---------+
+            | name    |// similur name hat jaye ga samjho unique hai 
+            +---------+//par ye ek mai hi kam karta hai 
+            | mustved |
+            | ajay    |
+            | ravi    |
+            | ramesh  |
+            | riya    |
+            | diya    |
+            | niya    |
+            +---------+
+            // agr mene id, name select kiya to nhi hota hai
+
+            =-> select id,name from a
+                 union
+                 select id,name from b;
+                    +----+---------+
+                    | id | name    |
+                    +----+---------+
+                    |  1 | mustved |
+                    |  2 | ajay    |
+                    |  3 | ravi    |
+                    |  4 | ramesh  |
+                    |  1 | riya    |
+                    |  2 | diya    |
+                    |  4 | mustved |
+                    |  5 | niya    |
+                    +----+---------+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+UNION ALL:{isme sab dikhta hai}
+       select name from a
+         union all
+       select name from b;
+            +---------+
+            | name    |
+            +---------+
+            | mustved |
+            | ajay    |
+            | ravi    |
+            | ramesh  |
+            | riya    |
+            | diya    |
+            | ravi    |
+            | mustved |
+            | niya    |
+            +---------+
