@@ -1,0 +1,131 @@
+=-> create table Noble_win
+        (
+        id int primary key auto_increment,
+        YEAR INT,
+        SUBJECT VARCHAR(20),
+        WINNER VARCHAR(30),
+        COUNTRY VARCHAR(30),
+        CATEGORY VARCHAR(50)
+        );
+=-> insert into Noble_win
+    (year,subject,winner,country,category)
+    values
+         (1970,'Physics','Hannes','sweden','scientist'),
+         (1970,'Physics','Louis nell','France','Scientist'),
+         (1970,'chemistry','Louis Federico Leloir','France','Scientist'),
+         (1970,'physiology','Ulf von euler','Sweden','Scientist'),
+         (1970,'physiology','Bernard katz','Germany','Scientist'),
+         (1970,'Literature','Aleksandr solizhenitsyn','Russia','Linguist'),
+         (1970,'Economist','Paul samuelson','USA','Economist'),
+         (1970,'physiology','Julius Axelrod','USA','Scientist'),
+         (1971,'Physics','Dennis gabor','hungary','Scientist'),
+         (1971,'chemistry','Gerhard Herzberg','Germany','Scientist'),
+         (1971,'Peace','Willy brandt','Germany','Chancellor'),
+         (1971,'Literature','Pablo neruda','Chile','Linguist'),
+         (1970,'Economist','Simon kuznets','Russia','Economist'),
+         (1978,'Peace','Anwar al_sadat','Egypt','President'),
+         (1978,'Peace','Menachem Begin','israel','Prime minister'),
+         (1987,'chemistry','Donald J.Cram','USA','Scientist'),
+         (1987,'chemistry','Jean-marie Lehn','France','Scientist'),
+         (1987,'Physiology','Susumu Tonegawa','Japan','Scientist'),
+         (1994,'Economics','Reinhard Selten','Germany','Economist'),
+         (1994,'Peace','Yitzhak rabin','israel','Prime minister'),
+         (1987,'Physics','Johannes georg Bednorz','Germany','Scientist'),
+         (1987,'Literature','Joseph Brodsky','Russia','Linguist'),
+         (1987,'Economics','Robert Solow','USA','Economist'),
+         (1994,'Literature','Kenzaburo Oe','Japan','Linguist');
+
+=-> update noble_win set subject="Economics" Where subject="economist";
+=-> update noble_win set year=1971 Where id=13;
+
+=-> select YEAR,SUBJECT,WINNER AS NAME,COUNTRY,CATEGORY from noble_win;
+        +------+------------+-------------------------+---------+----------------+
+        | YEAR | SUBJECT    | NAME                    | COUNTRY | CATEGORY       |
+        +------+------------+-------------------------+---------+----------------+
+        | 1970 | Physics    | Hannes                  | sweden  | scientist      |
+        | 1970 | Physics    | Louis nell              | France  | Scientist      |
+        | 1970 | chemistry  | Louis Federico Leloir   | France  | Scientist      |
+        | 1970 | physiology | Ulf von euler           | Sweden  | Scientist      |
+        | 1970 | physiology | Bernard katz            | Germany | Scientist      |
+        | 1970 | Literature | Aleksandr solizhenitsyn | Russia  | Linguist       |
+        | 1970 | Economics  | Paul samuelson          | USA     | Economist      |
+        | 1970 | physiology | Julius Axelrod          | USA     | Scientist      |
+        | 1971 | Physics    | Dennis gabor            | hungary | Scientist      |
+        | 1971 | chemistry  | Gerhard Herzberg        | Germany | Scientist      |
+        | 1971 | Peace      | Willy brandt            | Germany | Chancellor     |
+        | 1971 | Literature | Pablo neruda            | Chile   | Linguist       |
+        | 1971 | Economics  | Simon kuznets           | Russia  | Economist      |
+        | 1978 | Peace      | Anwar al_sadat          | Egypt   | President      |
+        | 1978 | Peace      | Menachem Begin          | israel  | Prime minister |
+        | 1987 | chemistry  | Donald J.Cram           | USA     | Scientist      |
+        | 1987 | chemistry  | Jean-marie Lehn         | France  | Scientist      |
+        | 1987 | Physiology | Susumu Tonegawa         | Japan   | Scientist      |
+        | 1994 | Economics  | Reinhard Selten         | Germany | Economist      |
+        | 1994 | Peace      | Yitzhak rabin           | israel  | Prime minister |
+        | 1987 | Physics    | Johannes georg Bednorz  | Germany | Scientist      |
+        | 1987 | Literature | Joseph Brodsky          | Russia  | Linguist       |
+        | 1987 | Economics  | Robert Solow            | USA     | Economist      |
+        | 1994 | Literature | Kenzaburo Oe            | Japan   | Linguist       |
+        +------+------------+-------------------------+---------+----------------+
+
+=-> select YEAR,SUBJECT,WINNER AS NAME from noble_win where year in(1970);
+        +------+------------+-------------------------+
+        | YEAR | SUBJECT    | NAME                    |
+        +------+------------+-------------------------+
+        | 1970 | Physics    | Hannes                  |
+        | 1970 | Physics    | Louis nell              |
+        | 1970 | chemistry  | Louis Federico Leloir   |
+        | 1970 | physiology | Ulf von euler           |
+        | 1970 | physiology | Bernard katz            |
+        | 1970 | Literature | Aleksandr solizhenitsyn |
+        | 1970 | Economics  | Paul samuelson          |
+        | 1970 | physiology | Julius Axelrod          |
+        +------+------------+-------------------------+
+
+=-> select YEAR,SUBJECT,WINNER AS NAME from noble_win where subject in("chemistry") having year between 1965 and 1975;
+        +------+-----------+-----------------------+
+        | YEAR | SUBJECT   | NAME                  |
+        +------+-----------+-----------------------+
+        | 1970 | chemistry | Louis Federico Leloir |
+        | 1971 | chemistry | Gerhard Herzberg      |
+        +------+-----------+-----------------------+
+
+=->select YEAR,SUBJECT,WINNER AS NAME,COUNTRY from noble_win where winner like "louis%";
+        +------+-----------+-----------------------+---------+
+        | YEAR | SUBJECT   | NAME                  | COUNTRY |
+        +------+-----------+-----------------------+---------+
+        | 1970 | Physics   | Louis nell            | France  |
+        | 1970 | chemistry | Louis Federico Leloir | France  |
+        +------+-----------+-----------------------+---------+
+
+=-> select YEAR,SUBJECT,WINNER AS NAME,COUNTRY from noble_win  WHERE SUBJECT NOT LIKE "P%" ORDER BY YEAR ASC,WINNER DESC;
+        +------+------------+-------------------------+---------+
+        | YEAR | SUBJECT    | NAME                    | COUNTRY |
+        +------+------------+-------------------------+---------+
+        | 1970 | Economics  | Paul samuelson          | USA     |
+        | 1970 | chemistry  | Louis Federico Leloir   | France  |
+        | 1970 | Literature | Aleksandr solizhenitsyn | Russia  |
+        | 1971 | Economics  | Simon kuznets           | Russia  |
+        | 1971 | Literature | Pablo neruda            | Chile   |
+        | 1971 | chemistry  | Gerhard Herzberg        | Germany |
+        | 1987 | Economics  | Robert Solow            | USA     |
+        | 1987 | Literature | Joseph Brodsky          | Russia  |
+        | 1987 | chemistry  | Jean-marie Lehn         | France  |
+        | 1987 | chemistry  | Donald J.Cram           | USA     |
+        | 1994 | Economics  | Reinhard Selten         | Germany |
+        | 1994 | Literature | Kenzaburo Oe            | Japan   |
+        +------+------------+-------------------------+---------+
+
+=-> select YEAR,SUBJECT,WINNER AS NAME,COUNTRY from noble_win  WHERE YEAR IN (1970) order by(subject="chemistry" or subject="Economics"),subject asc;
+        +------+------------+-------------------------+---------+
+        | YEAR | SUBJECT    | NAME                    | COUNTRY |
+        +------+------------+-------------------------+---------+
+        | 1970 | Literature | Aleksandr solizhenitsyn | Russia  |
+        | 1970 | Physics    | Hannes                  | sweden  |
+        | 1970 | Physics    | Louis nell              | France  |
+        | 1970 | physiology | Ulf von euler           | Sweden  |
+        | 1970 | physiology | Bernard katz            | Germany |
+        | 1970 | physiology | Julius Axelrod          | USA     |
+        | 1970 | chemistry  | Louis Federico Leloir   | France  |
+        | 1970 | Economics  | Paul samuelson          | USA     |
+        +------+------------+-------------------------+---------+
