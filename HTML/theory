@@ -1,0 +1,55 @@
+                                            HTML::                                                     <<16-03-26>>
+-> HTML: stands for markup pages
+-> using of html we can design web pages wich is run on web browsers
+-> html is a combiation or collection of multiple tags ther are 2 types of tags
+1) singular tags
+2) prired tag
+----------------------
+1) singular tag : there are only 3 types
+    
+    (1) <br>
+    (2) <hr>
+    (3) <img>
+2) prired tag : wich contain openig ad closing breacket
+    structure of HTML
+        <html>
+            <head>.....</head>
+            .
+            .
+            .
+            <body>......</body>
+        </html>
+===============
+heading tags:
+   
+   <h1>........</h1>
+   <h2>........</h2>
+   <h3>........</h3>
+   <h4>........</h4>
+   <h5>........</h5>
+   <h6>........</h6>
+===============
+list::
+-> ther are 3 types of list
+1) unorder list
+2) order list
+3) description list
+----------------------
+1) unorder list : which is represent by <ul></ul> tag      
+    <ul>
+        <li>...........</li>
+        <li>............</li>
+        ....
+    </ul>
+2) order list : which is represent by <ol></ol> tag
+    <ol>
+        <li>.....</li>
+        .
+        .
+        .
+    </ol>
+3) description list : which represent by <dl></dl> tag
+    <dl>
+        <dt>description tag</dt>
+        <dd>description detailed</dd>
+    </dl>

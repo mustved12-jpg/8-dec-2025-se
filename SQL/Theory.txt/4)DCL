@@ -1,0 +1,143 @@
+DCL: data control language
+
+-> using of dcl command we can restrict specific user to preform specific dml commnads
+
+DCL command
+1) grant: when we want to assign specific permission to spacific user 
+2) revoke: retrive back permission from the spacific user
+
+-> in mysql  we can check number of user
+to check user syntax:
+         select user,host from mysql.user;
+            +------------------+-----------+
+            | user             | host      |
+            +------------------+-----------+
+            | mysql.infoschema | localhost |
+            | mysql.session    | localhost |
+            | mysql.sys        | localhost |
+            | root             | localhost |
+            +------------------+-----------+
+-> create user "mustved"@"localhost" identified by "123456";
+-> select user,host from mysql.user;
+            +------------------+-----------+
+            | user             | host      |
+            +------------------+-----------+
+            | mustved          | localhost |
+            | mysql.infoschema | localhost |
+            | mysql.session    | localhost |
+            | mysql.sys        | localhost |
+            | root             | localhost |
+            +------------------+-----------+
+
+
+===-> now login in mustved
+
+-> mysql -u mustved -p  // mustved host
+p->123456
+
+=-> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | information_schema |
+    | performance_schema |
+    +--------------------+
+
+    now go back to root and give select parmistion 
+
+    -> grant select
+    -> on dummy.*  // ise sare dummy ke tables ko mustved vala host select kar sakta hai 
+    -> to "mustved"@"localhost";
+
+~~~~~<<mustved host>>
+    -> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | dummy              |
+        | information_schema |
+        | performance_schema |
+        +--------------------+
+    -> show tables;
+        +-----------------+
+        | Tables_in_dummy |
+        +-----------------+
+        | a               |
+        | b               |
+        | child           |
+        | city            |
+        | dstudent        |
+        | noble_win       |
+        | parent          |
+        | product         |
+        | student         |
+        | tbl_order       |
+        | user            |
+        +-----------------+
+   { abhi mene bas select ki parmission diya hu agar mai drop ya rename karunga to erorr aye gi }
+
+   -> rename table a to aa;
+      ERROR 1142 (42000): DROP, ALTER command denied to user 'mustved'@'localhost' for table 'a'
+
+Ab update permition dete hai kisi  1 table ko sabko nhi 
+
+~~~~~~~<<root>>
+
+-> grant update 
+on dummy.student
+to "mustved"@"localhost";
+
+~~~~~~~~~~~~<<mustved host>>
+{humne bus student table ko ki update karne ki permission diya hu koi or ki nhi }
+
+-> update child set C_name="aba" where id=1;{ child table mai nhi huva }
+ERROR 1142 (42000): UPDATE command denied to user 'mustved'@'localhost' for table 'child'
+
+-> select*from student;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  2 | aaa      | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    |
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+-> update student set name="aaaa" where id=2;
+
+-> select*from student;
++----+----------+-----------+-------+---------------------+--------------+---------+
+| id | name     | city      | score | created_at          | pass_or_fail | subject |
++----+----------+-----------+-------+---------------------+--------------+---------+
+|  1 | muastved | AHMEDABAD | 67.87 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  2 | aaaa     | surat     | 60.07 | 2026-03-10 20:17:25 | A PASS       | java    | chang ho gya
+|  3 | bbb      | mumbai    |    78 | 2026-03-10 20:17:25 | +A PASS      | php     |
+|  4 | ccc      | AHMEDABAD | 67.89 | 2026-03-10 20:17:25 | A PASS       | c++     |
+|  5 | ddd      | surat     |    65 | 2026-03-10 20:17:25 | A PASS       | python  |
+|  6 | abcd     | AHMEDABAD |    49 | 2026-03-10 20:42:33 | C PASS       | php     |
++----+----------+-----------+-------+---------------------+--------------+---------+
+
+---------------------------------------------------------------------
+
+revoke:
+~~~~~~~~<<root>>
+
+->  revoke select
+     on dummy.*
+     from "mustved"@"localhost";
+
+-> revoke update
+     on dummy.student
+     from "mustved"@"localhost";
+     
+~~~~~~~~~<<mustved>>
+
+-> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | information_schema |
+        | performance_schema |
+        +--------------------+

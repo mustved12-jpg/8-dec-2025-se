@@ -1,0 +1,153 @@
+    TCL: transaction controle language
+
+-> when we want to do some changes after executing commands we can go back to previous commands
+-> using of tcl commands
+e.g 
+-> we order any product--->>add to card--->>payment
+
+-> but due to sum reasion payment is fail at thet time i want to cancel all privious transaction at that 
+we use TCL
+
+1) rollback
+2) commit
+3) savepoint
+
+1) rollback:{roolback karne se hamne jaha se transaction start kiya tha vhi a jaye ga chaye jitne bhi chang kiya ho}
+    =-> select*from student;
+      +----+------+---------+-------+---------------------+
+      | id | name | subject | score | created_at          |
+      +----+------+---------+-------+---------------------+
+      |  1 | aaaa | php     | 78.76 | 2026-03-05 20:45:45 |
+      |  2 | bbbb | python  | 65.87 | 2026-03-05 20:45:45 |
+      |  3 | cccc | java    |    98 | 2026-03-05 20:47:44 |
+      |  4 | boss | c++     |    98 | 2026-03-16 22:50:26 |
+      +----+------+---------+-------+---------------------+
+
+-> start transaction;
+
+    =-> update student set name="mustved" where id=1;
+    =-> update student set score=83.65 where id=3;
+    =-> delete from sudent where id=4;
+    =->select*from student;
+      +----+---------+---------+-------+---------------------+
+      | id | name    | subject | score | created_at          |
+      +----+---------+---------+-------+---------------------+
+      |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+      |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+      |  3 | cccc    | java    | 83.65 | 2026-03-05 20:47:44 |
+      +----+---------+---------+-------+---------------------+
+
+-> rollback;
+  =-> select*from student;
+      +----+------+---------+-------+---------------------+
+      | id | name | subject | score | created_at          |
+      +----+------+---------+-------+---------------------+
+      |  1 | aaaa | php     | 78.76 | 2026-03-05 20:45:45 |
+      |  2 | bbbb | python  | 65.87 | 2026-03-05 20:45:45 |
+      |  3 | cccc | java    |    98 | 2026-03-05 20:47:44 |
+      |  4 | boss | c++     |    98 | 2026-03-16 22:50:26 |
+      +----+------+---------+-------+---------------------+
+---------------------------------------------------------------------
+
+2) commit: means fix {agar mai kuch changes karneke bad commit karta hu frir rollbackkaru to jo hamne commit kiya hai vhi ayega }
+
+    =-> select*from student;
+        +----+------+---------+-------+---------------------+
+        | id | name | subject | score | created_at          |
+        +----+------+---------+-------+---------------------+
+        |  1 | aaaa | php     | 78.76 | 2026-03-05 20:45:45 |
+        |  2 | bbbb | python  | 65.87 | 2026-03-05 20:45:45 |
+        |  3 | cccc | java    |    98 | 2026-03-05 20:47:44 |
+        |  4 | boss | c++     |    98 | 2026-03-16 22:50:26 |
+        +----+------+---------+-------+---------------------+
+
+-> start transaction;
+
+    =-> update student set name="mustved" where id=1;
+    =-> select*from student;
+        +----+---------+---------+-------+---------------------+
+        | id | name    | subject | score | created_at          |
+        +----+---------+---------+-------+---------------------+
+        |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+        |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+        |  3 | cccc    | java    |    98 | 2026-03-05 20:47:44 |
+        |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+        +----+---------+---------+-------+---------------------+
+
+-> commit;
+-> rollback;
+
+      =-> select*from student;
+        +----+---------+---------+-------+---------------------+
+        | id | name    | subject | score | created_at          |
+        +----+---------+---------+-------+---------------------+
+        |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+        |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+        |  3 | cccc    | java    |    98 | 2026-03-05 20:47:44 |
+        |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+        +----+---------+---------+-------+---------------------+
+
+------------------------------------------------------------------------
+
+3) savepoint:
+{agar hum jub role back karne to vo direct home page (jhase humne start kiya tha) pe na ja agar mujhe 1 stap piche jana ho ya 2 stap tab
+hum save point ka use karte hai}
+
+      =-> select*from student;
+        +----+---------+---------+-------+---------------------+
+        | id | name    | subject | score | created_at          |
+        +----+---------+---------+-------+---------------------+
+        |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+        |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+        |  3 | cccc    | java    |    98 | 2026-03-05 20:47:44 |
+        |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+        +----+---------+---------+-------+---------------------+
+
+      =-> update student set score=82.65 where id=3;
+      =-> select*from student;
+          +----+---------+---------+-------+---------------------+
+          | id | name    | subject | score | created_at          |
+          +----+---------+---------+-------+---------------------+
+          |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+          |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+          |  3 | cccc    | java    | 82.65 | 2026-03-05 20:47:44 |
+          |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+          +----+---------+---------+-------+---------------------+
+
+-> savepoin s1;
+
+        =-> delete from student where id=4;
+        =->  select*from student;
+          +----+---------+---------+-------+---------------------+
+          | id | name    | subject | score | created_at          |
+          +----+---------+---------+-------+---------------------+
+          |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+          |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+          |  3 | cccc    | java    | 82.65 | 2026-03-05 20:47:44 |
+          +----+---------+---------+-------+---------------------+
+
+-> rollback to savepoint s1;
+
+        =-> select*from student;
+          +----+---------+---------+-------+---------------------+
+          | id | name    | subject | score | created_at          |
+          +----+---------+---------+-------+---------------------+
+          |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+          |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+          |  3 | cccc    | java    | 82.65 | 2026-03-05 20:47:44 |
+          |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+          +----+---------+---------+-------+---------------------+
+
+            OR 
+
+-> rollback;  {isse jha se humne start transaction suru kiya tha vaha(home page) pe chal jaye ga }
+
+        =-> select*from student;
+          +----+---------+---------+-------+---------------------+
+          | id | name    | subject | score | created_at          |
+          +----+---------+---------+-------+---------------------+
+          |  1 | mustved | php     | 78.76 | 2026-03-05 20:45:45 |
+          |  2 | bbbb    | python  | 65.87 | 2026-03-05 20:45:45 |
+          |  3 | cccc    | java    |    98 | 2026-03-05 20:47:44 | vapas pehle jesa 
+          |  4 | boss    | c++     |    98 | 2026-03-16 22:50:26 |
+          +----+---------+---------+-------+---------------------+

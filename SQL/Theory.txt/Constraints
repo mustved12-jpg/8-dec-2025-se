@@ -17,7 +17,7 @@ we can restrict data from outside the world
 
 -------------------------------------------------------
 1) not null:
-    -> when we add any field as not null means at a insert time we can't skip this fileds
+    -> when we add any field as not null means at a insert time we can,t skip this fileds
     -> bydefult all field are null if we want to spacify spacific field with not null we can follow below sytax
 
 at creation time>
@@ -301,3 +301,102 @@ ERROR 3819 (HY000): Check constraint 'user_chk_1' is violated.
 
 insert into user(name,age)values('ccc',15);
 ERROR 3819 (HY000): Check constraint 'not_elegible' is violated.
+------------------------------------------------
+
+7) foreign key:
+-> this is a most power full topic of constraint and sql language using of foreign key we can build 
+    relationship between two tables
+
+    A parent ->  k child 
+    B parent ->  j child
+
+   (pk)  parent                            (pk)        child         (fk)
+   ____________________________________________________________________________
+    id   p_name                     |       id      c_name      p_name(p_id)
+   ----------------------------------------------------------------------------
+    1    A                          |       1        K              1
+    2    B                          |       2        J              2
+    3    C                          |       3        P              1
+                                    |       4        O              3
+
+    e.g.
+
+    =-> create table parent(id int auto_increment primary key,name varchar(20),city varchar(30));
+     =-> desc parent;
+        +-------+-------------+------+-----+---------+----------------+
+        | Field | Type        | Null | Key | Default | Extra          |
+        +-------+-------------+------+-----+---------+----------------+
+        | id    | int         | NO   | PRI | NULL    | auto_increment |
+        | name  | varchar(20) | YES  |     | NULL    |                |
+        | city  | varchar(30) | YES  |     | NULL    |                |
+        +-------+-------------+------+-----+---------+----------------+
+      =-> insert into parent(name,city) values ('PARENT_1','AHMEDABAD'),
+             ('PARENT_2','SURAT'),
+             ('PARENT_3','GOA'),
+             ('PARENT_4','MUMBAI');
+        =-> SELECT * FROM PARENT;
+            +----+----------+-----------+
+            | id | name     | city      |
+            +----+----------+-----------+
+            |  1 | PARENT_1 | AHMEDABAD |
+            |  2 | PARENT_2 | SURAT     |
+            |  3 | PARENT_3 | GOA       |
+            |  4 | PARENT_4 | MUMBAI    |
+            +----+----------+-----------+
+
+            ((((now adding foreign key))))
+
+->  create table child
+         (id int auto_increment primary key,C_name varchar(20),p_id int,
+         constraint fk_pid foreign key(p_id) references parent(id)
+         on delete cascade
+         on update cascade);
+         {constraint nesesary hai ye bas erorr pe likha huva aye ga}
+
+    =-> desc child;
+        +--------+-------------+------+-----+---------+----------------+
+        | Field  | Type        | Null | Key | Default | Extra          |
+        +--------+-------------+------+-----+---------+----------------+
+        | id     | int         | NO   | PRI | NULL    | auto_increment |
+        | C_name | varchar(20) | YES  |     | NULL    |                |
+        | p_id   | int         | YES  | MUL | NULL    |                |(MUL means foreign key)
+        +--------+-------------+------+-----+---------+----------------+
+
+    =-> insert into child(c_name,p_id)values('aaa',2),('bbb',1),('ccc',1);
+    =-> select*from child;
+            +----+--------+------+
+            | id | C_name | p_id |
+            +----+--------+------+
+            |  1 | aaa    |    2 |
+            |  2 | bbb    |    1 |
+            |  3 | ccc    |    1 |
+            +----+--------+------+
+    =-> insert into child(c_name,p_id)values('ddd',5);
+ERROR 1452 (23000): Cannot add or update a child row:a foreign key constraint fails 
+(`dummy`.`child`, CONSTRAINT `fk_pid` FOREIGN KEY (`p_id`) REFERENCES `parent` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+
+{ q ki parent mai id 5 pe koi perent nhi hai matlab humne abhi jo id ka references diya hai usme abhi bus
+4 hi perent hai yani 4 hi id(pk) hai}
+
+-> select*from child
+     join parent
+     on child.p_id=parent.id;
+    +----+--------+------+----+----------+-----------+
+    | id | C_name | p_id | id | name     | city      |
+    +----+--------+------+----+----------+-----------+
+    |  1 | aaa    |    2 |  2 | PARENT_2 | SURAT     |
+    |  2 | bbb    |    1 |  1 | PARENT_1 | AHMEDABAD |
+    |  3 | ccc    |    1 |  1 | PARENT_1 | AHMEDABAD |
+    +----+--------+------+----+----------+-----------+
+-> select child.c_name as child_name,parent.name as parent_name from child
+     join parent
+     on child.p_id=parent.id;
+    +------------+-------------+
+    | child_name | parent_name |
+    +------------+-------------+
+    | aaa        | PARENT_2    |
+    | bbb        | PARENT_1    |
+    | ccc        | PARENT_1    |
+    +------------+-------------+
+
+NOTE: foreign key apply restriction on invalid data input or unreleavent data
