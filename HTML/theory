@@ -53,3 +53,71 @@ list::
         <dt>description tag</dt>
         <dd>description detailed</dd>
     </dl>
+=======================================================================================================
+CSS: cascading style sheet
+-> there are 3 types to apply css in html web pages
+
+1) inline CSS
+2) internal CSS
+3) external CSS
+--------------------------
+1) inline css: 
+-> apply css on specific elements its called inline CSS
+
+    syntax:
+        <h1 style= "propertys: value"></h1>
+
+2) internal css:
+-> it is apply on spacific web pages
+
+    <style>......css goes hear</style>
+
+3) external css:
+-> this is usfull for whole project we can apply external project we can apply external scc on full web
+    page creation external css web page and connect with <link> elements
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+selectors:
+1) element selectore:
+-> apply css element wise
+    e.g.
+        h1
+        {
+                propertys:value
+        }
+
+2) group selectore:
+-> to apply same style same css on specific group of elements
+        e.g.
+        h1,h3
+        {
+            propertys: values
+        }
+
+3) class selectore :
+-> to apply specific class on specific element class selector denoted by (.) peretor
+
+        e.g
+            .myclass
+            {
+
+            }
+
+4) id selectore:
+-> to represent unique style for specific element we can use id selectore
+-> id selector represent by (#)
+
+            e.g.
+                #myid
+                {
+
+                }
+
+5) universal selector :
+-> universal selectore represent by (*)
+
+                e.g.
+                    *
+                    {
+                        
+                    }
