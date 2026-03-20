@@ -1,0 +1,617 @@
+ {{{1}}}                                       Introduction to SQL 
+
+ [[[[[[[Theory:-
+ 
+ Q.1 : What is SQL, and why is it essential in database management? 
+ A ~> sql ek programing language hai jo database ke liye bnai gyi hai sql ka use kar ke 
+        hum data ko chang,delete modify kar sakte hai.
+-----------------------------
+ Q.2 : Explain the difference between DBMS and RDBMS.
+ A ~> DBMS(database management system)                RDBMS(relational database management system)
+        -> ye kum secoure hai                                     ->ye secoure hai
+        -> isme sql ka use nhi hota hai                           -> isme sql ka use hota hai
+        -> isme relation nhi hota                                 -> isme relation hota hai
+        -> isme dublicate data bhi store hota hai                 -> isme nhi hota hai
+-----------------------------
+ Q.3 : Describe the role of SQL in managing relational databases.
+ A ~> isme hum sql ka use karke data ko create,delete,update,modify,select etc kar sakte hai
+ ---------------------------- 
+ Q.4 : What are the key features of SQL? 
+ A ~> smajhne me aasan,isme powerfull qureys hai,isme secourety hai,isme transaction ka sport hai
+                                                                        (roll back,commit)
+
+ ]]]]]]]
+
+
+
+|||||||lab||||||||||||
+
+• Lab 1: Create a new database named school_db and a table called students with the 
+following columns: student_id, student_name, age, class, and address. 
+• Lab 2: Insert five records into the students table and retrieve all records using the SELECT 
+statement. 
+=============================
+
+
+
+ =-> create database school_db;
+ =-> use school_db
+ =-> create table student(student_id int,student_name varchar(20),age int check(age>0),class varchar(20),
+        address varchar(50));
+    =->desc student;
+        +--------------+-------------+------+-----+---------+-------+
+        | Field        | Type        | Null | Key | Default | Extra |
+        +--------------+-------------+------+-----+---------+-------+
+        | student_id   | int         | YES  |     | NULL    |       |
+        | student_name | varchar(20) | YES  |     | NULL    |       |
+        | age          | int         | YES  |     | NULL    |       |
+        | class        | varchar(20) | YES  |     | NULL    |       |
+        | address      | varchar(50) | YES  |     | NULL    |       |
+        +--------------+-------------+------+-----+---------+-------+
+
+=->  select*from student;
++------------+---------------+------+-------+-----------+
+| student_id | student_name  | age  | class | address   |
++------------+---------------+------+-------+-----------+
+|          1 | mustved       |   18 | A-2   | Ahmedabad |
+|          2 | Martin        |   20 | B-1   | Suart     |
+|          3 | Zosef         |   19 | A-2   | Mumbai    |
+|          4 | Itachi Uchiha |   17 | C-1   | Ahmedabad |
++------------+---------------+------+-------+-----------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{2}}}                                             SQL Syntax 
+
+
+[[[[[[[Theory :
+
+Q.1 : What are the basic components of SQL syntax? 
+A ~> sql syntax ke 5 main components hai
+        (1) keyword
+        (2) identifiers
+        (3) expressions
+        (4) clauses
+        (5) operators
+        ye sare basic components hai sql syntax ke 
+----------------------
+
+Q.2 : Write the general structure of an SQL SELECT statement.
+A ~> select <column name> from <table name>;
+-----------------------
+
+Q.3 : Explain the role of clauses in SQL statements.
+A ~> ye sql ka ek part hai jese where clauses,order by clauses,group by clauses ect. 
+
+
+]]]]]]]
+
+
+||||||||lab|||||||||
+
+• Lab 1: Write SQL queries to retrieve specific columns (student_name and age) from the 
+students table. 
+
+• Lab 2: Write SQL queries to retrieve all students whose age is greater than 10. 
+=============================
+
+
+
+=-> select student_name ,age from student;
+            +---------------+------+
+            | student_name  | age  |
+            +---------------+------+
+            | mustved       |   18 |
+            | Martin        |   20 |
+            | Zosef         |   19 |
+            | Itachi Uchiha |   17 |
+            +---------------+------+
+
+=->  select*from student where age>10;
+        +------------+---------------+------+-------+-----------+
+        | student_id | student_name  | age  | class | address   |
+        +------------+---------------+------+-------+-----------+
+        |          1 | mustved       |   18 | A-1   | Ahmedabad |
+        |          2 | Martin        |   20 | B-1   | Suart     |
+        |          3 | Zosef         |   19 | A-2   | Mumbai    |
+        |          4 | Itachi Uchiha |   17 | C-2   | Ahmedabad |
+        +------------+---------------+------+-------+-----------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{3}}}                                     SQL Constraints 
+
+[[[[[[[Theory :
+
+Q.1 : What are constraints in SQL? List and explain the different types of constraints. 
+A ~> constraint vo rule hota hai jo data par lgaye jate hai take duplicate or wrong data or incomplet
+        data store na ho 
+-------------------------
+
+Q.2 : How do PRIMARY KEY and FOREIGN KEY constraints differ? 
+A ~>    PK                                                       FK
+     -> isme dublicate value nhi hoti                          -> isme hoti hai
+     -> ye ek table me ek hi hoti hai                          -> ek se jyad ho sakt hai
+     -> ye null nhi hoti                                       -> ye hoti hai 
+
+-------------------------
+
+Q.3 : What is the role of NOT NULL and UNIQUE constraints?
+A ~> not null me hum column ko khali nhi rakh sakte,par isme hum dublicate value rakh sakte hai
+     unique me hum column ko khali rakh sakte hai,par isme hum dublicate value rakh nhi sakte 
+
+]]]]]]]
+
+
+||||||||||lab|||||||||
+
+• Lab 1: Create a table teachers with the following columns: teacher_id (Primary Key), 
+teacher_name (NOT NULL), subject (NOT NULL), and email (UNIQUE). 
+
+• Lab 2: Implement a FOREIGN KEY constraint to relate the teacher_id from the 
+teachers table with the students table. 
+
+==================================
+
+=->  create table teachers
+         (
+         Teacher_id int auto_increment primary key,
+         teacher_name varchar(20) not null,
+         subject varchar(20) not null,
+         email varchar(20) unique
+         );
+   
+    =->  desc teachers;
+        +--------------+-------------+------+-----+---------+----------------+
+        | Field        | Type        | Null | Key | Default | Extra          |
+        +--------------+-------------+------+-----+---------+----------------+
+        | Teacher_id   | int         | NO   | PRI | NULL    | auto_increment |
+        | teacher_name | varchar(20) | NO   |     | NULL    |                |
+        | subject      | varchar(20) | NO   |     | NULL    |                |
+        | email        | varchar(20) | YES  | UNI | NULL    |                |
+        +--------------+-------------+------+-----+---------+----------------+
+
+=-> truncate student;
+
+=->  alter table student add teacher_fk_id int,add foreign key(teacher_fk_id)references
+     teachers(teacher_id);
+
+=-> des student;
+        +---------------+-------------+------+-----+---------+-------+
+        | Field         | Type        | Null | Key | Default | Extra |
+        +---------------+-------------+------+-----+---------+-------+
+        | student_id    | int         | YES  |     | NULL    |       |
+        | student_name  | varchar(20) | YES  |     | NULL    |       |
+        | age           | int         | YES  |     | NULL    |       |
+        | class         | varchar(20) | YES  |     | NULL    |       |
+        | address       | varchar(50) | YES  |     | NULL    |       |
+        | teacher_fk_id | int         | YES  | MUL | NULL    |       |
+        +---------------+-------------+------+-----+---------+-------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{4}}}                      Main SQL Commands and Sub-commands (DDL) 
+
+
+[[[[[[[Theory :
+
+Q.1 : Define the SQL Data Definition Language (DDL).
+A ~> DDL commands se hum database ke structure ko DELETE,create or modify kar sakte hai
+        iske 5 commands hote hai
+        (1) create
+        (2) alter
+        (3) drop
+        (4) truncate
+        (5) rename
+--------------------------
+
+Q.2 : Explain the CREATE command and its syntax.
+A ~> create command se hum database or table create karte hai
+        e.g
+        create database <database name>;
+        or
+        create table <table name><column name><datatype>
+
+--------------------------
+
+Q.3 : What is the purpose of specifying data types and constraints during table creation?
+A ~> datatype btata hai ki column me kis type ka data store hoga 
+     constraints se hum column ko not null,pk,fk,auto,check,default rakh sakte hai 
+
+]]]]]]]
+
+
+||||||||||lab|||||||||||||
+
+
+• Lab 1: Create a table courses with columns: course_id, course_name, and 
+course_credits. Set the course_id as the primary key. 
+
+• Lab 2: Use the CREATE command to create a database university_db. 
+
+=======================================
+
+=->  create table courses
+    (course_id int primary key,course_name varchar(20),course_credits int);
+=-> desc courses;
+        +----------------+-------------+------+-----+---------+-------+
+        | Field          | Type        | Null | Key | Default | Extra |
+        +----------------+-------------+------+-----+---------+-------+
+        | course_id      | int         | NO   | PRI | NULL    |       |
+        | course_name    | varchar(20) | YES  |     | NULL    |       |
+        | course_credits | int         | YES  |     | NULL    |       |
+        +----------------+-------------+------+-----+---------+-------+
+
+=-> create database university_db;
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{5}}}                                         ALTER Command 
+
+
+=->alter table courses add course_duration varchar(20);
+
+=-> desc courses;
+            +-----------------+-------------+------+-----+---------+-------+
+            | Field           | Type        | Null | Key | Default | Extra |
+            +-----------------+-------------+------+-----+---------+-------+
+            | course_id       | int         | NO   | PRI | NULL    |       |
+            | course_name     | varchar(20) | YES  |     | NULL    |       |
+            | course_credits  | int         | YES  |     | NULL    |       |
+            | course_duration | varchar(20) | YES  |     | NULL    |       |
+            +-----------------+-------------+------+-----+---------+-------+
+
+=->  alter table courses drop course_credits;
+
+=->  desc courses;
+            +-----------------+-------------+------+-----+---------+-------+
+            | Field           | Type        | Null | Key | Default | Extra |
+            +-----------------+-------------+------+-----+---------+-------+
+            | course_id       | int         | NO   | PRI | NULL    |       |
+            | course_name     | varchar(20) | YES  |     | NULL    |       |
+            | course_duration | varchar(20) | YES  |     | NULL    |       |
+            +-----------------+-------------+------+-----+---------+-------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{6}}}                                 DROP Command 
+
+=->  drop table teachers;
+
+ERROR 3730 (HY000): Cannot drop table 'teachers' 
+referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
+
+{befor drop}
+=-> show tables;
+            +---------------------+
+            | Tables_in_school_db |
+            +---------------------+
+            | courses             |
+            | student             |
+            | teachers            |
+            +---------------------+
+
+=->  drop table student;
+
+{after drop}
+
+=->  show tables;
+        +---------------------+
+        | Tables_in_school_db |
+        +---------------------+
+        | courses             |
+        | teachers            |
+        +---------------------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{7}}}                             Data Manipulation Language (DML) 
+
+=->  insert into courses
+         (course_id,course_name,course_duration)
+         values
+         (1,"python","3 month"),
+         (2,"java","3 month"),
+         (3,"php","2 month"),
+         (4,"C++","1 month"),
+         (5,"sql","1 month"),
+         (6,"C language","1 month");
+    
+    =-> select*from courses;
+            +-----------+-------------+-----------------+
+            | course_id | course_name | course_duration |
+            +-----------+-------------+-----------------+
+            |         1 | python      | 3 month         |
+            |         2 | java        | 3 month         |
+            |         3 | php         | 2 month         |
+            |         4 | C++         | 1 month         |
+            |         5 | sql         | 1 month         |
+            |         6 | C language  | 1 month         |
+            +-----------+-------------+-----------------+
+
+=->  update courses set course_duration="2 month" where course_id=6;
+
+    =-> select*from courses;
+            +-----------+-------------+-----------------+
+            | course_id | course_name | course_duration |
+            +-----------+-------------+-----------------+
+            |         1 | python      | 3 month         |
+            |         2 | java        | 3 month         |
+            |         3 | php         | 2 month         |
+            |         4 | C++         | 1 month         |
+            |         5 | sql         | 1 month         |
+            |         6 | C language  | 2 month         |
+            +-----------+-------------+-----------------+
+
+=->  delete from courses where course_id=6;
+
+    =->  select*from courses;
+            +-----------+-------------+-----------------+
+            | course_id | course_name | course_duration |
+            +-----------+-------------+-----------------+
+            |         1 | python      | 3 month         |
+            |         2 | java        | 3 month         |
+            |         3 | php         | 2 month         |
+            |         4 | C++         | 1 month         |
+            |         5 | sql         | 1 month         |
+            +-----------+-------------+-----------------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{8}}}                                Data Query Language (DQL) 
+
+=->  select*from courses;
+            +-----------+-------------+-----------------+
+            | course_id | course_name | course_duration |
+            +-----------+-------------+-----------------+
+            |         1 | python      | 3 month         |
+            |         2 | java        | 3 month         |
+            |         3 | php         | 2 month         |
+            |         4 | C++         | 1 month         |
+            |         5 | sql         | 1 month         |
+            +-----------+-------------+-----------------+
+
+=->  select*from courses order by course_duration;
+            +-----------+-------------+-----------------+
+            | course_id | course_name | course_duration |
+            +-----------+-------------+-----------------+
+            |         4 | C++         | 1 month         |
+            |         5 | sql         | 1 month         |
+            |         3 | php         | 2 month         |
+            |         1 | python      | 3 month         |
+            |         2 | java        | 3 month         |
+            +-----------+-------------+-----------------+
+
+=->  select*from courses limit 2;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        +-----------+-------------+-----------------+
+
+        OR
+
+=->  select*from courses order by course_duration limit 2;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        +-----------+-------------+-----------------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{9}}}                             Data Control Language (DCL) 
+
+=-> create user "user1"@"localhost" identified by "1234";
+=-> create user "user2"@"localhost" identified by "1234";
+
+=->  grant select,insert
+         on school_db.courses
+         to "user1"@"localhost";   // user 1
+
+=->  revoke insert
+         on school_db.courses
+         from "user1"@"localhost";  // user 1
+
+=-> grant insert
+         on school_db.courses
+         to "user2"@"localhost";   // user 2
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{10}}}                         Transaction Control Language (TCL) 
+
+=-> start transection;
+
+=->  insert into courses
+     values
+     (6,"python","3 month"),
+     (7,"php","2 month");
+
+=-> commit;
+
+=-> start transection;
+
+=-> insert into courses
+         values
+         (8,"sql","1 month");
+    
+    =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        |         7 | php         | 2 month         |
+        |         8 | sql         | 1 month         |
+        +-----------+-------------+-----------------+
+
+=-> rollback;
+
+    =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        |         7 | php         | 2 month         |
+        +-----------+-------------+-----------------+
+
+-----------
+=-> start transaction;
+    =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        |         7 | php         | 2 month         |
+        +-----------+-------------+-----------------+
+
+=-> delete from courses where course_id=7;
+
+=-> savepoint s1;
+
+=-> insert into courses
+     values
+     (8,"sql","1 month");
+
+     =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        |         8 | sql         | 1 month         |
+        +-----------+-------------+-----------------+
+
+=-> rollback to savepoint s1 ;
+    
+    =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        +-----------+-------------+-----------------+
+
+=-> rollback;
+
+    =-> select*from courses;
+        +-----------+-------------+-----------------+
+        | course_id | course_name | course_duration |
+        +-----------+-------------+-----------------+
+        |         1 | python      | 3 month         |
+        |         2 | java        | 3 month         |
+        |         3 | php         | 2 month         |
+        |         4 | C++         | 1 month         |
+        |         5 | sql         | 1 month         |
+        |         6 | python      | 3 month         |
+        |         7 | php         | 2 month         |
+        +-----------+-------------+-----------------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{11}}}                                         SQL Joins 
+
+=-> create table departments(d_id int ptimary key,d_name varchar(20));
+    =-> insert into departments values(1,"HR diparment"),
+         (2,"Accounting diparment"),
+         (3,"marketing diparment"),
+         (4,"sales diparment");
+
+=-> create table employees(e_id int,e_name varchar(20),e_city varchar(30));
+    =-> insert into employees valuse(1,"mustved","ahmedabad"),
+         (2,"aaaa","surat"),
+         (1,"bbbb","mumbai"),
+         (4,"cccc","ahmedabad"),
+         (4,"dddd","goa");
+
+=-> select employees.e_name as Name,departments.d_name as 'Department name' from employees
+     inner join departments
+     on employees.e_id=departments.d_id;
+        +---------+----------------------+
+        | Name    | Department name      |
+        +---------+----------------------+
+        | mustved | HR diparment         |
+        | aaaa    | Accounting diparment |
+        | bbbb    | HR diparment         |
+        | cccc    | sales diparment      |
+        | dddd    | sales diparment      |
+        +---------+----------------------+
+
+=-> select departments.d_name as 'Department name',employees.e_name as name from departments
+     left join employees
+     on employees.e_id=departments.d_id;
+        +----------------------+---------+
+        | Department name      | name    |
+        +----------------------+---------+
+        | HR diparment         | bbbb    |
+        | HR diparment         | mustved |
+        | Accounting diparment | aaaa    |
+        | marketing diparment  | NULL    | // null
+        | sales diparment      | dddd    |
+        | sales diparment      | cccc    |
+        +----------------------+---------+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+{{{12}}}                                     SQL Group By 
+
+=-> select departments.d_name as 'Department name',count(*) as employees from employees
+    inner join departments
+    on employees.e_id=departments.d_id
+    group by d_name;
+        +----------------------+-----------+
+        | Department name      | employees |
+        +----------------------+-----------+
+        | HR diparment         |         2 |
+        | Accounting diparment |         1 |
+        | sales diparment      |         2 |
+        +----------------------+-----------+
+
+ // adding salary column
+=->  select*from employees;
+            +------+---------+-----------+--------+
+            | e_id | e_name  | e_city    | salary |
+            +------+---------+-----------+--------+
+            |    1 | mustved | ahmedabad |  20000 |
+            |    2 | aaaa    | surat     |  40000 |
+            |    1 | bbbb    | mumbai    |  15000 |
+            |    4 | cccc    | ahmedabad |  25000 |
+            |    4 | dddd    | goa       |  30000 |
+            +------+---------+-----------+--------+
+
+=->  select departments.d_name as Dipartment,count(*) as employe,avg(salary) as 'avg salary' from departments
+     inner join employees
+     on departments.d_id=employees.e_id
+     group by d_name;
+        +----------------------+---------+------------+
+        | Dipartment           | employe | avg salary |
+        +----------------------+---------+------------+
+        | HR diparment         |       2 | 17500.0000 |
+        | Accounting diparment |       1 | 40000.0000 |
+        | sales diparment      |       2 | 27500.0000 |
+        +----------------------+---------+------------+

@@ -1,0 +1,161 @@
+
+
+                 /!\
+                / ! \           UNDER CONSTRUCTIO !!!!
+               /  !  \
+              =========
+
+
+                MODULE:5(DATABASE)
+1) what do you understand by database
+=-> database is a colaction of data that store and manage electroniclly.
+=-> database store data in table formete
+
+----------------------------------------------------------------------------
+                                    <<<<TASK:1>>>>
+{{{1}}}
+->  create table student(rollno int primary key auto_increment,name varchar(20),branch varchar(30));
+
+            =-> DESC STUDENT;   // PRIMARY KEY
+            +--------+-------------+------+-----+---------+----------------+
+            | Field  | Type        | Null | Key | Default | Extra          |
+            +--------+-------------+------+-----+---------+----------------+
+            | rollno | int         | NO   | PRI | NULL    | auto_increment |
+            | name   | varchar(20) | YES  |     | NULL    |                |
+            | branch | varchar(30) | YES  |     | NULL    |                |
+            +--------+-------------+------+-----+---------+----------------+
+
+            =-> insert into student(name,branch)values('Mustved','Python'),('jay','php'),('suhani','java');
+            =-> select*from student;
+                +--------+---------+--------+
+                | rollno | name    | branch |
+                +--------+---------+--------+
+                |      1 | Mustved | Python |
+                |      2 | jay     | php    |
+                |      3 | suhani  | java   |
+                +--------+---------+--------+
+
+-> create table exam(rollno int not null,foreign key(rollno)references student(rollno),s_code varchar(20),mark float,p_code varchar(20));
+
+            =-> desc exam;  //  FOREGEIGN KEY
+            +--------+-------------+------+-----+---------+-------+
+            | Field  | Type        | Null | Key | Default | Extra |
+            +--------+-------------+------+-----+---------+-------+
+            | rollno | int         | NO   | MUL | NULL    |       |
+            | s_code | varchar(20) | YES  |     | NULL    |       |
+            | mark   | float       | YES  |     | NULL    |       |
+            | p_code | varchar(20) | YES  |     | NULL    |       |
+            +--------+-------------+------+-----+---------+-------+
+
+            =-> insert into exam values(1,'CS11',50,'CS'),
+                (1,'CS12',60,'CS'),
+                (2,'EC101',66,'EC'),
+                (2,'EC102',70,'EC'),
+                (3,'EC101',45,'EC'),
+                (3,'EC102',50,'EC');
+
+            =->  SELECT*FROM EXAM;
+
+                +--------+--------+------+--------+
+                | rollno | s_code | mark | p_code |
+                +--------+--------+------+--------+
+                |      1 | CS11   |   50 | CS     |
+                |      1 | CS12   |   60 | CS     |
+                |      2 | EC101  |   66 | EC     |
+                |      2 | EC102  |   70 | EC     |
+                |      3 | EC101  |   45 | EC     |
+                |      3 | EC102  |   50 | EC     |
+                +--------+--------+------+--------+
+
+---------------------------------------------------------------------------------------
+{{{2}}}
+        =-> create table user
+                 (
+                 id int primary key auto_increment,
+                 f_name varchar(20),
+                 L_name varchar(20),
+                 address varchar(50),
+                 city varchar(50),
+                 age int check(age>0)
+                 );
+           
+            =-> insert into user (f_name,L_name,address,city,age)
+                 values
+                    ("mickey","mouse","123 fanrasy way","anaheim",73),
+                    ("bat","man","321 caverb ave","gotham",54),
+                    ("wonder","woman","987 truth way","paradise",39),
+                    ("donald","duck","555 quack street","mallard",65),
+                    ("super","man","767 amekey owa","mauseye",54),
+                    ("bugs","bunny","567 carror street","rascal",58),
+                    ("wiley","coyote","999 acme way aowra","canyon",61),
+                    ("cat","woman","234 purrfect street","gairball",32),
+                    ("tweety","bird","543","itotltaw",28);
+           
+            =-> select f_name as 'First Name',L_name as 'Last Name',Address,City,Age from user;
+                +------------+-----------+---------------------+----------+------+
+                | First Name | Last Name | Address             | City     | Age  |
+                +------------+-----------+---------------------+----------+------+
+                | mickey     | mouse     | 123 fanrasy way     | anaheim  |   73 |
+                | bat        | man       | 321 caverb ave      | gotham   |   54 |
+                | wonder     | woman     | 987 truth way       | paradise |   39 |
+                | donald     | duck      | 555 quack street    | mallard  |   65 |
+                | super      | man       | 767 amekey owa      | mauseye  |   54 |
+                | bugs       | bunny     | 567 carror street   | rascal   |   58 |
+                | wiley      | coyote    | 999 acme way aowra  | canyon   |   61 |
+                | cat        | woman     | 234 purrfect street | gairball |   32 |
+                | tweety     | bird      | 543                 | itotltaw |   28 |
+                +------------+-----------+---------------------+----------+------+
+--------------------------------------------------------------------------------------
+{{{3}}}
+
+                             :::Table name Employee:::
+
+-> desc employee;
+        +-------------+-------------+------+-----+---------+----------------+
+        | Field       | Type        | Null | Key | Default | Extra          |
+        +-------------+-------------+------+-----+---------+----------------+
+        | E_id        | int         | NO   | PRI | NULL    | auto_increment |
+        | f_name      | varchar(20) | YES  |     | NULL    |                |
+        | l_name      | varchar(20) | YES  |     | NULL    |                |
+        | salary      | int         | YES  |     | NULL    |                |
+        | joinig_date | varchar(30) | YES  |     | NULL    |                |
+        | department  | varchar(20) | YES  |     | NULL    |                |
+        +-------------+-------------+------+-----+---------+----------------+
+    
+    =-> insert into employee (f_name,l_name,salary,department)values("John","Abraham",1000000,"Banking"),
+             ("Micheal","Clarke",800000,"Insurance"),
+             ("Roy","Thomas",700000,"Banking"),
+             ("Tom","Jose",600000,"Insurance"),
+             ("Jarry","Pinto",650000,"Insurance"),
+             ("Philip","Mathew",750000,"Services"),
+             ("Testname1","123",650000,"Services"),
+             ("Testname2","Lname%",600000,"Insurance");
+        
+        =-> select*from employee;
+            +------+-----------+---------+---------+---------------------+------------+
+            | E_id | f_name    | l_name  | salary  | joinig_date         | department |
+            +------+-----------+---------+---------+---------------------+------------+
+            |    1 | John      | Abraham | 1000000 | 2026-03-18 17:31:57 | Banking    |
+            |    2 | Micheal   | Clarke  |  800000 | 2026-03-18 17:31:57 | Insurance  |
+            |    3 | Roy       | Thomas  |  700000 | 2026-03-18 17:31:57 | Banking    |
+            |    4 | Tom       | Jose    |  600000 | 2026-03-18 17:31:57 | Insurance  |
+            |    5 | Jarry     | Pinto   |  650000 | 2026-03-18 17:31:57 | Insurance  |
+            |    6 | Philip    | Mathew  |  750000 | 2026-03-18 17:31:57 | Services   |
+            |    7 | Testname1 | 123     |  650000 | 2026-03-18 17:31:57 | Services   |
+            |    8 | Testname2 | Lname%  |  600000 | 2026-03-18 17:31:57 | Services   |
+            +------+-----------+---------+---------+---------------------+------------+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            :::Table name: Insentive:::
+    
+    =-> create table Incentive(E_R_Id int not null,foreign key(E_R_Id)references employee(E_id),
+        Icentive_date timestamp default (current_date),Incentive_amount int); 
+    
+     =-> desc incentive;
+            +------------------+-----------+------+-----+-----------+-------------------+
+            | Field            | Type      | Null | Key | Default   | Extra             |
+            +------------------+-----------+------+-----+-----------+-------------------+
+            | E_R_Id           | int       | NO   | MUL | NULL      |                   |
+            | Incentive_date   | timestamp | YES  |     | curdate() | DEFAULT_GENERATED |
+            | Incentive_amount | int       | YES  |     | NULL      |                   |
+            +------------------+-----------+------+-----+-----------+-------------------+
+    
