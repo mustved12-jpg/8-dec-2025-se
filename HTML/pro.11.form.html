@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <style>
+            table
+            {
+                width: 100%;
+            }
+            body
+            {
+                background-color: rgb(146, 255, 255);
+            }
+            td
+            {
+                color:blue;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <form >
+                <tr>
+                    <td><label>FIRST NAME:</label></td>
+                    <td><input type="text" placeholder="enter your name" name="fname" required></td>
+                </tr>
+
+-----------------------------------------------------------------------------------------------------------
+
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" placeholder="name123@gmail.com" required></td>
+                </tr>
+
+-----------------------------------------------------------------------------------------------------------
+                <tr>
+                    <td>password</td>
+                    <td><input type="password" name="password" placeholder="1234..." required></td>
+                </tr>
+
+-----------------------------------------------------------------------------------------------------------
+
+                <tr>
+                    <td>GENDER</td>
+                    <td>
+                        <input type="radio" name="gender" value="male">male
+                        <input type="radio" name="gender" value="femail">femail
+                    </td>
+                </tr>
+
+
+-----------------------------------------------------------------------------------------------------------
+                <tr>
+                    <td>HOBBIES</td>
+                    <td>
+                        <input type="checkbox" name="c_chk" value="C language"> C language
+                        <input type="checkbox" name="c_chk" value="java"> java
+                        <input type="checkbox" name="c_chk" value="python"> pothon
+                    </td>
+                </tr>
+                
+-----------------------------------------------------------------------------------------------------------
+
+
+                <tr>
+                    <td> SELECT CITY :</td>
+                    <td>
+                        <select name="city">
+                            <option selected  disabled readonly >------SELECT ANY--------
+                            <option value="AHMEDABAD">AHMEDABAD
+                            <option value="SURAT">SURAT
+                            <option value="GOA">GOA
+                            <option value="RAJKOT">RAJKOT
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+
+-----------------------------------------------------------------------------------------------------------
+
+
+                <tr>
+                    <td>address</td>
+                    <td>
+                        <textarea rows="8" cols="22" placeholder="your address hear......"></textarea>
+                    </td>
+                </tr>
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="submit"></td>
+                </tr>
+                
+            </form>
+        </table>
+
+    </body>
+</html>

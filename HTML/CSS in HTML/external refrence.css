@@ -1,0 +1,23 @@
+
+    h1
+    {
+        background-color: rgb(34, 34, 175);
+        color: rgb(229, 162, 162);
+        padding: 20px;
+    }
+    h2,h4
+    {
+        background-color: rgb(128, 128, 241);
+        color: blue;
+        padding: 20px;
+    }
+    div
+    {
+        background-color: aquamarine;
+        color: rgb(26, 122, 16);
+        padding:20px;
+    }
+    body
+    {
+        background-color: rgb(90, 101, 107);
+    }

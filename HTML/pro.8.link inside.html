@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <style>
+            .container
+            {
+                height: 200px;
+                background-color: rgb(255, 200, 200);
+                display: flex;
+            }
+            .subcontainer
+            {
+                background-color: rgb(231, 219, 56);
+                color: greenyellow;
+                height: 100px;
+                padding: 20px;
+                margin: 25px;
+            }
+            div h1
+            {
+                text-align: center;   
+            }
+            .content
+            {
+                background-color: red;
+                padding: 20px;
+                display: none;
+            }
+            a
+            {
+                text-decoration: none;
+                color: blue;
+                display: block;
+                
+            }
+            a:hover
+            {
+                color: rgb(97, 26, 26);
+            }
+            .content:target
+            {
+                display: block;
+            }
+            body
+            {
+                background-color: rgb(225, 194, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="subcontainer">
+            <a href="#python"><h1>python</h1></a>
+            </div>
+            <div class="subcontainer">
+            <a href="#java"><h1>java</h1></a>
+            </div>
+            <div class="subcontainer">
+            <a href="#php"><h1>php</h1></a>
+            </div>
+        </div>
+        <div id="python" class="content">
+            <h1>python is most powerfull language</h1>
+        </div>
+        <div id="java" class="content">
+            <h1>java is most powerfull language</h1>
+        </div>
+        <div id="php" class="content">
+            <h1>php is most powerfull language</h1>
+        </div>
+
+    </body>
+</html>

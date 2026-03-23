@@ -20,7 +20,7 @@
  A ~> smajhne me aasan,isme powerfull qureys hai,isme secourety hai,isme transaction ka sport hai
                                                                         (roll back,commit)
 
- ]]]]]]]
+ -end]]]]]]]
 
 
 
@@ -84,7 +84,7 @@ Q.3 : Explain the role of clauses in SQL statements.
 A ~> ye sql ka ek part hai jese where clauses,order by clauses,group by clauses ect. 
 
 
-]]]]]]]
+-end]]]]]]]
 
 
 ||||||||lab|||||||||
@@ -140,7 +140,7 @@ Q.3 : What is the role of NOT NULL and UNIQUE constraints?
 A ~> not null me hum column ko khali nhi rakh sakte,par isme hum dublicate value rakh sakte hai
      unique me hum column ko khali rakh sakte hai,par isme hum dublicate value rakh nhi sakte 
 
-]]]]]]]
+-end]]]]]]]
 
 
 ||||||||||lab|||||||||
@@ -218,7 +218,7 @@ Q.3 : What is the purpose of specifying data types and constraints during table 
 A ~> datatype btata hai ki column me kis type ka data store hoga 
      constraints se hum column ko not null,pk,fk,auto,check,default rakh sakte hai 
 
-]]]]]]]
+-end]]]]]]]
 
 
 ||||||||||lab|||||||||||||
@@ -249,6 +249,36 @@ course_credits. Set the course_id as the primary key.
 {{{5}}}                                         ALTER Command 
 
 
+[[[[[[Theory :
+
+Q.1 : What is the use of the ALTER command in SQL? 
+A ~> alter commands ka use kar ke hum created tables mai modify kar sakte hai.
+        e.g
+        add,modify,drop,and rename
+------------------
+Q.2 : How can you add, modify, and drop columns from a table using ALTER? 
+A ~> add:: aletr table <table name> add <new column name><datatype>;
+     modify:: alter table <table name> modify <existing column name><new datatype>;
+     drop:: alter table <table name> drop <existing column name>;
+
+-end]]]]]]
+
+
+||||||||||||lab||||||||||||
+
+
+
+• Lab 1: Modify the courses table by adding a column course_duration using the ALTER 
+command. 
+
+• Lab 2: Drop the course_credits column from the courses table. 
+
+=================================
+
+
+
+
+
 =->alter table courses add course_duration varchar(20);
 
 =-> desc courses;
@@ -275,6 +305,33 @@ course_credits. Set the course_id as the primary key.
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 {{{6}}}                                 DROP Command 
+
+
+[[[[[[theory :
+
+Q.1 : What is the function of the DROP command in SQL? 
+A ~> drop command se hum kisi bhi database or table ko parmanetly delete kar sakte hai
+        isse hum kisi spacific data ko nhi deletekar sakte
+----------------------
+Q.2 : What are the implications of dropping a table from a database? 
+A ~> drop se data parmanetly deleteho jata hai 
+      isko hum rollback nhi kar sakte
+      isse structure delete ho jata hai
+
+ -end]]]]]]
+
+
+||||||||||lab|||||||||||
+
+• Lab 1: Drop the teachers table from the school_db database. 
+
+• Lab 2: Drop the students table from the school_db database and verify that the table has 
+been removed. 
+
+===============================
+
+
+
 
 =->  drop table teachers;
 
@@ -306,6 +363,38 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 {{{7}}}                             Data Manipulation Language (DML) 
+
+
+[[[[[[Theory :
+
+Q.1 : Define the INSERT, UPDATE, and DELETE commands in SQL.
+A ~> insert value ko insert karne ke liye use hota hai
+    syntax: insert into <tablename>(<column1,column2,...>)values (<value1,value2...>);
+    UPDATE value me modify karne ke liye use hota hai
+    syntax: update <table name> set <column name><new value> where <location or condition>;
+    DELETE  kisi spacific value ko deletekarne ke liye use hota hai 
+    syntax : delete form <tablename> where <location or condition>;
+--------------------------
+Q.2 : What is the importance of the WHERE clause in UPDATE and DELETE operations? 
+A ~> where clause btata hai ki kon se spacific records pe update ya delete operation apply hoga 
+
+
+-end]]]]]]
+
+|||||||||||lab||||||||||
+
+
+
+• Lab 1: Insert three records into the courses table using the INSERT command. 
+
+• Lab 2: Update the course duration of a specific course using the UPDATE command. 
+
+• Lab 3: Delete a course with a specific course_id from the courses table using the DELETE 
+command. 
+==============================
+
+
+
 
 =->  insert into courses
          (course_id,course_name,course_duration)
@@ -360,6 +449,37 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 
 {{{8}}}                                Data Query Language (DQL) 
 
+[[[[[[theory :
+
+
+Q.1 : What is the SELECT statement, and how is it used to query data? 
+A ~> ye sql ka main command hai ye data ko tables ke form me dikhata hai(row and column)
+
+----------------------
+
+Q.2 : Explain the use of the ORDER BY and WHERE clauses in SQL queries. 
+A ~> order by clause : ye data ko asc or desc karta hai
+     where cluase : ye data ko filter karta hai or targeted data deta hai
+
+
+-end]]]]]]
+
+
+
+||||||||||lab||||||||||||
+
+
+• Lab 1: Retrieve all courses from the courses table using the SELECT statement. 
+
+• Lab 2: Sort the courses based on course_duration in descending order using ORDER BY. 
+
+• Lab 3: Limit the results of the SELECT query to show only the top two courses using LIMIT.
+
+===========================
+
+
+
+
 =->  select*from courses;
             +-----------+-------------+-----------------+
             | course_id | course_name | course_duration |
@@ -404,6 +524,36 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 
 {{{9}}}                             Data Control Language (DCL) 
 
+
+[[[[[theory :
+
+
+Q.1 : What is the purpose of GRANT and REVOKE in SQL? 
+A ~> grant user ko parmision(privilege) deta hai jese selectki parmision se user  data ko select kar sakta hai
+     revoke user se di hui parmision vapas le leta hai 
+---------------------
+
+Q.2: How do you manage privileges using these commands? 
+A ~> privilege grant se suru or revoke pe khatam hota hai 
+
+
+
+-end]]]]]
+
+
+|||||||||lab|||||||||||
+
+
+• Lab 1: Create two new users user1 and user2 and grant user1 permission to SELECT 
+from the courses table. 
+
+• Lab 2: Revoke the INSERT permission from user1 and give it to user2.
+
+======================
+
+
+
+
 =-> create user "user1"@"localhost" identified by "1234";
 =-> create user "user2"@"localhost" identified by "1234";
 
@@ -422,6 +572,40 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 {{{10}}}                         Transaction Control Language (TCL) 
+
+
+[[[[[theory :
+
+Q.1: What is the purpose of the COMMIT and ROLLBACK commands in SQL? 
+A ~> commit se humne jo bhi cahnges kiye honge sub save honge fir rollback nhi hoga
+     rollback re hum fir se home page pe aa jate ge 
+
+--------------------
+
+Q.2: Explain how transactions are managed in SQL databases. 
+A ~> transaction me ya to sare operation honge ya to ek bhi nhi 
+
+
+-end]]]]]
+
+
+
+|||||||||||lab||||||||||
+
+
+
+• Lab 1: Insert a few rows into the courses table and use COMMIT to save the changes. 
+
+• Lab 2: Insert additional rows, then use ROLLBACK to undo the last insert operation. 
+
+• Lab 3: Create a SAVEPOINT before updating the courses table, and use it to roll back 
+specific changes. 
+
+============================
+
+
+
+
 
 =-> start transection;
 
@@ -536,6 +720,39 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 
 {{{11}}}                                         SQL Joins 
 
+
+[[[[[[theory :
+
+Q.1 : Explain the concept of JOIN in SQL. What is the difference between INNER JOIN, LEFT 
+       JOIN, RIGHT JOIN, and FULL OUTER JOIN? 
+A ~> join do tables ya dose jyada tables ko join karta hai inner join sem value ko join karta hai or jo
+        value same hoti hai vhi dikahta hai left join left ke table ki puri values ko dikhat hai 
+        or right me jo value nhi hai usme null dikata hai or full join mai do tables ke sari values 
+        dikhti hai.
+
+----------------------
+
+Q.2 : How are joins used to combine data from multiple tables
+A ~> references ke ke sath values ke sath primary key ke sath
+
+
+-end]]]]]]
+
+
+
+||||||||lab|||||||
+
+
+• Lab 1: Create two tables: departments and employees. Perform an INNER JOIN to 
+display employees along with their respective departments. 
+
+• Lab 2: Use a LEFT JOIN to show all departments, even those without employees. 
+
+=========================
+
+
+
+
 =-> create table departments(d_id int ptimary key,d_name varchar(20));
     =-> insert into departments values(1,"HR diparment"),
          (2,"Accounting diparment"),
@@ -579,6 +796,39 @@ referenced by a foreign key constraint 'student_ibfk_1' on table 'student'.
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 {{{12}}}                                     SQL Group By 
+
+
+[[[[[theory :
+
+
+Q.1 : What is the GROUP BY clause in SQL? How is it used with aggregate functions? 
+A ~> group by cluase sam values ka group bnata hai or aggregate us group mai calculations karta hai
+        e.g : max,avg,sum etc.
+---------------
+
+Q.2 : Explain the difference between GROUP BY and ORDER BY.
+A ~>  group by                                          order by
+     -> ye data ka group bnata hai                      -> ye data ko asc or desc karta hai
+     -> isme having hota hai                            -> isme nhi hota
+     -> aggregate function ka use hai                   -> nhi hai
+
+
+-end]]]]]
+
+
+
+|||||||||||lab||||||||||
+
+• Lab 1: Group employees by department and count the number of employees in each 
+department using GROUP BY. 
+
+• Lab 2: Use the AVG aggregate function to find the average salary of employees in each 
+department. 
+
+====================
+
+
+
 
 =-> select departments.d_name as 'Department name',count(*) as employees from employees
     inner join departments

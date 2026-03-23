@@ -1,4 +1,4 @@
-                                            HTML::                                                     <<16-03-26>>
+                                            HTML::                                         <<16-03-26>>
 -> HTML: stands for markup pages
 -> using of html we can design web pages wich is run on web browsers
 -> html is a combiation or collection of multiple tags ther are 2 types of tags
@@ -54,10 +54,20 @@ list::
         <dd>description detailed</dd>
     </dl>
 =======================================================================================================
-div: is a most powerfull element of html                                                    <<18-03-26>>
+div: is a most powerfull element of html                                                   <<18-03-26>>
 -> which is represent as a division tag
     syntax:
         <div>.....</div>
 
--> each div tag start from new block which is mainly use to create block of divitoin on specific web page
+-> each div tag start from new block which is mainly use to create block of divitoin on 
+    specific web page
+=======================================================================================================
+  table: to create table for html web pages                                                <<20-03-26>>
+
+    <thead> : this is use to display table heading
+        <th> : table heading tag
+        
+    <tbody> : table body tab wich display
+        <tr> : table row
+        <tb> : table date
 =======================================================================================================
