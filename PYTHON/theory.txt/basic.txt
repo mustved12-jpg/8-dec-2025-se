@@ -108,7 +108,7 @@ by default whenever we install python it provide us IDLE
 solusion:
                                                  output
         print("hello",end=" ")              |  hello mustved
-        print("mustved",)                  |  
+        print("mustved",)                   |  
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
