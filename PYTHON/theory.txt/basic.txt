@@ -1,0 +1,232 @@
+                                            * PYTHON *
+~> python is a widely used general-purpase,high level programing language it was initialy designed by 
+    <  GUIDO VAN ROSSUM  > 1991 and developed by python softwer foundation.
+
+~> it was mainly developed for emphasis on code readability and its syntax allow programmers to express
+    concepts in fewer lines of code
+
+~> python is a programing language that lets you work quickly and integate syntax more efficiently
+
+~> python is a interpreted, object-oriented,high-level programing language with
+    dynamic semantics
+
+~> it's high-level built in data structure , combined with dynamic typing and dynamic binding, make it 
+    very attractive for rapid application development
+
+~> python supports modules and packeges which encourages programs modularity and code reuse
+
+~> the python support modules and packeges which encourages programs modularity and code reuse
+
+~> the python interpreter and the extensive standard library and aviailable in source or binary from
+    without charge from all major platforms and can'be freely distributed
+
+
+                            * why python *
+
+~> designed to be easy to learn and master
+    clean,clear syntax
+    very few kywords
+
+~> highly portebale
+    -> runs almost anywher high end servers and work station, down to windous CE user machine indepandent byte-code
+
+~> Extensible
+    -> designed to be extensible using C/C++ allowing access to many external libraries
+
+~> clean syntax plus high-level data type
+    -> leads to fast coding(first language in many universities)
+
+~> uses white-spuce to delimit blocks
+~> variables do not neet to declaration
+~> reduced development time 
+    -> code is 2-10x shorter then C,C++,java
+
+~> Improved program maintanance
+    -> code is extremely readable
+
+~> Less training
+    -> language is very easy to learn
+
+
+                            * INTERPETER *
+
+~> An interpeter translates high-level instructions into an intermediate from, witch it then executes in contrast a compiler 
+   translates high-level instruction directly into machine language
+
+~> to have an interpreter to interpret and run programs
+
+~> there are creation online interpeter like 
+
+            http://codepad.org/
+    that can be used to start python without installing an interpeter
+
+
+*printing*
+
+    syntax:
+        print("message")
+        
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+~> to check python is installed in my system or not
+
+    press->  win+R
+                |
+                V
+                CMD
+    in cmd type
+            # python --vertion
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+by default whenever we install python it provide us IDLE
+
+    IDLE: integrated development learning enviroment
+
+    -> it is only use for learning purpose
+    for professional purpose we have to use
+
+    IDE: integrated development enviroment
+        -> therare lost od IDEs in  available in market but python official's IDE is pycharm
+
+            but pycharm advance tools is paid mode so we use visual stodio code or antigravity
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                        print()
+~> print is a function witch print values on ouput screan 
+    e.g
+        print("hello")
+~> but print end with new line if we cal to print 2 value in single row we use end paramenter
+    e.g
+    problam:
+
+
+                                                 output
+        print("hello",)              |  hello
+        print("mustved",)            |  mustved
+
+solusion:
+                                                 output
+        print("hello",end=" ")              |  hello mustved
+        print("mustved",)                  |  
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+~> comments in python
+    -> ther are 2 type comments
+
+    (1) single line comment : which is represent by -> #
+        e.g
+        # this is my single line comment
+    
+    (2) multi line comment: represent by ''' or """
+    e.g
+        ''' 
+            tis is my
+            multi line
+            comment 
+        '''
+=======================================================================================================
+~> variable : A name which is can store a value
+
+    -> in python there is no need to declare variable we can just take variable name and values
+
+===========================================
+~> datatype: which type of value store in a variable its called datatype
+        there are mainly 3 types of datatype
+(1) numeric
+    (i) int 
+    (ii) float
+
+(2) chracter
+    (i) chr
+    (ii) str(string)
+
+(3) bool (boolean) fro true or false value
+============================================
+
+~> type(): to check witch type of value store in a variable using of type() function we can check it 
+                
+    e.g 
+    name="mustved"
+    price=155.53
+    score=76
+    print("type of name =",type(name)) # output: type of name = <class 'str'>
+
+    print("type of score =",type(score)) # output: type of score = <class 'int'>
+    
+    print("type of price =",type(price)) # output: type of price = <class 'float'>
+    
+    print("type of True =",type(True)) # output: type of True = <class 'bool'>
+
+==============================================
+~> accept dynamic values :
+    input(): using of input function we can accept dynamic value from user at run time
+
+NOTE: by default input function accept value in string formant
+
+    syntax: 
+            input("promt message")
+        e.g
+        name=input("enter your name")
+---------------------------------------
+~> type casting : when datatypeconvert into another datatype its called type kasting
+      
+problem:
+      e.g.
+      num1=input("enter a number 1 :")
+      num2=input("enter a number 2 :")
+        
+        ans=num1+num2
+
+        print(ans)
+
+      OUTPUT: enter a number 1 : 4  
+              enter a number 2 : 6
+                            46      {plus nhi huva  q ki by default input string
+                                     leta hai ye concatination ho gya}
+
+solusion : {using type casting}
+
+      num1=int(input("enter a number 1 :"))
+      num2=int(input("enter a number 2 :"))
+
+        print(ans)
+
+       OUTPUT: enter a number 1 : 4  
+               enter a number 2 : 6
+                            10    
+
+
+==============================================
+
+~> ID() : return address of spacific variable{address check karne ke liye}
+
+        e.g
+        
+        name="mustved"
+
+        print("address = ",id(name))
+
+=============================================
+
+formant function or  formant string
+{ 3 type se hota hai}
+
+    |EXPECTED OUTPUT:
+    |~~~~~~~~~~~~~~~~~~~~~~~
+    |your name is __________ and your number is _________.
+    |~~~~~~~~~~~~~~~~~~~~~~~
+    
+    e.g.
+
+    name=input("enter your name :")
+    number=int(input("enter a number :"))
+
+type 1 =  print("your name is",name,"and your number is",number,".")
+
+type 2 =  print(f"your name is{name}and your number is{number}.")  #most usfull
+
+type 3 = print("your name is(1)and your number is(0)",formant(name,number)) 
+{type 3 index value se hota hai jese array mai hota tha 0,1,2,3 }

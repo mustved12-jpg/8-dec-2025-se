@@ -1,0 +1,28 @@
+  h1,h3
+    {
+        background-color: black;
+        color: aliceblue;
+        padding: 20px;
+    }
+    h4
+    {
+        background: rgb(206, 255, 133);
+        color: rgb(2, 75, 2);
+        padding: 20px;
+        width:200px;
+    }
+    body
+    {
+        background-color: rgb(148, 148, 148);
+        color: brown;
+        text-align: center;
+    }
+    a
+    {
+        color: rgb(56, 56, 155);
+        text-decoration: none;
+    }
+    a:hover
+    {
+        color: red;
+    }

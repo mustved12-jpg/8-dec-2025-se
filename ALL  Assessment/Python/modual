@@ -1,0 +1,60 @@
+# Introduction to Python
+
+Python ek bohot hi powerful aur popular programming language hai. Ye easy to understand, high-level aur interpreted programming language hai.
+
+**Q. Python simple kyun hai?**
+Kyunki agar humko kuch print karna ho, toh hum sirf `print()` likhte hain aur jo string print karani hai wo brackets mein daalte hain, aur wo print ho jata hai. Wahi same code C++ ya Java mein likhne ke liye 5 se 6 lines lagti hain.
+
+**Q. Python high-level kyun hai?**
+Kyunki iska code English letters mein likha jata hai (0 aur 1 numbers mein nahi). Saath hi, ye memory management apne aap (automatically) khud kar leta hai.
+
+**Q. Python interpreted kyun hai?**
+Ye source file (code) ko line-by-line padhta aur convert karta hai. Jiski wajah se jis line mein problem hoti hai, hamein wahi par error ka pata chal jata hai. Halanki, is line-by-line checking ki wajah se isko run hone mein thoda time lagta hai (thodi slow hoti hai).
+
+**Code jaldi likhna (Fast Development):**
+Isme code kaafi chhota hota hai (syntax easy hota hai), isliye hum jaldi code likh kar apna kaam complete kar sakte hain.
+
+**Dynamically Typed:**
+Python ek dynamically typed language hai. Yaani isme humein datatype pehle se declare nahi karna padta (jaise `int x = 5`). Ye run time par variable ki value dekh kar khud hi samajh jata hai ki vo kaunsa datatype hai.
+
+---
+
+# History of Python
+- Python ko **1991** mein launch kiya gaya tha aur isko **Guido van Rossum** ne banaya tha.
+- Iska naam ek purane British comedy TV show ("Monty Python's Flying Circus") ke naam se pada tha.
+- Isko mainly simple, clean aur fast programming ke liye banaya gaya tha.
+
+---
+
+# Python ke Faayde (Advantages)
+- Ye baaki languages ke mukable kaafi aasaan (easy) hoti hai.
+- Iske keywords aasaan hote hain.
+- Ye line by line code convert karti hai to error/problem turant pata chal jati hai.
+- Isme clean aur chhote syntax hote hain.
+- Iska code Java ya C++ se lagbhag bahut hi chhota hota hai.
+- Ye dynamically typed language hai.
+- Ye zyada tar har jagah (Web, Data Science, AI, Automation) use hoti hai.
+
+---
+
+# IDLE aur IDEs
+Python ko install karne ke baad hum IDLE ya IDE ki madad se programming kar sakte hain.
+
+- **IDLE** (Integrated Development and Learning Environment): Ye zyadatar khali learning (seekhne) purpose ke liye use hota hai.
+- **IDE** (Integrated Development Environment): Ye professional aur development purpose ke liye hota hai. Market mein aisi bohot si IDEs available hain.
+  - Python ki ek bohot famous IDE **PyCharm** hai, but iske advanced tools paid (paise lagte hain) hote hain.
+  - Isliye development ke liye log **VS Code**, **Anaconda**, ya ab aaj ki new aur most popular IDE **Antigravity** ka use karte hain.
+
+---
+
+# Lab / Practical
+
+**In Python IDLE:**
+```python
+print("hello world")
+```
+
+**In Antigravity:**
+```python
+print("my name is mustved")
+```

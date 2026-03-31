@@ -1,0 +1,121 @@
+                                                ::Operators::                             <<-30-03-26>>
+
+Operators: to parform spacific operations we have to use some spacific symbols its called Operators
+~> and to porform operations between operands
+
+    e.g.
+    a + b
+    hear a and b is operands and + is Operators
+
+~> ther are mainly 6 Operators
+
+(1) airthmetic operator:
+    + -  *  / //(floro division) **(exponentiation)
+
+(2) assigment operators:
+    =(to assighn a values)
+
+  -> shorthand operator: combination of airthmatic and assigmnet operator
+        += -+ *= /+ //+ **=
+
+(3) relational operators:
+    < > <= >= == !=
+
+(4) logical operator:
+    and
+    or
+    not
+
+(5) membership operator:
+    in
+    not in
+
+(6) identify operator:
+    is 
+    not is
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                    ::Condition::                                          <<30-03-26>>
+
+~> when we whant to run by condition we have to use condition ther are mainlly 5 type of condition
+~> when we give parmision to the program that mack changes acording to the condition it's called 
+    condition.
+
+(1) if statement
+(2) if...else statement
+(3) elif statement (hear we are using elif not else if)
+(4) nested statement
+(5) match statement
+
+(1) if statement:
+~> when condition is ture it will exicuet if block
+
+    syntex: 
+        if condition:
+            statement
+
+note: identation for if block {statement se pehle humko 4 space ya 1 tab dena hoga }
+---------------------------------------
+(2) if.. else statement
+~> when condition is true it will exicuet if block and if condition become false it will exicuet else
+    block.
+
+    syntex: 
+        if condition:
+            statement
+        else:
+            statement
+---------------------------------------
+(3) elif statement:
+~> when we have multipul condition to check we use elif statement but if first condition is true it will
+    not going to check other condition it will exicuet first condition block 
+
+    syntex: 
+        if condition:
+            statement
+
+        elif condition:
+            statement
+        elif condition:
+            statement
+        elif condition:
+            statement
+
+        else:
+            statement
+---------------------------------------
+(4) nested statement:
+~> when we have one condition inside another condition we use nested statement
+
+    if condition:
+        if condition:
+            statement
+        else:
+            statement
+    else:
+        if condition:
+            statement
+        else:
+            statement
+---------------------------------------
+(5) match statement:
+~> in python match statement is supported only after python 3.10+ version only it is similer like 
+    switch(C,c++,java) when case(in kotlin)
+
+    syntax:
+       match expreations:
+           case values:
+                statement
+           case values:
+                statement
+           case values:
+                statement
+           case values:
+                statement
+           case _:
+                statement
+ case _: represent default statement there is no such keyword default in match statement when we want
+         to apply multi choice selection at that time we use match statement
+

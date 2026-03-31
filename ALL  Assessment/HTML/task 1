@@ -1,0 +1,567 @@
+
+
+
+
+<html>
+    <head>
+    </head>
+    <body>
+         <h1>this is my first html</h1>
+    </body>
+</html>
+
+=======================================================================================================
+
+<html>
+    <head>
+        <style>
+            ol{
+                padding: 20px;
+                color: blue;
+            }
+            body
+            {
+                background-color: rgb(172, 255, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>top 10 IT companies list in html webpage  </h1>
+         <div>
+            <ol>
+                <li>infosys</li>
+                <li>tcs</li>
+                <li>mphasis</li>
+                <li>presistent systems</li>
+                <li>mindtree</li>
+                <li>postman</li>
+                <li>clevertap</li>
+                <li>razorpay</li>
+                <li>freshworks</li>
+                <li>browserstack</li>
+            </ol>
+         </div>
+    </body>
+</html>
+
+=======================================================================================================
+
+<html>
+    <head>
+        <style>
+           table
+           {
+            width: 100%;
+           }
+            body
+            {
+                background-color: rgb(140, 255, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <table>
+                <h1>dropdown list </h1>
+                <tbody>
+                    <select style="text-align: center;" name="city">
+                        <option selected disabled>------SELECT-------
+                        <option value="infosys">infosys
+                        <option value="tcs">tcs
+                        <option value="mphasis">mphasis
+                        <option value="presistent systems">presistent systems
+                        <option value="mindtree">mindtree
+                        <option value="postman">postman
+                        <option value="clevertap">clevertap
+                        <option value="razorpay">razorpay
+                        <option value="freshworks">freshworks
+                        <option value="browserstack">browserstack
+                        </option>
+                    </select>
+                </tbody>
+            </table>
+            </div>
+    </body>
+</html>
+=======================================================================================================
+
+<html>
+    <head>
+        <style>
+            table
+            {
+                border: 6px solid black;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th,tr,td
+            {
+                border: 3px solid rgb(48, 96, 0);
+                text-align: center;
+                padding: 20px;
+                color:red ;
+            }
+            th
+            {
+                background-color: aquamarine;
+                color: blue;
+            }
+            body
+            {
+                background-color: rgb(206, 255, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">ID</th>
+                    <th colspan="3">tops</th>
+                </tr>
+                <tr>
+                    <th>NAME</th>
+                    <th>subject</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td rowspan="2">mustved</td>
+                    <td>python</td>
+                    <td>65.87</td>
+                </tr>
+                <tr>
+                    <td>java</td>
+                    <td>55</td>
+                </tr>
+                 <tr>
+                    <td rowspan="2">2</td>
+                    <td rowspan="2">aaaa</td>
+                    <td>php</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>java</td>
+                    <td>87.03</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
+
+=======================================================================================================
+
+<html>
+    <head>
+        <style>
+            table
+            {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th,tr,td
+            {
+                text-align: center;
+                padding: 20px;
+                color:aliceblue;
+            }
+            td
+            {
+                border: 3px solid white;
+            }
+            th
+            {
+                color: rgb(0, 0, 0);
+            }
+            .class1
+            {
+                background-color: red;
+            }
+            .class2
+            {
+                background-color: black;
+            }
+            body
+            {
+                background-color:green;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                  <th colspan="14"><h1>European Roulette</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">0</td>
+                    <td class="class1">3</td>
+                    <td class="class2">6</td>
+                    <td class="class1">9</td>
+                    <td style="width: 70px;" class="class1">12</td>
+                    <td class="class2">15</td>
+                    <td class="class1">18</td>
+                    <td class="class1">21</td>
+                    <td class="class2">24</td>
+                    <td class="class1">27</td>
+                    <td class="class1">30</td>
+                    <td class="class2">33</td>
+                    <td class="class1">36</td>
+                    <td style="text-align: left; padding: 0%;">2to1</td>
+                </tr>
+                <tr>
+                    <td class="class2">2</td>
+                    <td class="class1">5</td>
+                    <td class="class2">8</td>
+                    <td class="class2">11</td>
+                    <td class="class1">14</td>
+                    <td class="class2">17</td>
+                    <td class="class2">20</td>
+                    <td class="class1">23</td>
+                    <td class="class2">26</td>
+                    <td class="class2">29</td>
+                    <td class="class1">32</td>
+                    <td class="class2">35</td>
+                    <td style="text-align: left; padding: 0%;">2to1</td>
+                </tr>
+                <tr>
+                    <td class="class1">1</td>
+                    <td class="class2">4</td>
+                    <td class="class1">7</td>
+                    <td class="class2">10</td>
+                    <td class="class2">13</td>
+                    <td class="class1">16</td>
+                    <td class="class1">19</td>
+                    <td class="class2">22</td>
+                    <td class="class1">25</td>
+                    <td class="class2">28</td>
+                    <td class="class2">31</td>
+                    <td class="class1">34</td>
+                    <td style="text-align: left; padding: 0%;">2to1</td>
+                </tr>
+                <tr>
+                    <td colspan="4">1st12</td>
+                    <td colspan="4">1st12</td>
+                    <td colspan="4">1st12</td>
+                    <td  style="padding: 30px;" rowspan="2"> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">1to8</td>
+                    <td colspan="2">EVEN</td>
+                    <td class="class1"colspan="2"> </td>
+                    <td class="class2"colspan="2"> </td>
+                    <td colspan="2">ODD</td>
+                    <td colspan="2">19to36</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
+
+=======================================================================================================
+inline css
+
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 style="background-color: aqua;color: blue;padding: 20px;">Tis is inline CSS</h1>
+    </body>
+</html>
+-----------------------------
+internal CSS
+
+<html>
+    <head>
+        <style>
+            h1,h3
+            {
+                background-color: black;
+                color: aliceblue;
+                padding: 20px;
+            }
+            h4
+            {
+                background: rgb(206, 255, 133);
+                color: rgb(2, 75, 2);
+                padding: 20px;
+                width:200px;
+            }
+            body
+            {
+                background-color: rgb(148, 148, 148);
+                color: brown;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+      <h1>hello in h1</h1>
+      <h2>hello in h2</h2>
+      <h3>hello in h2</h3>
+      <h4>hello in h4</h4>
+      <h5>hello in h5</h1>
+    </body>
+</html>
+------------------------------------
+external CSS
+created file name ext.css
+ 
+ in ext.css
+ 
+  h1,h3
+    {
+        background-color: black;
+        color: aliceblue;
+        padding: 20px;
+    }
+    h4
+    {
+        background: rgb(206, 255, 133);
+        color: rgb(2, 75, 2);
+        padding: 20px;
+        width:200px;
+    }
+    body
+    {
+        background-color: rgb(148, 148, 148);
+        color: brown;
+        text-align: center;
+    }
+~~~~~~~~~~~~~~~~~~~~~|
+                     V
+                     
+ <html>
+    <head>
+       <link rel="stylesheet" href="ext.css">
+    </head>
+    <body>
+      <h1>hello in h1</h1>
+      <h2>hello in h2</h2>
+      <h3>hello in h2</h3>
+      <h4>hello in h4</h4>
+      <h5>hello in h5</h1>
+    </body>
+</html>
+
+
+=======================================================================================================
+
+<html>
+    <head>
+        <style>
+            .r
+            {
+                color: red;
+            }
+            .l
+            {
+                text-align:left;
+            }
+            td
+            {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+
+        
+      <div>
+          <h1 style="background-color: rgb(73, 202, 202);color: red;text-align: center;"> individual registration</h1>
+
+      
+         <table style="background-color: rgb(203, 255, 238); width: 100%; text-align: center;">
+            <form>
+            
+             <tr class="l">
+                    <td><span class="r">User Particulars</span></td>
+             </tr>
+             <tr>
+                    <td colspan="2"><span class="r">*</span>Login ID<span style="margin: 0px -60px 0px 10px;"> 
+                    <input type="email" name="id" placeholder="Your Email Id.." required></span></td>
+             </tr>
+             </tr>
+             <tr>
+                    <td colspan="2"><span class="r">*</span>Password<span style="margin: 0px -58px 0px 10px;"> 
+                    <input type="phone" placeholder="Password" required></span></td>
+             </tr>
+             </tr>
+             <tr>
+                    <td colspan="2"><span class="r">*</span>Confirm Password<span style="margin:5px;"></span>
+                    <input type="phone" placeholder="Password" required></span></td>
+             </tr>
+            <tr><td><br></td></tr>
+           
+            <tr class="l">
+                <td><span class="r">Personal Particulars</span></td>
+            </tr>
+
+        
+              <tr>
+                    <td><span class="r">*</span>Salutation <span style="margin: 0px 120px 0px 10px;">
+                    <select name="select" required>
+                    <option disabled selected>select
+                                        
+                    <option value="a1">a1
+                    <option value="a2">a2
+                    <option value="a3">a3
+                    <option value="a4">a4
+                    <option value="a5">a5
+                    <option value="a6">a6
+                                           
+                    </option>
+                    </select></span>
+                   </td>
+                   <td><span class="r">*</span>First Namet <span style="margin: 0px 0px 0px 10px;">
+                     <input type="text" name="F_name" required placeholder="Enter your name"></span>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>Middle Name <span style="margin: 0px 22px 0px 10px;">
+                        <input type="text" name="M_name" placeholder="Enter Name.."></span>
+                    </td>
+                    <td><span class="r">*</span>Last Name <span style="margin: 0px -6px 0px 10px;">
+                    <input type="text" name="l_name" required placeholder="Enter Name..."></td></span>
+                   </tr>
+                   <tr>
+                    <td><span class="r">*</span>Resident Status <span style="margin: 0px 122px 0px 10px;">
+                    <select name="s_resident" id="">
+                    <option selected disabled>select 
+                    <option value="aaaaaaaa1">aaaaaaaa1
+                    <option value="aaaaaaaa2">aaaaaaaa2
+                    <option value="aaaaaaaa3">aaaaaaaa3
+                    <option value="aaaaaaaa4">aaaaaaaa4
+                    
+                    </option>
+                    </select></td></span>
+                    <td><span class="r">*</span>Country <span style="margin: 0px 62px 0px 10px;">
+                        <select name="S_name">
+                            <option selected disabled>select
+                            <option value="India">India
+                            <option value="Uk">Uk
+                            <option value="Us">Us
+                            <option value="Greenland">Greenland
+                                
+                            </option>
+                        </select></span>
+                    </td>
+                  </tr>
+                  <tr>
+                            <td> <span class="r">*</span>Email-Id <span style="margin: 0px -1px 0px 10px;">
+                            <input type="email" name="email" required placeholder="Enter Email"></span>
+                        </td>
+                        <td><span class="r">*</span>Mobile Number <span style="margin: 0px 26px 0px 10px;">
+                            <input type="number" name="number" min="1" required placeholder="Enteryour number..."></span>
+                        </td>
+                  </tr>
+
+
+
+                   <tr><td><br></td></tr>
+
+
+
+
+                  <tr class="l">
+                    <td class="r">Account Particulars</td>
+                  </tr>
+                  <tr>
+                    <td><span class="r">*</span>15 Digit Account NO <span style="margin: 0px 80px 0px 10px;">
+                        <input type="number" required placeholder="7678******6776"></span>
+                    </td>
+                    <td><span class="r">*</span> Nick Name <span style="margin: 0px 8px 0px 10px;">
+                         <input type="text" name="N_name" required placeholder="nick name..."></td>
+                  </tr>
+                  <tr>
+                    <td><span class="r">*</span>Fund Transfer <span style="margin: 0px 145px 0px 10px;">
+                    <select name="fund_t">
+                        <option disabled selected>select
+                            
+                        <option value="10000">10000
+                        <option value="20000">20000
+                        <option value="30000">30000
+                        <option value="40000">40000
+                        <option value="50000">50000
+                            
+                        </option>
+                    </select></td>
+                  </tr>
+
+                   <tr><td><br></td></tr>
+
+                  <tr class="l">
+                    <td class="r">DECLEARTION</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">I have read, Undestood and hereby asjk asdhjk dyug asdnsakjnas sidhaj sadiuhensa iuasdjnam asuhd asjdosadad
+                        asbdjkdas basiu jd akjshd saidhausncas kahsdkjnsad bsaiuhdisandjsa usadkjnsa sdjiadm kjasndknj askdiuad 
+                        sad ashsa asjn jasndkjas jsadnjk sayi hasbd uyasgdas hbd sajh ajhas dsjhyu das hashd  asjhdgsa djhbsaj as jah sa
+
+                    </td>
+                  </tr>
+             </tr>
+                              <tr><td><span style="margin: 0px -600px 0px 0px;"><input type="submit" value="submit"></span></td>
+                                  <td><span style="margin: 0px 500px 0px 10px;"><input type="reset" value="reset"></span></td></tr>
+
+            </form>
+         </table>
+         
+      </div>
+           
+    </body>
+</html>
+
+
+=======================================================================================================
+ext.css file
+
+  h1,h3
+    {
+        background-color: black;
+        color: aliceblue;
+        padding: 20px;
+    }
+    h4
+    {
+        background: rgb(206, 255, 133);
+        color: rgb(2, 75, 2);
+        padding: 20px;
+        width:200px;
+    }
+    body
+    {
+        background-color: rgb(148, 148, 148);
+        color: brown;
+        text-align: center;
+    }
+    a
+    {
+        color: rgb(56, 56, 155);
+        text-decoration: none;
+    }
+    a:hover
+    {
+        color: red;
+    }
+
+----------------------------------------
+
+link ext.css file 
+
+<html>
+    <head>
+        <link rel="stylesheet" href="ALL  Assessment\HTML\ext.css">
+    </head>
+    <body>
+        <h1><a href="https://www.youtube.com/">YOU TUBE</a></h1>
+         <h4 style="width: 100%;"><a href="https://careercenter.tops-int.com/">TOPS</a></h4>
+    </body>
+</html>
+
