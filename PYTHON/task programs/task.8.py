@@ -1,3 +1,4 @@
+# find intrest
 amount=int(input("enter your amount :"))
 
 ent=7.5

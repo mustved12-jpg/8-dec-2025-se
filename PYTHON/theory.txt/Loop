@@ -20,3 +20,46 @@ range(): range is a function which is used to represent sequence
 
   -> range(start,end,step)  hear, start and step is optional by default range function start from 0 and
      increment by step 1
+
+-> if we want to print values in single row we use end paramenter
+
+
+---------------------------------------------------------------------
+
+(2) while loop : whenwe dont know hove many time loop will run we use while loop 
+-> while loop is entry controled loop it check condistion at entry level if condistionis ture it 
+    will exiquet if condition gose false loop will tarminate
+
+    syntax:
+        initlization
+        while condition:
+            statement
+            updation (increment or dicrement)
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+~> jumping statement:
+    ther are 3 types of jumpibng statements
+    (1) break
+    (2) continue
+    (3) pass
+-----------------------
+
+(1) break
+-> break the loop
+    syntax:
+        break
+
+-----------------------
+(2) continue
+-> it's skip the statement but loop will continue
+    syntax:
+        continue
+    
+------------------------
+(3) pass
+-> nothing to display in python because of indentation
+{ye agar humko koi block bas khali rakhna ho tab iska use kar sakte hai}
+    syntax:
+        pass

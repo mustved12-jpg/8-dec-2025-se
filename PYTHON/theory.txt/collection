@@ -1,0 +1,16 @@
+                                                ::COLLECTION::                             <<07-04-26>>
+~> collection is most power ful concept of python programing language
+~> which is like group which contain values at same lication
+~> the most power full concept of collection
+(1) list
+(2) tuple
+(3) set
+(4) dictionary
+=======================================================================================================
+(1) list:
+~> list is most power full type of colection
+~> list whitch is contain similer and dis-similer data type elements at single location
+~> list is an orderble,sequence,indexable,mutable(changeble),datatype
+~> list which is represent by [] braces
+    syntax:
+        li=[]
