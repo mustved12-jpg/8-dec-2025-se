@@ -1,0 +1,64 @@
+                                                :function:                                 <<16-04-26>>
+function:
+~> function is a block of code that code are used to again and agian using of function we can reduce
+   our code.
+~> function which is provide reusablity using of function we can save our programing time
+        syntax:
+            def <functionname>():
+                statement
+~> def is a keyword using of def keyword we can difine function
+~> ther are 2 type of functionname
+    (1) built-in function:
+        ~> which is predefined by inbuilt function
+        e.g.
+            print(),input(),len(),max().....
+    (2) user defined function:
+        ~> which is defined by user as per ther requirement
+        e.g.
+            def <function name>():
+                statement
+function categaries:
+    (1) function without parameter function without return type
+    (2) function with parameter function without return
+    (3) function without parameter function with return
+    (4) function with parameter function with return
+----------------------------------------------------------------------
+args & kwargs:
+~> args : argument: tuples as a parameter
+~> kwargs : key with argument: dictionary as a parameter
+----------------------------------------------------------------------
+lambda function :
+~> lambda function is a anonymous function
+~> function without any name it's called lambda function
+~> using of lambda keyword we can difine lambda function
+
+    syntax:
+        var=lambda <parameter>: expresion
+~> lambda function can access as many as parameter nut can return single expresion
+----------------------------------------------------------------------
+map function:
+~> map function apply function in each iterator value and return single object
+~> using of map function we don't need to use loop it automatically apply function to each element of iterator
+    syntax:
+        map(function,iterator)
+----------------------------------------------------------------------
+filter function:
+~> filter function return only those element from an iterator which fullfill spacific condition
+    syntax:
+        filter(function,iterator)
+
+~> map() function applyon each element and preform operations and return each element nut filter only return 
+    matching condition element
+----------------------------------------------------------------------
+decorators:
+~> as we know that function is an object function can accept another function as a parameteranda function can
+    return another function
+
+what is decorator:
+~> decorator is a most powerfull topic of function which is accept any functionas a parameter and
+    make it special function
+
+when we can use dacoratior:
+~> when we want to add in extra functionalities to function before calling or after calling we can
+    use decorator
+    

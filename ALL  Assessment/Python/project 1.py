@@ -1,3 +1,4 @@
+#soping
 user_name=input("enter you name :")
 t_sirt,geans,jacket=300,500,2000
 print(f"1-tsirt and prince = {t_sirt}")

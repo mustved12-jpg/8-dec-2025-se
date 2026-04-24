@@ -14,3 +14,82 @@
 ~> list which is represent by [] braces
     syntax:
         li=[]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~> add new eliment in existing list there are 3 ways to add new eliment
+    {1} append()
+    {2} extend()
+    {3} insert()
+_____________
+{1} append(): to add new eliment at and of the list
+    syntex:
+        list.append(new-eliment)
+_____________
+{2} extend(): to add multipule eliment as per list format store in existing list
+    syntax:
+        list.extend([new_eliment1,new_eliment2,....])
+_____________
+{3} insert(): when we want to add any new eliment at specific index position
+    syntax:
+        list.insert(index,new_eliment)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~> remove eliment from the exsiting list
+~> there are 4 ways to remove or delete eliment from list
+    {1} remove()
+    {2} pop()
+    {3} clear()
+    {4} del
+_____________
+{1} remove(): using of remove method we can remove specific elements from the existing list 
+    syntax:
+        list.remove(eliment)
+_____________
+{2} pop(): by default pop method remove last eliment frim list
+    syntax:
+        list.pop()
+    
+    pop(index): to remove specific values from spacific index position using pop method
+        syntax:
+            list.pop(index)
+_____________
+{3} clear(): using of clear method we can remove all eliment from the existing list
+    syntax:
+        list.clear()
+
+_____________
+{4} del: del is keyword using of del we can delete list from the memory
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+list comprehension:
+~> the best way to creat list using of loop in a sorter way 
+    simple list comprehension 
+        syntax   
+            l1=[valu loop]
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+(2) Tuple: tuple is another concept or datatype of collection type tuple which is represent by ()
+~> tpule which is orderble,indexable,sequence datatype but immutable( not changeble)
+    syntax:
+        t=()
+NOTE: if we put only single value it will consider as a spacific datatype not tuple
+{ agar hum ek value dalenge to ye tuple nhi us value ka datatype bunjaye ga }
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+(3) set: set is a colection datatype 
+~> set is unordereble,unindexable,immutable,contain only uniqu values
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+(4) dictionary : dictionary is most powerfull concept of colection datatype dictionary which is represent by {}
+~> dictionary contain key and values in a pair
+
+    syntax:
+        d={
+            'key':'value',
+            'key':'value',
+            'key':'value',
+            .
+            .
+            .
+        }

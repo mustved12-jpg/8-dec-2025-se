@@ -1,3 +1,4 @@
+#discount
 user_name=input("enter your name :")
 total=0
 all_total=0

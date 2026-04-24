@@ -45,4 +45,3 @@ for ver in list1:
         print(ver)
 
 
-

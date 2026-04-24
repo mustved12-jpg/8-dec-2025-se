@@ -1,0 +1,16 @@
+                                                    ::MODULE::
+~> module is a file which is contain collection of logics or code and we can import that file as our 
+    requirments
+~> ther are mainly 3 types of module
+(1) bulit-in module
+(2) user defie module
+(3) third party module
+-----------------------------------------------
+(1) built-in module:
+~> witch is predifined by python we just have to import it and use it
+    syntax:
+        import modulename
+                OR
+        from modulename import functionname
+                OR
+        from modulename import *  
