@@ -1,0 +1,357 @@
+# Introduction to Python
+Python ek bohot hi powerful aur popular programming language hai. Ye easy to understand, high-level aur interpreted programming language hai.
+
+**Q. Python simple kyun hai?**
+Kyunki agar humko kuch print karna ho, toh hum sirf `print()` likhte hain aur jo string print karani hai wo brackets mein daalte hain, aur wo print ho jata hai. Wahi same code C++ ya Java mein likhne ke liye 5 se 6 lines lagti hain.
+
+**Q. Python high-level kyun hai?**
+Kyunki iska code English letters mein likha jata hai (0 aur 1 numbers mein nahi). Saath hi, ye memory management apne aap (automatically) khud kar leta hai.
+
+**Q. Python interpreted kyun hai?**
+Ye source file (code) ko line-by-line padhta aur convert karta hai. Jiski wajah se jis line mein problem hoti hai, hamein wahi par error ka pata chal jata hai. Halanki, is line-by-line checking ki wajah se isko run hone mein thoda time lagta hai (thodi slow hoti hai).
+
+**Code jaldi likhna (Fast Development):**
+Isme code kaafi chhota hota hai (syntax easy hota hai), isliye hum jaldi code likh kar apna kaam complete kar sakte hain.
+
+**Dynamically Typed:**
+Python ek dynamically typed language hai. Yaani isme humein datatype pehle se declare nahi karna padta (jaise `int x = 5`). Ye run time par variable ki value dekh kar khud hi samajh jata hai ki vo kaunsa datatype hai.
+
+---
+
+# History of Python
+- Python ko **1991** mein launch kiya gaya tha aur isko **Guido van Rossum** ne banaya tha.
+- Iska naam ek purane British comedy TV show ("Monty Python's Flying Circus") ke naam se pada tha.
+- Isko mainly simple, clean aur fast programming ke liye banaya gaya tha.
+
+---
+
+# Python ke Faayde (Advantages)
+- Ye baaki languages ke mukable kaafi aasaan (easy) hoti hai.
+- Iske keywords aasaan hote hain.
+- Ye line by line code convert karti hai to error/problem turant pata chal jati hai.
+- Isme clean aur chhote syntax hote hain.
+- Iska code Java ya C++ se lagbhag bahut hi chhota hota hai.
+- Ye dynamically typed language hai.
+- Ye zyada tar har jagah (Web, Data Science, AI, Automation) use hoti hai.
+
+---
+
+# IDLE aur IDEs
+Python ko install karne ke baad hum IDLE ya IDE ki madad se programming kar sakte hain.
+
+- **IDLE** (Integrated Development and Learning Environment): Ye zyadatar khali learning (seekhne) purpose ke liye use hota hai.
+- **IDE** (Integrated Development Environment): Ye professional aur development purpose ke liye hota hai. Market mein aisi bohot si IDEs available hain.
+  - Python ki ek bohot famous IDE **PyCharm** hai, but iske advanced tools paid (paise lagte hain) hote hain.
+  - Isliye development ke liye log **VS Code**, **Anaconda**, ya ab aaj ki new aur most popular IDE **Antigravity** ka use karte hain.
+
+---
+
+# Lab / Practical
+
+**In Python IDLE:**
+```python
+print("hello world")
+```
+
+**In Antigravity:**
+```python
+print("my name is mustved")
+```
+#Understanding Python’s PEP 8 guidelines
+'''
+pep 8 guidelines ye python ka rool hota hai iske hisab se python kam karata hai jese indentesion ho ya variables 
+ho usle humko 4space ya 1tab ka use karna hota hai isse program ko pta chalta hai ki ye kis program ki 
+body hai or vairable ek cantenar ki tra hota hai isme hum values ko stor karte hai par ye dynamicly typed hoene ki 
+vja se humko data type likhene ki jrurat nhi hoti hai paython khud smaj jata hai'''
+# Indentation, comments, and naming conventions in Python.
+"""
+indentation ka matlab block of code difine karne ke liye use hota hai in python me humne koi program likha 
+to uske block of code ke liye humko one tab ya for space ka use karna hota hai jese hum for loop ka use kar rhe hai to humko useke block of code ko btane ke liye one tab ka use karna hoga 
+"""
+# Python variables and memory allocation.
+"""
+Python me memory allocation automaticly hoti hai — programmer ko khud kuch nahi karna padta!
+"""
+# Write a Python program to demonstrate the creation of variables and different data types
+# strinig
+name='mustved'
+# int
+score=76
+etc...
+# Practical Example 3: How to take user input using the input() function.
+name=int(input("enter your name :))
+# Practical Example 4: How to check the type of a variable dynamically using type()
+name=input('enetr your name: ).type()
+# Introduction to conditionalstatements: if, else, elif
+
+jab humko hmara program kisi condiontion ke hisab se run karna ho to hum conditional statement ks se
+karte hai program condition ke hisab se run hota hai 
+is ke 5 type hai 
+1.if : agar hmari contion true hui to ye blocj=k of code run hoga varna nhi
+2.if-else : agar hmari conditio shi hui to if vala varan else vala code run hoga 
+3.elif : jab hmare pas ek se jyada condition hoti hai to hum elif ka use karte hai isse agar hmari pehli condion 
+wrong hui to vo dusri condiyion me jaye ga ese hi agar hmari ek bhi condition shi nhi hou to ye else vale me jayega 
+4.nested if-else : agar hmari condition ke under ek or condtion ho to hum nested if-else ka use karte hai
+5.match : agar humco condition ko camprair karna ho to hum match ka use karte hai
+
+# Practical Example 5: Write a Python program to find greater and less than a number using if_else.
+num1=int(input("enter your number 1 : "))
+num2=int(input("enter your number 2 : "))
+
+if num1>num2:
+    print(f"{num1} is greter number. \n{num2} is less number.")
+else:
+    print(f"{num2} is greter number. \n{num1} is less number.")
+
+# Practical Example 6: Write a Python program to check if a number is prime using if_else.
+for i in range(2,num1):
+    if num1%i==0:
+        print("not prime number.")
+        break
+    else:
+        if i==num1-1:
+            print("prime number.")
+
+# Practical Example 7: Write a Python program to calculate grades based on percentage using if-else ladder.
+if num1>=80:
+    print("A gread.")
+elif num1>=60:
+    print("B gread.")
+elif num1>=45:
+    print("C gread.")
+elif num1>=33:
+    print("D gread.")
+else:
+    print("fail")
+
+#  Practical Example 8: Write a Python program to check if a person is eligible to donate blood using a nested if.
+if num1>=1 and num1<=100:
+    if num1>=18:
+        print("eligible.")
+    else:
+        print("not eligible.")
+    
+# Introduction to for and while loops.
+
+jab humko kis value ka multipul time use karna h tub hum loop ka use karte hai ya kisi value ka 
+bar bar print krana ho tba hum loop ka use karte hai 
+in python 2 type ke loop ho te hai 
+1. for loop : jab ham ko pta ho ki hmara loop kaha tak chale ga tab hum foor loop ka use karte hai foor 
+loop entry level pe condition check karta hai fir run hota hai
+2. while loop : jab humko pta na ho ki hmara loop kaha tak chlega tab hum while loop ka use karte hai 
+or condition ke hisab se loop ko run krate hai ye bhi entry level pe condition check karta hai
+
+#  How loops work in Python.
+python me loop do trike se chalta hai charecter ke upper or range ke upper agar hum charecter ke uper loop
+chlarhe hai to vo ek ek charecter ka use kare ga or range mai hum jo range likhen ge loop vha tak chlega 
+range loop me loop 0 se le kar jo humne range di he uske ek pehle tak chle ha or charecter me 0 index se
+
+# Using loops with collections (lists, tuples, etc.).
+agar humko collection datatype ke ander ke values indexing karna ho tab hum loop ka use karte hai 
+ise vo e.g list le sare eliment ko one bye one access karta hai
+
+# Practical Example 1: Write a Python program to print each fruit in a list using a simple for 
+# loop. List1 = ['apple', 'banana', 'mango']
+# Practical Example 2: Write a Python program to find the length of each string in List1.
+# Practical Example 3: Write a Python program to find a specific string in the list using a simple
+# for loop and if condition
+
+list1=["apple","banana","mango"]
+
+for ver in list1:
+    print(ver)
+
+for ver in list1:
+    print(len(ver))
+
+for ver in list1:
+    if ver=="apple":
+        print(ver)
+
+# Practical Example 4: Print this pattern using nested for loop:
+
+for i in range(5):
+    for j in range(i+1):
+        print("*",end="")
+    print()
+
+# Understanding how generators work in Python
+generators functio itretor li tra ek ek values ko return karta hai hum jitni bar function call karenge vo 
+next value dega 
+def myfun(num):
+    for i in range(num):
+        return i
+num=myfun(3)
+print(next(num))
+print(next(num))
+print(next(num))
+# Difference between yield and return.
+return me agra hamko ek ek kar ke values chayiye pr jub hum retun karte hai tab vo sirf peli value 
+dene ke bad funfion breck kar deta hai but yield esa nhi karta ye ek ek values deta hai
+# Understanding iterators and creating custom iterators.
+iterators method ka use kar ke hum bina loop ghumaye ek ek values ko eccesss kar sakte hai 
+jese
+l1=[1,2,3,4,5,6]
+name=iter(l1)
+print(next(name))1
+print(next(name))2
+print(next(name))3
+or itrable mai hum loop ghuma ke ek ek valuse ko access karte hai
+# Write a generator function that generates the first 10 even numbers.
+def my(num):
+    for i in num:
+        if i%2==0:
+            yield i
+l1=[1,25,13,24,75,36,7,2,33,44,55,66,78,12,23,54,23,8,74,29]
+ev=my(l1)
+for i in range(10):
+    print(next(ev))
+  
+# Write a Python program that uses a custom iterator to iterate over a list of integers.
+
+l1=[1,2,3.10,4,-5,6,-7.54,8,-9,4.23,3,-5,-6,3,-5,0.7]
+name=iter(filter(lambda num: type(num)==int,l1))
+for i in range(int(max(l1))):
+    print(next(name))
+
+    #simple
+
+    l1=[1,2,3,4,5]
+num=iter(l1)
+print(next(num))#1
+print(next(num))#2
+print(next(num))#3
+.
+.
+.
+
+# Defining and calling functions in Python.
+function se hmara coding ka time bachta hai usse hmara code chota hota hai smajhne mai san hota hai
+isse agar humko problem aati hai to humko pura code dekhne ki jrurat nhi hoti hai humko bas us function ko dekhna hota hai function ki 4 type hoti hai function with parameter function with return etc..
+agar hum koi function bna rhe hai to humko function ko sab se pehle difine karne hota hai (def) keyword se
+fir hum usko bad me khi bhi use kar sakte hai jab hum usko use karenge to ye function calling hoga 
+
+# Function arguments (positional, keyword, default).
+positional argument me hum values jis position pe pas karte hai vo usi position ke perameter me save hoti hai
+jese humne 1,2  ese do values pass kre to j pehla paramenter hoga vha 1 or dusre me  2 save hoga
+keword argument me hum parameter ke name ke sat value po pas karte hai to humne jis parameter me jo values di hogi vo vhi rhegi
+defolt parametr mai hum ek parameter mai value de dete hai or ek mai hum value pass karte hai to vo by defual 
+jisme humne value nhi di hai usme save ho jata hai
+e.g
+def greet(name, msg="Hello"):
+    print(msg, name)
+
+greet("John")           # Hello John
+greet("John", "Hi")     # Hi John 
+
+# Scope of variables in Python.
+ hum agar function ke anda koi vareable bna rhe hai to vo bus function ke ander hi use hoga function ke bahe use nhi
+ hoga or humagar function ke bahar valreable bnate hai to vo hum pure programe me khi bhi use kar sakte hai
+
+# Built-in methods for strings, lists, etc
+list 
+append(),index(),pop(),clear(),sort(),revers(),max(),sum().ext
+string 
+is alfa(),isnumeric(),upper(),lower(),split(),strip(),join().ext
+tuple
+find(),index(),sum(),...
+
+# Practical Example: 1) Write a Python program to print "Hello" using a string.
+def my():
+  name='hello'
+  print(name)
+my()
+
+# Practical Example: 2) Write a Python program to allocate a string to a variable and print it.
+
+name=input('enter your name:)
+print(name)
+
+# Practical Example: 3) Write a Python program to print a string using triple quotes
+name="""
+              hello
+        """
+print(name)
+
+#  Practical Example: 4) Write a Python program to access the first character of a string using
+# index value.
+
+name='mustved'
+print(name[0])
+
+# Practical Example: 5) Write a Python program to access the string from the second position
+# onwards using slicing.
+
+name="mustved"
+print(name[1:2])
+
+#  Practical Example: 9) Write a Python program to print every alternate character from the
+# string starting from index 1.
+print(name[1:len(name):+2])
+
+# Understanding the role of break, continue, and pass in Python loops
+agar humko loop ko bich me se hi rokna ho to hum break ka use karte hai
+agar humko koi block of cod ko skop karna ho or loop bhi chalta rhe to hum continue ka use krenge
+pass agar humko abhi kuch nhi likhna hai bas jgha bnana hai to hum pass ka use karenge
+
+# Practical Example: 1) Write a Python program to skip 'banana' in a list using the continue
+ # statement. 
+ List1 = ['apple', 'banana', 'mango']
+ for i in list1:
+  if i=="banana":
+      countinue
+  else:
+      print(i)
+
+# Practical Example: 2) Write a Python program to stop the loop once 'banana' is found using
+# the break statement.
+ List1 = ['apple', 'banana', 'mango']
+ for i in list1:
+  if i=="banana":
+      break
+  else:
+      print(i)
+
+# Basic operations: concatenation, repetition, string methods (upper(), lower(), etc.)
+concatenation me hum do string ok ek karte hai
+repetition mai hum usi string ko repet krate hai
+
+# String slicing
+string slicing me hum hmari condition ke hisab se carecter ko access karte hai 
+
+# How functional programming works in Python.
+normal programing mai hum data ka sedhe chang kar sakte hai
+function programing mai hum data ko chang nhi kar sakte hai function programing mai hum neya 
+result bnate hai 
+
+# Using map(), reduce(), and filter() functions for processing data.
+jab humko colections ka datatype(list,tuple,dectionry) ka sare eliment ko one by one access karna ho tab
+hum map finction ka use karte hai agar humko kisi condition ke hisab se data ko access karna hai to hum 
+filter ka use karte hai agar humko humko eliment ka total karna ho tab hum filter ko import
+ kra ke use kar sakte hai
+
+#  Introduction to closures and decorators. 
+closures : function me humne ek varirable bnaya or function ke ander ek or function bnaya to 
+ye pehle vale function ke variable ko yad rakhta hai isko hum closures kehte has_ipv6
+decorators: decorator ek special function hota hai is ka use kar ke hum hum dosre function
+extra kam aad kar sakte hai bina original function me koi chenges ke 
+
+# Write a Python program to apply the map() function to square a list of numbers.
+l1=[1,2,3,4,5,6]
+def myfun(num):
+    return num+5
+l2=list(map(myfun,l1))
+print(l2)
+l3=list(map(lambda num: num+5,l1))
+print(l3)
+
+# Write a Python program that uses reduce() to find the product of a list of numbers.
+from functools import reduce
+l1=[1,2,3,4,5,6]
+total=reduce(lambda num1,num2: num1*num2,l1)
+print(total)
+
+# Write a Python program that filters out even numbers using the filter() function.
+l1=[1,2,3,-2,4,0,5,6]
+l2=list(filter(lambda num: num>0,l1))
+print(l2)

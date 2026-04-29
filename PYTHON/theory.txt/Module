@@ -14,3 +14,33 @@
         from modulename import functionname
                 OR
         from modulename import *  
+    
+    OS:
+    ~>  os module witch is represent as an oprating system
+    ~> which is mainly use to programatically access od path,folder file and many more
+    ~> using of program and scripting we can control os programs
+-----------------------------------------------
+(2) user define module:
+~> user creat a code as per requirments and call it in any file amd use it
+-----------------------------------------------
+(3) third party module:
+~> which is not provided by python but design and developed by 3rd person and we can import as per our need
+~> to use 3rd party modules we have to use pip command
+pip:
+~> stands for python index package and pip is a python package
+~> using of pip we can install and uninstall packages
+e.g.
+pip install <packagename> or <modulename> or <libraby>
+
+numpy: numpy is a most powerfull numerical library we can say that extented version of list
+# pip install numpy
+-----------------------------------------------
+packege: packege is a callection of module and files we can use anywhere from the program
+
+    in a simple language we can say that package is a group of modules
+create one file and  inside that folder create one blank file name
+                __init__.py
+this file dose not contain any content but it is represent any folder as a packege
+
+
+    
