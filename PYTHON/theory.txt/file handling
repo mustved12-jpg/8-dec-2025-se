@@ -1,0 +1,25 @@
+                                            ::::file handling ::::
+~> when we want to preform any operations and want to store operationsin such kind of file at that time 
+~> we have to understand file handling
+~> in ptyhon we can preform open and close file handling using of different file modes
+        modes:
+            "r" : read mode 
+            "w" : write mode
+            "a" : append mode
+
+            "x" : create blank file
+            "b" : binary mode(when we want to work with image kind of file)
+-------------------
+~> when we work with file we have to close it manually if we forgat to close file there are posibility to
+    loss data or erorr chances
+~> to resolve this issue we have one context manager which is called ->(with) using of (with) it
+    automatically handle file closing operations
+______________________________________________________________________________________________
+
+                                            ::json::
+~> json:: javascript object notation
+~> python contain complex data type when we want to send taht data to javascript developer or any frontend
+    developer
+~> but at taht time javascript developer or frontend developer done not understand complex programing
+   code at that time we convert our complex data into universal language (json)
+~> json convert object data into string
