@@ -1,0 +1,38 @@
+exception: when program executaion time due to some certain reason program itterup or disturd the
+           normal flow of the program
+~> it's called exception
+~> to handle this kind of situation or executaion we can called exception handling
+
+~> there are (try) and (except) block we can use of try and except block handle exception
+
+try: this block contain error part(jisme error ane vali hai)
+
+except: this block contain exception handling part
+
+else: this block will execute when there is no exception in program
+{agar error nhi aye gi to ye block aye ga agar error aye gi to ye block nhi except vala block ayega }
+
+finally: this block always execute when there is any exception or not
+{ye block to ayega hi chahe error ho ya na ho}
+
+_____________________________________________________
+one program can contain as many as exception:
+
+    exception TryError :(when we use different data type value)
+    exception ZeroDivitionError:(When Divition by Zero)
+    exception FileNotFoundError:(when try to open file which is not available)
+    exception ValueError:(variable not difined)
+    exception IndexError:( try to access unavailable index value)
+    exception ArithmeticErroe:(when try to perform airthmetic operation)
+    exception IndentationError:(indentation)
+    exception KeyError:( when there is invalid key)
+
+____________________________________________________________________________________________
+
+custom exception : 
+~> is an exception which is created by user as per the requirement for example whene we use if and else
+   condition it execute the code nad try to execute carrect value but whene you want to stop any user at
+   the time of wrong input you can create custom exception
+~> to create custom exception we have to create class
+~> all exception derived from the exception class
+~>in python there is a inbuit class with is -> (Exception)

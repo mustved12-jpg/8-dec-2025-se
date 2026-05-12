@@ -1,0 +1,5 @@
+GUI: graphical user interface
+CLI: command line interface
+
+~> in GUI we have library (tkinter) from GUI
+~> tkinter library povide multiple thing for graphical application

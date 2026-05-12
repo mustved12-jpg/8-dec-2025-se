@@ -1,0 +1,196 @@
+oops: object orianted programing system
+oops topics
+:1:> class
+:2:> object
+:3:> encapsulation
+:4:> inharitance
+:5:> data abstraction
+:6:> Aggregation
+:7:> polymorphism
+
+___________________________________________
+(1) class:
+~> class is a user difined data type wich is create by class keyword
+~> class ia a user difined data type wich is contain similer or dis-similer data elements
+~> class member which is access by object
+    syntax:
+        class <classsname>:
+            propertys
+___________________________________________
+(2) object:
+~> object is an intance of class or we can say that object is a blue print of class
+~> using of object we can access properies of class
+~> object which is declare outside the class
+~> object which is declare outside the class on class can have multiple objects
+    syntax:
+        obj=classname()
+------------------------------
+::> functio vs methods
+
+function: 
+~> function is a block of code and that code we can use again and again
+~> function with is declare with (def) keyword
+~> function are independent
+    e.g
+        print(),input(),len(),max()....
+method:
+~> method is a block of code and that code we can use again and again
+~> method with is declare with (def) keyword
+~> method are dependent
+~> method only access by object
+    e.g
+        .upper(),.lower(),.append(),.pop()
+-------------------------------
+::> self :
+~> self is a inbuilt keyword with is represent current class value
+~> in c++ and java we have (this) keyword in python instend of (this) keywor we have (self) keyword
+~> but  at 1st positional argument we must have to pass self keword
+------------------------------
+constructor:
+~> in python ther is no such keyword like constructor
+~> constructor which is invoke autometically venevr we create object of class
+~> constructor which is represent by __init__() in python
+{isme hum sirf None ko hi riturn kra sakte hai bas or kuch return krenge to error ayegi}
+    syntax:
+        class <classname>:
+            def __init__(self):
+                block of code..
+~> ther is no such distructor in python byt there is one __del__() magic method which we can use
+    syntax:
+        class <classname>:
+            def __del__(self):
+                block of code..
+        in coling time 
+        del obj#{ye likhne se last me del function call hoga or obj or object delete ho jaye ga }
+___________________________________________
+(3) encapsulation :
+~> encapsulation is a look like capsule which is provide data hiding
+~> encapsulation which is provide getter and setter
+    syntax:
+        class sudent:
+            def getmethod(self):
+                codes
+            def setmethod(self):
+                codes
+        -------------
+~> by default all class members are public we can access  anywhere from outside the class
+~> using of encapsulation we can provent data from outside the world
+~> in a simple language we can say that encapsulation provide data hiding and security
+
+private:
+~> private is a visibility mode in python using __{double underscore} in prefix we can make that member as a private
+
+protected :
+~> in python  protected  which is indicate by  _(single underscore)
+
+     but in python its not working strickly .
+
+        there  are mainely 3 visiblility modes 
+
+        1) private
+        2) public 
+        3) protected
+___________________________________________
+(4) inharitance:
+~> ine class dirived properties of another class its called inharitance
+~> A class which is inherited by B class
+~> there are IS-A relationship between multiple classes
+        class A     (super class) (base class)      (parent class)
+              |
+              V
+        class B     (sub class)   (dirived class)    (child class)
+~> there are 5 types of inharitance
+:1:> single level inharitance
+:2:> multi level inharitance
+:3:> multiple inharitance
+:4:> hierarchical inharitance
+:5:> hybrid inharitance
+
+---------
+(1) single level inharitance:
+~> one parent class and one child class
+
+            class A (parent)
+                  |
+                  V
+            class B (child)
+
+---------
+(2) multi level inharitance:
+~> on parent class ans child class and childs child class
+                    class A (parent)
+                          |
+                          V
+                    class B (child)
+                          |
+                          V
+                    class C (childs child)
+---------
+(3) multiple inharitance:
+~> multiple parent class and one child class
+                class A     class B     class C
+                    |           |           |
+                    -------------------------
+                                |
+                                V
+                          class D
+----------
+(4) hierarchical inharitance:
+~> hierarchilcal inharitance one parent class and multiple chile class
+                            class A
+                               |
+            -------------------------------------
+            |           |            |           |
+class       B           C            D           E  
+------------
+(5) hybrid inharitance:
+~> hybrid inharitance is a cobination of single level,multiple and hierarchical inharitance
+            A
+            |
+    ---------------------
+    |                   |
+    B                   C
+    ---------------------
+            |
+            D
+
+            or
+
+            A               B
+            |               |
+            C               D
+            -----------------
+                    |
+                    E    
+___________________________________________
+(5) polymorphism:
+~> poly means many morphism means forms
+~> one named method has diffrent diffrent form is't called polymorphism
+~> polymorphism drived from greek world
+~> there are 2 types of polymorphism
+
+:1:> method overloading
+:2:> method overriding
+------------
+(1) method overloading :
+~> whene one class can contain same name method it's called method oveloding
+~> but in python this is not possible
+
+------------
+(2) method overriding:
+~> when parent and child both have same name method and parameter it's called method overriding
+___________________________________________
+(6) Abstraction :
+~> is a concept which is provide security from outside the world
+~> abstraction which is represent only few information not allocated background information
+~> abstraction which is achive by base class
+
+ABC : abstract base class
+~> and abstract method means which cobtain only method declaration no method defination
+~> fom abc inport ABC,abstractmethod
+___________________________________________
+(7) Aggregation:
+~> Aggregation is a most powerfull concept which is represent
+~> HAS-A relationship
+~> which is indecate one class object can use by another class
+
