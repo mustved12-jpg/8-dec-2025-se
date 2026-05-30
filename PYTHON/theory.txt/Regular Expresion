@@ -1,0 +1,10 @@
+Reguler Expresion:
+~> Reguler Expresion (regex) are sequenses of charectors that form search patterns of they are primarily use for 
+    string matching and manipulation in python the (re) module provides support for working with regualer Expresion
+    which can help you search match replace and split string based on patterns.
+
+    \d : for digits value
+    \D : for non digits value
+
+    \w : for withot symbols
+    \W : only symbols

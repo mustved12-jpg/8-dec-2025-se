@@ -10,3 +10,6 @@ l4=[(k,v) for k,v in l3.items()]
 print(l4)
 l5,l6=zip(*l4)
 print(f"{l5}\n{l6}")
+l5=list(l5)
+l6=list(l6)
+print(f"{l5}\n{l6}")

@@ -1,7 +1,9 @@
 when or then use:
 
-update student set pass_ro_fail=case when score>=70 then "+A PASS"
-    -> update student set pass_or_fail=case when score>=60 then "A PASS"^C
+
+#       then/when
+
+
 mysql> update student set pass_or_fail=case when score>=70 then "+A PASS"
     -> when score>=60 then "A PASS"
     -> when score>=50 then "B PASS"

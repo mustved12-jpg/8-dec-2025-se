@@ -1,0 +1,339 @@
+# ntroduction to the print() function in Python.
+"""
+print python ka inbuilt function hai jo hmare data ko console screen pe display kar ta hai
+"""
+
+
+# Formatting outputs using f-strings and format()
+"""
+jab humko strig me extra data add karna ho to hum f-string ka use karke usko add kar sakte hai  
+"""
+
+
+#~~~ Write a Python program to print a formatted string using print() and f-string.
+name="mustved"
+data=f"hello {name}."
+print(data)
+Id=102030
+print("im {0} and my id is ->{1}.".format(name,Id))
+
+
+#~~~ Write a Python program to print “Hello, World!” on the screen.
+# print("Hello, World!")
+
+
+# Using the input() function to read user input from the keyboard.
+"""
+input ka use kar ke hum data  ko run time me user se le sakte hai input bhi inbuilt function hai python ka 
+"""
+
+
+# Converting user input into different data types (e.g., int, float, etc.).
+"""
+jab hamjo user se spacific datatype ki value lene ho tab hum typecasting k use karte hai jiss hum spacific data
+type ki value ko le sakte hai runtime pe
+"""
+
+
+#~~~ Write a Python program to read a name and age from the user and print a formatted output.
+name=input("Enter your name :")
+Id=int(input("Enter your id :"))
+print(f"my name is :{name}\nmy id is :{Id}")
+
+#~~~ Write a Python program to read a string, an integer, and a float from the keyboard and display them.
+name=input("enter your name :")
+Id=int(input("enter your Id :"))
+score=float(input("enter your score :"))
+print(f"{name}\n{Id}\n{score}")
+
+# Opening files in different modes ('r', 'w', 'a', 'r+', 'w+').
+"""
+ye sare mode file handling ke hai jab hanko kisi file ko read kar na ho to hum r mode ka use karte 
+or jub humko kisi file me write karna ho to hum w mode ka use karte hai or agr humko kisi file me 
+data ko add karn aho to hum a mode ka use karete hai r+ mode me hum read or write dono kar sakte hai 
+par iska use kar ke agar hum write krenge to ye jo pehle se fime me data hai usme overwrite karta hai usko
+hta ke nhi write karta hai W+ mode me bhi wo write or read dono karta haia par isme agar file nhi hodi to
+ye create kar dega R+ mode nhi karta hai or W+ mode me file me agar purana data hai to usko remove kar ke 
+data write kart hai
+"""
+
+
+# Using the open() function to create and access files.
+"""
+open function python or opreting system ke bich me connection bnata hai jisse hum oprating system me file 
+create or red kar sakte hai
+"""
+
+# Closing files using close().
+"""
+agar hum file co open karte hai to usko close bhi karna hota hai agar hum file ko close nhi karte hai to
+data save nhi hota hai file cprrupt ho sakti hai is liye humco file ko close karna hota hai.
+"""
+
+#~~~ Write a Python program to open a file in write mode, write some text, and then close it.
+f=open("dummy file.txt","w")
+f.write("hello this is my dummy file data..")
+f.close()
+
+#~~~ Write a Python program to create a file and write a string into it.
+name="mustved"
+f=open("dummy file.txt","w")
+f.write(name)
+f.close()
+
+
+# Reading from a file using read(), readline(), readlines().
+"""
+jab humko pori file ko read karna ho to read function ka use karte hai or agar ek line read karna ho to 
+hum read line ka use karte hai or agar hum read lines ka use karte hai to ye data ko list me dikhta hai 
+"""
+
+# Writing to a file using write() and writelines().
+"""
+agar humko ek line likhn ho to humwrite ka use karenge or agar hmare pass ek se jyada line hogi to hum 
+write line ka use karen ge write line list ke form ke data ko leti hia jha hmari pehli line 1 eliment
+hota hai har eliment ke and me humko \n likhna hota hai 
+"""
+
+#~~~ Write a Python program to read the contents of a file and print them on the console.
+f=open("dummy file.txt","r")
+data=f.read()
+f.close()
+print(data)
+
+# ~~~ Write a Python program to write multiple strings into a file.
+name="mustved"
+f=open("dummy file.txt","w")
+f.write(name)
+f.close()
+
+# Introduction to exceptions and how to handle them using try, except, and finally.
+"""
+code run hote smay agar koi galti hoti hai to python error dikhata hai or program band ho jata hai 
+to isse bachne ke liye hum exception handling ka use karte hai jisme try or except ect ka use hota hai 
+agar humko lagta hai ki isme error ane vali hai to us block of code ko hum try me likhte hai or error aane
+ke bad humbo kya operation karna hai vo hum except block me likhte hai jisse hmara pura program band nho hota 
+hai agar error nhi ayegi to tyr vala block of code run hoga nhi to except vala or finally exceptions ka ek 
+or feacher hai jo hmase run hota hai error ayegi try me jayega tabbhi agar except me jayega tabbhi
+
+"""
+
+# Understanding multiple exceptions and custom exceptions.
+"""
+python ke kuch inbuilt exceptions hote hai jo error ke hisab se display hote hai jese index error jo agar 
+wrong index re related error ane pe display hota hai python me hum kudh ki bhi error bna sakte te hai jisko
+custom excaption bolte hai agar humko kisi spacific condition ke hisab se error bulani ho to hum custom
+exception ka use karte hai 
+
+"""
+
+#~~~ Write a Python program to handle exceptions in a simple calculator (division by zero, invalid input).
+
+number1=int(input("enter a number 1 :"))
+number2=int(input("enter a number 2 :"))
+
+try:
+    print("answer =",number1//number2)
+except ZeroDivisionError as e:
+    print(e,"not allowed!!!")
+
+
+#~~~ Write a Python program to demonstrate handling multiple exceptions.
+
+try:
+    number1=int(input("enter a number 1 :"))
+    number2=int(input("enter a number 2 :"))
+    print("answer =",number1//number2)
+except ZeroDivisionError as e:
+    print(e,"not allowed!!!")
+except ValueError as e:
+    print("enter a integer number only!!!")
+except:
+    print("somting went wrong!!!")
+
+#~~~ Write a Python program to handle file exceptions and use the finally block for closing the file. 
+
+try:
+    with open("hello.text",'r') as f:
+        data=f.read()
+        print(data)
+except FileNotFoundError:
+    print("file not found!!!")
+except Exception as e:
+    print(e)
+finally:
+    print("thak you for comming...")
+
+
+# ~~~  Write a Python program to print custom exceptions.
+
+class error(Exception):
+    pass
+try:
+    number=int(input("entr a number :"))
+    if number <18:
+        raise error("you are under 18")
+except error as e:
+    print(e)
+except Exception as e:
+    print(e)
+
+
+# Understanding the concepts of classes, objects, attributes, and methods in Python.
+"""
+class ek blueprint hota hai jisme hum hmara code likhte hai par humne class me jo bhi code likha hai usko 
+tab tak hum use nhi kar sakte jab tab hum uska object na bna le 
+object class ka instence hota hai jab hum object bnate hai to class ko mamory allocate hoti hai bina object 
+ke hum class ka use nhi kar sakte hai ek class ke multiple object bna sakte hai object us class ke bahar 
+banta hai
+attributes class ki hi propertys hoti hai jisko hum object ki madda se class ke bahar bhi use kar sakte hai
+class ke under fum function bnate hai usko method bolte hai jisko hum hmari condision ke hisab se use karte hai
+"""
+
+# Difference between local and global variables.
+"""
+aga hum function ke under koi variable create karte hai to hum us variable ko us function me hi use kar sakte hai
+function ke bahar uska use nhi kar sakte hai usko hum local vareabel bolte hai or globle variable jo ham main me 
+bnate hai jisko hum khi bhi use kar sakte hai
+"""
+
+#~~~ Write a Python program to create a class and access its properties using an object.
+class A:
+    def __init__(self,name,id):
+        self.name=name
+        self.id=id
+    def dis(self):
+        print(self.name)
+        print(self.id)
+    def change(self,name,id):
+        self.name=name
+        self.id=id
+obj=A("mustved",5465)
+obj.dis()
+obj.change("aaaa",8324)
+obj.dis()
+
+# Single, Multilevel, Multiple, Hierarchical, and Hybrid inheritance in Python.
+"""
+single level me ek parent class hoti hai or ek child class chile calss child class me parent class ko
+inharit karne ke bade child parent ki sari propertys ko access kar sakte hai
+isi tra multilevel me ek parent class uska child class us child ka child class and so no last vala child
+sare perent ki propertys ko access kar sakta hai
+multiple me ek child class hoti hai or multiple parent class hoti hai chile class sare parent ki propertys
+ko access kar sakta hai
+hierarchical me ek parent class hoti hai or multiple parent class hoti hai
+hybrid multiple or hyrarchical me mix hota hai 
+"""
+
+# Using the super() function to access properties of the parent class
+"""
+super function ka use kar ke hum parent class me argument ko pass kar sakte hai agar supar ka use kar ke 
+hum parent class ki method ko use kar sakte hai
+"""
+
+#~~~ Write Python programs to demonstrate different types of inheritance (single, multiple, multilevel, etc.).
+# single level
+class A:
+    print("parent class")
+class b(A):
+    print("child class")
+obj=b()
+#  multielevel
+class A:
+    print("dada")
+class B(A):
+    print('parent')
+class C(b):
+    print("child")
+obj=C()
+multipul
+class A:
+    print("parent 1")
+class B:
+    print("parent 2")
+class C(A,B):
+    print("child")
+obj=C()
+hyrarchical
+class A:
+    def __init__(self):
+        print('parent class')
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print("1 child")
+class C(A):
+    def __init__(self):
+        super().__init__()
+        print("2 child")
+obj1=B()
+
+obj2=C()
+
+# Method overloading: defining multiple methods with the same name but different parameters.
+"""
+method overloadin polymorfisum ka part hai method over loading me ek class me sem name ke multiple 
+medhod hoti hia diffrent signecher ke sat par python me ye sport nhi karta 
+
+"""
+
+# Method overriding: redefining a parent class method in the child class
+"""
+methodoverriding me parent class or child class dono me same name ki method hoti hai jab hum child ka object 
+bnate hai or method ko call karte hai to child class vali method run hoti hai agar humko parent class vali 
+method bhi run krana ho to humko us method ko child class me call karna hota hai
+"""
+
+# Write Python programs to demonstrate method overloading and method overriding
+# python me method overloading sport nhi karti hai
+# method overriding
+class A:
+    def d(self):
+        print('parent class')
+class B(A):
+    def d(self):
+        super().d()
+        # or
+        A.d(self)
+        print("child class")
+obj=B()
+obj.d()
+
+# Objective
+# Build a console-based Student Productivity Tracker that logs daily study hours and
+# generates a weekly report.
+# Your application must:
+# 1. Menu-driven program
+# 2. Log daily study hours
+# 3. Generate weekly report
+# 4. Store data using files
+import os
+def hours():
+    day=input("enter day : ")
+    hours=float(input("enter your todays houres :"))
+    with open("Student Productivity Tracker.txt",'a') as f:
+        f.write(f"{day} : {hours}\n")
+    print("study hours added successuly!")
+
+def weekly():
+    if os.path.exists("Student Productivity Tracker.txt"):
+        with open("Student Productivity Tracker.txt",'r') as f:
+            for i in f.readlines():
+                print(i,end="")
+    else:
+        print("file not found!!")
+        # return
+while 1:
+    menu=int(input("""
+                :MENU:
+            press 1 for daly study hours
+            press 2 for weekly report
+            press 3 for exit menu
+        
+    enter your choice :""".title()))
+    if menu==1:
+        hours()
+    elif menu==2:
+        weekly()
+    else:
+        break

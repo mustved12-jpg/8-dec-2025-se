@@ -30,5 +30,10 @@ def myfun(**a):
     print(num1)
     print(num2)
     print(b)
+    print("===========================================")
 myfun(name='mustved',subject='python',score=67)
 
+
+d={"name":'mustved','subject':'python',"id":1987}
+
+myfun(**d)

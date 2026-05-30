@@ -8,18 +8,7 @@ s.config(background="#69f0ae")
 h=Label(s,text="welcom to rock~paper~scissor game".upper(),font=("arial",22,"bold","italic","underline"),bg="#69f0ae",fg="#004d40")
 h.pack()
 def myfun(p):
-    user_choice=Label(s,text=p,font=("arial",19,"bold"),bg="blue",fg="white")
-    user_choice.place(x=330,y=200)
-    user_score=Label(s,text="1",font=("arial",19,"bold"),bg="blue",fg="white")
-    user_score.place(x=500,y=200)
-
-    ch=["rock","paper","scissor"]
-    co_ch=random.choice(ch)
-    computer_choice=Label(s,text=co_ch,font=("arial",19,"bold"),bg="blue",fg="white")
-    computer_choice.place(x=330,y=250)
-    computer_score=Label(s,text="0",font=("arial",19,"bold"),bg="blue",fg="white")
-    computer_score.place(x=500,y=250)
-
+    pass
 
 
 b=Button(s,text="Rock",font=("arial",20,"bold"),bg="#388e3c",fg='#c8e6c9',command=lambda:myfun("Rock"))

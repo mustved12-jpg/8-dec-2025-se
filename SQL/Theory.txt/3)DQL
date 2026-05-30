@@ -254,7 +254,7 @@ select name,city from student where city in("ahmedabad","surat");
 +----+------+-----------+-------+---------------------+--------------+---------+
 
 -----------------------------------------------------------------------
-                                                                GROUP BY:
+                                                            GROUP BY:
 -----------------------------------------------------------------------
 
 -> group by ro wise which contain common column value to use concept of group by we have to use aggregate function
@@ -423,7 +423,7 @@ where and having columns
 +--------+-------+
 
     -> select pro_name as name,count(*) as total from product group by pro_name having count(*) >=2;
-    {isme pehle ye group bnaya same name ka fir jo bhi name 2ya 2 se jyada hai vo dikhaya }
+    {isme pehle ye group bnaya same name ka fir jo bhi name 2 ya 2 se jyada hai vo dikhaya }
 +------+-------+
 | name | total |
 +------+-------+

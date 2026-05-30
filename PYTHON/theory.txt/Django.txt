@@ -1,0 +1,120 @@
+Django framework introductio :
+~> Django is a hight-level, open-source web framwork written inpython it is designed to help developers 
+   build robust,secure and scalable web applications quickly and efficently it follows the model-view-controller
+   (mve) architectural pattern though Djnago refers to it as model-view-template(mvt)
+----------------------------
+# key features od Django
+
+(1) rapid development : 
+    ~> Django provieds ready-to-use components for handling common web development task 
+       speending up the development proclass
+(2) scalability: 
+    ~> it is capable of handling applications with heavy traffic and complax requirments
+(3) securty:
+    ~> Django helps developers avoid comman security issues such as SQL injection,cross-site sceipthing
+       (xss) and cross-site request forgery(csrf)
+(4) versality:
+    ~> suitable for varius types of projects from small websites to large-scale enterprise applications
+(5) Extensibility :
+    ~> model : offers a large ecosystem of reusable apps and plugings
+---------------------------
+# Components of Django
+
+(1) module :
+    ~> represents the database schema and data structure it provide an abstraction layer over the data base
+(2) Veiw :
+    ~> Contains the business logic and dctermines what data to present and how to handle user requests
+(3) template : 
+    ~> manage the presentation layer focusing on how the data is displayed to the user
+(4) URL dispatcher : 
+    ~> maps URLS to view enabling an clean and organized URL structure
+(5) ORM(object-relational mapping):
+    ~> Django's ORM simplifies database intraction by allowing developers to intract database using python
+       object insted of row SQL
+(6) Admin interface :
+    ~> automatically generated interface for managing application data sinnificantly reducing the need for 
+       custom backend tools
+-----------------------------
+waht is virtualenv
+~> virtualenv is a tool used to create isolated python envirement in the context of django( or other
+   python project) it allows you to create a separated envirement with its own python interpreter and
+   dependencies independent of the system's global python envirement this is useful becouse it helps
+   helps managing project-specific dependencies(e.g spacific versions of Django or other libraries)
+~> it avoids conflicts between packege required bu diffrent project
+~> it prevents potential issues that arise from using global packeges that could be updated or modified
+----------------------
+
+pip : python index packege
+
+cmd
+
+# pip install virtualenv
+
+# python -m venu myenv
+
+# cd myenv
+# scripts\activate
+# cd..
+
+# pip install Django
+
+# django-admin startproject <projectname> e.g. pizza
+# cd pizza
+
+# python manage.py startapp user {jitni bhi aap bnanaho jese zumeto ka aap hai project ek hai zumato par app 
+                                       do hai zumatoapp or zumeto patner}
+# python manage.py startapp patner
+
+# python manage.py runserver {isse bahar ane ke liye ctrl + c}
+=======================
+
+re opne existing project:
+
+{open enve folder and in upside location select all and type cmd}
+{C:\Users\juned\OneDrive\Documents\GitHub\8-dec-se\PYTHON\Django\myenv}select all and type cmd
+
+# scripts\activate
+
+# cd..
+# cd pizza
+
+# python manage.py runserver
+
+==========================
+whenever we apply any changes in database
+
+# python manage.py makemigrations
+# python manage.py migrate
+===========================
+now, create admin panel
+
+# pyhotn manage.py createsuperuser
+
+username: admin
+email   : admin@gmail.com
+password : 123456  {ye dikhi nhi deta hai cmd mai par hum jab dalenge to save ho jayega}
+
+============================
+change admin password
+
+#python manage.py changepasswordadmin
+=============================
+check in server
+
+http:/123.0.01:567/admin/
+                  -------
+                    |
+                    ye likhna hoga 
+
+=============================
+there are mutiple types of database are available
+
+1: sqlite3 :
+~> light weight database with which is mainly use for small level of application
+~> Django by default use sqlite3 database
+
+2: mysqlclient :
+~> we have to separate connect database with mysql client
+
+3: postgresql :
+~> higher level most secure database

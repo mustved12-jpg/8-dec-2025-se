@@ -1,0 +1,151 @@
+"""(1) You are building a food delivery application. At which stage would you prefer
+    using a compiler over an interpreter, and why? Explain based on execution
+    speed, error detection and deployment
+~>  developing ke time pe hum inter preter ka use karenge q ki intrepreter line by line code ko convert karta hai 
+    jisse humko kaha error aa rhi hai uska pta chalta hai compiler pehle sari error dikhata
+~>  testing ke time pe bhi hum interpreter ka hi use karenge line by line hone li vja se humko testing me 
+    aasani hoti hai
+~>  deployment me jab hum aap ko live karte hai to food delivery jesi application fast work karna chiye agar hum 
+    interpreter ka use karenge to ye slow work karega agar ek sat hjaro order ayege to vo cress ho satkta  hai 
+
+(2) You are asked to design a program that calculates employee salary with
+    multiple conditions (bonus, tax, overtime). Which programming constructs
+    would you combine to solve this efficiently?
+~>  isme me variable create karunga data store karne ke liye or alag alag function bnaunga or conditions ke hisab se us function ke under code likhunga 
+    or condition ke hisab se functions ko call karunga loop ka use karung employee fined karne ke liye
+
+(3) While developing a menu-driven console application, why are loops
+    preferred over conditional repetition? Explain which loop you would choose
+    and why?
+~>  condition repetition me humko multipal time sem condition likhna hota hai code bohot lamba or confusing
+    hota hai loop me humko code ko bar bar nhi likhna hota hai ek bar likho bas kam ho gya loop hai hum infinite
+    time tak loop chla sakte hai condition me agar humne ek jgha chen kita to sab jgha karna hoga 
+    loop me 2 type hote hai agar ham ko pta ho ki humko loo kab tak chlana hai to hum foor loop ka use karenge 
+    nhi to while loop ka isme hum while loop ka use karenge q ki humko nhi pta user kab isse bahar ayega 
+
+(4) A student writes a program to calculate average marks using int variables
+    and gets incorrect output. Identify the probable cause and explain how
+    choosing the correct data type solves the issue.
+~>  jab humari values int me hoti hai or hum usko divide karte hai to output int me aata hai value disimal nhi aati hai
+    par python me jub hum divide karte hai to bhale hi value int ho par output dicimal hi aata hai python values
+    ko type cast kar deta hai float me agar hum koi or proframing language me karenge to hum values ko int me nhi
+    float ya double me lenge jisse hmae shi output milega
+
+(5) You are debugging a program that complies successfully but crashes at
+    runtime. Which category of error is this? Mention two debugging practices
+    you would follow to resolve it.
+~>  isko hum runtime error bolte hai jo isko solve karne ke liye python me exception consept ka use hota hai
+    exception handling ki madad se hum run time error ko solve karsakte hai
+
+(6) You need to store student records with name, marks, and grade.
+    Why would you choose a structure over multiple arrays in this scenario
+~>  multiple arrays ko hum nhi le sakte hai q ki ek student ka data ek dusre se connected hota hai is likye agar 
+    hum arry ka use karte hai to agar hum sabhi data ko student vise connect karte hai or koi index miss ho gata 
+    to data cruppt ho sakta hai is liye hum class ya dictinory ka use karte hai q ki isme data data ek jgha pe 
+    hota ha isse data sef rehta hai change nhi hota 
+"""
+
+# (1) Conditional Logic Implementation
+#     Design a “Study Mood Assistant” that:
+#     ● Takes user input: hours studied today
+#     ● Displays motivation messages based on conditions
+#     ● Uses if-else ladder or switch case
+
+# print("“Study Mood Assistant”")
+# time=input("enter your time. :")
+# num=""
+# sec=0
+# for i in time:
+#     if i.isnumeric():
+#         num+=i
+#     else:
+#         sec=time.index(i)
+#         sec=int(time[sec+1:sec+3])
+#         break
+    
+# num=int(num)
+# su=float(f"{num}.{sec}")
+
+# if su<=3.30:
+#     print("ok")
+# elif su>3.30 and su<=5.30:
+#     print("good")
+# elif su>5.30 and su<=7.30:
+#     print("nice good")
+# elif su>7.30:
+#     print("great!!!")
+
+"""(2). Loops + Arrays
+        Create a program that:
+●       Accepts 7 days of screen time data
+●       Calculates and prints:
+➔      Total screen time
+➔      Average screen time
+●       Displays a warning if average exceeds healthy limit"""
+
+
+# total=0
+# n,j=0,1
+# while 1:
+#     if j==8:
+#         break
+#     day=int(input(f"enter day {j} screeen time :"))
+#     j+=1
+#     if day>=24:
+#         print("erorr")
+#         j-=1
+#         n+=1
+#         continue
+#     total+=day
+    
+# print("your 7 toatl screen time =",total)
+# print("7 days averge screen time is :",round(total/7,2))
+# if total/7<=2:
+#     print("normal screen time.")   
+# elif total/7<=4:
+#     print(" midium screen time.")
+# elif total/7>4:
+#     print("high screen time !!!!!")
+
+
+"""3. Functions & Pointers
+      Write a program to:
+●     Swap two numbers using a user-defined function
+●     Implement swapping using pointers
+●     Explain why pass-by-reference is necessary here"""
+
+#include<stdio.h>
+# void myfun(int *num1,int *num2)
+# {
+# 	int total=0;
+# 	total=*num1;
+# 	*num1=*num2;
+# 	*num2=total;
+# }
+# main()
+# {
+# 	int a=10,b=20;
+# 	printf("a=%d and b=%d",a,b);
+# 	myfun(&a,&b);
+# 	printf("\na=%d and b=%d",a,b);
+# }
+# agar hum refrence ka use nhi karenge to actual pera miter chang nhin hoga fir agar hum swipe karenge to
+# vo sirf us fanction tak hi rhe ga ..
+
+"""(4) File handling
+       Build a program that:
+●      Writes daily goals to a file
+●      Reads and displays them on program restart
+●      Uses correct file modes"""
+
+# try:
+#     with open("goalfile.txt",'r') as f:
+#         data=f.read()
+#         print(data)
+# except:
+#     print("file not found!!!")
+
+# goal=input("enter your goal :")
+# with open("goalfile.txt",'a') as f:
+#     f.write(goal+"\n")
+# print("goal seved..")
