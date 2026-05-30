@@ -114,21 +114,23 @@ elif total/7>4:
 ●     Implement swapping using pointers
 ●     Explain why pass-by-reference is necessary here"""
 
-include<stdio.h>
-void myfun(int *num1,int *num2)
-{
-	int total=0;
-	total=*num1;
-	*num1=*num2;
-	*num2=total;
-}
-main()
-{
-	int a=10,b=20;
-	printf("a=%d and b=%d",a,b);
-	myfun(&a,&b);
-	printf("\na=%d and b=%d",a,b);
-}
+# include<stdio.h>
+# void myfun(int *num1,int *num2)
+# {
+# 	int total=0;
+# 	total=*num1;
+# 	*num1=*num2;
+# 	*num2=total;
+# }
+# main()
+# {
+# 	int a=10,b=20;
+# 	printf("a=%d and b=%d",a,b);
+# 	myfun(&a,&b);
+# 	printf("\na=%d and b=%d",a,b);
+# }'''
+
+
 # agar hum refrence ka use nhi karenge to actual pera miter chang nhin hoga fir agar hum swipe karenge to
 # vo sirf us fanction tak hi rhe ga ..
 
