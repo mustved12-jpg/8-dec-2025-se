@@ -165,7 +165,7 @@ finally:
     print("thak you for comming...")
 
 
-# ~~~  Write a Python program to print custom exceptions.
+#~~~  Write a Python program to print custom exceptions.
 
 class error(Exception):
     pass
@@ -298,3 +298,63 @@ class B(A):
         print("child class")
 obj=B()
 obj.d()
+
+# Introduction to SQLite3 and PyMySQL for database connectivity
+"""
+SQLite3ek file based database hai ye ye server se conected nhi hota hai ye data ko .db file me save karta hai 
+python me inbuilt hota hai isko alag se install nhi karna hota hai PyMySQL sql jo ki server based database hai
+usko python ke sath connect karata hai jisse ham python me se query fire kar ke sql ko access kar sakte hai
+
+"""
+
+# Creating and executing SQL queries from Python using these connectors.
+"""
+PyMySQL import karne karne ke bad hum python ko sql se connect karte hai or ek cursor create karna hota hai 
+cursor me ham jo bhi queries likhte ghai vo sql me run hoti hai 
+"""
+
+# Write a Python program to connect to an SQLite3 database, create a table, insert data, and fetch data.
+import sqlite3
+import os
+if not os.path.exists("school.db"):
+    with open("school.db",'x'):
+        print("file created successfully..")
+
+sql=sqlite3.connect("school.db")
+hat=sql.cursor()
+hat.execute("create table if not exists student (id int not null,name text,subject varchar(20) default 'python')")
+hat.execute("insert into student (id,name)values(3,'aaa'),(4,'ddd')")
+hat.execute("select * from student")
+data=hat.fetchall()
+print(data)
+sql.commit()
+
+# Using re.search() and re.match() functions in Python’s re module for pattern matching.
+"""
+re module ka use kar ke hum string me koi opration karna ho ya koi spacifi data fatch karna ho to hum 
+search sunction ka use karte hai or aagr humko string pe pehle carecter pe koi operations karna ho to 
+hum matcha ka use karte hai ye first valecarecter se operation karta hai agar first vala match nhi hoga 
+to none return karta hai
+"""
+
+# Difference between search and match.
+"""
+search puri string ke ek ek carecters ko  check karat hai match kali first vale carecter ko check karta hai
+"""
+# Write a Python program to search for a word in a string using re.search().
+import re
+data="hello my name is mustved my id is 4567887"
+Id=re.search(r"\d+",data)
+name=re.search(r"mustved",data)
+change=re.sub(r"hello","good mornig",data)
+print(Id.group())
+print(name.group())
+print(change)
+
+#Write a Python program to match a word in a string using re.match().
+
+data="hello my name is mustved my id is 4567887"
+fisrt_word=re.match(r"\w+",data)
+print(fisrt_word.group())
+name=re.match(r"mustved",data)
+print(name)# none

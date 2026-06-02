@@ -19,5 +19,6 @@ from django.urls import path,include
 from jobseeker import views# or from . import views
 
 urlpatterns = [
-    path('', views.jobseeker, name='jobseeker')
+    path('', views.login, name='login'),
+    path('register/', views.register, name='register')
 ]
