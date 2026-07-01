@@ -1,0 +1,2216 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Q1 nstall Django using pip in your local Python environment and verify the installation by running 
+   'django-admin --version' in the terminal.
+
+::> pip install django
+::> django-admin -- version | 6.0.6
+
+Q2 Create a new Django project named 'foodiehub_project' using the django-admin startproject command, 
+   then run the development server and open http://127.0.0.1:8000/ to confirm it's working.
+
+::> django-admin startproject foodiehub_project
+::> cd foodiehub_project
+::> python manage.py runserver
+
+Q3 Explore the folder structure of your 'foodiehub_project' and write down the purpose of each key 
+   file: manage.py, settings.py, urls.py, wsgi.py, and asgi.py.<br><br><em><strong>Hint:</strong> Check 
+   the official Django documentation or use ChatGPT to help you describe each file's role.</em>
+
+::> manage.py:
+    manage.py ek  command ki tra kaam karta hai jisse hum server run karna database migrations karna ya 
+    app banana ho to manage.py ke use karte hai.
+    settings.py:
+    settings.py humko staps btata hai hum humko konsa app ka use karna hai kon sa database ka use karna hai 
+    language,timezone etc.
+    urls.py:
+    urls.py ye btata hai ki url se hmare pas jo request aa rhi hai vo veiw ke kon se function ya page pe jaye
+    ga wsgi.py:
+    wsgi.py ye hmari apliction deploy hone ke bad hTTp respons or hmari application ke bich me ek bridgh 
+    ka kam karta hai 
+    asgi.py:
+    asgi.py ye wsgi ka advanse version hai 
+
+Q4 Write a short comparison (3-4 lines) between Django and Flask, focusing on features and use cases 
+   for each. Use an example app you use daily (like Instagram or Zomato) to explain which framework would 
+   be better and why.
+
+::> 
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a new Django app named 'playlists' inside your existing Django project and confirm that a playlists
+   folder with the standard files (views.py, models.py, etc.) is generated.
+
+::> python manage.py startapp playlists
+
+
+Q2 Add 'playlists' to the INSTALLED_APPS list in your project's settings.py file so that Django recognizes it.
+
+::> opened project settings.py fineded INSTALLED_APPS list and add playlists in that list
+
+Q3 In playlists/views.py, write a function home(request) that returns an HttpResponse displaying 'Welcome to 
+   My Spotify Playlists!'.
+
+::> first  form django.http import HttpResponse
+    def home(request):
+        return HttpResponse("<h1>Welcome to My Spotify Playlists!</h1>")
+
+Q4 Configure your project's urls.py to map the URL path 'music/' to the home view you created in 
+   playlists/views.py, so visiting http://localhost:8000/music/ shows your welcome message.
+
+::> from django.urls import path,include ( in project urls.py)
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('music/', include('music.urls')),
+    ]
+
+    {{now add urls.py in app folder 
+    in urls.py }}
+
+    import playlists import veiws
+
+    urlpatterns = [
+    path('',views.home,name='home'),
+    ]
+
+Q5 Change the welcome message in your playlists/views.py home view to include your name, then 
+   restart the server and verify the update appears at http://localhost:8000/music/.
+
+::> def playlists(request):
+        return HttpResponse("<h1>Welcome to My Spotify Playlists!</h1>")
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a templates folder in your Django or Flask project, and add a new file called base.html 
+   that includes a simple navigation bar with links for 'Home', 'Explore', and 'Profile'—use HTML only for now.
+
+::> templates{folder}
+        playlists{folder}
+            base.html
+
+    def playlists(request):
+        return render(request,"playlists/base.html")
+
+Q2 Use Bootstrap via CDN in your base.html to style the navigation bar and add a footer section that remains at
+   the bottom of the page.
+
+::> in base.html
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+Q3 Inside your templates folder, create a new home.html file that extends base.html using template inheritance,
+   and add a welcome message in the main content area.
+
+::> in base.html
+    {% load static %}
+    {% block content %}
+      ....
+    {% endblock %}
+    _________
+    now in home.html
+    {% extends 'playlists/base.html' %}
+
+    {% block content %}
+        .....
+    {% endblock %}
+
+Q4 Add a static folder to your project and place a custom CSS file (style.css) inside it. Link this static CSS
+   file in base.html using the correct template tag, and change the background color of the body.
+
+::> in playlists aap creteting one static folder inside the folder creating another folder same name as app name
+    inside da folder creting home.css file 
+
+    now in home.html file 
+    {% load static %}
+    <head>
+    <link rel="stylesheet" href="{% static 'playlists/home.css' %}">
+    </head>
+
+Q5 Create a new explore.html template that extends base.html and displays a grid of 6 cards
+   (use Bootstrap card component) with dummy images and titles—imagine these as trending playlists
+   like on Spotify or trending restaurants like on Zomato.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Django model named Restaurant with fields name (CharField), location (CharField), and rating 
+   (FloatField) in a new app called foodiespot.
+
+::> in foodiespot app model
+
+    from django.db import models
+
+    class Restaurant(models.Model):
+        name=models.CharField(max_lenght=30)
+        location=models.CharField(max_lenght=30)
+        rating=models.FloatField()
+
+    now add in addmin panel
+
+    addmin.site.register(Restaurant)
+
+    makemigrations,migrate
+
+Q2 Add a Cuisine model to your foodiespot app with fields: name (CharField) and description (TextField),
+   then set up a ForeignKey in Restaurant to link each restaurant to a cuisine.
+
+   class Cuisine(models.Model):
+        name=models.CharField(max_lenght=30)
+        description=models.TextField()
+        cuisine=models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+
+Q3 Run makemigrations and migrate commands to create the database tables for your Restaurant and Cuisine
+   models, then verify the tables are created in your SQLite database using DB Browser for SQLite or the 
+   Django shell.
+
+::> python manage.py makemigrations
+    python manage.py migrate
+
+Q4 Change your Django project’s database settings to connect to a MySQL database using pymysql, and update
+   your foodiespot app’s models to work with MySQL instead of SQLite.
+
+::> first pip install mysqlclient
+
+    open project settings.py and make bellow changes
+        DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': '8dec_se',
+            'USER': 'root',
+            'PASSWORD': '121121',
+            'HOST': 'localhost',
+            'PORT': '3306',
+                }
+            }
+
+    makemigrations,migrate
+
+    {jab humko hmara data dekhna hoga to humne jis app me models me model bnaya hoga sql me (appname_modelname)
+    esa ek table bnega usme hmara data hoga }
+
+Q5 Use Django’s ORM to add three new Restaurant objects and two Cuisine objects, then write a query to get all 
+   restaurants with a rating above 4.0 and print their names.
+
+::> from yourapp.models import Restaurant, Cuisine
+
+    Cuisine.objects.create(name="Indian")
+    Cuisine.objects.create(name="Chinese")
+
+    Restaurant.objects.create(name="Spice Villa", rating=4.5, cuisine=c1)
+    Restaurant.objects.create(name="Dragon House", rating=3.8, cuisine=c2)
+    Restaurant.objects.create(name="Royal Tadka", rating=4.7, cuisine=c1)
+
+    # Geting restaurants with rating above 4.0
+    restaurants = Restaurant.objects.filter(rating__gt=4.0)
+
+    # Print restaurant names
+    for restaurant in restaurants:
+        print(restaurant.name)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Enable the Django admin interface in your project and create a superuser account so you can log in to 
+   the admin dashboard.
+
+::> python manage.py createsuperuser
+    name= admin
+    email=admin@gmail.com
+    password=123
+    con_password=123
+    [y\n]
+    y
+
+Q2 Create a new model called Restaurant with fields name, cuisine, and rating, then register it with the Django 
+   admin so it appears in the admin panel.
+
+::> class Restaurant(models.Model)
+      name=models.CharField(max_lenght=30)
+      rating=models.FloatField()
+      cuisine=models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+
+
+      in admin.py 
+      admin.site.register(Restaurant)
+
+Q3 Customize the Restaurant admin by displaying name, cuisine, and rating in the list view using the list_display
+   option in admin.py.
+
+::> in admin.py.
+    cretetin class
+    class RestaurantAdmin(admin.ModelAdmin):
+      list_display=('name','cuisine','rating')
+
+    admin.site.register(Restaurant,RestaurantAdmin)
+
+Q4 Add search functionality in the Restaurant admin so you can search restaurants by name or cuisine using the 
+   search_fields option.
+
+::> in admin.py.
+    cretetin class
+    class RestaurantAdmin(admin.ModelAdmin):
+      search_fields=('name','cuisine')
+
+    admin.site.register(Restaurant,RestaurantAdmin)
+
+
+Q5 Add a filter in the Restaurant admin panel to filter restaurants by cuisine using the list_filter option.
+
+::> in admin.py.
+    cretetin class
+    class RestaurantAdmin(admin.ModelAdmin):
+      list_filter=['cuisine']
+
+    admin.site.register(Restaurant,RestaurantAdmin)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 6
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Django Form class named AddRestaurantForm with fields for restaurant name, cuisine type, and contact
+   email,then render it in a template using the GET method.
+
+::>   class AddRestaurantForm(models.Model):
+         name=models.CharField(max_lenght=30)
+         rating=models.FloatField()
+         cuisine=models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+         email=models.EmailField(unique=True)
+
+      in views.py
+
+      def fomr(request):
+         if request.GET:
+            ...
+         return render(request,'jobseeker/form.html)
+
+      in form.html
+      <form action="{%...%}" method="get">
+      {% csrf_token %}
+      ...
+      </fomr>
+
+
+Q2 Modify your AddRestaurantForm to handle form submission using the POST method and display the submitted data
+   on a new page after the user submits the form.
+
+::>   class AddRestaurantForm(models.Model):
+         name=models.CharField(max_lenght=30)
+         rating=models.FloatField()
+         cuisine=models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+         email=models.EmailField(unique=True)
+
+      in views.py
+
+      def fomr(request):
+         if request.POST:
+            ...
+            all=AddRestaurantForm.objects.get(email=email)
+            return render(request,'jobseeker/display.html,{"data":all})
+         return render(request,'jobseeker/form.html)
+
+      in form.html
+      <form action="{%...%}" method="post">
+      {% csrf_token %}
+      ...
+      </fomr>
+
+Q3 Add validation to your AddRestaurantForm so that the restaurant name must be at least 3 characters and the
+   contact email must be a valid email address. Display any validation errors directly above the form fields in
+   your template.
+
+
+   def from(request):
+      if request.POST:
+      try:
+         all=AddRestaurantForm.objects.get(email=email)
+      except:
+         return render(request,'jobseeker/form.html,{"error":"wrong email"})
+
+Q4 Implement CSRF protection in your form template and verify that submitting the form without the CSRF token
+   results in a forbidden error.
+
+
+::> line number 298 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 7
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Django model called Restaurant with fields name (CharField), cuisine (CharField), and rating
+   (FloatField), then generate a ModelForm named RestaurantForm for it.
+
+::> creating 1 forms.py
+   from django import forms
+   from .models import Restaurant
+
+   class RestaurantForm(forms.ModelForm):
+      class Meta:
+         model = Restaurant
+         fields = '__all__'
+
+   Is RestaurantForm ka use HTML form banane ke liye hota hai.
+
+   def add_restaurant(request):
+      form = RestaurantForm()
+      return render(request, "restaurant_form.html", {"form": form})
+
+   in html page
+
+   <form method="POST" action="{% url 'jobseeket:formsubmit' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save</button>
+   </form>
+
+Q2 Use RestaurantForm to build a simple Django view that displays the form and saves new restaurant entries
+   to the database when submitted.
+
+::> def formsubmit(request):
+      if request.POST:
+         submit=RestaurantForm(request.POST)
+         if submit.is_valid():
+            submit.save()
+
+Q3 Customize the RestaurantForm to add a placeholder for the name field and set the minimum value for the
+   rating field to 1 and maximum to 5.<br><br><em><strong>Hint:</strong> Use the widgets attribute inside
+   the ModelForm's Meta class.</em>
+
+::>   in from.py
+
+      class RestaurantForm(forms.ModelForm):
+         class Meta:
+            model = Restaurant
+            fields = '__all__'
+            widgets = {
+                  'name': forms.TextInput(attrs={'placeholder': 'Enter restaurant name'}),
+                  'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),
+            }
+
+Q4 Add validation to RestaurantForm so that the name must be at least 3 characters and the rating must be
+   between 1 and 5. Show appropriate error messages on the form.
+
+::>   from django import forms
+      from django.core.validators import MinValueValidator, MaxValueValidator
+      from .models import Restaurant
+
+      class RestaurantForm(forms.ModelForm):
+         class Meta:
+            model = Restaurant
+            fields = '__all__'
+            widgets = {
+                  'name': forms.TextInput(attrs={'placeholder': 'Enter restaurant name'}),
+                  'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),
+            }
+
+         def clean_name(self):
+            name = self.cleaned_data.get('name')
+            if len(name) < 3:
+                  raise forms.ValidationError("Name must be at least 3 characters long.")
+            return name
+
+         def clean_rating(self):
+            rating = self.cleaned_data.get('rating')
+            if rating < 1 or rating > 5:
+                  raise forms.ValidationError("Rating must be between 1 and 5.")
+            return rating
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Create a Python Django project called musiczone and add a User model if not already present. Set up 
+   the default authentication system so users can register, log in, and log out through Django's built-in views.
+
+
+::> django-admin startproject musiczone
+    cd musiczone
+    python manage.py startapp accounts
+
+    INSTALLED_APPS = [
+    # default apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'accounts',
+    ]
+
+    from django.contrib import admin
+    from django.urls import path, include
+    from django.contrib.auth import views as auth_views
+    from accounts import views as account_views
+
+    urlpatterns = [
+      path('admin/', admin.site.urls),
+      path('register/', account_views.register, name='register'),
+      path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+      path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    ]
+
+
+Q2 Build a signup form for a food delivery app (like Zomato) using Django. The form should collect username,
+   email, and password, and save new users securely with hashed passwords.
+
+::> from django.contrib.auth.forms import UserCreationForm
+    from django.contrib.auth.models import User
+    from django import forms
+
+    class SignupForm(UserCreationForm):
+      email = forms.EmailField(required=True)
+
+      class Meta:
+         model = User
+         fields = ("username", "email", "password1", "password2")
+
+    in veiw.py
+
+    from django.shortcuts import render, redirect
+    from .forms import SignupForm
+
+    def signup(request):
+      if request.method == "POST":
+         form = SignupForm(request.POST)
+         if form.is_valid():
+               form.save()
+               return redirect("login")
+      else:
+         form = SignupForm()
+      return render(request, "signup.html", {"form": form})
+
+Q3 Implement a login feature for a movie booking site (BookMyShow style) using
+   Django's authentication backend. After login, redirect the user to a welcome page showing their username.
+
+::>   from django.contrib import admin
+      from django.urls import path
+      from django.contrib.auth.views import LoginView, LogoutView
+      from . import views
+
+      urlpatterns = [
+         path('admin/', admin.site.urls),
+         path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+         path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+         path('welcome/', views.welcome, name='welcome'),
+      ]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 9
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Configure SMTP email settings in your Django project's settings.py file to use Gmail for sending emails. 
+   Test your setup by sending a simple test email using Django's send_mail function.
+
+::>in setting.py
+   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+   EMAIL_HOST = 'smtp.gmail.com'
+   EMAIL_PORT = 587
+   EMAIL_USE_TLS = True
+
+   EMAIL_HOST_USER = 'your_email@gmail.com'
+   EMAIL_HOST_PASSWORD = 'your_16_digit_app_password'
+
+   DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+   in veiws.py
+
+   from django.http import HttpResponse
+   from django.core.mail import send_mail
+   from django.conf import settings
+
+   def send_test_email(request):
+      send_mail(
+         subject='Test Email',
+         message='This is a test email sent from Django.',
+         from_email=settings.EMAIL_HOST_USER,
+         recipient_list=['receiver@gmail.com'],
+         fail_silently=False,
+      )
+
+      return HttpResponse("Email sent successfully!")
+
+
+Q2 Create a Django view function send_password_reset_email(request, user_email) that sends a password 
+   reset link to the given email address using send_mail. Use a subject line and plain text message body
+   similar to what you see in apps like Paytm or Flipkart.
+
+::>from django.http import HttpResponse
+   from django.core.mail import send_mail
+   from django.conf import settings
+
+   def send_password_reset_email(request, user_email):
+
+      reset_link = "http://127.0.0.1:8000/reset-password/abc123/"
+
+      subject = "Reset Your Password"
+
+      message = f"""
+   Hello,
+
+   We received a request to reset the password for your account.
+
+   Click the link below to reset your password:
+
+   {reset_link}
+
+   If you did not request a password reset, please ignore this email.
+
+   Thank you,
+   Flipkart Support Team
+   """
+
+      send_mail(
+         subject,
+         message,
+         settings.EMAIL_HOST_USER,
+         [user_email],
+         fail_silently=False,
+      )
+
+      return HttpResponse("Password reset email sent successfully.")
+
+Q3 Design an HTML email template called order_confirmation.html for a Swiggy-style food order confirmation.
+   Use Django's EmailMultiAlternatives to send an email with this HTML template when a user places an order.
+   
+
+::>from django.http import HttpResponse
+   from django.core.mail import EmailMultiAlternatives
+   from django.template.loader import render_to_string
+   from django.conf import settings
+
+   def send_order_email(request):
+
+      context = {
+         "customer_name": "Rahul",
+         "order_id": "SWG12345",
+         "restaurant": "Pizza Hub",
+         "total": 499,
+         "tracking_link": "http://127.0.0.1:8000/track-order/"
+      }
+
+      html_content = render_to_string(
+         "order_confirmation.html",
+         context
+      )
+
+      email = EmailMultiAlternatives(
+         subject="Your Swiggy Order is Confirmed!",
+         body="Your order has been placed successfully.",
+         from_email=settings.EMAIL_HOST_USER,
+         to=["receiver@gmail.com"]
+      )
+
+      email.attach_alternative(html_content, "text/html")
+
+      email.send()
+
+      return HttpResponse("Order confirmation email sent successfully.")
+
+Q4 Modify your HTML email template to include the user's name and order details dynamically using Django 
+   template variables. Test by sending a sample order confirmation email to yourself.
+
+
+::>   <!DOCTYPE html>
+      <html>
+      <head>
+         <title>Order Confirmation</title>
+      </head>
+      <body style="font-family:Arial;background:#f4f4f4;padding:20px;">
+
+      <div style="max-width:600px;margin:auto;background:#ffffff;padding:20px;border-radius:10px;">
+
+         <h2 style="color:#fc8019;"> Order Confirmed</h2>
+
+         <p>Hello <strong>{{ customer_name }}</strong>,</p>
+
+         <p>Your order has been placed successfully.</p>
+
+         <hr>
+
+         <h3>Order Details</h3>
+
+         <p><strong>Order ID:</strong> {{ order_id }}</p>
+
+         <p><strong>Restaurant:</strong> {{ restaurant }}</p>
+
+         <p><strong>Food Item:</strong> {{ food_item }}</p>
+
+         <p><strong>Quantity:</strong> {{ quantity }}</p>
+
+         <p><strong>Total Amount:</strong> ₹{{ total }}</p>
+
+         <p><strong>Delivery Address:</strong> {{ address }}</p>
+
+         <br>
+
+         <a href="{{ tracking_link }}"
+            style="background:#fc8019;
+                  color:white;
+                  padding:10px 18px;
+                  text-decoration:none;
+                  border-radius:5px;">
+            Track Order
+         </a>
+
+         <br><br>
+
+         <p>Thank you for ordering with us!</p>
+
+      </div>
+
+      </body>
+      </html>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Django view called forgot_password_view that renders a form where users enter their email
+   to request a password reset.
+
+::> forgote password html page
+
+      <!DOCTYPE html>
+      <html>
+      <head>
+         <title>Forgot Password</title>
+      </head>
+      <body>
+
+         <h2>Forgot Password</h2>
+
+         <form method="POST">
+            {% csrf_token %}
+
+            <label>Email Address</label><br>
+            <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                  Send Reset Link
+            </button>
+
+         </form>
+
+      </body>
+      </html>
+
+Q2 Generate a random 6-digit OTP in your Django view, store it in the session, and send it to the user's email 
+   using Django's send_mail function.
+
+::>import random
+
+   from django.shortcuts import render
+   from django.http import HttpResponse
+   from django.core.mail import send_mail
+   from django.conf import settings
+
+
+   def send_otp(request):
+
+      if request.method == "POST":
+
+         email = request.POST.get("email")
+
+         # Generate 6-digit OTP
+         otp = random.randint(100000, 999999)
+
+         # Store OTP in session
+         request.session["otp"] = otp
+         request.session["email"] = email
+
+         # Send Email
+         send_mail(
+               subject="Your OTP Verification Code",
+               message=f"Your OTP is {otp}. It is valid for 5 minutes.",
+               from_email=settings.EMAIL_HOST_USER,
+               recipient_list=[email],
+               fail_silently=False,
+         )
+
+         return HttpResponse("OTP sent successfully.")
+
+      return render(request, "send_otp.html")
+
+Q3 Build a Django form where the user enters the OTP they received via email; validate the OTP by comparing it with 
+   the value stored in the session, and display a success or error message accordingly.
+
+::> from django.shortcuts import render
+   from django.contrib import messages
+
+   def verify_otp(request):
+
+      if request.method == "POST":
+
+         user_otp = request.POST.get("otp")
+         saved_otp = str(request.session.get("otp"))
+
+         if user_otp == saved_otp:
+               messages.success(request, "OTP Verified Successfully.")
+         else:
+               messages.error(request, "Invalid OTP.")
+
+      return render(request, "verify_otp.html")
+
+Q4 Set a session expiry time of 5 minutes for the OTP in your Django app so that the OTP becomes invalid after
+   that period.
+
+::> import random
+
+   from django.shortcuts import render
+   from django.http import HttpResponse
+   from django.core.mail import send_mail
+   from django.conf import settings
+
+
+   def send_otp(request):
+
+      if request.method == "POST":
+
+        email = request.POST.get("email")
+
+        # Generate 6-digit OTP
+        otp = random.randint(100000, 999999)
+
+        # Store OTP in session
+        request.session["otp"] = otp
+        request.session["email"] = email
+
+        # Session expires after 5 minutes (300 seconds)
+        request.session.set_expiry(300)
+
+        # Send OTP via email
+        send_mail(
+            subject="OTP Verification",
+            message=f"Your OTP is {otp}. It is valid for 5 minutes.",
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+            fail_silently=False,
+        )
+
+        return HttpResponse("OTP sent successfully.")
+
+    return render(request, "send_otp.html")
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 11
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Set up MEDIA_ROOT and MEDIA_URL in your Django project's settings.py so that uploaded media files are stored in a
+   folder named 'user_uploads' and can be accessed via '/media/'.
+
+::> in setting.py
+
+   from pathlib import Path
+
+   BASE_DIR = Path(__file__).resolve().parent.parent
+
+   # Media Settings
+   MEDIA_URL = "/media/"
+   MEDIA_ROOT = BASE_DIR / "user_uploads"
+
+   in urls.py
+
+   urlpatterns = [
+      # Your URLs
+   ]
+
+   if settings.DEBUG:
+      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+Q2 Create a Django model called InfluencerProfile with fields: user (OneToOneField), display_name (CharField),
+   bio (TextField), and profile_pic (ImageField). Ensure profile_pic uploads to 'profile_pics/'.
+
+
+::> from django.db import models
+   from django.contrib.auth.models import User
+
+   class InfluencerProfile(models.Model):
+      user = models.OneToOneField(User, on_delete=models.CASCADE)
+      display_name = models.CharField(max_length=100)
+      bio = models.TextField()
+      profile_pic = models.ImageField(upload_to='profile_pics/')
+
+      def __str__(self):
+         return self.display_name
+
+Q3 Build a profile edit page where users can update their display name, bio, and upload a new profile picture, 
+   similar to editing your Instagram profile.
+
+::> creating one from.py
+
+   from django import forms
+   from .models import InfluencerProfile
+
+   class InfluencerProfileForm(forms.ModelForm):
+      class Meta:
+         model = InfluencerProfile
+         fields = ["display_name", "bio", "profile_pic"]
+
+   ------------------- in veiws.py
+
+   from django.shortcuts import render, redirect
+   from .models import InfluencerProfile
+   from .forms import InfluencerProfileForm
+
+   def edit_profile(request):
+
+      profile = InfluencerProfile.objects.get(user=request.user)
+
+      if request.method == "POST":
+
+         form = InfluencerProfileForm(
+               request.POST,
+               request.FILES,
+               instance=profile
+         )
+
+         if form.is_valid():
+               form.save()
+               return redirect("edit_profile")
+
+      else:
+         form = InfluencerProfileForm(instance=profile)
+
+      return render(
+         request,
+         "edit_profile.html",
+         {"form": form}
+      )
+
+Q4 Display the uploaded profile picture on the user's profile page, falling back to a default image 
+   if no picture is uploaded.
+
+   in Model.py
+::>  image=models.FilesField(upload_to="...",default="def.png")
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Product model for a Flipkart-style app with fields: name, price, and category, then use Django's
+   ModelForm to build a form for adding new products.
+
+::> class Product(models.Model):
+      name=models.CharField(max_lenght=30)
+      price=models.PositivIntegerField()
+      category=models.CharField(max_lenght=30)
+
+   creting form.py
+
+   class Formdata(forms.ModelForm):
+      def Meta:
+         model=Product
+         fields=__all__
+
+
+Q2 Build a view in Django that displays a list of all products from your Product model, showing name and price in a 
+   table, with an 'Edit' and 'Delete' button for each product.
+
+::> from django.shortcuts import render
+   from .models import Product
+
+   def product_list(request):
+
+      products = Product.objects.all()
+
+      return render(
+         request,
+         "product_list.html",
+         {"products": products}
+      )
+   --------html page
+
+   <!DOCTYPE html>
+   <html>
+   <head>
+      <title>Product List</title>
+   </head>
+   <body>
+
+   <h2>Product List</h2>
+
+   <table border="1" cellpadding="10">
+
+      <tr>
+         <th>Name</th>
+         <th>Price</th>
+         <th>Action</th>
+      </tr>
+
+      {% for product in products %}
+
+      <tr>
+
+         <td>{{ product.name }}</td>
+
+         <td>₹{{ product.price }}</td>
+
+         <td>
+
+               <a href="{% url 'edit_product' product.id %}">
+                  <button>Edit</button>
+               </a>
+
+               <a href="{% url 'delete_product' product.id %}">
+                  <button>Delete</button>
+               </a>
+
+         </td>
+
+      </tr>
+
+      {% endfor %}
+
+   </table>
+
+   </body>
+   </html>
+
+
+Q3 Implement the edit feature for your Product model: clicking 'Edit' should open a pre-filled ModelForm allowing
+   the user to update the product details and save changes.
+
+
+::>def edit_product(request, pk):
+    product = Product.objects.get(id=pk)
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect("product_list")
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, "edit_product.html", {"form": form})
+
+Q4 Add a delete confirmation page: when the user clicks 'Delete' on a product, show a confirmation page with the
+   product name and 'Yes, delete' and 'Cancel' options before actually deleting.
+
+
+::> from django.shortcuts import render, redirect
+   from .models import Product
+
+   def delete_product(request, pk):
+     product = Product.objects.get(id=pk)
+
+      if request.method == "POST":
+         product.delete()
+         return redirect("product_list")
+
+      return render(request, "delete_product.html", {"product": product})
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 13 AJAX
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a simple HTML page with a list of songs (like a Spotify playlist) and add a 'Delete' button next to each
+   song; use fetch() to send an AJAX DELETE request to a dummy endpoint when a button is clicked.
+
+::> <!DOCTYPE html>
+   <html>
+   <head>
+      <title>Spotify Playlist</title>
+   </head>
+   <body>
+
+   <h2>🎵 My Playlist</h2>
+
+   <ul id="playlist">
+   {% for song in songs %}
+      <li id="song{{song.id}}">
+         Shape of You
+         <button onclick="deleteSong({{song.id}})">Delete</button>
+      </li>
+
+   </ul>
+
+   <script>
+
+   function deleteSong(pk){
+
+      fetch("/delete-song/" + pk + "/", {
+
+         method: "DELETE",
+
+         headers: {
+               "X-CSRFToken":"{{csrf_token}}"
+         }
+
+      })
+
+      .then(response => response.json())
+
+      .then(data => {
+
+         alert(data.message);
+
+         // Remove song from page
+         document.getElementById("song" + id).remove();
+
+      })
+
+   }
+
+   </script>
+
+   </body>
+   </html>
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 14
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Create a Django model called Restaurant with fields name, cuisine, and rating, then use filter() to get all
+   restaurants with cuisine='Chinese' and rating greater than 4.
+
+| Lookup       | Meaning                    | Example                   |
+| ------------ | -------------------------- | ------------------------- |
+| `gt`         | Greater Than (>)           | `rating__gt=4`            |
+| `gte`        | Greater Than or Equal (>=) | `rating__gte=4`           |
+| `lt`         | Less Than (<)              | `rating__lt=4`            |
+| `lte`        | Less Than or Equal (<=)    | `rating__lte=4`           |
+| `exact`      | Equal (=)                  | `name__exact="Pizza Hub"` |
+| `icontains`  | Case-insensitive contains  | `name__icontains="pizza"` |
+| `startswith` | Starts with                | `name__startswith="P"`    |
+| `endswith`   | Ends with                  | `name__endswith="Hub"`    |
+| `in`         | Value list me ho           | `rating__in=[4, 5]`       |
+
+
+::> from django.db import models
+
+   class Restaurant(models.Model):
+      name = models.CharField(max_length=100)
+      cuisine = models.CharField(max_length=100)
+      rating = models.FloatField()
+
+      def __str__(self):
+         return self.name
+
+   _______ in veiws.py
+
+   from .models import Restaurant
+
+   restaurants = Restaurant.objects.filter(
+      cuisine="Chinese",
+      rating__gt=4
+   )
+
+Q2 In your Django shell, use exclude() to get all users from the User model who do NOT have 'gmail.com'
+   in their email address.<br><br><em><strong>Hint:</strong> Use the __contains lookup with exclude().</em>
+
+
+::> python manage.py shell
+    users = User.objects.exclude(email__contains="gmail.com")
+    print(users[0].email)
+
+
+Q3 Build a Django QuerySet using annotate() to count the number of reviews for each Movie in a Movie and Review
+   model setup, and print each movie's name with its review count.
+
+::> from django.db import models
+
+   class Movie(models.Model):
+      name = models.CharField(max_length=100)
+
+   class Review(models.Model):
+      movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+      review = models.TextField()
+
+   ------------
+   from django.db.models import Count
+
+   movies = Movie.objects.annotate(
+      review_count=Count("review")
+   )
+
+Q4 Given a Product and Category model (where Product has a foreign key to Category), use select_related() to fetch
+   all products with their categories in a single query and display each product's name along with
+   its category name.
+
+
+::> products = Product.objects.select_related("category")
+
+   for product in products:
+    print(product.name, "-", product.category.name)
+
+
+Q5 Use Q() objects to filter all Flipkart-style products that are either in the 'Electronics' category or have a
+   price less than 1000, and paginate the results to show 5 products per page using Django's Paginator.
+
+
+::> from django.shortcuts import render
+   from django.db.models import Q
+   from django.core.paginator import Paginator
+   from .models import Product
+
+   def product_list(request):
+
+      products = Product.objects.filter(
+         Q(category__name="Electronics") |
+         Q(price__lt=1000)
+      )
+
+      return render(request, "product_list.html", {
+         "products": products 
+      })
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 15
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Create a Django view for a 'My Orders' page (like Zomato) and use the @login_required decorator to ensure only
+   logged-in users can access it.
+
+   
+::> def my_orders(request):
+
+    email = request.session.get('email')
+
+    if not email:
+        return redirect('login')
+
+    return render(request, 'my_orders.html', {
+        'email': email
+    })
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 16
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Integrate Google Login into a Django project so users can sign in using their Google account, and display their
+   name and email on the homepage after login.<br><br><em><strong>Hint:</strong> Use the 'social-auth-app-django'
+   package and configure Google OAuth credentials in your settings.py.</em>
+
+::> 
+   ~>    1. Install Package
+       
+
+      pip install social-auth-app-django
+
+
+       
+   ~>    2. settings.py
+       
+
+      INSTALLED_APPS = [
+         "django.contrib.admin",
+         "django.contrib.auth",
+         "django.contrib.contenttypes",
+         "django.contrib.sessions",
+         "django.contrib.messages",
+         "django.contrib.staticfiles",
+
+         "social_django",
+
+         "myapp",
+      ]
+
+
+      AUTHENTICATION_BACKENDS = (
+
+         "social_core.backends.google.GoogleOAuth2",
+
+         "django.contrib.auth.backends.ModelBackend",
+
+      )
+
+
+      SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "YOUR_CLIENT_ID"
+
+      SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "YOUR_CLIENT_SECRET"
+
+
+      LOGIN_URL = "/auth/login/google-oauth2/"
+      LOGIN_REDIRECT_URL = "/"
+      LOGOUT_REDIRECT_URL = "/"
+
+
+      TEMPLATES = [
+         {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+
+            "DIRS": [],
+
+            "APP_DIRS": True,
+
+            "OPTIONS": {
+
+                  "context_processors": [
+
+                     "django.template.context_processors.request",
+
+                     "django.contrib.auth.context_processors.auth",
+
+                     "django.contrib.messages.context_processors.messages",
+
+                     "social_django.context_processors.backends",
+
+                     "social_django.context_processors.login_redirect",
+
+                  ],
+            },
+         },
+      ]
+
+
+       
+   ~>    3. Project urls.py
+       
+
+      from django.contrib import admin
+      from django.urls import path, include
+
+      urlpatterns = [
+
+         path("admin/", admin.site.urls),
+
+         path("", include("myapp.urls")),
+
+         path("auth/", include("social_django.urls", namespace="social")),
+
+      ]
+
+
+       
+   ~>    4. App urls.py
+       
+
+      from django.urls import path
+      from . import views
+
+      urlpatterns = [
+
+         path("", views.home, name="home"),
+
+      ]
+
+
+       
+   ~>    5. views.py
+       
+
+      from django.shortcuts import render
+
+      def home(request):
+
+         return render(request, "home.html")
+
+
+       
+   ~>    6. templates/home.html
+       
+
+      <!DOCTYPE html>
+      <html>
+      <head>
+         <title>Google Login</title>
+      </head>
+      <body>
+
+      {% if user.is_authenticated %}
+
+      <h2>Welcome {{ user.first_name }}</h2>
+
+      <p><b>Name :</b> {{ user.get_full_name }}</p>
+
+      <p><b>Email :</b> {{ user.email }}</p>
+
+      <a href="{% url 'logout' %}">
+      Logout
+      </a>
+
+      {% else %}
+
+      <a href="{% url 'social:begin' 'google-oauth2' %}">
+      Login With Google
+      </a>
+
+      {% endif %}
+
+      </body>
+      </html>
+
+
+       
+   ~>    7. Google Cloud Console
+       
+
+      Redirect URI
+
+      http://127.0.0.1:8000/auth/complete/google-oauth2/
+
+
+      Client ID
+
+      YOUR_CLIENT_ID
+
+
+      Client Secret
+
+      YOUR_CLIENT_SECRET
+
+
+       
+   ~> 8. Run Commands
+       
+
+      python manage.py makemigrations
+
+      python manage.py migrate
+
+      python manage.py createsuperuser
+
+      python manage.py runserver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 17
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Set up a basic Flask app and create a /pay route that displays a simple payment form for ordering IPL match 
+   tickets, capturing name, email, and amount.
+
+::> from flask import Flask, render_template, request
+
+   app = Flask(__name__)
+
+   @app.route("/pay", methods=["GET", "POST"])
+   def pay():
+
+      if request.method == "POST":
+
+         name = request.form["name"]
+         email = request.form["email"]
+         amount = request.form["amount"]
+
+         return f"""
+         <h2>Payment Details</h2>
+         Name : {name}<br>
+         Email : {email}<br>
+         Amount : ₹{amount}<br><br>
+         Payment Successful!
+         """
+
+      return render_template("pay.html")
+
+
+   if __name__ == "__main__":
+      app.run(debug=True)
+
+Q2 Integrate the Paytm payment gateway sandbox in your Flask app so that when the user submits the ticket payment
+   form, they are redirected to the Paytm test payment page and can complete a mock transaction.
+   <br><br><em><strong>Hint:</strong> Use the official Paytm Python SDK or API documentation for test 
+   credentials and callback URL setup.</em>
+
+::>
+      ~> 1. Install Required Package
+
+      pip install flask
+      pip install paytmchecksum
+
+      ~> 2. app.py
+
+      from flask import Flask, render_template, request
+      import PaytmChecksum
+      import random
+
+      app = Flask(__name__)
+
+      ~> Paytm Sandbox Credentials
+      MID = "YOUR_MERCHANT_ID"
+      MERCHANT_KEY = "YOUR_MERCHANT_KEY"
+      WEBSITE = "WEBSTAGING"
+
+      @app.route("/pay", methods=["GET", "POST"])
+      def pay():
+
+         if request.method == "POST":
+
+            name = request.form["name"]
+            email = request.form["email"]
+            amount = request.form["amount"]
+
+            order_id = "ORDER" + str(random.randint(1000,9999))
+
+            paytmParams = {}
+
+            paytmParams["body"] = {
+
+                  "requestType": "Payment",
+
+                  "mid": MID,
+
+                  "websiteName": WEBSITE,
+
+                  "orderId": order_id,
+
+                  "callbackUrl": "http://127.0.0.1:5000/callback",
+
+                  "txnAmount": {
+                     "value": amount,
+                     "currency": "INR"
+                  },
+
+                  "userInfo": {
+                     "custId": email
+                  }
+
+            }
+
+            checksum = PaytmChecksum.generateSignature(
+                  str(paytmParams["body"]),
+                  MERCHANT_KEY
+            )
+
+            paytmParams["head"] = {
+                  "signature": checksum
+            }
+
+            return render_template(
+                  "paytm.html",
+                  paytmParams=paytmParams
+            )
+
+         return render_template("pay.html")
+
+
+      @app.route("/callback", methods=["POST"])
+      def callback():
+
+         return "Payment Successful (Sandbox)"
+
+
+      if __name__ == "__main__":
+         app.run(debug=True)
+
+
+      ~> 3. templates/pay.html
+
+      <!DOCTYPE html>
+      <html>
+      <head>
+         <title>IPL Ticket Payment</title>
+      </head>
+      <body>
+
+      <h2>IPL Match Ticket Booking</h2>
+
+      <form method="POST">
+
+         <input
+         type="text"
+         name="name"
+         placeholder="Enter Name"
+         required>
+
+         <br><br>
+
+         <input
+         type="email"
+         name="email"
+         placeholder="Enter Email"
+         required>
+
+         <br><br>
+
+         <input
+         type="number"
+         name="amount"
+         placeholder="Enter Amount"
+         required>
+
+         <br><br>
+
+         <button type="submit">
+            Pay with Paytm
+         </button>
+
+      </form>
+
+      </body>
+      </html>
+      ~> 4. templates/paytm.html
+
+      <!DOCTYPE html>
+      <html>
+      <head>
+         <title>Redirect to Paytm</title>
+      </head>
+      <body>
+
+      <h2>Redirecting to Paytm...</h2>
+
+      <form
+      method="POST"
+      action="https://securegw-stage.paytm.in/theia/api/v1/showPaymentPage">
+
+      <input
+      type="hidden"
+      name="mid"
+      value="{{ paytmParams.body.mid }}">
+
+      <input
+      type="hidden"
+      name="orderId"
+      value="{{ paytmParams.body.orderId }}">
+
+      <input
+      type="hidden"
+      name="txnAmount"
+      value="{{ paytmParams.body.txnAmount.value }}">
+
+      <input
+      type="hidden"
+      name="signature"
+      value="{{ paytmParams.head.signature }}">
+
+      <button type="submit">
+      Proceed to Paytm Sandbox
+      </button>
+
+      </form>
+
+      </body>
+      </html>
+      ~> 5. Paytm Sandbox Details
+      Merchant ID (MID)
+
+      YOUR_MERCHANT_ID
+      Merchant Key
+      YOUR_MERCHANT_KEY
+
+      Website Name
+      WEBSTAGING
+      Callback URL
+
+      http://127.0.0.1:5000/callback
+
+      ~> 6. Run Projec
+      python app.py
+
+      #FLOW
+
+      User Opens
+
+      http://127.0.0.1:5000/pay
+
+      Fill Name, Email, Amount
+
+      Click "Pay with Paytm"
+
+      Flask Generates Order ID
+      Checksum Generated
+      Redirect to Paytm Sandbox
+
+      Complete Test Payment
+
+      Callback URL
+      Payment Successful
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 18
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q1 Register for a free Google Maps API key and write a Python script that takes an address 
+   (e.g., 'IIM Ahmedabad, Gujarat') and prints its latitude and longitude using the Google Geocoding API.
+
+
+
+::>
+      ~> 1. Install requests
+
+      pip install requests
+
+
+      ~> 2. geocode.py
+
+      import requests
+
+      ~> Google Maps API Key
+      API_KEY = "YOUR_API_KEY"
+
+      ~> Address
+      address = "IIM Ahmedabad, Gujarat"
+
+      ~> Google Geocoding API URL
+      url = "https://maps.googleapis.com/maps/api/geocode/json"
+
+      ~> Parameters
+      params = {
+         "address": address,
+         "key": API_KEY
+      }
+
+      ~> Send GET Request
+      response = requests.get(url, params=params)
+
+      ~> Convert response to JSON
+      data = response.json()
+
+      ~> Check if address found
+      if data["status"] == "OK":
+
+         location = data["results"][0]["geometry"]["location"]
+
+         print("Address :", address)
+         print("Latitude :", location["lat"])
+         print("Longitude :", location["lng"])
+
+      else:
+
+         print("Address not found!")
+
+
+Q2 Create a Django view called show_restaurant_location that takes a restaurant's address as input and displays
+   a web page with an embedded Google Map showing the restaurant's location.
+   Hint:Use the Google Maps Embed API and pass the latitude and longitude to the template.
+
+
+::>   import requests
+      from django.conf import settings
+      from django.shortcuts import render
+
+
+      def show_restaurant_location(request):
+
+         if request.method == "POST":
+
+            address = request.POST.get("address")
+
+            url = "https://maps.googleapis.com/maps/api/geocode/json"
+
+            params = {
+                  "address": address,
+                  "key": settings.GOOGLE_MAPS_API_KEY
+            }
+
+            response = requests.get(url, params=params)
+
+            data = response.json()
+
+            if data["status"] == "OK":
+
+                  location = data["results"][0]["geometry"]["location"]
+
+                  latitude = location["lat"]
+                  longitude = location["lng"]
+
+                  context = {
+                     "address": address,
+                     "latitude": latitude,
+                     "longitude": longitude,
+                     "api_key": settings.GOOGLE_MAPS_API_KEY
+                  }
+
+                  return render(request, "restaurant_location.html", context)
+
+            else:
+
+                  return render(request, "restaurant_location.html", {
+                     "error": "Address not found."
+                  })
+
+         return render(request, "restaurant_location.html")
+
+Q3 Write a Python function find_nearby_cafes(user_lat, user_lng, cafes) where cafes is a list of dictionaries
+   with 'name', 'lat', and 'lng'. Return all cafes within 3 km of the user's location using the Haversine formula.
+   
+
+::> Find Nearby Cafes Using Haversine Formula
+
+   import math
+
+ Function to calculate distance between two locations
+   def haversine(lat1, lng1, lat2, lng2):
+
+      R = 6371     Radius of Earth in KM
+
+      lat1 = math.radians(lat1)
+      lng1 = math.radians(lng1)
+
+      lat2 = math.radians(lat2)
+      lng2 = math.radians(lng2)
+
+      dlat = lat2 - lat1
+      dlng = lng2 - lng1
+
+      a = (
+         math.sin(dlat / 2) ** 2
+         + math.cos(lat1)
+         * math.cos(lat2)
+         * math.sin(dlng / 2) ** 2
+      )
+
+      c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+      distance = R * c
+
+      return distance
+
+ Function to find nearby cafes
+   def find_nearby_cafes(user_lat, user_lng, cafes):
+
+      nearby = []
+
+      for cafe in cafes:
+
+         distance = haversine(
+               user_lat,
+               user_lng,
+               cafe["lat"],
+               cafe["lng"]
+         )
+
+         if distance <= 3:
+               nearby.append(cafe)
+
+      return nearby
+
+ Example Data
+
+   cafes = [
+
+      {
+         "name": "Cafe Coffee Day",
+         "lat": 23.0389,
+         "lng": 72.5307
+      },
+
+      {
+         "name": "Starbucks",
+         "lat": 23.0450,
+         "lng": 72.5400
+      },
+
+      {
+         "name": "Tea Post",
+         "lat": 23.1000,
+         "lng": 72.6000
+      }
+
+   ]
+
+ User Location
+   user_lat = 23.0395
+   user_lng = 72.5316
+
+ Find Nearby Cafes
+   result = find_nearby_cafes(user_lat, user_lng, cafes)
+
+ Print Result
+   print("Nearby Cafes:\n")
+
+   for cafe in result:
+
+      print(cafe["name"])
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 19
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Create a new GitHub repository named 'MyPlaylistApp', initialize a local Django project (not Doctor Finder), and
+   push the full project code to the new repository.
+
+
+::> 
+    1. Create Django Project
+
+   django-admin startproject MyPlaylistApp
+
+   cd MyPlaylistApp
+
+   python manage.py startapp app1
+
+   python manage.py makemigrations
+
+   python manage.py migrate
+
+   python manage.py createsuperuser
+
+   git init
+
+   git branch -M main
+
+   git remote add origin https://github.com/YOUR_USERNAME/MyPlaylistApp.git
+
+   git add .
+
+   git commit -m "added"
+
+   git push -u origin main
+
+
+Q2 Deploy your Django 'MyPlaylistApp' project to PythonAnywhere, set up the web app, and ensure the home page is
+   accessible via the public URL.
+
+
+::>
+      ~> 1. Create PythonAnywhere Account
+      ~> 2. Upload Django Project
+
+      Upload your MyPlaylistApp project ZIP file.
+      OR
+      Clone from GitHub
+      git clone https://github.com/YOUR_USERNAME/MyPlaylistApp.git
+
+      ~> 3. Open Bash Console Go to: Consoles,Bash
+      ~> 4. Create Virtual Environment
+
+      python -m venv myenv
+      source myenv/bin/activate
+
+      ~> 5. Install Django
+      pip install django
+      ~> 6. Go to Project Folder
+      cd MyPlaylistApp
+      ~> 7. Install Requirements 
+      pip install -r requirements.txt
+      ~> 8. Run Migrations
+      python manage.py migrate
+      ~> 9. Create Superuser 
+
+      python manage.py createsuperuser
+
+      ~> 10. Create Web App Go to:
+      Web
+         |
+         V
+      Add a new Web App
+         |
+         V
+      Manual Configuration
+         |
+         V
+      Python 3.x
+      ~> 11. Configure WSGI File
+
+      Open the WSGI configuration file.
+
+      Add your project path.
+
+      Example:
+
+      import sys
+      import os
+
+      path = "/home/YOUR_USERNAME/MyPlaylistApp"
+
+      if path not in sys.path:
+         sys.path.append(path)
+
+      os.environ.setdefault(
+         "DJANGO_SETTINGS_MODULE",
+         "MyPlaylistApp.settings"
+      )
+
+      from django.core.wsgi import get_wsgi_application
+
+      application = get_wsgi_application()
+
+      ~> 12. Configure Virtual Environment
+
+      Virtualenv:
+
+      /home/YOUR_USERNAME/myenv
+
+
+      ~> 13. Configure Source Code
+      Source Code:
+
+      /home/YOUR_USERNAME/MyPlaylistApp
+
+      ~> 14. Configure Working Directory
+
+      Working Directory:
+
+      /home/YOUR_USERNAME/MyPlaylistApp
+
+      ~> 15. Static Files
+
+      URL
+
+      /static/
+
+      Directory
+
+      /home/YOUR_USERNAME/MyPlaylistApp/static
+
+      ~> 16. Reload Web App
+
+      Click
+
+      Reload
+
+      ~> 17. Open Public URL
+
+      https://YOUR_USERNAME.pythonanywhere.com/
+
+
+      ~> Expected Output
+
+      Home Page
+
+      Welcome to MyPlaylistApp
+
+
+Q3 Test at least two live routes of your deployed 'MyPlaylistApp' (such as the playlist list page and the playlist
+   detail page) and document any errors or issues you encounter, along with steps you took to resolve them.
+
+
+::> Project: MyPlaylistApp
+
+Route 1:
+   URL: https://YOUR_USERNAME.pythonanywhere.com/
+   status: working
+   result: Home/Playlist list page opened successfully.
+
+   route 2:
+   URL: https://YOUR_USERNAME.pythonanywhere.com/playlist/1/
+   status: working
+   result: Playlist detail page displayed correctly.
+
+   Issue Encountered:
+   Static files (CSS) were not loading.
+
+   Resolution:
+   configured the Static URL (/static/) and Static Directory in PythonAnywhere, then reloaded the web app.
+
+   Final status:
+    Both routes tested successfully and the application is working correctly.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SECTION : 20
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Q1 Add a feature to your project that allows users to search for restaurants by cuisine and location, similar to
+   Zomato's search — create a Restaurant model with name, cuisine, and location fields, and implement a search
+   function that filters restaurants based on user input.
+
+::> class Restaurant(models.Model):
+    name = models.CharField(max_length=100)
+    cuisine = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+   ___________
+   
+   from django.db.models import Q
+
+   def restaurant_search(request):
+
+      cuisine = request.POST["cuisine"]
+      location = request.POST["location"]
+
+      restaurants = Restaurant.objects.all()
+
+      if cuisine or location:
+
+         restaurants = Restaurant.objects.filter(
+               Q(cuisine__icontains=cuisine) |
+               Q(location__icontains=location)
+         )
+
+      return render(request, "restaurant_search.html", {
+         "restaurants": restaurants
+      })
+
+Q2 Implement a login and OTP verification system for a movie ticket booking app — create registration and login
+   forms, generate a 6-digit OTP on login, and verify the OTP before allowing access to the user dashboard.
+   <br><br><em><strong>Hint:</strong> Store OTPs temporarily and expire them after 3 minutes.</em>
+
+::> def user_login(request):
+
+      if request.POST:
+
+         username = request.POST["username"]
+         password = request.POST["password"]
+
+         user = authenticate(username=username, password=password)
+
+         if user:
+
+               otp = random.randint(100000,999999)
+
+               request.session["otp"] = str(otp)
+               request.session["user_id"] = user.id
+
+               # OTP expires in 3 minutes
+               request.session.set_expiry(180)
+
+               send_mail(
+                  "Movie Ticket OTP",
+                  f"Your OTP is {otp}",
+                  "admin@gmail.com",
+                  [user.email]
+               )
+
+               return redirect("verify_otp")
+
+      return render(request,"login.html")
+
+
+~>  Verify OTP
+   def verify_otp(request):
+
+      if request.method == "POST":
+
+         otp = request.POST["otp"]
+
+         if otp == request.session.get("otp"):
+
+               user = User.objects.get(id=request.session["user_id"])
+
+               login(request,user)
+
+               del request.session["otp"]
+
+               return redirect("dashboard")
+
+      return render(request,"verify_otp.html")
+
+
+Q3 Build a user profile management page for a Flipkart-style shopping app — allow users to update their name, email,
+   delivery address, and profile picture, and display the updated details on the profile page.
+
+
+::> 1. models.py
+
+   class UserProfile(models.Model):
+      name = models.CharField(max_length=100)
+      email = models.EmailField()
+      address = models.TextField()
+      profile_pic = models.ImageField(upload_to="profile_pics/",blank=True,null=True)
+
+      def __str__(self):
+         return self.name
+
+  ____________ forms.py
+
+   from django import forms
+   from .models import UserProfile
+
+   class UserProfileForm(forms.ModelForm):
+
+      class Meta:
+         model = UserProfile
+         fields = "__all__"
+
+   _________ views.py
+
+   from .models import UserProfile
+   from .forms import UserProfileForm
+
+   def profile(request):
+
+      if request.POST:
+
+         form = UserProfileForm(
+               request.POST,
+               request.FILES
+         )
+         if form.is_valid():
+               form.save()
+               return redirect("profile")
+         form = UserProfileForm(instance=profile)
+      return render(request,"profile.html",{"form": form,"profile": profile})
+
+
+Q4 Integrate Google Maps into a cab booking app page — show the user's current location on the map and allow them
+   to select a pickup location by clicking on the map.<br><br><em><strong>Hint:</strong> Use the Google Maps 
+   JavaScript API and geolocation features.</em>
+
+
+::> settings.py
+   GOOGLE_MAPS_API_KEY = "google/location/fetch/alfa/map"
+
+_________________ 2. views.py
+   def cab_booking(request):
+      return render( request, "cab_booking.html", {"api_key": settings.GOOGLE_MAPS_API_KEY})
+_________________templates/cab_booking.html
+ <html>
+   <head>
+   <style>
+   #map{
+      height:500px;
+      width:100%;
+      }
+   </style>
+   </head>
+   <body>
+   <h2>Cab Booking</h2>
+   <p>Click on the map to select your pickup location.</p>
+   <div id="map"></div>
+   <br>
+   <label>Pickup Latitude</label>
+   <input type="text" id="lat" readonly>
+   <br><br>
+   <label>Pickup Longitude</label>
+   <input type="text" id="lng" readonly>
+   <script>
+   function initMap(){
+      navigator.geolocation.getCurrentPosition(function(position){
+         const userLocation={
+               lat:position.coords.latitude,
+               lng:position.coords.longitude };
+         const map=new google.maps.Map(
+               document.getElementById("map"),
+               {
+                  zoom:15,
+                  center:userLocation
+               }
+         );
+         const marker=new google.maps.Marker({
+               position:userLocation,
+               map:map,
+               title:"Your Current Location"
+         });
+         map.addListener("click",function(event){
+               marker.setPosition(event.latLng);
+               document.getElementById("lat").value=event.latLng.lat();
+               document.getElementById("lng").value=event.latLng.lng();
+         });
+      });
+   }
+   </script>
+   <script
+   src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"
+   </script>
+   </body>
+   </html>
