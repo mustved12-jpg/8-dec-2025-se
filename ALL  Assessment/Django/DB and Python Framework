@@ -1,0 +1,329 @@
+Section A: Conceptual Understanding
+------------------------
+
+Q1. Explain the Django Request-Response cycle and how it differs from a standard Python script execution
+
+::> Django Request-Response:
+    firt user URL Request bhjeta hai uske bad browser HTTP Request bhejta hai Django server ko
+    Django server us ko process karne ke bad user ne kon sa url diya hai vo urls.py mai hai to view.py me jaye ga 
+    or HTML page ko render karta hai agar data chahiye hota hai to model se le leta hai Django server HTTP Response
+    bhejta hai fir browser HTML page ko display karta hai
+
+    Standard Python:
+    isme Url nhi horta hai,Request nhi hoti hai ,Responsenhi hota hai isme khali code start hota hai or line by
+    line exiquet hota hai or khatam ho jata hai
+
+Q2 Explain why Django Model Fields (CharField, IntegerField) are more robust(strong aur reliable) for profile data 
+   than Python dynamic typing.
+
+::> python ek dynamic typing language python ka variable value ke ke hisab se variable ka type dicide karta hai 
+    agar user koi bhi value dalega to vo variable me save ho jaye gi iske liye ye robust nhi hota hai 
+
+    model Fields me fix datatype hota hai iske vjha se ye jyada usfull hota hai isme data type fix hone ki vjah 
+    se hum fixdatatype ki value hi database me save karte hai 
+
+Q3 Explain how Django Forms handle automated input validation for usernames and age ranges
+
+::> Django Forms automatictly user ke input ko validate karta hai agar humne CharField(max_lenght=20) diya hai to 
+    agar usee ne 20 se jyada Charet enter kiya hoga to form submit nhi hoga or erro ayegi isi tra age me bhi agar 
+    humne minimum ya maximum diya hai or us range se jyada ya kam hoga to error ayegi
+
+Q4 Explain how to implement conditional logic in Django Templates to toggle account visibility
+
+::> Templates me logic likhne ke liye hum {% if %} {% endif %} likh ke condition lga sakte hai or agar
+    account visibility toggle karna ho to hum database me ek field lenge (is_public) karke agar use me value True
+    hodi tabhi hum data ko access kar sakte hai agar false hui to nhi 
+
+Q5 Explain the difference between iterating through a Python list and a Django QuerySet.
+
+::> Python list isme humara pas jo bhi data hota hai vo memory me save hota hai jab hum loop chalate hai to vo
+    memory me se ek ek data itrate karta hai par QuerySet pe jab hum loop chlate hai to ye  data memory me save nhi
+    hota hai humko database se data milta hai database se ek ek data return hota hai
+
+Q6 Explain why the Django ORM is preferred over Python dictionaries for persistent profile storage.
+
+::> Python dictionarie me jo data hota hai vo data rame me save hota hai agar humne program ban kar dita to data bhi
+    hat jaye ga pr Django ORM ka use karke hum data ho direct database me save karte hai iske liye Django ORM 
+    jyada preferred hota hai
+
+------------------------
+Section B: Practical Tasks
+------------------------
+
+Q1 Define UserProfile Model: Create a class in models.py inheriting from models.Model. Define fields such as
+   CharField for the username,IntegerField for age, and BooleanField for the is_public status.
+
+::> class UserProfile(models.Model):
+        name=models.CharField(max_length=20)
+        age=models.PositiveIntegerField()
+        is_public=models.BooleanField(default=True)
+        data_time=models.DateTimeField(auto_now_add=True)
+
+        def __str__(self):
+            return self.name
+
+Q2 Create ModelForm & Validation: Implement a UserProfileForm extending forms.ModelForm. Add a clean_age() method 
+   to enforce custom constraints,such as ensuring the user is over 13 years old before allowing profile creation.
+        {form.py}
+::> class UserProfileForm(forms.ModelForm):
+
+        class Meta:
+            model = UserProfile
+            fields = "__all__"
+
+        def clean_age(self):
+            age = self.cleaned_data.get("age")
+
+            if age < 13:
+                raise forms.ValidationError(
+                    "User must be at least 13 years old."
+                )
+                #isme jab aye ga to ValidationError ki vjha se is_valid=False(views me) ho jayega to save nhi hoga 
+
+            return age
+
+
+Q3 Django Views for Persistence: Develop a function-based or class-based view to handle POST requests. Use
+   form.is_valid() to check inputs and form.save() to commit the new profile data directly to the database
+
+
+::> def formee(request):
+        if request.POST:
+            entry = UserProfileForm(request.POST)
+
+            if entry.is_valid():
+                entry.save()
+                return redirect("jobseeker:home")
+
+            return render(request, "jobseeker/from.html", {"form": entry})
+        else:
+            okook = UserProfileForm()
+            return render(request, "jobseeker/from.html", {"form": okook})
+
+Q4  Render Profiles with DTL: Retrieve all profiles using UserProfile.objects.all() and pass them to a template.
+    Use Django Template Language (DTL) loops ({% for profile in profiles %}) to display the username and age in
+    an HTML list.
+
+::> {% load static %}
+    <html>
+    <head>
+        <title>User List</title>
+    </head>
+    <body>
+
+        {% for i in all %}
+            <ul>
+                <li>Hello, {{ i.name }}</li>
+                <li>{{ i.age }} years old.</li>
+            </ul>
+            <hr>
+        {% empty %}
+            <p>No data found.</p>
+        {% endfor %}
+
+    </body>
+    </html>
+
+
+------------------------
+Section C: Mini Project
+------------------------
+
+Q1 Create/Edit via Django Forms Develop a dynamic profile management system using Django
+   ModelForms. This allows you to automatically generate HTML forms from your Profile model, handle
+   data validation, and save user input directly to the database with minimal code.
+
+::> from django.shortcuts import render, redirect
+    from .forms import ProfileForm
+
+    def create_profile(request):
+
+        if request.method == "POST":
+            form = ProfileForm(request.POST)
+
+            if form.is_valid():
+                form.save()
+                return redirect("profile_list")
+
+        else:
+            form = ProfileForm()
+
+        return render(request, "profile_form.html", {"form": form})
+
+
+    def edit_profile(request, id):
+
+        profile = Profile.objects.get(id=id)
+
+        if request.method == "POST":
+            form = ProfileForm(request.POST, instance=profile)
+
+            if form.is_valid():
+                form.save()
+                return redirect("profile_list")
+
+        else:
+            form = ProfileForm(instance=profile)
+
+        return render(request, "profile_form.html", {"form": form})
+
+Q2 Relational Database Integration Configure your app to communicate with a robust RDBMS like PostgreSQL or MySQL.
+   Use the Django ORM to create a Profile table and implement a "List View" that queries all records from the
+   database to display them on a central dashboard.
+
+::> ________-in setting.py
+     DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mydatabase',
+            'USER': 'root',
+            'PASSWORD': '1234',
+            'HOST': 'localhost',
+            'PORT': '3306',
+            }
+        }
+
+    ____________now creating models
+    from django.db import models
+
+    class Profile(models.Model):
+        name = models.CharField(max_length=100)
+        age = models.IntegerField()
+        city = models.CharField(max_length=100)
+
+    ______python manage.py makemigrations
+    ______python manage.py migrate
+
+    from .models import Profile
+
+    def profile_list(request):
+
+        profiles = Profile.objects.all()
+
+        return render(request, "dashboard.html", {
+            "profiles": profiles
+        })
+
+
+Q3 "Save to File" with Context Managers Implement an export feature using Python's csv module. Use a Context Manager
+    (with open(...) as file:) to ensure proper file handling, allowing the app to fetch database records and
+    write them into a downloadable CSV file 
+    
+::> import csv
+    from .models import Profile
+
+    profiles = Profile.objects.all()
+
+    with open("profiles.csv", "w", newline="") as file:
+
+        write = csv.writer(file)
+
+        write.writerow(["Name", "Age", "City"])
+
+        for profile in profiles:
+
+            write.writerow([
+                profile.name,
+                profile.age,
+                profile.city
+            ])
+
+Q4 Clean URL Routing & Templates Organize your application using a clear directory structure. Implement specific URL
+   patterns for "List," "Create," and "Export" views, and use Django Template Language (DTL) to render the profile
+   data into a clean, user-friendly interface.
+
+::> myproject/
+    │
+    ├── jobseeker/
+    │   ├── models.py
+    │   ├── forms.py
+    │   ├── views.py
+    │   ├── urls.py
+    │   │
+    │   └── templates/
+    │       └── jobseeker/
+    │            ├── list.html
+    │            ├── create.html
+    │            └── base.html
+    │
+    ├── myproject/
+    │     └── urls.py
+    │
+    └── manage.
+    
+    ____________in  urls.py
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path("list/", views.profile_list, name="list"),
+        path("create/", views.create_profile, name="create"),
+        path("export/", views.export_csv, name="export"),
+        ]
+
+_________in views.py
+
+    def profile_list(request):
+
+        profiles = Profile.objects.all()
+
+        return render(request, "jobseeker/list.html", {
+            "profiles": profiles
+        })
+
+    def create_profile(request):
+
+        if request.POST:
+
+            form = ProfileForm(request.POST)
+
+            if form.is_valid():
+                form.save()
+
+        else:
+            form = ProfileForm()
+
+        return render(request, "jobseeker/create.html", {
+            "form": form
+            })
+
+    def export_csv(request):
+        profiles = Profile.objects.all()
+
+        with open("profiles.csv", "w", newline="") as file:
+
+            write = csv.writer(file)
+
+            write.writerow(["Name", "Age", "City"])
+
+            for profile in profiles:
+
+                write.writerow([
+                    profile.name,
+                    profile.age,
+                    profile.city
+                ])
+
+
+_________using DTL 
+
+        <h2>Profile List</h2>
+
+        <table>
+
+        {% for profile in profiles %}
+
+        <tr>
+
+        <td>{{ profile.name }}</td>
+
+        <td>{{ profile.age }}</td>
+
+        <td>{{ profile.city }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+        </table>
+    
