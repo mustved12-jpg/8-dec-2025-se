@@ -42,7 +42,7 @@ Q5 Explain the difference between iterating through a Python list and a Django Q
 
 Q6 Explain why the Django ORM is preferred over Python dictionaries for persistent profile storage.
 
-::> Python dictionarie me jo data hota hai vo data rame me save hota hai agar humne program ban kar dita to data bhi
+::> Python dictionarie me jo data hota hai vo data rame me save hota hai agar humne program band kar dita to data bhi
     hat jaye ga pr Django ORM ka use karke hum data ho direct database me save karte hai iske liye Django ORM 
     jyada preferred hota hai
 

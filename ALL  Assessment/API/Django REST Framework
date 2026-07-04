@@ -1,0 +1,474 @@
+Section A — Concept Application
+----------------------------------
+
+Q1 Explain what statelessness means in the context of REST and describe how this principle affects the way your
+   food delivery API handles user session data between requests.
+
+::> statelessness ka matlab hai jab hum server pe requests bhejte hai har request ek new request ke trike se jati
+    server ko yad nhi rehta hai ki ye purana user hai iske lite hum authentication ya koi or information request
+    ke sath bhejna hota hai jisse server ko pta chalta hai user ke bare means
+    mari food delivery API me jab user login karta hai to server uski information store nhi karta hai iske liye
+    hum authentication information bhejte hai jisse server usko varify karta hai
+
+Q2 Justify why ModelSerializer is the better choice for this use case, and describe at least
+   two specific field-level validations you would add to protect the data integrity of menu items.
+
+::> ModelSerializer ka use karke hum date ko asani se add update kar sakte hai usko condition lga sakte hai 
+    isske use se hmara code chota ho clean hota hai. validations firs to me price pe lgau ga price 0 ya usse kam na
+    ho or dusra name pe name blank na ho
+
+Q3 Explain how refactoring this to use a ModelViewSet with a DefaultRouter reduces URL management overhead, and
+   identify which HTTP methods are automatically handled by ModelViewSet
+
+::> ModelViewSet ek single line me CRUD opration perform karta hai and DefaultRouter ka jab hum use karte hai to 
+    humko mainually URls create nhi karna hota hai ye automatically baki ke URL create kar deta hai 
+    e.g. 
+      from rest_framework.routers import DefaultRouter
+      from .views import MenuViewSet
+
+      router = DefaultRouter()
+      router.register("menu", MenuViewSet)
+
+      urlpatterns = router.urls
+
+      router sare urls bna dega jese menu/create,menu/delete/<int:pl>/,menu/update/<int:pk>
+
+      ModelViewSet me ,POST,DELETE,UPDATE,PUT,PATCH ye sari methods hiti hai
+
+Q4 Identify the most likely cause of this performance issue and justify which DRF pagination class you would choose
+   to fix it. Compare the trade-offs between PageNumberPagination and CursorPagination for this scenario.
+
+::> performance issue tab hota hai jab hmare pass data jyada ho to api slow ho jati hai data fatch karne me time 
+    lagta hai response bada ho jata hai in sab vjha se performance issue hota hai
+    jab hum PageNumberPagination ka use karte hai to ye humko data page numbers me dikhata hai hum koi bhi page pe
+    ja sakte hai par CursorPagination me hum age ya piche hi ja sakte hai isme hum rendomly nhi ja sakte hai
+
+Q5 Identify the specific gap in the current permission setup and explain how you would implement object-level
+   permission to ensure each customer can only access their own orders.
+
+::> current permission me agar hum IsAuthenticated ka use karte hai to koi bhi user jo login hoga vo kisi ka bhi 
+    orders dekh sakta hai isko shi karne ke liye hum (from rest_framework.permissions import BasePermission) ko
+    import kar ke chekc karenge user login hai usi user ne request bheja hai 
+
+Q6 Describe how you would integrate the Google Maps Geocoding API into a DRF view to convert an address string into
+   coordinates and use those coordinates to return nearby restaurant results.
+
+::> first user request bheje ga vo request DRF me aye gi or hmare pass address aa jayega us addres ka hum
+    Geocoding ke madad se coordinates nikalenge or us coordinates ua use kar ke hum results dikha denge 
+
+----------------------------------
+Section B — Practical Coding Tasks
+----------------------------------
+TASK(1)  Build a read-only DRF endpoint that returns a list of all food categories as a JSON response.
+
+::>from django.db import models
+
+   class Category(models.Model):
+      name = models.CharField(max_length=100)
+      description = models.TextField()
+
+   python manage.py makemigrations
+   python manage.py migrate
+
+   from rest_framework import serializers
+   from .models import Category
+
+   class CategorySerializer(serializers.ModelSerializer):
+
+      class Meta:
+         model = Category
+         fields = ['id', 'name', 'description']
+
+   ____in views.py
+   from rest_framework.generics import ListAPIView
+   from .models import Category
+   from .serializers import CategorySerializer
+
+   class CategoryListView(ListAPIView):
+      queryset = Category.objects.all()
+      serializer_class = CategorySerializer
+
+   ______in URls.py
+   from django.urls import path
+   from .views import CategoryListView
+
+   urlpatterns = [
+      path("api/categories/", CategoryListView.as_view(), name="category-list"),
+   ]
+
+
+TASK(2) Build a full CRUD REST API for a MenuItem resource that includes price validation and appropriate status codes.
+Q1 Create a MenuItem model with name, price (DecimalField), category (ForeignKey to Category), and is_available
+   (BooleanField) fields.
+
+
+::>class MenuItem(models.Model):
+      name = models.CharField(max_length=100)
+      price = models.DecimalField(max_digits=10, decimal_places=2)
+      category = models.ForeignKey(Category, on_delete=models.CASCADE)
+      is_available = models.BooleanField(default=True)
+
+      def __str__(self):
+         return self.name
+
+
+Q2 Write a MenuItemSerializer using ModelSerializer that validates price is greater than 0 and raises a
+   ValidationError if not.
+
+   class MenuItemSerializer(serializers.ModelSerializer):
+      class Meta:
+         model = MenuItem
+         fields = "__all__"
+
+      def validate_price(self, value):
+         if value <= 0:
+               raise serializers.ValidationError("Price must be greater than 0.")
+         return value
+
+Q3 Implement list (GET), create (POST), retrieve (GET /id/), update (PUT /id/), and delete (DELETE/id/) endpoints
+   using APIView or GenericAPIView.
+
+   from rest_framework.views import APIView
+   from rest_framework.response import Response
+   from rest_framework import status
+   from .models import MenuItem
+   from .serializers import MenuItemSerializer
+   from django.shortcuts import get_object_or_404
+
+
+   class MenuListCreateAPIView(APIView):
+
+      def get(self, request):
+         menu = MenuItem.objects.all()
+         serializer = MenuItemSerializer(menu, many=True)
+         return Response(serializer.data)
+
+      def post(self, request):
+         serializer = MenuItemSerializer(data=request.data)
+
+         if serializer.is_valid():
+               serializer.save()
+               return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+   class MenuDetailAPIView(APIView):
+
+      def get(self, request, pk):
+         menu = get_object_or_404(MenuItem, pk=pk)
+         serializer = MenuItemSerializer(menu)
+         return Response(serializer.data)
+
+      def put(self, request, pk):
+         menu = get_object_or_404(MenuItem, pk=pk)
+         serializer = MenuItemSerializer(menu, data=request.data)
+
+         if serializer.is_valid():
+               serializer.save()
+               return Response(serializer.data)
+
+         return Response(serializer.errors)
+
+      def delete(self, request, pk):
+         menu = get_object_or_404(MenuItem, pk=pk)
+         menu.delete()
+         return Response(status=status.HTTP_204_NO_CONTENT)
+
+   ___________in urls.py
+
+   from django.urls import path
+   from .views import MenuListCreateAPIView, MenuDetailAPIView
+
+   urlpatterns = [
+      path("menu/", MenuListCreateAPIView.as_view()),
+      path("menu/<int:pk>/", MenuDetailAPIView.as_view()),
+   ]
+
+
+TASK(3) Build a paginated and filterable order listing API by converting a plain APIView to a ModelViewSet
+        registered with a DefaultRouter.
+
+Q1 Create an Order model with customer_name, item (CharField), quantity (IntegerField), and status
+   (CharField with choices: pending, confirmed, delivered) fields.
+
+
+::>from django.db import models
+
+   class Order(models.Model):
+
+      STATUS_CHOICES = [
+         ("pending", "Pending"),
+         ("confirmed", "Confirmed"),
+         ("delivered", "Delivered"),
+      ]
+
+      customer_name = models.CharField(max_length=100)
+      item = models.CharField(max_length=100)
+      quantity = models.IntegerField()
+      status = models.CharField(max_length=20,choices=STATUS_CHOICES,default="pending")
+
+      def __str__(self):
+         return self.customer_name
+
+Q2 Convert the Order API to a ModelViewSet and register it with a DefaultRouter — the router must auto-generate all
+   CRUD URLs under /api/orders/
+
+::>from django.urls import path, include
+   from rest_framework.routers import DefaultRouter
+   from .views import OrderViewSet
+
+   router = DefaultRouter()
+
+   router.register("orders", OrderViewSet)
+
+   urlpatterns = [
+      path("api/", include(router.urls)),
+   ]
+
+   ________in views.py
+
+   from rest_framework.viewsets import ModelViewSet
+   from .models import Order
+   from .serializers import OrderSerializer
+
+
+   class OrderViewSet(ModelViewSet):
+      queryset = Order.objects.all()
+      serializer_class = OrderSerializer
+
+Q3 Configure PageNumberPagination in settings.py with PAGE_SIZE = 5 and apply it to the Order ViewSet
+
+::>create one paginaton.py file
+
+   from rest_framework.pagination import PageNumberPagination
+
+   class OrderPagination(PageNumberPagination):
+       page_size = 5
+
+   ___________in views.py
+
+   from rest_framework.viewsets import ModelViewSet
+   from .pagination import OrderPagination
+
+   class OrderViewSet(ModelViewSet):
+      queryset = Order.objects.all()
+      serializer_class = OrderSerializer
+      pagination_class = OrderPagination
+
+Q4 Support filtering orders by status using a query parameter (e.g. /api/orders/?status=pending) using the
+   get_queryset method.
+
+::>from rest_framework.viewsets import ModelViewSet
+   from .models import Order
+   from .serializers import OrderSerializer
+
+   class OrderViewSet(ModelViewSet):
+
+      def get_queryset(self):
+         queryset = Order.objects.all()
+
+         status = self.request.query_params.get("status")# {query_params} iska matlab hai url me ? iske bad ka sata data
+
+         if status:
+               queryset = queryset.filter(status=status)
+
+         return queryset
+
+      serializer_class = OrderSerializer
+
+TASK(4) Build a protected endpoint that allows authenticated customers to place orders and retrieve only their own
+        order history.
+
+Q1 Enable DRF TokenAuthentication in settings.py and generate auth tokens for test users via the Django shell
+   or admin.
+
+::> in settings.py
+      INSTALLED_APPS = [
+         ...
+         "rest_framework",
+         "rest_framework.authtoken",
+      ]
+
+   REST_FRAMEWORK = {
+      "DEFAULT_AUTHENTICATION_CLASSES": [
+         "rest_framework.authentication.TokenAuthentication",
+      ],
+
+      "DEFAULT_PERMISSION_CLASSES": [
+         "rest_framework.permissions.IsAuthenticated",
+         ]
+      }
+
+      then python manage.py migrate
+
+      python manage.py shell
+
+Q2 Create a PlaceOrderAPIView (POST /api/my-orders/) that uses IsAuthenticated permission and saves the
+ request.user as the order owner.
+
+::>models.py
+   from django.db import models
+   from django.conf import settings
+
+   class Order(models.Model):
+      user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+      customer_name = models.CharField(max_length=100)
+      item = models.CharField(max_length=100)
+      quantity = models.IntegerField()
+
+_______in views.py
+
+   from rest_framework.permissions import IsAuthenticated
+   from rest_framework import status
+   from .serializers import OrderSerializer
+
+   class PlaceOrderAPIView(APIView):
+      permission_classes = [IsAuthenticated]
+      def post(self, request):
+         serializer = OrderSerializer(data=request.data)
+         if serializer.is_valid():
+               serializer.save(user=request.user)
+               return Response(serializer.data,status=status.HTTP_201_CREATED)
+
+         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
+Q3 Add a GET /api/my-orders/ view that returns only the orders belonging to the currently authenticated user,
+   filtered by request.user.
+
+::>in views.py
+   class MyOrdersAPIView(APIView):
+
+      permission_classes = [IsAuthenticated]
+
+      def get(self, request):
+
+         orders = Order.objects.filter(user=request.user)
+
+         serializer = OrderSerializer(orders, many=True)
+
+         return Response(serializer.data)
+
+Q4 Return HTTP 401 Unauthorized (with a meaningful message) for any unauthenticated request to either endpoint.
+
+::> class PlaceOrderAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+
+        if not request.user.is_authenticated:
+            return Response(
+                {
+                    "message": "Login is required to place an order."
+                },
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+----------------------------------
+Section C — Mini Capstone Project
+----------------------------------
+___________models.py
+from django.db import models
+
+   class Category(models.Model):
+      name = models.CharField(max_length=100)
+      description = models.TextField()
+
+   class MenuItem(models.Model):
+      name = models.CharField(max_length=100)
+      price = models.DecimalField(max_digits=10, decimal_places=2)
+      category = models.ForeignKey(Category, on_delete=models.CASCADE)
+      is_available = models.BooleanField(default=True)
+
+      def __str__(self):
+         return self.name
+   
+   class Order(models.Model):
+
+      STATUS_CHOICES = [
+         ("pending", "Pending"),
+         ("confirmed", "Confirmed"),
+         ("delivered", "Delivered"),
+      ]
+
+      customer_name = models.CharField(max_length=100)
+      item = models.CharField(max_length=100)
+      quantity = models.IntegerField()
+      status = models.CharField(max_length=20,choices=STATUS_CHOICES,default="pending")
+
+      def __str__(self):
+         return self.customer_name
+
+   python manage.py makemigrations
+   python manage.py migrate
+
+____________serializers.py
+
+   from rest_framework import serializers
+   from .models import Category
+
+   class CategorySerializer(serializers.ModelSerializer):
+
+      class Meta:
+         model = Category
+         fields = ['id', 'name', 'description']
+
+   class MenuItemSerializer(serializers.ModelSerializer):
+      class Meta:
+         model = MenuItem
+         fields = "__all__"
+
+      def validate_price(self, value):
+         if value <= 0:
+               raise serializers.ValidationError("Price must be greater than 0.")
+         return value
+      def validate_name(self,value):
+         if value == "":
+            raise serializers.ValidationError("name must be requerd !!!")
+         return value
+      def validate_category(self,value):
+         if value <= 0:
+            raise serializers.ValidationError("select minimum 1 categery..")
+
+________________urls.py
+   from django.urls import path, include
+      from rest_framework.routers import DefaultRouter
+      from .views import OrderViewSet
+
+      router = DefaultRouter()
+
+      router.register("orders", OrderViewSet,
+                      "menu",MenuViewSet,
+                      "Category",CategoryViewSet)
+
+      urlpatterns = [
+         path("api/", include(router.urls)),
+      ]
+
+________________pagination.py
+
+from rest_framework.pagination import PageNumberPagination
+
+   class OrderPagination(PageNumberPagination):
+       page_size = 5
+
+________________views.py
+
+from rest_framework.viewsets import ModelViewSet
+from .pagination import OrderPagination
+
+   class OrderViewSet(ModelViewSet):
+      queryset = Order.objects.all()
+      serializer_class = OrderSerializer
+      pagination_class = OrderPagination
+
+   class MenuViewSet(ModelViewSet):
+      queryset = menu.objects.all()
+      serializer_class = OrderSerializer
+      pagination_class = OrderPagination
+
+   class CategoryViewSet(ModelViewSet):
+      queryset = Category.objects.all()
+      serializer_class = OrderSerializer
+      pagination_class = OrderPagination
